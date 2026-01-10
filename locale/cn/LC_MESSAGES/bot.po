@@ -1,0 +1,1117 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: bot\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-18 16:32+0200\n"
+"PO-Revision-Date: 2025-07-19 22:12+0200\n"
+"Last-Translator: \n"
+"Language-Team: Chinese\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "reviews_enabled"
+msgstr "✅ 已启用"
+
+msgid "stop_words_list"
+msgstr "🛑 停用词 (%(count)s):\n\n%(words_list)s\n\n选择操作："
+
+msgid "stop_words_empty"
+msgstr "🛑 停用词：\n\n描述：\n设置在这些词出现时不进行生成的词语。\n\n尚未添加任何内容。\n\n选择操作："
+
+msgid "add_stop_words_instruction"
+msgstr "➕ 添加停用词\n\n请发送要添加的词语，用逗号分隔。\n\n示例：\n糟糕，伪造品"
+
+msgid "remove_stop_words_instruction"
+msgstr "➖ 删除停用词\n\n请发送要删除的词语，用逗号分隔。\n\n只删除完全匹配项。"
+
+msgid "clear_stop_words_confirm"
+msgstr "⚠️ 清除所有停用词？\n\n列表将被完全删除。"
+
+msgid "stop_words_cleared"
+msgstr "✅ 停用词已清除"
+
+msgid "stop_words_success"
+msgstr "✅ 停用词已更新\n\n当前列表 (%(count)s):\n%(words_list)s"
+
+msgid "minus_words_list"
+msgstr "🛑 负向词 (%(count)s):\n\n%(words_list)s\n\n选择操作："
+
+msgid "minus_words_empty"
+msgstr "🛑 负向词：\n\n描述：\n设置AI在回答中不应使用的词语。\n\n尚未添加任何内容。\n\n选择操作："
+
+msgid "add_minus_words_instruction"
+msgstr "➕ 添加负向词\n\n请发送要添加的词语，用逗号分隔。\n\n示例：\n糟糕，伪造品"
+
+msgid "remove_minus_words_instruction"
+msgstr "➖ 删除负向词\n\n请发送要删除的词语，用逗号分隔。\n\n只删除完全匹配项。"
+
+msgid "clear_minus_words_confirm"
+msgstr "⚠️ 清除所有负向词？\n\n列表将被完全删除。"
+
+msgid "minus_words_cleared"
+msgstr "✅ 负向词已清除"
+
+msgid "minus_words_success"
+msgstr "✅ 负向词已更新\n\n当前列表 (%(count)s):\n%(words_list)s"
+
+msgid "add_button"
+msgstr "➕ 添加"
+
+msgid "remove_button"
+msgstr "➖ 删除"
+
+msgid "clear_button"
+msgstr "🗑 清除"
+
+msgid "confirm_clear"
+msgstr "✅ 清除"
+
+msgid "empty"
+msgstr "空"
+
+msgid "yes"
+msgstr "是"
+
+msgid "no"
+msgstr "否"
+
+msgid "contact_developer"
+msgstr "💬 联系开发者"
+
+msgid "support_text"
+msgstr "如果遇到错误或机器人相关问题，请直接联系我！我将帮助解决问题。\n\n需要做什么：\n1. 点击下方按钮\n2. 描述发生了什么情况\n3. 说明是哪些操作导致了错误\n\n我会尽快回复！"
+
+msgid "address_style_setting"
+msgstr "称呼方式"
+
+msgid "address_formal"
+msgstr "使用“您”"
+
+msgid "address_lowercase"
+msgstr "使用“你”"
+
+msgid "address_informal"
+msgstr "使用“你”"
+
+msgid "address_style_header"
+msgstr "🎭 选择称呼方式："
+
+msgid "address_style_set"
+msgstr "✅ 称呼方式已设置：{style}"
+
+msgid "support"
+msgstr "🛟 支持"
+
+msgid "stores_header"
+msgstr "商店"
+
+msgid "questions"
+msgstr "问题"
+
+msgid "reviews"
+msgstr "评论"
+
+msgid "store_settings"
+msgstr "⚙️ AI设置"
+
+msgid "store_settings_templates"
+msgstr "📝 回复模板"
+
+msgid "store_settings_advanced"
+msgstr "⚙️ 高级设置"
+
+msgid "advanced_settings_header"
+msgstr "⚙️ 生成高级设置："
+
+msgid "use_name_setting"
+msgstr "👤 称呼姓名"
+
+msgid "mention_product_setting"
+msgstr "📦 推荐商品"
+
+msgid "use_emojis_setting"
+msgstr "😊 回复中使用表情符号"
+
+msgid "response_length_setting"
+msgstr "回复长度"
+
+msgid "response_length_short"
+msgstr "简短（最多30词）"
+
+msgid "response_length_default"
+msgstr "默认（最多70词）"
+
+msgid "response_length_long"
+msgstr "详细（最多150词）"
+
+msgid "response_length_header"
+msgstr "📏 选择回复长度："
+
+msgid "response_length_set"
+msgstr "✅ 回复长度已设置：%(length)s"
+
+msgid "delivery_method_setting"
+msgstr "配送方式"
+
+msgid "delivery_method_marketplace"
+msgstr "📦 电商平台"
+
+msgid "delivery_method_self"
+msgstr "🚗 自行配送"
+
+msgid "delivery_method_header"
+msgstr "🚚 选择配送方式：\n\n描述：\n商品的配送方式。"
+
+msgid "delivery_method_set"
+msgstr "✅ 配送方式已设置：%(method)s"
+
+msgid "tone_setting"
+msgstr "语气"
+
+msgid "tone_business"
+msgstr "🏢 商务"
+
+msgid "tone_friendly"
+msgstr "😊 友好"
+
+msgid "tone_strict"
+msgstr "⚠️ 严格"
+
+msgid "tone_header"
+msgstr "🎭 选择回复语气：\n\n描述：\n确定AI的性格特点"
+
+msgid "tone_set"
+msgstr "语气已设置：%(tone)s"
+
+msgid "stop_words_setting"
+msgstr "✏️ 停用词"
+
+msgid "minus_words_setting"
+msgstr "✏️ 负向词"
+
+msgid "stop_words_current"
+msgstr "🚫 当前停用词：%(words)s"
+
+msgid "stop_words_instruction"
+msgstr "输入逗号分隔的停用词（在这些词出现时不执行生成）：\n示例：垃圾，广告，投诉"
+
+msgid "stop_words_updated"
+msgstr "✅ 停用词已更新：%(words)s"
+
+msgid "minus_words_current"
+msgstr "❌ 当前负向词：%(words)s"
+
+msgid "minus_words_instruction"
+msgstr "输入逗号分隔的负向词（AI不应使用的词语）：\n示例：糟糕，噩梦，失望"
+
+msgid "minus_words_updated"
+msgstr "✅ 负向词已更新：%(words)s"
+
+msgid "cleared"
+msgstr "已清除"
+
+msgid "unknown_setting"
+msgstr "未知设置"
+
+msgid "error_loading_settings"
+msgstr "加载设置错误"
+
+msgid "template_preview_line"
+msgstr "⭐%(rating)s 星：%(preview)s"
+
+msgid "template_not_set_line"
+msgstr "⭐%(rating)s 星：未设置🚫"
+
+msgid "current_templates_header"
+msgstr "📄当前回复模板："
+
+msgid "template_status_line"
+msgstr "⭐%(rating)s 星：%(status)s"
+
+msgid "current_template_for_rating"
+msgstr "%(rating)s 星的当前模板：\n\n%(template)s"
+
+msgid "enter_new_template"
+msgstr "输入%(rating)s 星的新模板："
+
+msgid "template_updated"
+msgstr "%(rating)s 星的模板已更新！"
+
+msgid "template_deleted"
+msgstr "%(rating)s 星的模板已删除。"
+
+msgid "edit_template"
+msgstr "✏️编辑模板"
+
+msgid "delete_template"
+msgstr "🗑删除模板"
+
+msgid "rating_button_1"
+msgstr "⭐1星"
+
+msgid "rating_button_2"
+msgstr "⭐2星"
+
+msgid "rating_button_3"
+msgstr "⭐3星"
+
+msgid "rating_button_4"
+msgstr "⭐4星"
+
+msgid "rating_button_5"
+msgstr "⭐5星"
+
+msgid "not_applicable"
+msgstr "不适用"
+
+msgid "article"
+msgstr "商品编号"
+
+msgid "pros"
+msgstr "优点"
+
+msgid "cons"
+msgstr "缺点"
+
+msgid "back_to_stores_list"
+msgstr "⬅️返回商店列表"
+
+msgid "sku_not_available"
+msgstr "商品编号未指定"
+
+msgid "unknown_product"
+msgstr "未知商品"
+
+msgid "no_store_reply"
+msgstr "商店尚未回复此评论"
+
+msgid "product_name"
+msgstr "商品名称"
+
+msgid "enter_password_to_login"
+msgstr "🔐 输入登录密码："
+
+msgid "invalid_password"
+msgstr "❌ 密码错误，请重试。"
+
+msgid "logout_button"
+msgstr "🚪 退出登录"
+
+msgid "logged_out_message"
+msgstr "👋 您已退出登录。"
+
+msgid "enter_phone_to_login"
+msgstr "📱 输入电话号码重新登录："
+
+msgid "password_invalid_format"
+msgstr "⚠️ 密码应包含至少7个字符，且只能包含英文字母、数字和_!@#$%^&*.-符号"
+
+msgid "password_set"
+msgstr "✅ 已设置"
+
+msgid "enter_old_password"
+msgstr "🔑 输入旧密码："
+
+msgid "old_password_incorrect"
+msgstr "❌ 旧密码不正确"
+
+msgid "password_too_short"
+msgstr "⚠️ 密码应包含至少6个字符"
+
+msgid "confirm_new_password"
+msgstr "🔁 重复新密码："
+
+msgid "passwords_do_not_match"
+msgstr "❌ 密码不匹配"
+
+msgid "password_changed_successfully"
+msgstr "✅ 密码已成功更改"
+
+msgid "my_profile_button"
+msgstr "👤 我的资料"
+
+msgid "change_phone_button"
+msgstr "📱 更改电话号码"
+
+msgid "change_password_button"
+msgstr "🔑 更改密码"
+
+msgid "back_to_menu_button"
+msgstr "⬅️ 返回菜单"
+
+msgid "not_specified"
+msgstr "❌ 未指定"
+
+msgid "profile_title"
+msgstr "👤 您的资料"
+
+msgid "profile_phone"
+msgstr "📞 电话号码"
+
+msgid "profile_password"
+msgstr "🔐 密码"
+
+msgid "profile_stores_count"
+msgstr "🏬 商店数量"
+
+msgid "profile_employees_count"
+msgstr "👥 员工数量"
+
+msgid "enter_new_phone"
+msgstr "📱 输入新的电话号码："
+
+msgid "enter_new_password"
+msgstr "🔑 输入新密码："
+
+msgid "main_menu_text"
+msgstr "🏠 主菜单："
+
+msgid "enter_reply_text"
+msgstr "输入回复："
+
+msgid "send_ai_reply"
+msgstr "🤖 发送AI回复"
+
+msgid "manual_reply"
+msgstr "✍️ 手动回复"
+
+msgid "enter_password"
+msgstr "设置密码："
+
+msgid "suggested_reply"
+msgstr "建议的回复：%(reply_text)s"
+
+msgid "confirm_password"
+msgstr "确认密码"
+
+msgid "registration_complete"
+msgstr "注册已完成！"
+
+msgid "unanswered_questions_list"
+msgstr "未回答问题"
+
+msgid "product_link"
+msgstr "商品链接"
+
+msgid "back_to_list"
+msgstr "返回"
+
+msgid "review"
+msgstr "评论"
+
+msgid "answer"
+msgstr "问题回答"
+
+msgid "sku"
+msgstr "SKU"
+
+msgid "question"
+msgstr "问题"
+
+msgid "next"
+msgstr "➡️"
+
+msgid "mode_template"
+msgstr "📄 按模板"
+
+msgid "no_unanswered_reviews_for_rating"
+msgstr "没有%(rating)s星的未处理评论 😕"
+
+msgid "template_applied"
+msgstr "%(rating)s星的模板已应用于%(count)s条评论：%(template)s ✅"
+
+msgid "manage_templates"
+msgstr "📝模板管理"
+
+msgid "template_info"
+msgstr "%(rating)s星：%(template)s ⭐"
+
+msgid "enter_template_for_rating"
+msgstr "输入%(rating)s星的模板：✍️"
+
+msgid "template_set"
+msgstr "%(rating)s星的模板已设置！✅"
+
+msgid "no_template_for_rating"
+msgstr "%(rating)s星的模板未设置！⚠️"
+
+msgid "send_by_template"
+msgstr "按模板回复 📄"
+
+msgid "answered_questions_list"
+msgstr "已回答问题列表✅"
+
+msgid "answered_questions"
+msgstr "✅ 已回答问题"
+
+msgid "unanswered_questions"
+msgstr "📭 未回答问题"
+
+msgid "auto_questions_enabled"
+msgstr "自动回复已启用"
+
+msgid "auto_questions_disabled"
+msgstr "自动回复已禁用"
+
+msgid "confirm_reply"
+msgstr "确认您的回复：%(reply_text)s ❓"
+
+msgid "send"
+msgstr "发送 ✅"
+
+msgid "cancel"
+msgstr "取消 🚫"
+
+msgid "back_to_review"
+msgstr "返回评论 🔙"
+
+msgid "answer_sent_successfully"
+msgstr "回答已成功发送！🎉"
+
+msgid "review_not_found"
+msgstr "未找到评论 😔"
+
+msgid "review_details"
+msgstr "📅 %(date)s\n\n%(user_display)s🌟 %(stars)s\n\n📦 %(product_name)s\n\n🔢 %(sku_label)s：%(sku)s\n\n💬 %(text)s"
+
+msgid "store_reply"
+msgstr "📩 商店回复：%(answer)s"
+
+msgid "review_counter"
+msgstr "🔢 评论 %(current)s/%(total)s"
+
+msgid "next_button"
+msgstr "➡️"
+
+msgid "prev_button"
+msgstr "⬅️"
+
+msgid "back_to_list_button"
+msgstr "⬅️返回列表"
+
+msgid "no_answer"
+msgstr "无回答"
+
+msgid "unanswered"
+msgstr "📭未答复"
+
+msgid "reviews_list_title"
+msgstr "%(type)s评论\n\n📊 评论分布：\n\n%(rating_summary)s"
+
+msgid "prev_page"
+msgstr "⬅️上一页"
+
+msgid "answered"
+msgstr "✅已答复 "
+
+msgid "back_to_reviews_work"
+msgstr "⬅️返回评论处理"
+
+msgid "auto_replies_disabled"
+msgstr "自动回复已禁用"
+
+msgid "auto_replies_enabled"
+msgstr "自动回复已启用"
+
+msgid "no_store_selected"
+msgstr "❌ 未选择商店。"
+
+msgid "no_reviews_found"
+msgstr "📭 未找到评论。"
+
+msgid "no_questions_found"
+msgstr "📭 未找到问题。"
+
+msgid "reviews_list"
+msgstr "📋 评论列表"
+
+msgid "questions_list"
+msgstr "📋 问题列表"
+
+msgid "previous_page"
+msgstr "⬅️ 上一页"
+
+msgid "next_page"
+msgstr "➡️ 下一页"
+
+msgid "questions_unanswered"
+msgstr "📬 未回答问题"
+
+msgid "questions_answered"
+msgstr "✅ 已回答问题"
+
+msgid "enter_employee_phone"
+msgstr "📱 输入您的员工电话号码："
+
+msgid "enter_access_code"
+msgstr "🔑 输入访问代码："
+
+msgid "welcome_employee"
+msgstr "👋 欢迎，员工！"
+
+msgid "invalid_employee_credentials"
+msgstr "❌ 电话号码或访问代码错误。"
+
+msgid "enter_new_full_name"
+msgstr "✏️ 输入员工新姓名："
+
+msgid "enter_new_phone_employee"
+msgstr "📱 输入员工新电话号码："
+
+msgid "enter_new_access_code"
+msgstr "🔢 输入新访问代码（4位数字）："
+
+msgid "invalid_access_code"
+msgstr "❌ 访问代码必须为4位数字"
+
+msgid "employee_item"
+msgstr "👤 %(full_name)s（活跃：%(is_active)s）"
+
+msgid "choose_edit_employee_field"
+msgstr "✏️ 选择要编辑的员工字段："
+
+msgid "edit_employee_name"
+msgstr "✏️ 编辑员工姓名"
+
+msgid "edit_employee_phone"
+msgstr "📱 编辑员工电话号码"
+
+msgid "edit_employee_code"
+msgstr "🔢 编辑员工访问代码"
+
+msgid "edit_employee_stores"
+msgstr "🏪 编辑员工的商店"
+
+msgid "back_to_employee"
+msgstr "⬅️ 返回员工"
+
+msgid "confirm_delete_employee"
+msgstr "🗑️ 确定要删除员工%(full_name)s吗？"
+
+msgid "employee_deleted"
+msgstr "🗑️ 员工%(full_name)s已删除"
+
+msgid "choose_role"
+msgstr "🎭 选择角色："
+
+msgid "role_owner"
+msgstr "👑 所有者"
+
+msgid "role_employee"
+msgstr "👷 员工"
+
+msgid "my_employees"
+msgstr "👥 我的员工"
+
+msgid "no_employees"
+msgstr "👥 无可用员工"
+
+msgid "add_employee"
+msgstr "➕ 添加员工"
+
+msgid "enter_employee_name"
+msgstr "✏️ 输入员工姓名："
+
+msgid "enter_employee_phone_input"
+msgstr "📱 输入员工电话号码："
+
+msgid "enter_employee_code"
+msgstr "🔢 输入员工访问代码（4位数字）："
+
+msgid "select_employee_stores"
+msgstr "🏪 选择员工所属商店："
+
+msgid "select_all_stores"
+msgstr "✅ 选择所有商店"
+
+msgid "confirm_store_selection"
+msgstr "✔️ 确认商店选择"
+
+msgid "back_to_employee_action"
+msgstr "⬅️ 返回员工操作"
+
+msgid "employee_added"
+msgstr "👥 员工已添加：%(full_name)s"
+
+msgid "employee_info"
+msgstr "👤 员工：%(full_name)s\n📱 电话：%(phone)s\n🔢 访问代码：%(access_code)s\n🔄 状态：%(status)s\n🏪 商店：%(stores)s"
+
+msgid "edit_employee"
+msgstr "✏️ 编辑员工"
+
+msgid "delete_employee"
+msgstr "🗑️ 删除员工"
+
+msgid "toggle_employee_status"
+msgstr "🔄 切换员工状态"
+
+msgid "back_to_employees"
+msgstr "⬅️ 返回员工列表"
+
+msgid "choose_employee"
+msgstr "👥 选择员工："
+
+msgid "Ozon"
+msgstr "🛍️ Ozon"
+
+msgid "Wildberries"
+msgstr "🛍️ Wildberries"
+
+msgid "Yandex Market"
+msgstr "🛍️  Yandex Market"
+
+msgid "questions_info"
+msgstr "📝 自动回复：%(questions_status)s\n\n⚙️ 模式：%(questions_mode)s\n\n📭 等待回答：%(unanswered_count)s"
+
+msgid "questions_status_label"
+msgstr "📝 问题："
+
+msgid "questions_mode_label"
+msgstr "⚙️ 模式："
+
+msgid "reviews_info"
+msgstr "📝 自动回复：%(reviews_status)s\n\n⚙️ 模式：\n%(modes_info)s\n\n📭 等待回答：%(unanswered_count)s"
+
+msgid "reviews_status_label"
+msgstr "📝 评论："
+
+msgid "reviews_modes_label"
+msgstr "⚙️ 模式："
+
+msgid "store_edit_info"
+msgstr "🏪 商店名称：%(store_name)s\n📋 类型：%(store_type)s\n🔑 API密钥：%(api_key)s\n🆔Client ID：%(client_id)s\n\n✏️ 选择要编辑的字段："
+
+msgid "store_name_label"
+msgstr "🏪 商店名称："
+
+msgid "store_type_label"
+msgstr "📋 类型："
+
+msgid "api_key_label"
+msgstr "🔑 API密钥："
+
+msgid "client_id_label"
+msgstr "🆔Client ID："
+
+msgid "mode_not_set"
+msgstr "⚙️ 未设置"
+
+msgid "enter_new_store_name"
+msgstr "📝 输入新的商店名称："
+
+msgid "enter_new_api_key"
+msgstr "🔑 输入新的API密钥："
+
+msgid "enter_new_client_id"
+msgstr "🆔 输入新的Client ID："
+
+msgid "back"
+msgstr "🔙 返回"
+
+msgid "store_deleted"
+msgstr "🗑️ 商店已删除。"
+
+msgid "choose_edit_field"
+msgstr "✏️ 选择要编辑的字段："
+
+msgid "review_modes"
+msgstr "⚙️ 工作模式："
+
+msgid "view_reviews"
+msgstr "📝 查看评论"
+
+msgid "question_modes"
+msgstr "⚙️ 工作模式："
+
+msgid "view_questions"
+msgstr "❓ 查看问题"
+
+msgid "change_language"
+msgstr "🌐 更改语言"
+
+msgid "choose_language"
+msgstr "🌍 请选择语言："
+
+msgid "language_az"
+msgstr "🇦🇿 阿塞拜疆语"
+
+msgid "language_en"
+msgstr "🇬🇧 英语"
+
+msgid "language_kz"
+msgstr "🇰🇿 哈萨克语"
+
+msgid "language_uz"
+msgstr "🇺🇿 乌兹别克语"
+
+msgid "language_ru"
+msgstr "🇷🇺 俄语"
+
+msgid "language_bl"
+msgstr "🇧🇾 白俄罗斯语"
+
+msgid "language_am"
+msgstr "🇦🇲 亚美尼亚语"
+
+msgid "language_cn"
+msgstr "🇨🇳 中文"
+
+msgid "star_1"
+msgstr "⭐ 1星"
+
+msgid "star_2"
+msgstr "⭐ 2星"
+
+msgid "star_3"
+msgstr "⭐ 3星"
+
+msgid "star_4"
+msgstr "⭐ 4星"
+
+msgid "star_5"
+msgstr "⭐ 5星"
+
+msgid "language_set"
+msgstr "🌍 语言已设置：%(lang_name)s"
+
+msgid "send_phone_button"
+msgstr "📱 发送电话号码"
+
+msgid "store_item"
+msgstr "🏪 %(store_name)s（%(store_type)s）"
+
+msgid "back_to_main_menu"
+msgstr "⬅️ 返回主菜单"
+
+msgid "send_phone_number"
+msgstr "📱 请提供电话号码："
+
+msgid "phone_received"
+msgstr "📱 电话号码已收到"
+
+msgid "welcome_back"
+msgstr "👋 欢迎回来！"
+
+msgid "unsupported_language"
+msgstr "⚠️ 不支持的语言"
+
+msgid "my_stores_button"
+msgstr "🛍️ 我的商店"
+
+msgid "add_store_button"
+msgstr "➕ 添加商店"
+
+msgid "choose_store_platform"
+msgstr "🏪 选择商店平台："
+
+msgid "enter_store_name"
+msgstr "✏️ 输入商店名称："
+
+msgid "enter_api_key"
+msgstr "🔑 输入API密钥："
+
+msgid "invalid_store_type"
+msgstr "❌ 商店类型错误"
+
+msgid "store_added"
+msgstr "🏪 商店已添加：%(store_name)s（%(store_type)s）"
+
+msgid "enter_client_id"
+msgstr "🆔 输入Client ID："
+
+msgid "no_stores"
+msgstr "🛍️ 无可用商店"
+
+msgid "choose_store"
+msgstr "选择商店："
+
+msgid "store_not_selected"
+msgstr "⚠️ 未选择商店"
+
+msgid "store_name_exists"
+msgstr "⚠️ 商店名称已存在"
+
+msgid "store_name_updated"
+msgstr "✏️ 商店名称已更新：%(store_name)s"
+
+msgid "return_to_store"
+msgstr "⬅️ 返回商店：%(store_name)s"
+
+msgid "data_not_found"
+msgstr "⚠️ 未找到数据"
+
+msgid "invalid_field"
+msgstr "❌ 字段无效"
+
+msgid "field_updated"
+msgstr "✅ 字段已更新：%(store_name)s商店的%(field)s"
+
+msgid "client_id_not_used"
+msgstr "⚠️Client ID不用于此类型商店"
+
+msgid "confirm_delete_store"
+msgstr "🗑️ 确定要删除商店%(store_name)s吗？"
+
+msgid "store_deletion_error"
+msgstr "❌ 删除商店时出错"
+
+msgid "deletion_cancelled"
+msgstr "🚫 删除已取消"
+
+msgid "main_menu"
+msgstr "🏠 主菜单"
+
+msgid "store_selected"
+msgstr "🏪 商店已选择：%(store_name)s"
+
+msgid "view_store"
+msgstr "👀 查看商店"
+
+msgid "edit_store"
+msgstr "✏️ 编辑商店"
+
+msgid "reviews_work"
+msgstr "📝 评论处理"
+
+msgid "questions_work"
+msgstr "❓ 问题处理"
+
+msgid "notifications"
+msgstr "🔔 通知"
+
+msgid "back_to_menu"
+msgstr "⬅️ 返回菜单"
+
+msgid "store_info"
+msgstr "🏪 商店：%(store_name)s（%(store_type)s）\n ━━━━━━━━━━━━━━━━\n 📝评论部分\n\n 🤖自动回复：%(reviews_status)s\n\n 📭 %(unanswered_reviews)s条等待回复\n\n ⚙️ 模式：\n%(modes_info)s\n━━━━━━━━━━━━━━━━\n ❓问题部分\n\n 🤖自动回复：%(questions_status)s\n\n 📬 %(unanswered_questions)s条等待回复\n\n ⚙️ 问题模式：%(questions_mode)s"
+
+msgid "modes_not_set"
+msgstr "⚙️ 模式未设置"
+
+msgid "mode_auto"
+msgstr "🤖 自动"
+
+msgid "mode_semi"
+msgstr "⚙️ 半自动"
+
+msgid "mode_manual"
+msgstr "✋ 手动"
+
+msgid "mode_info"
+msgstr " ⭐ %(rating)s：%(mode)s"
+
+msgid "questions_status"
+msgstr "❓ 问题状态：%(status)s"
+
+msgid "auto_replies_toggled"
+msgstr "🤖 自动回复%(status)s"
+
+msgid "current_modes"
+msgstr "⚙️ 当前评论模式："
+
+msgid "rating_selected"
+msgstr "⭐ 已选择%(rating)s评分\n\n🤖自动 - 机器人接收评论并自动发送回复。\n\n⚙️半自动 - 当您转到特定评论或问题时，机器人会生成回复。\n\n✋手动 - 不进行生成，您可以手动回复评论或问题。\n\n📄按模板 - 为所选评分设置所需的模板，机器人将使用您的模板发送回复。\n\n\n选择模式："
+
+msgid "mode_updated"
+msgstr "%(rating)s评分的模式已更新：%(mode)s"
+
+msgid "return_to_reviews"
+msgstr "⬅️ 返回评论"
+
+msgid "reviews_work_for_store"
+msgstr "📝 %(store_name)s商店的评论处理"
+
+msgid "back_to_store_from_reviews"
+msgstr "⬅️ 从评论返回商店"
+
+msgid "questions_work_for_store"
+msgstr "❓ %(store_name)s商店的问题处理"
+
+msgid "questions_auto_replies_toggled"
+msgstr "🤖 %(store_name)s商店的问题自动回复%(status)s"
+
+msgid "current_questions_mode"
+msgstr "⚙️ 当前问题模式：%(current_mode)s"
+
+msgid "questions_mode_set"
+msgstr "问题模式已设置：%(mode)s"
+
+msgid "choose_action"
+msgstr "⚙️ 选择操作："
+
+msgid "return_to_questions"
+msgstr "⬅️ 返回问题"
+
+msgid "back_to_menu_from_questions"
+msgstr "⬅️ 从问题返回菜单"
+
+msgid "question_text"
+msgstr "❓ 问题：%(question_text)s"
+
+msgid "wildberries_question_warning"
+msgstr "⚠️ 注意：这是来自Wildberries的问题"
+
+msgid "answer_sent_auto"
+msgstr "✅ 回复已自动发送：%(reply_text)s"
+
+msgid "error_sending_answer"
+msgstr "❌ 发送回复时出错"
+
+msgid "proposed_answer"
+msgstr "📝 建议的回复：%(proposed_reply)s"
+
+msgid "write_answer"
+msgstr "✏️ 输入您的回复："
+
+msgid "all_questions_viewed"
+msgstr "✅ 所有问题已查看"
+
+msgid "no_more_questions"
+msgstr "❓ 没有更多问题"
+
+msgid "answer_sent"
+msgstr "✅ 回复已发送：%(reply_text)s"
+
+msgid "question_skipped"
+msgstr "➡️ 问题已跳过"
+
+msgid "enter_your_answer"
+msgstr "✏️ 输入您的回答："
+
+msgid "back_to_store_question"
+msgstr "⬅️ 从问题返回商店"
+
+msgid "enter_answer_first"
+msgstr "⚠️ 请先输入回答"
+
+msgid "your_answer"
+msgstr "📝 您的回答：%(response_text)s"
+
+msgid "send_question_reply"
+msgstr "📤 发送回复"
+
+msgid "wildberries_review_warning"
+msgstr "⚠️ 注意：这是来自Wildberries的评论"
+
+msgid "review_text"
+msgstr "📝 评论：⭐%(rating)s %(review_text)s"
+
+msgid "error_processing_review"
+msgstr "❌ 处理评论时出错"
+
+msgid "all_reviews_viewed"
+msgstr "✅ 所有评论已查看"
+
+msgid "no_more_reviews"
+msgstr "📝 没有更多评论"
+
+msgid "review_skipped"
+msgstr "➡️ 评论已跳过"
+
+msgid "format_error"
+msgstr "❌ 格式错误：%(error)s"
+
+msgid "error_saving_settings"
+msgstr "❌ 保存设置时出错"
+
+msgid "send_as_is"
+msgstr "📤 按建议发送"
+
+msgid "edit_reply"
+msgstr "✏️ 编辑回复"
+
+msgid "skip_review"
+msgstr "➡️ 跳过评论"
+
+msgid "send_reply"
+msgstr "📤 发送回复"
+
+msgid "edit_question_reply"
+msgstr "✏️ 编辑问题回复"
+
+msgid "skip_question"
+msgstr "➡️ 跳过问题"
+
+msgid "back_to_reviews_menu"
+msgstr "⬅️ 返回评论菜单"
+
+msgid "send_as_is_question"
+msgstr "📤 按建议发送问题"
+
+msgid "back_to_questions_menu"
+msgstr "⬅️ 返回问题菜单"
+
+msgid "edit_name"
+msgstr "✏️ 编辑名称"
+
+msgid "edit_api_key"
+msgstr "🔑 编辑API密钥"
+
+msgid "edit_client_id"
+msgstr "🆔 编辑Client ID"
+
+msgid "delete_store"
+msgstr "🗑️ 删除商店"
+
+msgid "back_in_edit_field"
+msgstr "⬅️ 返回字段选择"
+
+msgid "confirm_delete"
+msgstr "✅ 确认删除"
+
+msgid "cancel_delete"
+msgstr "🚫 取消删除"
+
+msgid "back_to_rating_selection"
+msgstr "⬅️ 返回评分选择"
+
+msgid "only_1_star"
+msgstr "⭐ 仅1星"
+
+msgid "1_2_stars"
+msgstr "⭐ 1-2星"
+
+msgid "1_3_stars"
+msgstr "⭐ 1-3星"
+
+msgid "disabled"
+msgstr "🚫 已禁用"
+
+msgid "enabled"
+msgstr "✅ 已启用"
+
+msgid "not_set"
+msgstr "⚙️ 未设置"
+
+msgid "store_not_found"
+msgstr "⚠️ 未找到商店"
+
+msgid "store_access_denied"
+msgstr "🚫 拒绝访问商店"
+
+msgid "no_reviews"
+msgstr "📝 没有可显示的评论"
+
+msgid "no_unanswered_questions"
+msgstr "📭 没有未回答问题"
+
+msgid "no_answered_questions"
+msgstr "❓ 没有已回答问题"
+
+msgid "invalid_store_id"
+msgstr "❌ 无效商店ID"
+
+msgid "unknown_command"
+msgstr "❓ 未知命令"
+
+msgid "error_occurred"
+msgstr "❌ 发生错误"
+
+msgid "star_rating"
+msgstr "⭐%(rating)s：%(count)s"
+
+msgid "back_to_store"
+msgstr "⬅️ 返回商店"

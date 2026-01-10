@@ -1,0 +1,1117 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: bot\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-18 16:32+0200\n"
+"PO-Revision-Date: 2025-07-19 22:12+0200\n"
+"Last-Translator: \n"
+"Language-Team: English\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "reviews_enabled"
+msgstr "✅ Enabled"
+
+msgid "stop_words_list"
+msgstr "🛑 Stop words (%(count)s):\n\n%(words_list)s\n\nChoose action:"
+
+msgid "stop_words_empty"
+msgstr "🛑 Stop words:\n\nDescription:\nSet words that will prevent generation from occurring.\n\nNothing added yet.\n\nChoose action:"
+
+msgid "add_stop_words_instruction"
+msgstr "➕ Adding stop words\n\nSend words to add, separated by commas.\n\nExample:\nbad, counterfeit"
+
+msgid "remove_stop_words_instruction"
+msgstr "➖ Removing stop words\n\nSend words to remove, separated by commas.\n\nOnly exact matches will be removed."
+
+msgid "clear_stop_words_confirm"
+msgstr "⚠️ Clear all stop words?\n\nThe list will be completely deleted."
+
+msgid "stop_words_cleared"
+msgstr "✅ Stop words cleared"
+
+msgid "stop_words_success"
+msgstr "✅ Stop words updated\n\nCurrent list (%(count)s):\n%(words_list)s"
+
+msgid "minus_words_list"
+msgstr "🛑 Minus words (%(count)s):\n\n%(words_list)s\n\nChoose action:"
+
+msgid "minus_words_empty"
+msgstr "🛑 Minus words:\n\nDescription:\nSet words that AI will not use in responses.\n\nNothing added yet.\n\nChoose action:"
+
+msgid "add_minus_words_instruction"
+msgstr "➕ Adding minus words\n\nSend words to add, separated by commas.\n\nExample:\nbad, counterfeit"
+
+msgid "remove_minus_words_instruction"
+msgstr "➖ Removing minus words\n\nSend words to remove, separated by commas.\n\nOnly exact matches will be removed."
+
+msgid "clear_minus_words_confirm"
+msgstr "⚠️ Clear all minus words?\n\nThe list will be completely deleted."
+
+msgid "minus_words_cleared"
+msgstr "✅ Minus words cleared"
+
+msgid "minus_words_success"
+msgstr "✅ Minus words updated\n\nCurrent list (%(count)s):\n%(words_list)s"
+
+msgid "add_button"
+msgstr "➕ Add"
+
+msgid "remove_button"
+msgstr "➖ Remove"
+
+msgid "clear_button"
+msgstr "🗑 Clear"
+
+msgid "confirm_clear"
+msgstr "✅ Clear"
+
+msgid "empty"
+msgstr "empty"
+
+msgid "yes"
+msgstr "Yes"
+
+msgid "no"
+msgstr "No"
+
+msgid "contact_developer"
+msgstr "💬 Contact developer"
+
+msgid "support_text"
+msgstr "If you encounter an error or problem with the bot, write to me directly! I'll help resolve the issue.\n\nWhat to do:\n1. Click the button below\n2. Describe what happened\n3. Indicate what actions led to the error\n\nI'll try to respond as soon as possible!"
+
+msgid "address_style_setting"
+msgstr "Address style"
+
+msgid "address_formal"
+msgstr "formal (you)"
+
+msgid "address_lowercase"
+msgstr "lowercase (you)"
+
+msgid "address_informal"
+msgstr "informal (thou)"
+
+msgid "address_style_header"
+msgstr "🎭 Select address style:"
+
+msgid "address_style_set"
+msgstr "✅ Address style set: {style}"
+
+msgid "support"
+msgstr "🛟 Support"
+
+msgid "stores_header"
+msgstr "Stores"
+
+msgid "questions"
+msgstr "Questions"
+
+msgid "reviews"
+msgstr "Reviews"
+
+msgid "store_settings"
+msgstr "⚙️ AI Settings"
+
+msgid "store_settings_templates"
+msgstr "📝 Response templates"
+
+msgid "store_settings_advanced"
+msgstr "⚙️ Advanced settings"
+
+msgid "advanced_settings_header"
+msgstr "⚙️ Generation advanced settings:"
+
+msgid "use_name_setting"
+msgstr "👤 Address by name"
+
+msgid "mention_product_setting"
+msgstr "📦 Recommend products"
+
+msgid "use_emojis_setting"
+msgstr "😊 Emojis in responses"
+
+msgid "response_length_setting"
+msgstr "Response length"
+
+msgid "response_length_short"
+msgstr "Short (up to 30 words)"
+
+msgid "response_length_default"
+msgstr "Default (up to 70 words)"
+
+msgid "response_length_long"
+msgstr "Detailed (up to 150 words)"
+
+msgid "response_length_header"
+msgstr "📏 Select response length:"
+
+msgid "response_length_set"
+msgstr "✅ Response length set: %(length)s"
+
+msgid "delivery_method_setting"
+msgstr "Delivery"
+
+msgid "delivery_method_marketplace"
+msgstr "📦 Marketplace"
+
+msgid "delivery_method_self"
+msgstr "🚗 Self-delivery"
+
+msgid "delivery_method_header"
+msgstr "🚚 Select delivery method:\n\nDescription:\nHow products are delivered."
+
+msgid "delivery_method_set"
+msgstr "✅ Delivery method set: %(method)s"
+
+msgid "tone_setting"
+msgstr "Tone"
+
+msgid "tone_business"
+msgstr "🏢 Business"
+
+msgid "tone_friendly"
+msgstr "😊 Friendly"
+
+msgid "tone_strict"
+msgstr "⚠️ Strict"
+
+msgid "tone_header"
+msgstr "🎭 Select response tone:\n\nDescription:\nDefines AI's character"
+
+msgid "tone_set"
+msgstr "Tone set: %(tone)s"
+
+msgid "stop_words_setting"
+msgstr "✏️ Stop words"
+
+msgid "minus_words_setting"
+msgstr "✏️ Minus words"
+
+msgid "stop_words_current"
+msgstr "🚫 Current stop words: %(words)s"
+
+msgid "stop_words_instruction"
+msgstr "Enter stop words separated by commas (words that prevent generation):\nExample: spam, advertising, complaint"
+
+msgid "stop_words_updated"
+msgstr "✅ Stop words updated: %(words)s"
+
+msgid "minus_words_current"
+msgstr "❌ Current minus words: %(words)s"
+
+msgid "minus_words_instruction"
+msgstr "Enter minus words separated by commas (words AI should not use):\nExample: terrible, nightmare, disappointment"
+
+msgid "minus_words_updated"
+msgstr "✅ Minus words updated: %(words)s"
+
+msgid "cleared"
+msgstr "cleared"
+
+msgid "unknown_setting"
+msgstr "Unknown setting"
+
+msgid "error_loading_settings"
+msgstr "Error loading settings"
+
+msgid "template_preview_line"
+msgstr "⭐%(rating)s stars: %(preview)s"
+
+msgid "template_not_set_line"
+msgstr "⭐%(rating)s stars: Not set 🚫"
+
+msgid "current_templates_header"
+msgstr "📄 Current response templates:"
+
+msgid "template_status_line"
+msgstr "⭐ For %(rating)s stars: %(status)s"
+
+msgid "current_template_for_rating"
+msgstr "Current template for %(rating)s stars:\n\n%(template)s"
+
+msgid "enter_new_template"
+msgstr "Enter new template for %(rating)s stars:"
+
+msgid "template_updated"
+msgstr "Template for %(rating)s stars updated!"
+
+msgid "template_deleted"
+msgstr "Template for %(rating)s stars deleted."
+
+msgid "edit_template"
+msgstr "✏️ Edit template"
+
+msgid "delete_template"
+msgstr "🗑 Delete template"
+
+msgid "rating_button_1"
+msgstr "⭐1 star"
+
+msgid "rating_button_2"
+msgstr "⭐2 stars"
+
+msgid "rating_button_3"
+msgstr "⭐3 stars"
+
+msgid "rating_button_4"
+msgstr "⭐4 stars"
+
+msgid "rating_button_5"
+msgstr "⭐5 stars"
+
+msgid "not_applicable"
+msgstr "Not required"
+
+msgid "article"
+msgstr "Article"
+
+msgid "pros"
+msgstr "Pros"
+
+msgid "cons"
+msgstr "Cons"
+
+msgid "back_to_stores_list"
+msgstr "⬅️ Back to stores list"
+
+msgid "sku_not_available"
+msgstr "Article not specified"
+
+msgid "unknown_product"
+msgstr "Unknown product"
+
+msgid "no_store_reply"
+msgstr "Store hasn't replied to this review yet"
+
+msgid "product_name"
+msgstr "Product name"
+
+msgid "enter_password_to_login"
+msgstr "🔐 Enter password to log in:"
+
+msgid "invalid_password"
+msgstr "❌ Invalid password, try again."
+
+msgid "logout_button"
+msgstr "🚪 Log out"
+
+msgid "logged_out_message"
+msgstr "👋 You have logged out."
+
+msgid "enter_phone_to_login"
+msgstr "📱 Enter phone number to log in again:"
+
+msgid "password_invalid_format"
+msgstr "⚠️ Password must contain at least 7 characters and consist only of Latin letters, numbers, and symbols _!@#$%^&*.-"
+
+msgid "password_set"
+msgstr "✅ Set"
+
+msgid "enter_old_password"
+msgstr "🔑 Enter old password:"
+
+msgid "old_password_incorrect"
+msgstr "❌ Old password is incorrect"
+
+msgid "password_too_short"
+msgstr "⚠️ Password must contain at least 6 characters"
+
+msgid "confirm_new_password"
+msgstr "🔁 Repeat new password:"
+
+msgid "passwords_do_not_match"
+msgstr "❌ Passwords do not match"
+
+msgid "password_changed_successfully"
+msgstr "✅ Password changed successfully"
+
+msgid "my_profile_button"
+msgstr "👤 My Profile"
+
+msgid "change_phone_button"
+msgstr "📱 Change phone number"
+
+msgid "change_password_button"
+msgstr "🔑 Change password"
+
+msgid "back_to_menu_button"
+msgstr "⬅️ Back to menu"
+
+msgid "not_specified"
+msgstr "❌ Not specified"
+
+msgid "profile_title"
+msgstr "👤 Your Profile"
+
+msgid "profile_phone"
+msgstr "📞 Phone number"
+
+msgid "profile_password"
+msgstr "🔐 Password"
+
+msgid "profile_stores_count"
+msgstr "🏬 Store count"
+
+msgid "profile_employees_count"
+msgstr "👥 Employee count"
+
+msgid "enter_new_phone"
+msgstr "📱 Enter new phone number:"
+
+msgid "enter_new_password"
+msgstr "🔑 Enter new password:"
+
+msgid "main_menu_text"
+msgstr "🏠 Main Menu:"
+
+msgid "enter_reply_text"
+msgstr "Write response:"
+
+msgid "send_ai_reply"
+msgstr "🤖 Send AI response"
+
+msgid "manual_reply"
+msgstr "✍️ Reply manually"
+
+msgid "enter_password"
+msgstr "Create password:"
+
+msgid "suggested_reply"
+msgstr "Suggested response: %(reply_text)s"
+
+msgid "confirm_password"
+msgstr "Confirm password"
+
+msgid "registration_complete"
+msgstr "Registration completed!"
+
+msgid "unanswered_questions_list"
+msgstr "Unanswered questions"
+
+msgid "product_link"
+msgstr "Product link"
+
+msgid "back_to_list"
+msgstr "Go back"
+
+msgid "review"
+msgstr "Review"
+
+msgid "answer"
+msgstr "Question answer"
+
+msgid "sku"
+msgstr "SKU"
+
+msgid "question"
+msgstr "Question"
+
+msgid "next"
+msgstr "➡️"
+
+msgid "mode_template"
+msgstr "📄 By template"
+
+msgid "no_unanswered_reviews_for_rating"
+msgstr "No unprocessed reviews for %(rating)s stars 😕"
+
+msgid "template_applied"
+msgstr "Template for %(rating)s stars applied to %(count)s reviews: %(template)s ✅"
+
+msgid "manage_templates"
+msgstr "📝 Template management"
+
+msgid "template_info"
+msgstr "For %(rating)s stars: %(template)s ⭐"
+
+msgid "enter_template_for_rating"
+msgstr "Enter template for %(rating)s stars: ✍️"
+
+msgid "template_set"
+msgstr "Template for %(rating)s stars set! ✅"
+
+msgid "no_template_for_rating"
+msgstr "Template for %(rating)s stars not set! ⚠️"
+
+msgid "send_by_template"
+msgstr "Reply by template 📄"
+
+msgid "answered_questions_list"
+msgstr "Answered questions list ✅"
+
+msgid "answered_questions"
+msgstr "✅ Answered questions"
+
+msgid "unanswered_questions"
+msgstr "📭 Unanswered questions"
+
+msgid "auto_questions_enabled"
+msgstr "Auto-replies enabled"
+
+msgid "auto_questions_disabled"
+msgstr "Auto-replies disabled"
+
+msgid "confirm_reply"
+msgstr "Confirm your response: %(reply_text)s ❓"
+
+msgid "send"
+msgstr "Send ✅"
+
+msgid "cancel"
+msgstr "Cancel 🚫"
+
+msgid "back_to_review"
+msgstr "Back to review 🔙"
+
+msgid "answer_sent_successfully"
+msgstr "Response sent successfully! 🎉"
+
+msgid "review_not_found"
+msgstr "Review not found 😔"
+
+msgid "review_details"
+msgstr "📅 %(date)s\n\n%(user_display)s🌟 %(stars)s\n\n📦 %(product_name)s\n\n🔢 %(sku_label)s: %(sku)s\n\n💬 %(text)s"
+
+msgid "store_reply"
+msgstr "📩 Store reply: %(answer)s"
+
+msgid "review_counter"
+msgstr "🔢 Review %(current)s of %(total)s"
+
+msgid "next_button"
+msgstr "➡️"
+
+msgid "prev_button"
+msgstr "⬅️"
+
+msgid "back_to_list_button"
+msgstr "⬅️ Back to list"
+
+msgid "no_answer"
+msgstr "No answer"
+
+msgid "unanswered"
+msgstr "📭 Unanswered"
+
+msgid "reviews_list_title"
+msgstr "%(type)s reviews\n\n📊 Review distribution:\n\n%(rating_summary)s"
+
+msgid "prev_page"
+msgstr "⬅️ Previous page"
+
+msgid "answered"
+msgstr "✅ Answered"
+
+msgid "back_to_reviews_work"
+msgstr "⬅️ Back to reviews work"
+
+msgid "auto_replies_disabled"
+msgstr "Auto-replies disabled"
+
+msgid "auto_replies_enabled"
+msgstr "Auto-replies enabled"
+
+msgid "no_store_selected"
+msgstr "❌ Store not selected."
+
+msgid "no_reviews_found"
+msgstr "📭 Reviews not found."
+
+msgid "no_questions_found"
+msgstr "📭 Questions not found."
+
+msgid "reviews_list"
+msgstr "📋 Reviews list"
+
+msgid "questions_list"
+msgstr "📋 Questions list"
+
+msgid "previous_page"
+msgstr "⬅️ Previous page"
+
+msgid "next_page"
+msgstr "➡️ Next page"
+
+msgid "questions_unanswered"
+msgstr "📬 Unanswered questions"
+
+msgid "questions_answered"
+msgstr "✅ Answered questions"
+
+msgid "enter_employee_phone"
+msgstr "📱 Enter your employee phone number:"
+
+msgid "enter_access_code"
+msgstr "🔑 Enter access code:"
+
+msgid "welcome_employee"
+msgstr "👋 Welcome, employee!"
+
+msgid "invalid_employee_credentials"
+msgstr "❌ Invalid phone number or access code."
+
+msgid "enter_new_full_name"
+msgstr "✏️ Enter new employee name:"
+
+msgid "enter_new_phone_employee"
+msgstr "📱 Enter new employee phone number:"
+
+msgid "enter_new_access_code"
+msgstr "🔢 Enter new access code (4 digits):"
+
+msgid "invalid_access_code"
+msgstr "❌ Access code must be 4 digits"
+
+msgid "employee_item"
+msgstr "👤 %(full_name)s (Active: %(is_active)s)"
+
+msgid "choose_edit_employee_field"
+msgstr "✏️ Select field to edit employee:"
+
+msgid "edit_employee_name"
+msgstr "✏️ Edit employee name"
+
+msgid "edit_employee_phone"
+msgstr "📱 Edit employee phone number"
+
+msgid "edit_employee_code"
+msgstr "🔢 Edit employee access code"
+
+msgid "edit_employee_stores"
+msgstr "🏪 Edit employee stores"
+
+msgid "back_to_employee"
+msgstr "⬅️ Back to employee"
+
+msgid "confirm_delete_employee"
+msgstr "🗑️ Are you sure you want to delete employee %(full_name)s?"
+
+msgid "employee_deleted"
+msgstr "🗑️ Employee %(full_name)s deleted"
+
+msgid "choose_role"
+msgstr "🎭 Select role:"
+
+msgid "role_owner"
+msgstr "👑 Owner"
+
+msgid "role_employee"
+msgstr "👷 Employee"
+
+msgid "my_employees"
+msgstr "👥 My Employees"
+
+msgid "no_employees"
+msgstr "👥 No employees available"
+
+msgid "add_employee"
+msgstr "➕ Add employee"
+
+msgid "enter_employee_name"
+msgstr "✏️ Enter employee name:"
+
+msgid "enter_employee_phone_input"
+msgstr "📱 Enter employee phone number:"
+
+msgid "enter_employee_code"
+msgstr "🔢 Enter employee access code (4 digits):"
+
+msgid "select_employee_stores"
+msgstr "🏪 Select stores for employee:"
+
+msgid "select_all_stores"
+msgstr "✅ Select all stores"
+
+msgid "confirm_store_selection"
+msgstr "✔️ Confirm store selection"
+
+msgid "back_to_employee_action"
+msgstr "⬅️ Back to employee actions"
+
+msgid "employee_added"
+msgstr "👥 Employee added: %(full_name)s"
+
+msgid "employee_info"
+msgstr "👤 Employee: %(full_name)s\n📱 Phone: %(phone)s\n🔢 Access code: %(access_code)s\n🔄 Status: %(status)s\n🏪 Stores: %(stores)s"
+
+msgid "edit_employee"
+msgstr "✏️ Edit employee"
+
+msgid "delete_employee"
+msgstr "🗑️ Delete employee"
+
+msgid "toggle_employee_status"
+msgstr "🔄 Toggle employee status"
+
+msgid "back_to_employees"
+msgstr "⬅️ Back to employees list"
+
+msgid "choose_employee"
+msgstr "👥 Select employee:"
+
+msgid "Ozon"
+msgstr "🛍️ Ozon"
+
+msgid "Wildberries"
+msgstr "🛍️ Wildberries"
+
+msgid "Yandex Market"
+msgstr "🛍️ Yandex Market"
+
+msgid "questions_info"
+msgstr "📝 Auto-replies: %(questions_status)s\n\n⚙️ Mode: %(questions_mode)s\n\n📭 Waiting for response: %(unanswered_count)s"
+
+msgid "questions_status_label"
+msgstr "📝 Questions:"
+
+msgid "questions_mode_label"
+msgstr "⚙️ Mode:"
+
+msgid "reviews_info"
+msgstr "📝 Auto-replies: %(reviews_status)s\n\n⚙️ Modes:\n%(modes_info)s\n\n📭 Waiting for response: %(unanswered_count)s"
+
+msgid "reviews_status_label"
+msgstr "📝 Reviews:"
+
+msgid "reviews_modes_label"
+msgstr "⚙️ Modes:"
+
+msgid "store_edit_info"
+msgstr "🏪 Store name: %(store_name)s\n📋 Type: %(store_type)s\n🔑 API key: %(api_key)s\n🆔Client ID: %(client_id)s\n\n✏️ Select field to edit:"
+
+msgid "store_name_label"
+msgstr "🏪 Store name:"
+
+msgid "store_type_label"
+msgstr "📋 Type:"
+
+msgid "api_key_label"
+msgstr "🔑 API key:"
+
+msgid "client_id_label"
+msgstr "🆔Client ID:"
+
+msgid "mode_not_set"
+msgstr "⚙️ Not set"
+
+msgid "enter_new_store_name"
+msgstr "📝 Enter new store name:"
+
+msgid "enter_new_api_key"
+msgstr "🔑 Enter new API key:"
+
+msgid "enter_new_client_id"
+msgstr "🆔 Enter new Client ID:"
+
+msgid "back"
+msgstr "🔙 Back"
+
+msgid "store_deleted"
+msgstr "🗑️ Store deleted."
+
+msgid "choose_edit_field"
+msgstr "✏️ Select field to edit:"
+
+msgid "review_modes"
+msgstr "⚙️ Work modes:"
+
+msgid "view_reviews"
+msgstr "📝 View reviews"
+
+msgid "question_modes"
+msgstr "⚙️ Work modes:"
+
+msgid "view_questions"
+msgstr "❓ View questions"
+
+msgid "change_language"
+msgstr "🌐 Change language"
+
+msgid "choose_language"
+msgstr "🌍 Please select language:"
+
+msgid "language_az"
+msgstr "🇦🇿 Azerbaijani"
+
+msgid "language_en"
+msgstr "🇬🇧 English"
+
+msgid "language_kz"
+msgstr "🇰🇿 Kazakh"
+
+msgid "language_uz"
+msgstr "🇺🇿 Uzbek"
+
+msgid "language_ru"
+msgstr "🇷🇺 Russian"
+
+msgid "language_bl"
+msgstr "🇧🇾 Belarusian"
+
+msgid "language_am"
+msgstr "🇦🇲 Armenian"
+
+msgid "language_cn"
+msgstr "🇨🇳 Chinese"
+
+msgid "star_1"
+msgstr "⭐ 1 star"
+
+msgid "star_2"
+msgstr "⭐ 2 stars"
+
+msgid "star_3"
+msgstr "⭐ 3 stars"
+
+msgid "star_4"
+msgstr "⭐ 4 stars"
+
+msgid "star_5"
+msgstr "⭐ 5 stars"
+
+msgid "language_set"
+msgstr "🌍 Language set: %(lang_name)s"
+
+msgid "send_phone_button"
+msgstr "📱 Send phone number"
+
+msgid "store_item"
+msgstr "🏪 %(store_name)s (%(store_type)s)"
+
+msgid "back_to_main_menu"
+msgstr "⬅️ Back to main menu"
+
+msgid "send_phone_number"
+msgstr "📱 Please share your phone number:"
+
+msgid "phone_received"
+msgstr "📱 Phone number received"
+
+msgid "welcome_back"
+msgstr "👋 Welcome back!"
+
+msgid "unsupported_language"
+msgstr "⚠️ Unsupported language"
+
+msgid "my_stores_button"
+msgstr "🛍️ My Stores"
+
+msgid "add_store_button"
+msgstr "➕ Add store"
+
+msgid "choose_store_platform"
+msgstr "🏪 Select store platform:"
+
+msgid "enter_store_name"
+msgstr "✏️ Enter store name:"
+
+msgid "enter_api_key"
+msgstr "🔑 Enter API key:"
+
+msgid "invalid_store_type"
+msgstr "❌ Invalid store type"
+
+msgid "store_added"
+msgstr "🏪 Store added: %(store_name)s (%(store_type)s)"
+
+msgid "enter_client_id"
+msgstr "🆔 Enter Client ID:"
+
+msgid "no_stores"
+msgstr "🛍️ No stores available"
+
+msgid "choose_store"
+msgstr "Select store:"
+
+msgid "store_not_selected"
+msgstr "⚠️ Store not selected"
+
+msgid "store_name_exists"
+msgstr "⚠️ Store name already exists"
+
+msgid "store_name_updated"
+msgstr "✏️ Store name updated: %(store_name)s"
+
+msgid "return_to_store"
+msgstr "⬅️ Return to store: %(store_name)s"
+
+msgid "data_not_found"
+msgstr "⚠️ Data not found"
+
+msgid "invalid_field"
+msgstr "❌ Invalid field"
+
+msgid "field_updated"
+msgstr "✅ Field updated: %(field)s for store %(store_name)s"
+
+msgid "client_id_not_used"
+msgstr "⚠️Client ID not used for this store type"
+
+msgid "confirm_delete_store"
+msgstr "🗑️ Are you sure you want to delete store %(store_name)s?"
+
+msgid "store_deletion_error"
+msgstr "❌ Error deleting store"
+
+msgid "deletion_cancelled"
+msgstr "🚫 Deletion cancelled"
+
+msgid "main_menu"
+msgstr "🏠 Main Menu"
+
+msgid "store_selected"
+msgstr "🏪 Store selected: %(store_name)s"
+
+msgid "view_store"
+msgstr "👀 View store"
+
+msgid "edit_store"
+msgstr "✏️ Edit store"
+
+msgid "reviews_work"
+msgstr "📝 Work with reviews"
+
+msgid "questions_work"
+msgstr "❓ Work with questions"
+
+msgid "notifications"
+msgstr "🔔 Notifications"
+
+msgid "back_to_menu"
+msgstr "⬅️ Back to menu"
+
+msgid "store_info"
+msgstr "🏪 Store: %(store_name)s (%(store_type)s)\n ━━━━━━━━━━━━━━━━\n 📝Reviews section\n\n 🤖Auto-replies: %(reviews_status)s\n\n 📭 %(unanswered_reviews)s waiting for response\n\n ⚙️ Modes:\n%(modes_info)s\n━━━━━━━━━━━━━━━━\n ❓Questions section\n\n 🤖Auto-replies: %(questions_status)s\n\n 📬 %(unanswered_questions)s waiting for response\n\n ⚙️ Question mode: %(questions_mode)s"
+
+msgid "modes_not_set"
+msgstr "⚙️ Modes not set"
+
+msgid "mode_auto"
+msgstr "🤖 Automatic"
+
+msgid "mode_semi"
+msgstr "⚙️ Semi-automatic"
+
+msgid "mode_manual"
+msgstr "✋ Manual"
+
+msgid "mode_info"
+msgstr " ⭐ %(rating)s: %(mode)s"
+
+msgid "questions_status"
+msgstr "❓ Questions status: %(status)s"
+
+msgid "auto_replies_toggled"
+msgstr "🤖 Automatic replies %(status)s"
+
+msgid "current_modes"
+msgstr "⚙️ Current review modes:"
+
+msgid "rating_selected"
+msgstr "⭐ Rating %(rating)s selected\n\n🤖Automatic - bot receives review and automatically sends response.\n\n⚙️Semi-automatic - bot generates response when you go to a specific review or question.\n\n✋Manual - generation will not occur, you can manually reply to reviews or questions.\n\n📄By template - set required template for selected rating and bot will send response using your template.\n\n\nSelect mode:"
+
+msgid "mode_updated"
+msgstr "Mode for rating %(rating)s updated: %(mode)s"
+
+msgid "return_to_reviews"
+msgstr "⬅️ Return to reviews"
+
+msgid "reviews_work_for_store"
+msgstr "📝 Work with reviews for store: %(store_name)s"
+
+msgid "back_to_store_from_reviews"
+msgstr "⬅️ Return to store from reviews"
+
+msgid "questions_work_for_store"
+msgstr "❓ Work with questions for store: %(store_name)s"
+
+msgid "questions_auto_replies_toggled"
+msgstr "🤖 Automatic replies for questions %(status)s for store %(store_name)s"
+
+msgid "current_questions_mode"
+msgstr "⚙️ Current question mode: %(current_mode)s"
+
+msgid "questions_mode_set"
+msgstr "Question mode set: %(mode)s"
+
+msgid "choose_action"
+msgstr "⚙️ Choose action:"
+
+msgid "return_to_questions"
+msgstr "⬅️ Return to questions"
+
+msgid "back_to_menu_from_questions"
+msgstr "⬅️ Back to menu from questions"
+
+msgid "question_text"
+msgstr "❓ Question: %(question_text)s"
+
+msgid "wildberries_question_warning"
+msgstr "⚠️ Note: This is a question from Wildberries"
+
+msgid "answer_sent_auto"
+msgstr "✅ Response sent automatically: %(reply_text)s"
+
+msgid "error_sending_answer"
+msgstr "❌ Error sending response"
+
+msgid "proposed_answer"
+msgstr "📝 Proposed response: %(proposed_reply)s"
+
+msgid "write_answer"
+msgstr "✏️ Write your response:"
+
+msgid "all_questions_viewed"
+msgstr "✅ All questions viewed"
+
+msgid "no_more_questions"
+msgstr "❓ No more questions"
+
+msgid "answer_sent"
+msgstr "✅ Response sent: %(reply_text)s"
+
+msgid "question_skipped"
+msgstr "➡️ Question skipped"
+
+msgid "enter_your_answer"
+msgstr "✏️ Enter your response:"
+
+msgid "back_to_store_question"
+msgstr "⬅️ Return to store from questions"
+
+msgid "enter_answer_first"
+msgstr "⚠️ Enter response first"
+
+msgid "your_answer"
+msgstr "📝 Your response: %(response_text)s"
+
+msgid "send_question_reply"
+msgstr "📤 Send response"
+
+msgid "wildberries_review_warning"
+msgstr "⚠️ Note: This is a review from Wildberries"
+
+msgid "review_text"
+msgstr "📝 Review: ⭐%(rating)s %(review_text)s"
+
+msgid "error_processing_review"
+msgstr "❌ Error processing review"
+
+msgid "all_reviews_viewed"
+msgstr "✅ All reviews viewed"
+
+msgid "no_more_reviews"
+msgstr "📝 No more reviews"
+
+msgid "review_skipped"
+msgstr "➡️ Review skipped"
+
+msgid "format_error"
+msgstr "❌ Format error: %(error)s"
+
+msgid "error_saving_settings"
+msgstr "❌ Error saving settings"
+
+msgid "send_as_is"
+msgstr "📤 Send as proposed"
+
+msgid "edit_reply"
+msgstr "✏️ Edit response"
+
+msgid "skip_review"
+msgstr "➡️ Skip review"
+
+msgid "send_reply"
+msgstr "📤 Send response"
+
+msgid "edit_question_reply"
+msgstr "✏️ Edit question response"
+
+msgid "skip_question"
+msgstr "➡️ Skip question"
+
+msgid "back_to_reviews_menu"
+msgstr "⬅️ Back to reviews menu"
+
+msgid "send_as_is_question"
+msgstr "📤 Send question as proposed"
+
+msgid "back_to_questions_menu"
+msgstr "⬅️ Back to questions menu"
+
+msgid "edit_name"
+msgstr "✏️ Edit name"
+
+msgid "edit_api_key"
+msgstr "🔑 Edit API key"
+
+msgid "edit_client_id"
+msgstr "🆔 Edit Client ID"
+
+msgid "delete_store"
+msgstr "🗑️ Delete store"
+
+msgid "back_in_edit_field"
+msgstr "⬅️ Back to field selection"
+
+msgid "confirm_delete"
+msgstr "✅ Confirm deletion"
+
+msgid "cancel_delete"
+msgstr "🚫 Cancel deletion"
+
+msgid "back_to_rating_selection"
+msgstr "⬅️ Back to rating selection"
+
+msgid "only_1_star"
+msgstr "⭐ Only 1 star"
+
+msgid "1_2_stars"
+msgstr "⭐ 1-2 stars"
+
+msgid "1_3_stars"
+msgstr "⭐ 1-3 stars"
+
+msgid "disabled"
+msgstr "🚫 Disabled"
+
+msgid "enabled"
+msgstr "✅ Enabled"
+
+msgid "not_set"
+msgstr "⚙️ Not set"
+
+msgid "store_not_found"
+msgstr "⚠️ Store not found"
+
+msgid "store_access_denied"
+msgstr "🚫 Access to store denied"
+
+msgid "no_reviews"
+msgstr "📝 No reviews to display"
+
+msgid "no_unanswered_questions"
+msgstr "📭 No unanswered questions"
+
+msgid "no_answered_questions"
+msgstr "❓ No answered questions"
+
+msgid "invalid_store_id"
+msgstr "❌ Invalid store ID"
+
+msgid "unknown_command"
+msgstr "❓ Unknown command"
+
+msgid "error_occurred"
+msgstr "❌ An error occurred"
+
+msgid "star_rating"
+msgstr "⭐%(rating)s: %(count)s"
+
+msgid "back_to_store"
+msgstr "⬅️ Return to store"

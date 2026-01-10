@@ -1,0 +1,1117 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: bot\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-18 16:32+0200\n"
+"PO-Revision-Date: 2025-07-19 22:12+0200\n"
+"Last-Translator: \n"
+"Language-Team: Uzbek\n"
+"Language: uz\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "reviews_enabled"
+msgstr "✅ Yoqilgan"
+
+msgid "stop_words_list"
+msgstr "🛑 To'xtatish so'zlari (%(count)s):\n\n%(words_list)s\n\nHarakatni tanlang:"
+
+msgid "stop_words_empty"
+msgstr "🛑 To'xtatish so'zlari:\n\nTavsif:\nGeneratsiya bo'lmaydigan so'zlarni belgilang.\n\nHali hech narsa qo'shilmagan.\n\nHarakatni tanlang:"
+
+msgid "add_stop_words_instruction"
+msgstr "➕ To'xtatish so'zlarini qo'shish\n\nQo'shiladigan so'zlarni vergul bilan ajratib yuboring.\n\nMisol:\nyomon, qalbaki"
+
+msgid "remove_stop_words_instruction"
+msgstr "➖ To'xtatish so'zlarini olib tashlash\n\nO'chiriladigan so'zlarni vergul bilan ajratib yuboring.\n\nFaqat aniq mos keladiganlar o'chiriladi."
+
+msgid "clear_stop_words_confirm"
+msgstr "⚠️ Barcha to'xtatish so'zlarini tozalashni istaysizmi?\n\nRo'yxat butunlay o'chiriladi."
+
+msgid "stop_words_cleared"
+msgstr "✅ To'xtatish so'zlari tozalandi"
+
+msgid "stop_words_success"
+msgstr "✅ To'xtatish so'zlari yangilandi\n\nJoriy ro'yxat (%(count)s):\n%(words_list)s"
+
+msgid "minus_words_list"
+msgstr "🛑 Minus so'zlar (%(count)s):\n\n%(words_list)s\n\nHarakatni tanlang:"
+
+msgid "minus_words_empty"
+msgstr "🛑 Minus so'zlar:\n\nTavsif:\nJavobda AI foydalanmaydigan so'zlarni belgilang.\n\nHali hech narsa qo'shilmagan.\n\nHarakatni tanlang:"
+
+msgid "add_minus_words_instruction"
+msgstr "➕ Minus so'zlarni qo'shish\n\nQo'shiladigan so'zlarni vergul bilan ajratib yuboring.\n\nMisol:\nyomon, qalbaki"
+
+msgid "remove_minus_words_instruction"
+msgstr "➖ Minus so'zlarni olib tashlash\n\nO'chiriladigan so'zlarni vergul bilan ajratib yuboring.\n\nFaqat aniq mos keladiganlar o'chiriladi."
+
+msgid "clear_minus_words_confirm"
+msgstr "⚠️ Barcha minus so'zlarni tozalashni istaysizmi?\n\nRo'yxat butunlay o'chiriladi."
+
+msgid "minus_words_cleared"
+msgstr "✅ Minus so'zlar tozalandi"
+
+msgid "minus_words_success"
+msgstr "✅ Minus so'zlar yangilandi\n\nJoriy ro'yxat (%(count)s):\n%(words_list)s"
+
+msgid "add_button"
+msgstr "➕ Qo'shish"
+
+msgid "remove_button"
+msgstr "➖ O'chirish"
+
+msgid "clear_button"
+msgstr "🗑 Tozalash"
+
+msgid "confirm_clear"
+msgstr "✅ Tozalash"
+
+msgid "empty"
+msgstr "bo'sh"
+
+msgid "yes"
+msgstr "Ha"
+
+msgid "no"
+msgstr "Yo'q"
+
+msgid "contact_developer"
+msgstr "💬 Dasturchiga yozish"
+
+msgid "support_text"
+msgstr "Agar botda xato yoki muammo yuzaga kelsa, menga to'g'ridan-to'g'ri yozing! Muammoni hal qilishga yordam beraman.\n\nNima qilish kerak:\n1. Quyidagi tugmani bosing\n2. Nima sodir bo'lganini tasvirlang\n3. Qanday harakatlar xatoga olib kelganini ko'rsating\n\nIloji boricha tezroq javob berishga harakat qilaman!"
+
+msgid "address_style_setting"
+msgstr "Murojaat uslubi"
+
+msgid "address_formal"
+msgstr "Siz (rasmiy)"
+
+msgid "address_lowercase"
+msgstr "siz (kichik harfda)"
+
+msgid "address_informal"
+msgstr "sen (norasmiy)"
+
+msgid "address_style_header"
+msgstr "🎭 Murojaat uslubini tanlang:"
+
+msgid "address_style_set"
+msgstr "✅ Murojaat uslubi o'rnatildi: {style}"
+
+msgid "support"
+msgstr "🛟 Qo'llab-quvvatlash"
+
+msgid "stores_header"
+msgstr "Do'konlar"
+
+msgid "questions"
+msgstr "Savollar"
+
+msgid "reviews"
+msgstr "Sharhlar"
+
+msgid "store_settings"
+msgstr "⚙️ AI sozlamalari"
+
+msgid "store_settings_templates"
+msgstr "📝 Javob shablonlari"
+
+msgid "store_settings_advanced"
+msgstr "⚙️ Kengaytirilgan sozlamalar"
+
+msgid "advanced_settings_header"
+msgstr "⚙️ Generatsiyaning kengaytirilgan sozlamalari:"
+
+msgid "use_name_setting"
+msgstr "👤 Ism bilan murojaat qilish"
+
+msgid "mention_product_setting"
+msgstr "📦 Mahsulot tavsiya qilish"
+
+msgid "use_emojis_setting"
+msgstr "😊 Javoblarda emoji"
+
+msgid "response_length_setting"
+msgstr "Javob uzunligi"
+
+msgid "response_length_short"
+msgstr "Qisqa (30 so'zgacha)"
+
+msgid "response_length_default"
+msgstr "Standart (70 so'zgacha)"
+
+msgid "response_length_long"
+msgstr "Batafsil (150 so'zgacha)"
+
+msgid "response_length_header"
+msgstr "📏 Javob uzunligini tanlang:"
+
+msgid "response_length_set"
+msgstr "✅ Javob uzunligi o'rnatildi: %(length)s"
+
+msgid "delivery_method_setting"
+msgstr "Yetkazib berish"
+
+msgid "delivery_method_marketplace"
+msgstr "📦 Marketpleys"
+
+msgid "delivery_method_self"
+msgstr "🚗 O'zi"
+
+msgid "delivery_method_header"
+msgstr "🚚 Yetkazib berish usulini tanlang:\n\nTavsif:\nMahsulotlar qanday yetkaziladi."
+
+msgid "delivery_method_set"
+msgstr "✅ Yetkazib berish usuli o'rnatildi: %(method)s"
+
+msgid "tone_setting"
+msgstr "Ohang"
+
+msgid "tone_business"
+msgstr "🏢 Biznes"
+
+msgid "tone_friendly"
+msgstr "😊 Do'stona"
+
+msgid "tone_strict"
+msgstr "⚠️ Qattiq"
+
+msgid "tone_header"
+msgstr "🎭 Javoblarning ohangini tanlang:\n\nTavsif:\nAI xarakterini belgilaydi"
+
+msgid "tone_set"
+msgstr "Ohang o'rnatildi: %(tone)s"
+
+msgid "stop_words_setting"
+msgstr "✏️ To'xtatish so'zlari"
+
+msgid "minus_words_setting"
+msgstr "✏️ Minus so'zlar"
+
+msgid "stop_words_current"
+msgstr "🚫 Joriy to'xtatish so'zlari: %(words)s"
+
+msgid "stop_words_instruction"
+msgstr "To'xtatish so'zlarini vergul bilan ajratib kiriting (generatsiya bo'lmaydigan so'zlar):\nMisol: spam, reklama, shikoyat"
+
+msgid "stop_words_updated"
+msgstr "✅ To'xtatish so'zlari yangilandi: %(words)s"
+
+msgid "minus_words_current"
+msgstr "❌ Joriy minus so'zlar: %(words)s"
+
+msgid "minus_words_instruction"
+msgstr "Minus so'zlarni vergul bilan ajratib kiriting (AI foydalanmasligi kerak bo'lgan so'zlar):\nMisol: dahshatli, kabus, umidsizlik"
+
+msgid "minus_words_updated"
+msgstr "✅ Minus so'zlar yangilandi: %(words)s"
+
+msgid "cleared"
+msgstr "tozalandi"
+
+msgid "unknown_setting"
+msgstr "Noma'lum sozlama"
+
+msgid "error_loading_settings"
+msgstr "Sozlamalarni yuklash xatosi"
+
+msgid "template_preview_line"
+msgstr "⭐%(rating)s yulduz: %(preview)s"
+
+msgid "template_not_set_line"
+msgstr "⭐%(rating)s yulduz: O'rnatilmagan 🚫"
+
+msgid "current_templates_header"
+msgstr "📄 Joriy javob shablonlari:"
+
+msgid "template_status_line"
+msgstr "⭐ %(rating)s yulduz uchun: %(status)s"
+
+msgid "current_template_for_rating"
+msgstr "%(rating)s yulduz uchun joriy shablon:\n\n%(template)s"
+
+msgid "enter_new_template"
+msgstr "%(rating)s yulduz uchun yangi shablon kiriting:"
+
+msgid "template_updated"
+msgstr "%(rating)s yulduz uchun shablon yangilandi!"
+
+msgid "template_deleted"
+msgstr "%(rating)s yulduz uchun shablon o'chirildi."
+
+msgid "edit_template"
+msgstr "✏️ Shablonni tahrirlash"
+
+msgid "delete_template"
+msgstr "🗑 Shablonni o'chirish"
+
+msgid "rating_button_1"
+msgstr "⭐1 yulduz"
+
+msgid "rating_button_2"
+msgstr "⭐2 yulduz"
+
+msgid "rating_button_3"
+msgstr "⭐3 yulduz"
+
+msgid "rating_button_4"
+msgstr "⭐4 yulduz"
+
+msgid "rating_button_5"
+msgstr "⭐5 yulduz"
+
+msgid "not_applicable"
+msgstr "Talab qilinmaydi"
+
+msgid "article"
+msgstr "Artikul"
+
+msgid "pros"
+msgstr "Afzalliklar"
+
+msgid "cons"
+msgstr "Kamchiliklar"
+
+msgid "back_to_stores_list"
+msgstr "⬅️ Do'konlar ro'yxatiga qaytish"
+
+msgid "sku_not_available"
+msgstr "Artikul ko'rsatilmagan"
+
+msgid "unknown_product"
+msgstr "Noma'lum mahsulot"
+
+msgid "no_store_reply"
+msgstr "Do'kon hali bu sharhga javob bermadi"
+
+msgid "product_name"
+msgstr "Mahsulot nomi"
+
+msgid "enter_password_to_login"
+msgstr "🔐 Kirish uchun parolni kiriting:"
+
+msgid "invalid_password"
+msgstr "❌ Noto'g'ri parol, qayta urinib ko'ring."
+
+msgid "logout_button"
+msgstr "🚪 Profildan chiqish"
+
+msgid "logged_out_message"
+msgstr "👋 Profildan chiqdingiz."
+
+msgid "enter_phone_to_login"
+msgstr "📱 Qayta kirish uchun telefon raqamini kiriting:"
+
+msgid "password_invalid_format"
+msgstr "⚠️ Parol kamida 7 belgidan iborat bo'lishi va faqat lotin harflari, raqamlar va _!@#$%^&*.- belgilaridan iborat bo'lishi kerak"
+
+msgid "password_set"
+msgstr "✅ O'rnatildi"
+
+msgid "enter_old_password"
+msgstr "🔑 Eski parolni kiriting:"
+
+msgid "old_password_incorrect"
+msgstr "❌ Eski parol noto'g'ri"
+
+msgid "password_too_short"
+msgstr "⚠️ Parol kamida 6 belgidan iborat bo'lishi kerak"
+
+msgid "confirm_new_password"
+msgstr "🔁 Yangi parolni takrorlang:"
+
+msgid "passwords_do_not_match"
+msgstr "❌ Parollar mos kelmaydi"
+
+msgid "password_changed_successfully"
+msgstr "✅ Parol muvaffaqiyatli o'zgartirildi"
+
+msgid "my_profile_button"
+msgstr "👤 Mening Profilim"
+
+msgid "change_phone_button"
+msgstr "📱 Telefon raqamini o'zgartirish"
+
+msgid "change_password_button"
+msgstr "🔑 Parolni o'zgartirish"
+
+msgid "back_to_menu_button"
+msgstr "⬅️ Menyuga qaytish"
+
+msgid "not_specified"
+msgstr "❌ Ko'rsatilmagan"
+
+msgid "profile_title"
+msgstr "👤 Sizning Profilingiz"
+
+msgid "profile_phone"
+msgstr "📞 Telefon raqami"
+
+msgid "profile_password"
+msgstr "🔐 Parol"
+
+msgid "profile_stores_count"
+msgstr "🏬 Do'konlar soni"
+
+msgid "profile_employees_count"
+msgstr "👥 Xodimlar soni"
+
+msgid "enter_new_phone"
+msgstr "📱 Yangi telefon raqamini kiriting:"
+
+msgid "enter_new_password"
+msgstr "🔑 Yangi parolni kiriting:"
+
+msgid "main_menu_text"
+msgstr "🏠 Asosiy Menyu:"
+
+msgid "enter_reply_text"
+msgstr "Javob yozing:"
+
+msgid "send_ai_reply"
+msgstr "🤖 AI javobini yuborish"
+
+msgid "manual_reply"
+msgstr "✍️ Qo'lda javob berish"
+
+msgid "enter_password"
+msgstr "Parol yarating:"
+
+msgid "suggested_reply"
+msgstr "Taklif qilingan javob: %(reply_text)s"
+
+msgid "confirm_password"
+msgstr "Parolni tasdiqlang"
+
+msgid "registration_complete"
+msgstr "Ro'yxatdan o'tish bajarildi!"
+
+msgid "unanswered_questions_list"
+msgstr "Javobsiz savollar"
+
+msgid "product_link"
+msgstr "Mahsulot havolasi"
+
+msgid "back_to_list"
+msgstr "Orqaga qaytish"
+
+msgid "review"
+msgstr "Sharh"
+
+msgid "answer"
+msgstr "Savolga javob"
+
+msgid "sku"
+msgstr "SKU"
+
+msgid "question"
+msgstr "Savol"
+
+msgid "next"
+msgstr "➡️"
+
+msgid "mode_template"
+msgstr "📄 Shablon bo'yicha"
+
+msgid "no_unanswered_reviews_for_rating"
+msgstr "%(rating)s yulduz uchun ishlanmagan sharhlar yo'q 😕"
+
+msgid "template_applied"
+msgstr "%(rating)s yulduz uchun shablon %(count)s sharhga qo'llanildi: %(template)s ✅"
+
+msgid "manage_templates"
+msgstr "📝 Shablonlarni boshqarish"
+
+msgid "template_info"
+msgstr "%(rating)s yulduz uchun: %(template)s ⭐"
+
+msgid "enter_template_for_rating"
+msgstr "%(rating)s yulduz uchun shablon kiriting: ✍️"
+
+msgid "template_set"
+msgstr "%(rating)s yulduz uchun shablon o'rnatildi! ✅"
+
+msgid "no_template_for_rating"
+msgstr "%(rating)s yulduz uchun shablon o'rnatilmagan! ⚠️"
+
+msgid "send_by_template"
+msgstr "Shablon bo'yicha javob berish 📄"
+
+msgid "answered_questions_list"
+msgstr "Javob berilgan savollar ro'yxati ✅"
+
+msgid "answered_questions"
+msgstr "✅ Javob berilgan savollar"
+
+msgid "unanswered_questions"
+msgstr "📭 Javob berilmagan savollar"
+
+msgid "auto_questions_enabled"
+msgstr "Avtojavoblar yoqilgan"
+
+msgid "auto_questions_disabled"
+msgstr "Avtojavoblar o'chirilgan"
+
+msgid "confirm_reply"
+msgstr "Javobingizni tasdiqlang: %(reply_text)s ❓"
+
+msgid "send"
+msgstr "Yuborish ✅"
+
+msgid "cancel"
+msgstr "Bekor qilish 🚫"
+
+msgid "back_to_review"
+msgstr "Sharhga qaytish 🔙"
+
+msgid "answer_sent_successfully"
+msgstr "Javob muvaffaqiyatli yuborildi! 🎉"
+
+msgid "review_not_found"
+msgstr "Sharh topilmadi 😔"
+
+msgid "review_details"
+msgstr "📅 %(date)s\n\n%(user_display)s🌟 %(stars)s\n\n📦 %(product_name)s\n\n🔢 %(sku_label)s: %(sku)s\n\n💬 %(text)s"
+
+msgid "store_reply"
+msgstr "📩 Do'kon javobi: %(answer)s"
+
+msgid "review_counter"
+msgstr "🔢 Sharh %(current)s / %(total)s"
+
+msgid "next_button"
+msgstr "➡️"
+
+msgid "prev_button"
+msgstr "⬅️"
+
+msgid "back_to_list_button"
+msgstr "⬅️Ro'yxatga qaytish"
+
+msgid "no_answer"
+msgstr "Javob yo'q"
+
+msgid "unanswered"
+msgstr "📭 Javob berilmagan"
+
+msgid "reviews_list_title"
+msgstr "%(type)s sharhlar\n\n📊 Sharhlarning taqsimlanishi:\n\n%(rating_summary)s"
+
+msgid "prev_page"
+msgstr "⬅️Avvalgi sahifa"
+
+msgid "answered"
+msgstr "✅ Javob berilgan"
+
+msgid "back_to_reviews_work"
+msgstr "⬅️Sharhlar bilan ishlashga qaytish"
+
+msgid "auto_replies_disabled"
+msgstr "Avtojavoblar o'chirilgan"
+
+msgid "auto_replies_enabled"
+msgstr "Avtojavoblar yoqilgan"
+
+msgid "no_store_selected"
+msgstr "❌ Do'kon tanlanmagan."
+
+msgid "no_reviews_found"
+msgstr "📭 Sharhlar topilmadi."
+
+msgid "no_questions_found"
+msgstr "📭 Savollar topilmadi."
+
+msgid "reviews_list"
+msgstr "📋 Sharhlar ro'yxati"
+
+msgid "questions_list"
+msgstr "📋 Savollar ro'yxati"
+
+msgid "previous_page"
+msgstr "⬅️ Avvalgi sahifa"
+
+msgid "next_page"
+msgstr "➡️ Keyingi sahifa"
+
+msgid "questions_unanswered"
+msgstr "📬 Javob berilmagan savollar"
+
+msgid "questions_answered"
+msgstr "✅ Javob berilgan savollar"
+
+msgid "enter_employee_phone"
+msgstr "📱 Xodim telefon raqamingizni kiriting:"
+
+msgid "enter_access_code"
+msgstr "🔑 Kirish kodini kiriting:"
+
+msgid "welcome_employee"
+msgstr "👋 Xush kelibsiz, xodim!"
+
+msgid "invalid_employee_credentials"
+msgstr "❌ Noto'g'ri telefon raqami yoki kirish kodi."
+
+msgid "enter_new_full_name"
+msgstr "✏️ Xodimning yangi ismini kiriting:"
+
+msgid "enter_new_phone_employee"
+msgstr "📱 Xodimning yangi telefon raqamini kiriting:"
+
+msgid "enter_new_access_code"
+msgstr "🔢 Yangi kirish kodini kiriting (4 raqam):"
+
+msgid "invalid_access_code"
+msgstr "❌ Kirish kodi 4 raqamdan iborat bo'lishi kerak"
+
+msgid "employee_item"
+msgstr "👤 %(full_name)s (Faol: %(is_active)s)"
+
+msgid "choose_edit_employee_field"
+msgstr "✏️ Xodimni tahrirlash uchun maydonni tanlang:"
+
+msgid "edit_employee_name"
+msgstr "✏️ Xodim ismini tahrirlash"
+
+msgid "edit_employee_phone"
+msgstr "📱 Xodim telefon raqamini tahrirlash"
+
+msgid "edit_employee_code"
+msgstr "🔢 Xodim kirish kodini tahrirlash"
+
+msgid "edit_employee_stores"
+msgstr "🏪 Xodim do'konlarini tahrirlash"
+
+msgid "back_to_employee"
+msgstr "⬅️ Xodimga qaytish"
+
+msgid "confirm_delete_employee"
+msgstr "🗑️ Xodimni %(full_name)s o'chirishni istaysizmi?"
+
+msgid "employee_deleted"
+msgstr "🗑️ Xodim %(full_name)s o'chirildi"
+
+msgid "choose_role"
+msgstr "🎭 Rolni tanlang:"
+
+msgid "role_owner"
+msgstr "👑 Egasi"
+
+msgid "role_employee"
+msgstr "👷 Xodim"
+
+msgid "my_employees"
+msgstr "👥 Mening Xodimlarim"
+
+msgid "no_employees"
+msgstr "👥 Mavjud xodimlar yo'q"
+
+msgid "add_employee"
+msgstr "➕ Xodim qo'shish"
+
+msgid "enter_employee_name"
+msgstr "✏️ Xodim ismini kiriting:"
+
+msgid "enter_employee_phone_input"
+msgstr "📱 Xodim telefon raqamini kiriting:"
+
+msgid "enter_employee_code"
+msgstr "🔢 Xodim kirish kodini kiriting (4 raqam):"
+
+msgid "select_employee_stores"
+msgstr "🏪 Xodim uchun do'konlarni tanlang:"
+
+msgid "select_all_stores"
+msgstr "✅ Barcha do'konlarni tanlash"
+
+msgid "confirm_store_selection"
+msgstr "✔️ Do'kon tanlashni tasdiqlash"
+
+msgid "back_to_employee_action"
+msgstr "⬅️ Xodim harakatlariga qaytish"
+
+msgid "employee_added"
+msgstr "👥 Xodim qo'shildi: %(full_name)s"
+
+msgid "employee_info"
+msgstr "👤 Xodim: %(full_name)s\n📱 Telefon: %(phone)s\n🔢 Kirish kodi: %(access_code)s\n🔄 Holati: %(status)s\n🏪 Do'konlar: %(stores)s"
+
+msgid "edit_employee"
+msgstr "✏️ Xodimni tahrirlash"
+
+msgid "delete_employee"
+msgstr "🗑️ Xodimni o'chirish"
+
+msgid "toggle_employee_status"
+msgstr "🔄 Xodim holatini o'zgartirish"
+
+msgid "back_to_employees"
+msgstr "⬅️ Xodimlar ro'yxatiga qaytish"
+
+msgid "choose_employee"
+msgstr "👥 Xodimni tanlang:"
+
+msgid "Ozon"
+msgstr "🛍️ Ozon"
+
+msgid "Wildberries"
+msgstr "🛍️ Wildberries"
+
+msgid "Yandex Market"
+msgstr "🛍️ Yandex Market"
+
+msgid "questions_info"
+msgstr "📝 Avtojavoblar: %(questions_status)s\n\n⚙️ Rejim: %(questions_mode)s\n\n📭 Javob kutilmoqda: %(unanswered_count)s"
+
+msgid "questions_status_label"
+msgstr "📝 Savollar:"
+
+msgid "questions_mode_label"
+msgstr "⚙️ Rejim:"
+
+msgid "reviews_info"
+msgstr "📝 Avtojavoblar: %(reviews_status)s\n\n⚙️ Rejimlar:\n%(modes_info)s\n\n📭 Javob kutilmoqda: %(unanswered_count)s"
+
+msgid "reviews_status_label"
+msgstr "📝 Sharhlar:"
+
+msgid "reviews_modes_label"
+msgstr "⚙️ Rejimlar:"
+
+msgid "store_edit_info"
+msgstr "🏪 Do'kon nomi: %(store_name)s\n📋 Turi: %(store_type)s\n🔑 API kaliti: %(api_key)s\n🆔Client ID: %(client_id)s\n\n✏️ Tahrirlash uchun maydonni tanlang:"
+
+msgid "store_name_label"
+msgstr "🏪 Do'kon nomi:"
+
+msgid "store_type_label"
+msgstr "📋 Turi:"
+
+msgid "api_key_label"
+msgstr "🔑 API kaliti:"
+
+msgid "client_id_label"
+msgstr "🆔Client ID:"
+
+msgid "mode_not_set"
+msgstr "⚙️ O'rnatilmagan"
+
+msgid "enter_new_store_name"
+msgstr "📝 Yangi do'kon nomini kiriting:"
+
+msgid "enter_new_api_key"
+msgstr "🔑 Yangi API kalitini kiriting:"
+
+msgid "enter_new_client_id"
+msgstr "🆔 Yangi Client ID kiriting:"
+
+msgid "back"
+msgstr "🔙 Orqaga"
+
+msgid "store_deleted"
+msgstr "🗑️ Do'kon o'chirildi."
+
+msgid "choose_edit_field"
+msgstr "✏️ Tahrirlash uchun maydonni tanlang:"
+
+msgid "review_modes"
+msgstr "⚙️ Ish rejimlari:"
+
+msgid "view_reviews"
+msgstr "📝 Sharhlarni ko'rish"
+
+msgid "question_modes"
+msgstr "⚙️ Ish rejimlari:"
+
+msgid "view_questions"
+msgstr "❓ Savollarni ko'rish"
+
+msgid "change_language"
+msgstr "🌐 Tilni o'zgartirish"
+
+msgid "choose_language"
+msgstr "🌍 Iltimos, tilni tanlang:"
+
+msgid "language_az"
+msgstr "🇦🇿 Ozarbayjoncha"
+
+msgid "language_en"
+msgstr "🇬🇧 Inglizcha"
+
+msgid "language_kz"
+msgstr "🇰🇿 Qozoqcha"
+
+msgid "language_uz"
+msgstr "🇺🇿 O'zbekcha"
+
+msgid "language_ru"
+msgstr "🇷🇺 Ruscha"
+
+msgid "language_bl"
+msgstr "🇧🇾 Belaruscha"
+
+msgid "language_am"
+msgstr "🇦🇲 Armancha"
+
+msgid "language_cn"
+msgstr "🇨🇳 Xitoycha"
+
+msgid "star_1"
+msgstr "⭐ 1 yulduz"
+
+msgid "star_2"
+msgstr "⭐ 2 yulduz"
+
+msgid "star_3"
+msgstr "⭐ 3 yulduz"
+
+msgid "star_4"
+msgstr "⭐ 4 yulduz"
+
+msgid "star_5"
+msgstr "⭐ 5 yulduz"
+
+msgid "language_set"
+msgstr "🌍 Til o'rnatildi: %(lang_name)s"
+
+msgid "send_phone_button"
+msgstr "📱 Telefon raqamini yuborish"
+
+msgid "store_item"
+msgstr "🏪 %(store_name)s (%(store_type)s)"
+
+msgid "back_to_main_menu"
+msgstr "⬅️ Asosiy menyuga qaytish"
+
+msgid "send_phone_number"
+msgstr "📱 Iltimos, telefon raqamingizni ulashing:"
+
+msgid "phone_received"
+msgstr "📱 Telefon raqami qabul qilindi"
+
+msgid "welcome_back"
+msgstr "👋 Xush kelibsiz!"
+
+msgid "unsupported_language"
+msgstr "⚠️ Qo'llab-quvvatlanmaydigan til"
+
+msgid "my_stores_button"
+msgstr "🛍️ Mening Do'konlarim"
+
+msgid "add_store_button"
+msgstr "➕ Do'kon qo'shish"
+
+msgid "choose_store_platform"
+msgstr "🏪 Do'kon platformasini tanlang:"
+
+msgid "enter_store_name"
+msgstr "✏️ Do'kon nomini kiriting:"
+
+msgid "enter_api_key"
+msgstr "🔑 API kalitini kiriting:"
+
+msgid "invalid_store_type"
+msgstr "❌ Noto'g'ri do'kon turi"
+
+msgid "store_added"
+msgstr "🏪 Do'kon qo'shildi: %(store_name)s (%(store_type)s)"
+
+msgid "enter_client_id"
+msgstr "🆔 Client ID kiriting:"
+
+msgid "no_stores"
+msgstr "🛍️ Mavjud do'konlar yo'q"
+
+msgid "choose_store"
+msgstr "Do'konni tanlang:"
+
+msgid "store_not_selected"
+msgstr "⚠️ Do'kon tanlanmagan"
+
+msgid "store_name_exists"
+msgstr "⚠️ Do'kon nomi allaqachon mavjud"
+
+msgid "store_name_updated"
+msgstr "✏️ Do'kon nomi yangilandi: %(store_name)s"
+
+msgid "return_to_store"
+msgstr "⬅️ Do'konga qaytish: %(store_name)s"
+
+msgid "data_not_found"
+msgstr "⚠️ Ma'lumotlar topilmadi"
+
+msgid "invalid_field"
+msgstr "❌ Noto'g'ri maydon"
+
+msgid "field_updated"
+msgstr "✅ Maydon yangilandi: %(field)s do'koni uchun %(store_name)s"
+
+msgid "client_id_not_used"
+msgstr "⚠️Client ID bu turdagi do'kon uchun ishlatilmaydi"
+
+msgid "confirm_delete_store"
+msgstr "🗑️ %(store_name)s do'konini o'chirishni istaysizmi?"
+
+msgid "store_deletion_error"
+msgstr "❌ Do'konni o'chirish xatosi"
+
+msgid "deletion_cancelled"
+msgstr "🚫 O'chirish bekor qilindi"
+
+msgid "main_menu"
+msgstr "🏠 Asosiy Menyu"
+
+msgid "store_selected"
+msgstr "🏪 Do'kon tanlandi: %(store_name)s"
+
+msgid "view_store"
+msgstr "👀 Do'konni ko'rish"
+
+msgid "edit_store"
+msgstr "✏️ Do'konni tahrirlash"
+
+msgid "reviews_work"
+msgstr "📝 Sharhlar bilan ishlash"
+
+msgid "questions_work"
+msgstr "❓ Savollar bilan ishlash"
+
+msgid "notifications"
+msgstr "🔔 Bildirishnomalar"
+
+msgid "back_to_menu"
+msgstr "⬅️ Menyuga qaytish"
+
+msgid "store_info"
+msgstr "🏪 Do'kon: %(store_name)s (%(store_type)s)\n ━━━━━━━━━━━━━━━━\n 📝Sharhlar bo'limi\n\n 🤖Avtojavoblar: %(reviews_status)s\n\n 📭 %(unanswered_reviews)s javob kutilmoqda\n\n ⚙️ Rejimlar:\n%(modes_info)s\n━━━━━━━━━━━━━━━━\n ❓Savollar bo'limi\n\n 🤖Avtojavoblar: %(questions_status)s\n\n 📬 %(unanswered_questions)s javob kutilmoqda\n\n ⚙️ Savol rejimi: %(questions_mode)s"
+
+msgid "modes_not_set"
+msgstr "⚙️ Rejimlar o'rnatilmagan"
+
+msgid "mode_auto"
+msgstr "🤖 Avtomatik"
+
+msgid "mode_semi"
+msgstr "⚙️ Yarim avtomatik"
+
+msgid "mode_manual"
+msgstr "✋ Qo'lda"
+
+msgid "mode_info"
+msgstr " ⭐ %(rating)s: %(mode)s"
+
+msgid "questions_status"
+msgstr "❓ Savollar holati: %(status)s"
+
+msgid "auto_replies_toggled"
+msgstr "🤖 Avtomatik javoblar %(status)s"
+
+msgid "current_modes"
+msgstr "⚙️ Joriy sharh rejimlari:"
+
+msgid "rating_selected"
+msgstr "⭐ %(rating)s bahosi tanlandi\n\n🤖Avtomatik - bot sharhni oladi va avtomatik javob yuboradi.\n\n⚙️Yarim avtomatik - bot ma'lum bir sharhga yoki savolga o'tganingizda javob yaratadi.\n\n✋Qo'lda - generatsiya bo'lmaydi, siz sharhlarga yoki savollarga qo'lda javob bera olasiz.\n\n📄Shablon bo'yicha - tanlangan baho uchun kerakli shablonni o'rnating va bot sizning shabloningiz bilan javob yuboradi.\n\n\nRejimni tanlang:"
+
+msgid "mode_updated"
+msgstr "%(rating)s bahosi uchun rejim yangilandi: %(mode)s"
+
+msgid "return_to_reviews"
+msgstr "⬅️ Sharhlarga qaytish"
+
+msgid "reviews_work_for_store"
+msgstr "📝 Do'kon uchun sharhlar bilan ishlash: %(store_name)s"
+
+msgid "back_to_store_from_reviews"
+msgstr "⬅️ Sharhlardan do'konga qaytish"
+
+msgid "questions_work_for_store"
+msgstr "❓ Do'kon uchun savollar bilan ishlash: %(store_name)s"
+
+msgid "questions_auto_replies_toggled"
+msgstr "🤖 %(store_name)s do'koni uchun savollarning avtomatik javoblari %(status)s"
+
+msgid "current_questions_mode"
+msgstr "⚙️ Joriy savol rejimi: %(current_mode)s"
+
+msgid "questions_mode_set"
+msgstr "Savol rejimi o'rnatildi: %(mode)s"
+
+msgid "choose_action"
+msgstr "⚙️ Harakatni tanlang:"
+
+msgid "return_to_questions"
+msgstr "⬅️ Savollarga qaytish"
+
+msgid "back_to_menu_from_questions"
+msgstr "⬅️ Savollardan menyuga qaytish"
+
+msgid "question_text"
+msgstr "❓ Savol: %(question_text)s"
+
+msgid "wildberries_question_warning"
+msgstr "⚠️ Eslatma: Bu Wildberries'dan savol"
+
+msgid "answer_sent_auto"
+msgstr "✅ Javob avtomatik yuborildi: %(reply_text)s"
+
+msgid "error_sending_answer"
+msgstr "❌ Javob yuborish xatosi"
+
+msgid "proposed_answer"
+msgstr "📝 Taklif qilingan javob: %(proposed_reply)s"
+
+msgid "write_answer"
+msgstr "✏️ Javobingizni yozing:"
+
+msgid "all_questions_viewed"
+msgstr "✅ Barcha savollar ko'rilgan"
+
+msgid "no_more_questions"
+msgstr "❓ Boshqa savollar yo'q"
+
+msgid "answer_sent"
+msgstr "✅ Javob yuborildi: %(reply_text)s"
+
+msgid "question_skipped"
+msgstr "➡️ Savol o'tkazib yuborildi"
+
+msgid "enter_your_answer"
+msgstr "✏️ Javobingizni kiriting:"
+
+msgid "back_to_store_question"
+msgstr "⬅️ Savollardan do'konga qaytish"
+
+msgid "enter_answer_first"
+msgstr "⚠️ Avval javob kiriting"
+
+msgid "your_answer"
+msgstr "📝 Sizning javobingiz: %(response_text)s"
+
+msgid "send_question_reply"
+msgstr "📤 Javob yuborish"
+
+msgid "wildberries_review_warning"
+msgstr "⚠️ Eslatma: Bu Wildberries'dan sharh"
+
+msgid "review_text"
+msgstr "📝 Sharh: ⭐%(rating)s %(review_text)s"
+
+msgid "error_processing_review"
+msgstr "❌ Sharhni qayta ishlash xatosi"
+
+msgid "all_reviews_viewed"
+msgstr "✅ Barcha sharhlar ko'rilgan"
+
+msgid "no_more_reviews"
+msgstr "📝 Boshqa sharhlar yo'q"
+
+msgid "review_skipped"
+msgstr "➡️ Sharh o'tkazib yuborildi"
+
+msgid "format_error"
+msgstr "❌ Format xatosi: %(error)s"
+
+msgid "error_saving_settings"
+msgstr "❌ Sozlamalarni saqlash xatosi"
+
+msgid "send_as_is"
+msgstr "📤 Taklif qilingan holda yuborish"
+
+msgid "edit_reply"
+msgstr "✏️ Javobni tahrirlash"
+
+msgid "skip_review"
+msgstr "➡️ Sharhni o'tkazib yuborish"
+
+msgid "send_reply"
+msgstr "📤 Javob yuborish"
+
+msgid "edit_question_reply"
+msgstr "✏️ Savolga javobni tahrirlash"
+
+msgid "skip_question"
+msgstr "➡️ Savolni o'tkazib yuborish"
+
+msgid "back_to_reviews_menu"
+msgstr "⬅️ Sharhlar menyusiga qaytish"
+
+msgid "send_as_is_question"
+msgstr "📤 Savolni taklif qilingan holda yuborish"
+
+msgid "back_to_questions_menu"
+msgstr "⬅️ Savollar menyusiga qaytish"
+
+msgid "edit_name"
+msgstr "✏️ Nomni tahrirlash"
+
+msgid "edit_api_key"
+msgstr "🔑 API kalitini tahrirlash"
+
+msgid "edit_client_id"
+msgstr "🆔 Client ID ni tahrirlash"
+
+msgid "delete_store"
+msgstr "🗑️ Do'konni o'chirish"
+
+msgid "back_in_edit_field"
+msgstr "⬅️ Maydon tanlashiga qaytish"
+
+msgid "confirm_delete"
+msgstr "✅ O'chirishni tasdiqlash"
+
+msgid "cancel_delete"
+msgstr "🚫 O'chirishni bekor qilish"
+
+msgid "back_to_rating_selection"
+msgstr "⬅️ Baholarni tanlashga qaytish"
+
+msgid "only_1_star"
+msgstr "⭐ Faqat 1 yulduz"
+
+msgid "1_2_stars"
+msgstr "⭐ 1-2 yulduz"
+
+msgid "1_3_stars"
+msgstr "⭐ 1-3 yulduz"
+
+msgid "disabled"
+msgstr "🚫 O'chirilgan"
+
+msgid "enabled"
+msgstr "✅ Yoqilgan"
+
+msgid "not_set"
+msgstr "⚙️ O'rnatilmagan"
+
+msgid "store_not_found"
+msgstr "⚠️ Do'kon topilmadi"
+
+msgid "store_access_denied"
+msgstr "🚫 Do'konga kirish taqiqlangan"
+
+msgid "no_reviews"
+msgstr "📝 Ko'rsatish uchun sharhlar yo'q"
+
+msgid "no_unanswered_questions"
+msgstr "📭 Javob berilmagan savollar yo'q"
+
+msgid "no_answered_questions"
+msgstr "❓ Javob berilgan savollar yo'q"
+
+msgid "invalid_store_id"
+msgstr "❌ Noto'g'ri do'kon ID"
+
+msgid "unknown_command"
+msgstr "❓ Noma'lum buyruq"
+
+msgid "error_occurred"
+msgstr "❌ Xato yuz berdi"
+
+msgid "star_rating"
+msgstr "⭐%(rating)s: %(count)s"
+
+msgid "back_to_store"
+msgstr "⬅️ Do'konga qaytish"

@@ -1,0 +1,1117 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: bot\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-18 16:32+0200\n"
+"PO-Revision-Date: 2025-07-19 22:12+0200\n"
+"Last-Translator: \n"
+"Language-Team: Armenian\n"
+"Language: hy\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "reviews_enabled"
+msgstr "✅ Միացված է"
+
+msgid "stop_words_list"
+msgstr "🛑 Կանգառի բառեր (%(count)s):\n\n%(words_list)s\n\nԸնտրեք գործողություն՝"
+
+msgid "stop_words_empty"
+msgstr "🛑 Կանգառի բառեր՝\n\nՆկարագրություն՝\nՍահմանեք բառեր, որոնց դեպքում գեներացիան չի կատարվի։\n\nԴեռ ոչինչ չի ավելացվել։\n\nԸնտրեք գործողություն՝"
+
+msgid "add_stop_words_instruction"
+msgstr "➕ Կանգառի բառերի ավելացում\n\nՈւղարկեք ստորակետերով բաժանված բառերը, որոնք պետք է ավելացնել։\n\nՕրինակ՝\nվատ, կեղծ"
+
+msgid "remove_stop_words_instruction"
+msgstr "➖ Կանգառի բառերի հեռացում\n\nՈւղարկեք ստորակետերով բաժանված բառերը, որոնք պետք է հեռացնել։\n\nՀեռացվելու են միայն ճշգրիտ համապատասխանությունները։"
+
+msgid "clear_stop_words_confirm"
+msgstr "⚠️ Մաքրե՞լ բոլոր կանգառի բառերը։\n\nՑանկը ամբողջությամբ կջնջվի։"
+
+msgid "stop_words_cleared"
+msgstr "✅ Կանգառի բառերը մաքրվել են"
+
+msgid "stop_words_success"
+msgstr "✅ Կանգառի բառերը թարմացվել են\n\nԸնթացիկ ցանկը (%(count)s)՝\n%(words_list)s"
+
+msgid "minus_words_list"
+msgstr "🛑 Մինուս բառեր (%(count)s):\n\n%(words_list)s\n\nԸնտրեք գործողություն՝"
+
+msgid "minus_words_empty"
+msgstr "🛑 Մինուս բառեր՝\n\nՆկարագրություն՝\nՍահմանեք բառեր, որոնք AI-ն չի օգտագործի պատասխանում։\n\nԴեռ ոչինչ չի ավելացվել։\n\nԸնտրեք գործողություն՝"
+
+msgid "add_minus_words_instruction"
+msgstr "➕ Մինուս բառերի ավելացում\n\nՈւղարկեք ստորակետերով բաժանված բառերը, որոնք պետք է ավելացնել։\n\nՕրինակ՝\nվատ, կեղծ"
+
+msgid "remove_minus_words_instruction"
+msgstr "➖ Մինուս բառերի հեռացում\n\nՈւղարկեք ստորակետերով բաժանված բառերը, որոնք պետք է հեռացնել։\n\nՀեռացվելու են միայն ճշգրիտ համապատասխանությունները։"
+
+msgid "clear_minus_words_confirm"
+msgstr "⚠️ Մաքրե՞լ բոլոր մինուս բառերը։\n\nՑանկը ամբողջությամբ կջնջվի։"
+
+msgid "minus_words_cleared"
+msgstr "✅ Մինուս բառերը մաքրվել են"
+
+msgid "minus_words_success"
+msgstr "✅ Մինուս բառերը թարմացվել են\n\nԸնթացիկ ցանկը (%(count)s)՝\n%(words_list)s"
+
+msgid "add_button"
+msgstr "➕ Ավելացնել"
+
+msgid "remove_button"
+msgstr "➖ Հեռացնել"
+
+msgid "clear_button"
+msgstr "🗑 Մաքրել"
+
+msgid "confirm_clear"
+msgstr "✅ Մաքրել"
+
+msgid "empty"
+msgstr "դատարկ"
+
+msgid "yes"
+msgstr "Այո"
+
+msgid "no"
+msgstr "Ոչ"
+
+msgid "contact_developer"
+msgstr "💬 Գրել մշակողին"
+
+msgid "support_text"
+msgstr "Եթե դուք սխալ կամ խնդիր ունեք բոտի հետ, գրեք ինձ ուղղակիորեն: Ես կօգնեմ լուծել հարցը։\n\nԻնչ պետք է անել՝\n1. Սեղմեք ստորև նշված կոճակը\n2. Նկարագրեք, թե ինչ է պատահել\n3. Նշեք, թե որ գործողություններն են հանգեցրել սխալին\n\nԵս կփորձեմ պատասխանել հնարավորինս շուտ:"
+
+msgid "address_style_setting"
+msgstr "Դիմելաձև"
+
+msgid "address_formal"
+msgstr "Դուք տարբերակով"
+
+msgid "address_lowercase"
+msgstr "դուք տարբերակով"
+
+msgid "address_informal"
+msgstr "դու տարբերակով"
+
+msgid "address_style_header"
+msgstr "🎭 Ընտրեք դիմելաձևի ոճը՝"
+
+msgid "address_style_set"
+msgstr "✅ Դիմելաձևի ոճը սահմանված է՝ {style}"
+
+msgid "support"
+msgstr "🛟 Աջակցություն"
+
+msgid "stores_header"
+msgstr "Խանութներ"
+
+msgid "questions"
+msgstr "Հարցեր"
+
+msgid "reviews"
+msgstr "Կարծիքներ"
+
+msgid "store_settings"
+msgstr "⚙️ AI-ի կարգավորում"
+
+msgid "store_settings_templates"
+msgstr "📝 Պատասխանների ձևանմուշներ"
+
+msgid "store_settings_advanced"
+msgstr "⚙️ Ընդլայնված կարգավորումներ"
+
+msgid "advanced_settings_header"
+msgstr "⚙️ Գեներացիայի ընդլայնված կարգավորումներ՝"
+
+msgid "use_name_setting"
+msgstr "👤 Դիմել անունով"
+
+msgid "mention_product_setting"
+msgstr "📦 Խորհուրդ տալ ապրանքներ"
+
+msgid "use_emojis_setting"
+msgstr "😊 Էմոջիներ պատասխաններում"
+
+msgid "response_length_setting"
+msgstr "Պատասխանի երկարություն"
+
+msgid "response_length_short"
+msgstr "Համառոտ (մինչև 30 բառ)"
+
+msgid "response_length_default"
+msgstr "Լռելյայն (մինչև 70 բառ)"
+
+msgid "response_length_long"
+msgstr "Մանրամասն (մինչև 150 բառ)"
+
+msgid "response_length_header"
+msgstr "📏 Ընտրեք պատասխանի երկարությունը՝"
+
+msgid "response_length_set"
+msgstr "✅ Պատասխանի երկարությունը սահմանված է՝ %(length)s"
+
+msgid "delivery_method_setting"
+msgstr "Առաքում"
+
+msgid "delivery_method_marketplace"
+msgstr "📦 Մարքեթփլեյս"
+
+msgid "delivery_method_self"
+msgstr "🚗 Ինքնուրույն"
+
+msgid "delivery_method_header"
+msgstr "🚚 Ընտրեք առաքման եղանակը՝\n\nՆկարագրություն՝\nԻնչպես են առաքվում ապրանքները։"
+
+msgid "delivery_method_set"
+msgstr "✅ Առաքման եղանակը սահմանված է՝ %(method)s"
+
+msgid "tone_setting"
+msgstr "Երանգ"
+
+msgid "tone_business"
+msgstr "🏢 Գործնական"
+
+msgid "tone_friendly"
+msgstr "😊 Բարեկամական"
+
+msgid "tone_strict"
+msgstr "⚠️ Խիստ"
+
+msgid "tone_header"
+msgstr "🎭 Ընտրեք պատասխանների երանգը՝\n\nՆկարագրություն՝\nՍահմանում է AI-ի բնույթը"
+
+msgid "tone_set"
+msgstr "Երանգը սահմանված է՝ %(tone)s"
+
+msgid "stop_words_setting"
+msgstr "✏️ Կանգառի բառեր"
+
+msgid "minus_words_setting"
+msgstr "✏️ Մինուս բառեր"
+
+msgid "stop_words_current"
+msgstr "🚫 Ընթացիկ կանգառի բառերը՝ %(words)s"
+
+msgid "stop_words_instruction"
+msgstr "Մուտքագրեք կանգառի բառերը ստորակետերով առանձնացված (բառեր, որոնց դեպքում գեներացիան չի կատարվում)՝\nՕրինակ՝ սպամ, գովազդ, բողոք"
+
+msgid "stop_words_updated"
+msgstr "✅ Կանգառի բառերը թարմացվել են՝ %(words)s"
+
+msgid "minus_words_current"
+msgstr "❌ Ընթացիկ մինուս բառերը՝ %(words)s"
+
+msgid "minus_words_instruction"
+msgstr "Մուտքագրեք մինուս բառերը ստորակետերով առանձնացված (բառեր, որոնք AI-ն չպետք է օգտագործի)՝\nՕրինակ՝ սարսափելի, մղձավանջ, հիասթափություն"
+
+msgid "minus_words_updated"
+msgstr "✅ Մինուս բառերը թարմացվել են՝ %(words)s"
+
+msgid "cleared"
+msgstr "մաքրվել է"
+
+msgid "unknown_setting"
+msgstr "Անհայտ կարգավորում"
+
+msgid "error_loading_settings"
+msgstr "Կարգավորումների բեռնման սխալ"
+
+msgid "template_preview_line"
+msgstr "⭐%(rating)s աստղ՝ %(preview)s"
+
+msgid "template_not_set_line"
+msgstr "⭐%(rating)s աստղ՝ Չի սահմանվել 🚫"
+
+msgid "current_templates_header"
+msgstr "📄 Ընթացիկ պատասխանների ձևանմուշներ՝"
+
+msgid "template_status_line"
+msgstr "⭐ %(rating)s աստղի համար՝ %(status)s"
+
+msgid "current_template_for_rating"
+msgstr "Ընթացիկ ձևանմուշը %(rating)s աստղի համար՝\n\n%(template)s"
+
+msgid "enter_new_template"
+msgstr "Մուտքագրեք նոր ձևանմուշ %(rating)s աստղի համար՝"
+
+msgid "template_updated"
+msgstr "%(rating)s աստղի համար ձևանմուշը թարմացվել է:"
+
+msgid "template_deleted"
+msgstr "%(rating)s աստղի համար ձևանմուշը ջնջվել է:"
+
+msgid "edit_template"
+msgstr "✏️ Փոփոխել ձևանմուշը"
+
+msgid "delete_template"
+msgstr "🗑 Ջնջել ձևանմուշը"
+
+msgid "rating_button_1"
+msgstr "⭐1 աստղ"
+
+msgid "rating_button_2"
+msgstr "⭐2 աստղ"
+
+msgid "rating_button_3"
+msgstr "⭐3 աստղ"
+
+msgid "rating_button_4"
+msgstr "⭐4 աստղ"
+
+msgid "rating_button_5"
+msgstr "⭐5 աստղ"
+
+msgid "not_applicable"
+msgstr "Պահանջված չէ"
+
+msgid "article"
+msgstr "Արտիկուլ"
+
+msgid "pros"
+msgstr "Դրական կողմեր"
+
+msgid "cons"
+msgstr "Բացասական կողմեր"
+
+msgid "back_to_stores_list"
+msgstr "⬅️ Վերադառնալ խանութների ցանկին"
+
+msgid "sku_not_available"
+msgstr "Արտիկուլը նշված չէ"
+
+msgid "unknown_product"
+msgstr "Անհայտ ապրանք"
+
+msgid "no_store_reply"
+msgstr "Խանութը դեռ չի պատասխանել այս կարծիքին"
+
+msgid "product_name"
+msgstr "Ապրանքի անվանումը"
+
+msgid "enter_password_to_login"
+msgstr "🔐 Մուտքագրեք գաղտնաբառ մուտք գործելու համար՝"
+
+msgid "invalid_password"
+msgstr "❌ Սխալ գաղտնաբառ, նորից փորձեք:"
+
+msgid "logout_button"
+msgstr "🚪 Դուրս գալ պրոֆիլից"
+
+msgid "logged_out_message"
+msgstr "👋 Դուք դուրս եք եկել պրոֆիլից:"
+
+msgid "enter_phone_to_login"
+msgstr "📱 Մուտքագրեք հեռախոսահամարը կրկին մուտք գործելու համար՝"
+
+msgid "password_invalid_format"
+msgstr "⚠️ Գաղտնաբառը պետք է պարունակի առնվազն 7 նիշ և բաղկացած լինի միայն լատինական տառերից, թվերից և _!@#$%^&*.- նիշերից"
+
+msgid "password_set"
+msgstr "✅ Սահմանված է"
+
+msgid "enter_old_password"
+msgstr "🔑 Մուտքագրեք հին գաղտնաբառը՝"
+
+msgid "old_password_incorrect"
+msgstr "❌ Հին գաղտնաբառը սխալ է"
+
+msgid "password_too_short"
+msgstr "⚠️ Գաղտնաբառը պետք է պարունակի առնվազն 6 նիշ"
+
+msgid "confirm_new_password"
+msgstr "🔁 Կրկնեք նոր գաղտնաբառը՝"
+
+msgid "passwords_do_not_match"
+msgstr "❌ Գաղտնաբառերը չեն համապատասխանում"
+
+msgid "password_changed_successfully"
+msgstr "✅ Գաղտնաբառը հաջողությամբ փոխվել է"
+
+msgid "my_profile_button"
+msgstr "👤 Իմ պրոֆիլը"
+
+msgid "change_phone_button"
+msgstr "📱 Փոխել հեռախոսահամարը"
+
+msgid "change_password_button"
+msgstr "🔑 Փոխել գաղտնաբառը"
+
+msgid "back_to_menu_button"
+msgstr "⬅️ Վերադառնալ ընտրացանկ"
+
+msgid "not_specified"
+msgstr "❌ Նշված չէ"
+
+msgid "profile_title"
+msgstr "👤 Ձեր պրոֆիլը"
+
+msgid "profile_phone"
+msgstr "📞 Հեռախոսահամար"
+
+msgid "profile_password"
+msgstr "🔐 Գաղտնաբառ"
+
+msgid "profile_stores_count"
+msgstr "🏬 Խանութների քանակը"
+
+msgid "profile_employees_count"
+msgstr "👥 Աշխատակիցների քանակը"
+
+msgid "enter_new_phone"
+msgstr "📱 Մուտքագրեք նոր հեռախոսահամար՝"
+
+msgid "enter_new_password"
+msgstr "🔑 Մուտքագրեք նոր գաղտնաբառ՝"
+
+msgid "main_menu_text"
+msgstr "🏠 Գլխավոր ընտրացանկ՝"
+
+msgid "enter_reply_text"
+msgstr "Գրեք պատասխան՝"
+
+msgid "send_ai_reply"
+msgstr "🤖 Ուղարկել AI պատասխան"
+
+msgid "manual_reply"
+msgstr "✍️ Պատասխանել ձեռքով"
+
+msgid "enter_password"
+msgstr "Հորինեք գաղտնաբառ՝"
+
+msgid "suggested_reply"
+msgstr "Առաջարկվող պատասխան՝ %(reply_text)s"
+
+msgid "confirm_password"
+msgstr "Հաստատեք գաղտնաբառը"
+
+msgid "registration_complete"
+msgstr "Գրանցումը կատարված է:"
+
+msgid "unanswered_questions_list"
+msgstr "Անպատասխան հարցեր"
+
+msgid "product_link"
+msgstr "Ապրանքի հղումը"
+
+msgid "back_to_list"
+msgstr "Վերադառնալ հետ"
+
+msgid "review"
+msgstr "Կարծիք"
+
+msgid "answer"
+msgstr "Հարցի պատասխան"
+
+msgid "sku"
+msgstr "SKU"
+
+msgid "question"
+msgstr "Հարց"
+
+msgid "next"
+msgstr "➡️"
+
+msgid "mode_template"
+msgstr "📄 Ըստ ձևանմուշի"
+
+msgid "no_unanswered_reviews_for_rating"
+msgstr "%(rating)s աստղերի համար չմշակված կարծիքներ չկան 😕"
+
+msgid "template_applied"
+msgstr "%(rating)s աստղերի ձևանմուշը կիրառվել է %(count)s կարծիքների նկատմամբ՝ %(template)s ✅"
+
+msgid "manage_templates"
+msgstr "📝 Ձևանմուշների կառավարում"
+
+msgid "template_info"
+msgstr "%(rating)s աստղերի համար՝ %(template)s ⭐"
+
+msgid "enter_template_for_rating"
+msgstr "Մուտքագրեք ձևանմուշ %(rating)s աստղերի համար՝ ✍️"
+
+msgid "template_set"
+msgstr "%(rating)s աստղերի ձևանմուշը սահմանված է: ✅"
+
+msgid "no_template_for_rating"
+msgstr "%(rating)s աստղերի ձևանմուշը չի սահմանվել: ⚠️"
+
+msgid "send_by_template"
+msgstr "Պատասխանել ըստ ձևանմուշի 📄"
+
+msgid "answered_questions_list"
+msgstr "Պատասխանված հարցերի ցանկ ✅"
+
+msgid "answered_questions"
+msgstr "✅ Պատասխանված հարցեր"
+
+msgid "unanswered_questions"
+msgstr "📭 Անպատասխան հարցեր"
+
+msgid "auto_questions_enabled"
+msgstr "Ինքնապատասխաններ միացված են"
+
+msgid "auto_questions_disabled"
+msgstr "Ինքնապատասխաններ անջատված են"
+
+msgid "confirm_reply"
+msgstr "Հաստատեք ձեր պատասխանը՝ %(reply_text)s ❓"
+
+msgid "send"
+msgstr "Ուղարկել ✅"
+
+msgid "cancel"
+msgstr "Չեղարկել 🚫"
+
+msgid "back_to_review"
+msgstr "Վերադառնալ կարծիքին 🔙"
+
+msgid "answer_sent_successfully"
+msgstr "Պատասխանը հաջողությամբ ուղարկվել է: 🎉"
+
+msgid "review_not_found"
+msgstr "Կարծիքը չի գտնվել 😔"
+
+msgid "review_details"
+msgstr "📅 %(date)s\n\n%(user_display)s🌟 %(stars)s\n\n📦 %(product_name)s\n\n🔢 %(sku_label)s՝ %(sku)s\n\n💬 %(text)s"
+
+msgid "store_reply"
+msgstr "📩 Խանութի պատասխանը՝ %(answer)s"
+
+msgid "review_counter"
+msgstr "🔢 Կարծիք %(current)s %(total)s-ից"
+
+msgid "next_button"
+msgstr "➡️"
+
+msgid "prev_button"
+msgstr "⬅️"
+
+msgid "back_to_list_button"
+msgstr "⬅️ Վերադառնալ ցանկին"
+
+msgid "no_answer"
+msgstr "Պատասխան չկա"
+
+msgid "unanswered"
+msgstr "📭 Անպատասխան"
+
+msgid "reviews_list_title"
+msgstr "%(type)s կարծիքներ\n\n📊 Կարծիքների բաշխում՝\n\n%(rating_summary)s"
+
+msgid "prev_page"
+msgstr "⬅️ Նախորդ էջ"
+
+msgid "answered"
+msgstr "✅ Պատասխանված"
+
+msgid "back_to_reviews_work"
+msgstr "⬅️ Վերադառնալ կարծիքների հետ աշխատանքին"
+
+msgid "auto_replies_disabled"
+msgstr "Ինքնապատասխաններ անջատված են"
+
+msgid "auto_replies_enabled"
+msgstr "Ինքնապատասխաններ միացված են"
+
+msgid "no_store_selected"
+msgstr "❌ Խանութը չի ընտրվել:"
+
+msgid "no_reviews_found"
+msgstr "📭 Կարծիքներ չեն գտնվել:"
+
+msgid "no_questions_found"
+msgstr "📭 Հարցեր չեն գտնվել:"
+
+msgid "reviews_list"
+msgstr "📋 Կարծիքների ցանկ"
+
+msgid "questions_list"
+msgstr "📋 Հարցերի ցանկ"
+
+msgid "previous_page"
+msgstr "⬅️ Նախորդ էջ"
+
+msgid "next_page"
+msgstr "➡️ Հաջորդ էջ"
+
+msgid "questions_unanswered"
+msgstr "📬 Անպատասխան հարցեր"
+
+msgid "questions_answered"
+msgstr "✅ Պատասխանված հարցեր"
+
+msgid "enter_employee_phone"
+msgstr "📱 Մուտքագրեք ձեր աշխատակցի հեռախոսահամարը՝"
+
+msgid "enter_access_code"
+msgstr "🔑 Մուտքագրեք մուտքի կոդը՝"
+
+msgid "welcome_employee"
+msgstr "👋 Բարի գալուստ, աշխատակից:"
+
+msgid "invalid_employee_credentials"
+msgstr "❌ Սխալ հեռախոսահամար կամ մուտքի կոդ:"
+
+msgid "enter_new_full_name"
+msgstr "✏️ Մուտքագրեք աշխատակցի նոր անունը՝"
+
+msgid "enter_new_phone_employee"
+msgstr "📱 Մուտքագրեք աշխատակցի նոր հեռախոսահամարը՝"
+
+msgid "enter_new_access_code"
+msgstr "🔢 Մուտքագրեք նոր մուտքի կոդ (4 նիշ)՝"
+
+msgid "invalid_access_code"
+msgstr "❌ Մուտքի կոդը պետք է բաղկացած լինի 4 նիշից"
+
+msgid "employee_item"
+msgstr "👤 %(full_name)s (Ակտիվ՝ %(is_active)s)"
+
+msgid "choose_edit_employee_field"
+msgstr "✏️ Ընտրեք աշխատակցի խմբագրման դաշտը՝"
+
+msgid "edit_employee_name"
+msgstr "✏️ Խմբագրել աշխատակցի անունը"
+
+msgid "edit_employee_phone"
+msgstr "📱 Խմբագրել աշխատակցի հեռախոսահամարը"
+
+msgid "edit_employee_code"
+msgstr "🔢 Խմբագրել աշխատակցի մուտքի կոդը"
+
+msgid "edit_employee_stores"
+msgstr "🏪 Խմբագրել աշխատակցի խանութները"
+
+msgid "back_to_employee"
+msgstr "⬅️ Վերադառնալ աշխատակցին"
+
+msgid "confirm_delete_employee"
+msgstr "🗑️ Համա՞ստ եք, որ ցանկանում եք ջնջել %(full_name)s աշխատակցին:"
+
+msgid "employee_deleted"
+msgstr "🗑️ %(full_name)s աշխատակիցը ջնջվել է"
+
+msgid "choose_role"
+msgstr "🎭 Ընտրեք դերը՝"
+
+msgid "role_owner"
+msgstr "👑 Սեփականատեր"
+
+msgid "role_employee"
+msgstr "👷 Աշխատակից"
+
+msgid "my_employees"
+msgstr "👥 Իմ աշխատակիցները"
+
+msgid "no_employees"
+msgstr "👥 Հասանելի աշխատակիցներ չկան"
+
+msgid "add_employee"
+msgstr "➕ Ավելացնել աշխատակից"
+
+msgid "enter_employee_name"
+msgstr "✏️ Մուտքագրեք աշխատակցի անունը՝"
+
+msgid "enter_employee_phone_input"
+msgstr "📱 Մուտքագրեք աշխատակցի հեռախոսահամարը՝"
+
+msgid "enter_employee_code"
+msgstr "🔢 Մուտքագրեք աշխատակցի մուտքի կոդը (4 նիշ)՝"
+
+msgid "select_employee_stores"
+msgstr "🏪 Ընտրեք աշխատակցի խանութները՝"
+
+msgid "select_all_stores"
+msgstr "✅ Ընտրել բոլոր խանութները"
+
+msgid "confirm_store_selection"
+msgstr "✔️ Հաստատել խանութների ընտրությունը"
+
+msgid "back_to_employee_action"
+msgstr "⬅️ Վերադառնալ աշխատակցի գործողություններին"
+
+msgid "employee_added"
+msgstr "👥 Աշխատակից ավելացվել է՝ %(full_name)s"
+
+msgid "employee_info"
+msgstr "👤 Աշխատակից՝ %(full_name)s\n📱 Հեռախոս՝ %(phone)s\n🔢 Մուտքի կոդ՝ %(access_code)s\n🔄 Կարգավիճակ՝ %(status)s\n🏪 Խանութներ՝ %(stores)s"
+
+msgid "edit_employee"
+msgstr "✏️ Խմբագրել աշխատակցին"
+
+msgid "delete_employee"
+msgstr "🗑️ Ջնջել աշխատակցին"
+
+msgid "toggle_employee_status"
+msgstr "🔄 Փոխել աշխատակցի կարգավիճակը"
+
+msgid "back_to_employees"
+msgstr "⬅️ Վերադառնալ աշխատակիցների ցանկին"
+
+msgid "choose_employee"
+msgstr "👥 Ընտրեք աշխատակից՝"
+
+msgid "Ozon"
+msgstr "🛍️ Ozon"
+
+msgid "Wildberries"
+msgstr "🛍️ Wildberries"
+
+msgid "Yandex Market"
+msgstr "🛍️ Яндекс Маркет"
+
+msgid "questions_info"
+msgstr "📝 Ինքնապատասխաններ՝ %(questions_status)s\n\n⚙️ Ռեժիմ՝ %(questions_mode)s\n\n📭 Սպասում են պատասխանի՝ %(unanswered_count)s"
+
+msgid "questions_status_label"
+msgstr "📝 Հարցեր՝"
+
+msgid "questions_mode_label"
+msgstr "⚙️ Ռեժիմ՝"
+
+msgid "reviews_info"
+msgstr "📝 Ինքնապատասխաններ՝ %(reviews_status)s\n\n⚙️ Ռեժիմներ՝\n%(modes_info)s\n\n📭 Սպասում են պատասխանի՝ %(unanswered_count)s"
+
+msgid "reviews_status_label"
+msgstr "📝 Կարծիքներ՝"
+
+msgid "reviews_modes_label"
+msgstr "⚙️ Ռեժիմներ՝"
+
+msgid "store_edit_info"
+msgstr "🏪 Խանութի անվանումը՝ %(store_name)s\n📋 Տեսակը՝ %(store_type)s\n🔑 API բանալին՝ %(api_key)s\n🆔 Client ID՝ %(client_id)s\n\n✏️ Ընտրեք խմբագրման դաշտը՝"
+
+msgid "store_name_label"
+msgstr "🏪 Խանութի անվանումը՝"
+
+msgid "store_type_label"
+msgstr "📋 Տեսակը՝"
+
+msgid "api_key_label"
+msgstr "🔑 API բանալին՝"
+
+msgid "client_id_label"
+msgstr "🆔 Client ID՝"
+
+msgid "mode_not_set"
+msgstr "⚙️ Չի սահմանվել"
+
+msgid "enter_new_store_name"
+msgstr "📝 Մուտքագրեք խանութի նոր անվանումը՝"
+
+msgid "enter_new_api_key"
+msgstr "🔑 Մուտքագրեք նոր API բանալի՝"
+
+msgid "enter_new_client_id"
+msgstr "🆔 Մուտքագրեք նոր Client ID՝"
+
+msgid "back"
+msgstr "🔙 Վերադառնալ"
+
+msgid "store_deleted"
+msgstr "🗑️ Խանութը ջնջվել է:"
+
+msgid "choose_edit_field"
+msgstr "✏️ Ընտրեք խմբագրման դաշտը՝"
+
+msgid "review_modes"
+msgstr "⚙️ Աշխատանքի ռեժիմներ՝"
+
+msgid "view_reviews"
+msgstr "📝 Դիտել կարծիքները"
+
+msgid "question_modes"
+msgstr "⚙️ Աշխատանքի ռեժիմներ՝"
+
+msgid "view_questions"
+msgstr "❓ Դիտել հարցերը"
+
+msgid "change_language"
+msgstr "🌐 Փոխել լեզուն"
+
+msgid "choose_language"
+msgstr "🌍 Խնդրում ենք ընտրել լեզուն՝"
+
+msgid "language_az"
+msgstr "🇦🇿 Ադրբեջաներեն"
+
+msgid "language_en"
+msgstr "🇬🇧 Անգլերեն"
+
+msgid "language_kz"
+msgstr "🇰🇿 Ղազախերեն"
+
+msgid "language_uz"
+msgstr "🇺🇿 Ուզբեկերեն"
+
+msgid "language_ru"
+msgstr "🇷🇺 Ռուսերեն"
+
+msgid "language_bl"
+msgstr "🇧🇾 Բելառուսերեն"
+
+msgid "language_am"
+msgstr "🇦🇲 Հայերեն"
+
+msgid "language_cn"
+msgstr "🇨🇳 Չինարեն"
+
+msgid "star_1"
+msgstr "⭐ 1 աստղ"
+
+msgid "star_2"
+msgstr "⭐ 2 աստղ"
+
+msgid "star_3"
+msgstr "⭐ 3 աստղ"
+
+msgid "star_4"
+msgstr "⭐ 4 աստղ"
+
+msgid "star_5"
+msgstr "⭐ 5 աստղ"
+
+msgid "language_set"
+msgstr "🌍 Լեզուն սահմանված է՝ %(lang_name)s"
+
+msgid "send_phone_button"
+msgstr "📱 Ուղարկել հեռախոսահամարը"
+
+msgid "store_item"
+msgstr "🏪 %(store_name)s (%(store_type)s)"
+
+msgid "back_to_main_menu"
+msgstr "⬅️ Վերադառնալ գլխավոր ընտրացանկ"
+
+msgid "send_phone_number"
+msgstr "📱 Խնդրում ենք տրամադրել հեռախոսահամարը՝"
+
+msgid "phone_received"
+msgstr "📱 Հեռախոսահամարը ստացվել է"
+
+msgid "welcome_back"
+msgstr "👋 Բարի վերադարձ:"
+
+msgid "unsupported_language"
+msgstr "⚠️ Չաջակցվող լեզու"
+
+msgid "my_stores_button"
+msgstr "🛍️ Իմ խանութները"
+
+msgid "add_store_button"
+msgstr "➕ Ավելացնել խանութ"
+
+msgid "choose_store_platform"
+msgstr "🏪 Ընտրեք խանութի պլատֆորմը՝"
+
+msgid "enter_store_name"
+msgstr "✏️ Մուտքագրեք խանութի անվանումը՝"
+
+msgid "enter_api_key"
+msgstr "🔑 Մուտքագրեք API բանալի՝"
+
+msgid "invalid_store_type"
+msgstr "❌ Խանութի սխալ տեսակ"
+
+msgid "store_added"
+msgstr "🏪 Խանութ ավելացվել է՝ %(store_name)s (%(store_type)s)"
+
+msgid "enter_client_id"
+msgstr "🆔 Մուտքագրեք Client ID՝"
+
+msgid "no_stores"
+msgstr "🛍️ Հասանելի խանութներ չկան"
+
+msgid "choose_store"
+msgstr "Ընտրեք խանութ՝"
+
+msgid "store_not_selected"
+msgstr "⚠️ Խանութը չի ընտրվել"
+
+msgid "store_name_exists"
+msgstr "⚠️ Խանութի անվանումն արդեն գոյություն ունի"
+
+msgid "store_name_updated"
+msgstr "✏️ Խանութի անվանումը թարմացվել է՝ %(store_name)s"
+
+msgid "return_to_store"
+msgstr "⬅️ Վերադառնալ խանութին՝ %(store_name)s"
+
+msgid "data_not_found"
+msgstr "⚠️ Տվյալները չեն գտնվել"
+
+msgid "invalid_field"
+msgstr "❌ Սխալ դաշտ"
+
+msgid "field_updated"
+msgstr "✅ Դաշտը թարմացվել է՝ %(field)s խանութի համար %(store_name)s"
+
+msgid "client_id_not_used"
+msgstr "⚠️ Client ID-ն չի օգտագործվում այս տեսակի խանութի համար"
+
+msgid "confirm_delete_store"
+msgstr "🗑️ Համա՞ստ եք, որ ցանկանում եք ջնջել %(store_name)s խանութը:"
+
+msgid "store_deletion_error"
+msgstr "❌ Սխալ խանութը ջնջելիս"
+
+msgid "deletion_cancelled"
+msgstr "🚫 Ջնջումը չեղարկվել է"
+
+msgid "main_menu"
+msgstr "🏠 Գլխավոր ընտրացանկ"
+
+msgid "store_selected"
+msgstr "🏪 Խանութը ընտրվել է՝ %(store_name)s"
+
+msgid "view_store"
+msgstr "👀 Դիտել խանութը"
+
+msgid "edit_store"
+msgstr "✏️ Խմբագրել խանութը"
+
+msgid "reviews_work"
+msgstr "📝 Աշխատանք կարծիքների հետ"
+
+msgid "questions_work"
+msgstr "❓ Աշխատանք հարցերի հետ"
+
+msgid "notifications"
+msgstr "🔔 Ծանուցումներ"
+
+msgid "back_to_menu"
+msgstr "⬅️ Վերադառնալ ընտրացանկ"
+
+msgid "store_info"
+msgstr "🏪 Խանութ՝ %(store_name)s (%(store_type)s)\n ━━━━━━━━━━━━━━━━\n 📝Կարծիքների բաժին\n\n 🤖Ինքնապատասխաններ՝ %(reviews_status)s\n\n 📭 %(unanswered_reviews)s սպասում են պատասխանի\n\n ⚙️ Ռեժիմներ՝\n%(modes_info)s\n━━━━━━━━━━━━━━━━\n ❓Հարցերի բաժին\n\n 🤖Ինքնապատասխաններ՝ %(questions_status)s\n\n 📬 %(unanswered_questions)s սպասում են պատասխանի\n\n ⚙️ Հարցերի ռեժիմ՝ %(questions_mode)s"
+
+msgid "modes_not_set"
+msgstr "⚙️ Ռեժիմները չեն սահմանվել"
+
+msgid "mode_auto"
+msgstr "🤖 Ավտոմատ"
+
+msgid "mode_semi"
+msgstr "⚙️ Կիսաավտոմատ"
+
+msgid "mode_manual"
+msgstr "✋ Ձեռքով"
+
+msgid "mode_info"
+msgstr " ⭐ %(rating)s՝ %(mode)s"
+
+msgid "questions_status"
+msgstr "❓ Հարցերի կարգավիճակ՝ %(status)s"
+
+msgid "auto_replies_toggled"
+msgstr "🤖 Ինքնապատասխանները %(status)s"
+
+msgid "current_modes"
+msgstr "⚙️ Ընթացիկ կարծիքների ռեժիմներ՝"
+
+msgid "rating_selected"
+msgstr "⭐ %(rating)s գնահատականը ընտրվել է\n\n🤖Ավտոմատ - բոտը ստանում է կարծիք և ավտոմատ կերպով ուղարկում պատասխան:\n\n⚙️Կիսաավտոմատ - բոտը կգեներացնի պատասխան, երբ դուք անցնեք կոնկրետ կարծիքի կամ հարցի:\n\n✋Ձեռքով - գեներացիան չի կատարվի, դուք կարող եք ձեռքով պատասխանել կարծիքներին կամ հարցերին:\n\n📄Ըստ ձևանմուշի - սահմանեք պահանջվող ձևանմուշը ընտրված գնահատականի համար, և բոտը կուղարկի պատասխան ձեր ձևանմուշով:\n\n\nԸնտրեք ռեժիմ՝"
+
+msgid "mode_updated"
+msgstr "%(rating)s գնահատականի ռեժիմը թարմացվել է՝ %(mode)s"
+
+msgid "return_to_reviews"
+msgstr "⬅️ Վերադառնալ կարծիքներին"
+
+msgid "reviews_work_for_store"
+msgstr "📝 Կարծիքների հետ աշխատանք խանութի համար՝ %(store_name)s"
+
+msgid "back_to_store_from_reviews"
+msgstr "⬅️ Վերադառնալ խանութին կարծիքներից"
+
+msgid "questions_work_for_store"
+msgstr "❓ Հարցերի հետ աշխատանք խանութի համար՝ %(store_name)s"
+
+msgid "questions_auto_replies_toggled"
+msgstr "🤖 %(store_name)s խանութի հարցերի ինքնապատասխանները %(status)s"
+
+msgid "current_questions_mode"
+msgstr "⚙️ Ընթացիկ հարցերի ռեժիմ՝ %(current_mode)s"
+
+msgid "questions_mode_set"
+msgstr "Հարցերի ռեժիմը սահմանված է՝ %(mode)s"
+
+msgid "choose_action"
+msgstr "⚙️ Ընտրեք գործողություն՝"
+
+msgid "return_to_questions"
+msgstr "⬅️ Վերադառնալ հարցերին"
+
+msgid "back_to_menu_from_questions"
+msgstr "⬅️ Վերադառնալ ընտրացանկ հարցերից"
+
+msgid "question_text"
+msgstr "❓ Հարց՝ %(question_text)s"
+
+msgid "wildberries_question_warning"
+msgstr "⚠️ Նշում. Սա Wildberries-ից հարց է"
+
+msgid "answer_sent_auto"
+msgstr "✅ Պատասխանը ուղարկվել է ավտոմատ կերպով՝ %(reply_text)s"
+
+msgid "error_sending_answer"
+msgstr "❌ Սխալ պատասխանը ուղարկելիս"
+
+msgid "proposed_answer"
+msgstr "📝 Առաջարկվող պատասխան՝ %(proposed_reply)s"
+
+msgid "write_answer"
+msgstr "✏️ Գրեք ձեր պատասխանը՝"
+
+msgid "all_questions_viewed"
+msgstr "✅ Բոլոր հարցերը դիտված են"
+
+msgid "no_more_questions"
+msgstr "❓ Այլևս հարցեր չկան"
+
+msgid "answer_sent"
+msgstr "✅ Պատասխանը ուղարկվել է՝ %(reply_text)s"
+
+msgid "question_skipped"
+msgstr "➡️ Հարցը բաց է թողնված"
+
+msgid "enter_your_answer"
+msgstr "✏️ Մուտքագրեք ձեր պատասխանը՝"
+
+msgid "back_to_store_question"
+msgstr "⬅️ Վերադառնալ խանութին հարցերից"
+
+msgid "enter_answer_first"
+msgstr "⚠️ Նախ մուտքագրեք պատասխան"
+
+msgid "your_answer"
+msgstr "📝 Ձեր պատասխանը՝ %(response_text)s"
+
+msgid "send_question_reply"
+msgstr "📤 Ուղարկել պատասխան"
+
+msgid "wildberries_review_warning"
+msgstr "⚠️ Նշում. Սա Wildberries-ից կարծիք է"
+
+msgid "review_text"
+msgstr "📝 Կարծիք՝ ⭐%(rating)s %(review_text)s"
+
+msgid "error_processing_review"
+msgstr "❌ Սխալ կարծիքը մշակելիս"
+
+msgid "all_reviews_viewed"
+msgstr "✅ Բոլոր կարծիքները դիտված են"
+
+msgid "no_more_reviews"
+msgstr "📝 Այլևս կարծիքներ չկան"
+
+msgid "review_skipped"
+msgstr "➡️ Կարծիքը բաց է թողնված"
+
+msgid "format_error"
+msgstr "❌ Ձևաչափի սխալ՝ %(error)s"
+
+msgid "error_saving_settings"
+msgstr "❌ Սխալ կարգավորումները պահպանելիս"
+
+msgid "send_as_is"
+msgstr "📤 Ուղարկել ինչպես առաջարկվում է"
+
+msgid "edit_reply"
+msgstr "✏️ Խմբագրել պատասխանը"
+
+msgid "skip_review"
+msgstr "➡️ Բաց թողնել կարծիքը"
+
+msgid "send_reply"
+msgstr "📤 Ուղարկել պատասխան"
+
+msgid "edit_question_reply"
+msgstr "✏️ Խմբագրել հարցի պատասխանը"
+
+msgid "skip_question"
+msgstr "➡️ Բաց թողնել հարցը"
+
+msgid "back_to_reviews_menu"
+msgstr "⬅️ Վերադառնալ կարծիքների ընտրացանկ"
+
+msgid "send_as_is_question"
+msgstr "📤 Ուղարկել հարցը ինչպես առաջարկվում է"
+
+msgid "back_to_questions_menu"
+msgstr "⬅️ Վերադառնալ հարցերի ընտրացանկ"
+
+msgid "edit_name"
+msgstr "✏️ Խմբագրել անվանումը"
+
+msgid "edit_api_key"
+msgstr "🔑 Խմբագրել API բանալին"
+
+msgid "edit_client_id"
+msgstr "🆔 Խմբագրել Client ID-ն"
+
+msgid "delete_store"
+msgstr "🗑️ Ջնջել խանութը"
+
+msgid "back_in_edit_field"
+msgstr "⬅️ Վերադառնալ դաշտի ընտրությանը"
+
+msgid "confirm_delete"
+msgstr "✅ Հաստատել ջնջումը"
+
+msgid "cancel_delete"
+msgstr "🚫 Չեղարկել ջնջումը"
+
+msgid "back_to_rating_selection"
+msgstr "⬅️ Վերադառնալ գնահատականների ընտրությանը"
+
+msgid "only_1_star"
+msgstr "⭐ Միայն 1 աստղ"
+
+msgid "1_2_stars"
+msgstr "⭐ 1-2 աստղ"
+
+msgid "1_3_stars"
+msgstr "⭐ 1-3 աստղ"
+
+msgid "disabled"
+msgstr "🚫 Անջատված"
+
+msgid "enabled"
+msgstr "✅ Միացված"
+
+msgid "not_set"
+msgstr "⚙️ Չի սահմանվել"
+
+msgid "store_not_found"
+msgstr "⚠️ Խանութը չի գտնվել"
+
+msgid "store_access_denied"
+msgstr "🚫 Խանութի մուտքն արգելված է"
+
+msgid "no_reviews"
+msgstr "📝 Կարծիքներ չկան ցուցադրման համար"
+
+msgid "no_unanswered_questions"
+msgstr "📭 Անպատասխան հարցեր չկան"
+
+msgid "no_answered_questions"
+msgstr "❓ Պատասխանված հարցեր չկան"
+
+msgid "invalid_store_id"
+msgstr "❌ Խանութի սխալ ID"
+
+msgid "unknown_command"
+msgstr "❓ Անհայտ հրաման"
+
+msgid "error_occurred"
+msgstr "❌ Սխալ է տեղի ունեցել"
+
+msgid "star_rating"
+msgstr "⭐%(rating)s՝ %(count)s"
+
+msgid "back_to_store"
+msgstr "⬅️ Վերադառնալ խանութին"

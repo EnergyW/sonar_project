@@ -1,0 +1,1117 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: bot\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-18 16:32+0200\n"
+"PO-Revision-Date: 2025-07-19 22:12+0200\n"
+"Last-Translator: \n"
+"Language-Team: Russian\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+
+msgid "reviews_enabled"
+msgstr "✅Включены"
+
+msgid "stop_words_list"
+msgstr "🛑 Стоп-слова (%(count)s):\n\n%(words_list)s\n\nВыберите действие:"
+
+msgid "stop_words_empty"
+msgstr "🛑 Стоп-слова:\n\nОписание:\nЗадайте слова при которых генерация происходить не будет.\n\nПока ничего не добавлено.\n\nВыберите действие:"
+
+msgid "add_stop_words_instruction"
+msgstr "➕ Добавление стоп-слов\n\nОтправьте слова, которые нужно добавить,\nчерез запятую.\n\nПример:\nплохой, подделка"
+
+msgid "remove_stop_words_instruction"
+msgstr "➖ Удаление стоп-слов\n\nОтправьте слова, которые нужно удалить,\nчерез запятую.\n\nБудут удалены только совпадения."
+
+msgid "clear_stop_words_confirm"
+msgstr "⚠️ Очистить все стоп-слова?\n\nСписок будет полностью удалён."
+
+msgid "stop_words_cleared"
+msgstr "✅ Стоп-слова очищены"
+
+msgid "stop_words_success"
+msgstr "✅ Стоп-слова обновлены\n\nТекущий список (%(count)s):\n%(words_list)s"
+
+msgid "minus_words_list"
+msgstr "🛑 Минус-слова (%(count)s):\n\n%(words_list)s\n\nВыберите действие:"
+
+msgid "minus_words_empty"
+msgstr "🛑 Минус-слова:\n\nОписание:\n\nЗадайте слова, которые ИИ не будет использовать при ответе.\n\nПока ничего не добавлено.\n\nВыберите действие:"
+
+msgid "add_minus_words_instruction"
+msgstr "➕ Добавление минус-слов\n\nОтправьте слова, которые нужно добавить,\nчерез запятую.\n\nПример:\nплохой, подделка"
+
+msgid "remove_minus_words_instruction"
+msgstr "➖ Удаление минус-слов\n\nОтправьте слова, которые нужно удалить,\nчерез запятую.\n\nБудут удалены только совпадения."
+
+msgid "clear_minus_words_confirm"
+msgstr "⚠️ Очистить все минус-слова?\n\nСписок будет полностью удалён."
+
+msgid "minus_words_cleared"
+msgstr "✅ Минус-слова очищены"
+
+msgid "minus_words_success"
+msgstr "✅ Минус-слова обновлены\n\nТекущий список (%(count)s):\n%(words_list)s"
+
+msgid "add_button"
+msgstr "➕ Добавить"
+
+msgid "remove_button"
+msgstr "➖ Удалить"
+
+msgid "clear_button"
+msgstr "🗑 Очистить"
+
+msgid "confirm_clear"
+msgstr "✅ Очистить"
+
+msgid "empty"
+msgstr "пусто"
+
+msgid "yes"
+msgstr "Да"
+
+msgid "no"
+msgstr "Нет"
+
+msgid "contact_developer"
+msgstr "💬 Написать разработчику"
+
+msgid "support_text"
+msgstr "Если у вас возникла ошибка или проблема с ботом, напишите мне напрямую! Я помогу решить вопрос.\n\nЧто нужно сделать:\n1. Нажмите кнопку ниже\n2. Опишите, что случилось\n3. Укажите, какие действия привели к ошибке\n\nЯ постараюсь ответить как можно скорее!"
+
+msgid "address_style_setting"
+msgstr "Обращение"
+
+msgid "address_formal"
+msgstr "на Вы"
+
+msgid "address_lowercase"
+msgstr "на вы"
+
+msgid "address_informal"
+msgstr "на ты"
+
+msgid "address_style_header"
+msgstr "🎭 Выберите стиль обращения:"
+
+msgid "address_style_set"
+msgstr "✅ Стиль обращения установлен: {style}"
+
+msgid "support"
+msgstr "🛟 Поддержка"
+
+msgid "stores_header"
+msgstr "Магазины"
+
+msgid "questions"
+msgstr "Вопросы"
+
+msgid "reviews"
+msgstr "Отзывы"
+
+msgid "store_settings"
+msgstr "⚙️ Настройка ИИ"
+
+msgid "store_settings_templates"
+msgstr "📝 Шаблоны ответов"
+
+msgid "store_settings_advanced"
+msgstr "⚙️ Расширенные настройки"
+
+msgid "advanced_settings_header"
+msgstr "⚙️ Расширенные настройки генерации:"
+
+msgid "use_name_setting"
+msgstr "👤 Обращение по имени"
+
+msgid "mention_product_setting"
+msgstr "📦 Рекомендовать товары"
+
+msgid "use_emojis_setting"
+msgstr "😊 Эмодзи в ответах"
+
+msgid "response_length_setting"
+msgstr "Длина ответа"
+
+msgid "response_length_short"
+msgstr "Краткий (до 30 слов)"
+
+msgid "response_length_default"
+msgstr "По умолчанию (до 70 слов)"
+
+msgid "response_length_long"
+msgstr "Развернутый (до 150 слов)"
+
+msgid "response_length_header"
+msgstr "📏 Выберите длину ответа:"
+
+msgid "response_length_set"
+msgstr "✅ Длина ответа установлена: %(length)s"
+
+msgid "delivery_method_setting"
+msgstr "Доставка"
+
+msgid "delivery_method_marketplace"
+msgstr "📦 Маркетплейс"
+
+msgid "delivery_method_self"
+msgstr "🚗 Самостоятельно"
+
+msgid "delivery_method_header"
+msgstr "🚚 Выберите способ доставки:\n\nОписание:\nКаким способом доставляются товары."
+
+msgid "delivery_method_set"
+msgstr "✅ Способ доставки установлен: %(method)s"
+
+msgid "tone_setting"
+msgstr "Тональность"
+
+msgid "tone_business"
+msgstr "🏢 Деловой"
+
+msgid "tone_friendly"
+msgstr "😊 Приветливый"
+
+msgid "tone_strict"
+msgstr "⚠️ Строгий"
+
+msgid "tone_header"
+msgstr "🎭 Выберите тональность ответов:\n\nОписание:\nОпределяет характер ИИ"
+
+msgid "tone_set"
+msgstr "Тональность установлена: %(tone)s"
+
+msgid "stop_words_setting"
+msgstr "✏️ Стоп-слова"
+
+msgid "minus_words_setting"
+msgstr "✏️ Минус-слова"
+
+msgid "stop_words_current"
+msgstr "🚫 Текущие стоп-слова: %(words)s"
+
+msgid "stop_words_instruction"
+msgstr "Введите стоп-слова через запятую (слова, при которых генерация не выполняется):\nПример: спам, реклама, жалоба"
+
+msgid "stop_words_updated"
+msgstr "✅ Стоп-слова обновлены: %(words)s"
+
+msgid "minus_words_current"
+msgstr "❌ Текущие минус-слова: %(words)s"
+
+msgid "minus_words_instruction"
+msgstr "Введите минус-слова через запятую (слова, которые ИИ не должен использовать):\nПример: ужасный, кошмар, разочарование"
+
+msgid "minus_words_updated"
+msgstr "✅ Минус-слова обновлены: %(words)s"
+
+msgid "cleared"
+msgstr "очищены"
+
+msgid "unknown_setting"
+msgstr "Неизвестная настройка"
+
+msgid "error_loading_settings"
+msgstr "Ошибка загрузки настроек"
+
+msgid "template_preview_line"
+msgstr "⭐%(rating)s звезды: %(preview)s"
+
+msgid "template_not_set_line"
+msgstr "⭐%(rating)s звезды: Не задан🚫"
+
+msgid "current_templates_header"
+msgstr "📄Текущие шаблоны ответов:"
+
+msgid "template_status_line"
+msgstr "⭐Для %(rating)s звезды: %(status)s"
+
+msgid "current_template_for_rating"
+msgstr "Текущий шаблон для %(rating)s звезды:\n\n%(template)s"
+
+msgid "enter_new_template"
+msgstr "Введите новый шаблон для %(rating)s звезды:"
+
+msgid "template_updated"
+msgstr "Шаблон для %(rating)s звезды обновлён!"
+
+msgid "template_deleted"
+msgstr "Шаблон для %(rating)s звезды удалён."
+
+msgid "edit_template"
+msgstr "✏️Изменить шаблон"
+
+msgid "delete_template"
+msgstr "🗑Удалить шаблон"
+
+msgid "rating_button_1"
+msgstr "⭐1 звезда"
+
+msgid "rating_button_2"
+msgstr "⭐2 звезды"
+
+msgid "rating_button_3"
+msgstr "⭐3 звезды"
+
+msgid "rating_button_4"
+msgstr "⭐4 звезды"
+
+msgid "rating_button_5"
+msgstr "⭐5 звёзд"
+
+msgid "not_applicable"
+msgstr "Не требуется"
+
+msgid "article"
+msgstr "Артикул"
+
+msgid "pros"
+msgstr "Плюсы"
+
+msgid "cons"
+msgstr "Минусы"
+
+msgid "back_to_stores_list"
+msgstr "⬅️Вернуться к списку магазинов"
+
+msgid "sku_not_available"
+msgstr "Артикул не указан"
+
+msgid "unknown_product"
+msgstr "Неизвестный товар"
+
+msgid "no_store_reply"
+msgstr "Магазин еще не ответил на этот отзыв"
+
+msgid "product_name"
+msgstr "Название товара"
+
+msgid "enter_password_to_login"
+msgstr "🔐 Введите пароль для входа:"
+
+msgid "invalid_password"
+msgstr "❌ Неверный пароль, попробуйте ещё раз."
+
+msgid "logout_button"
+msgstr "🚪 Выйти из профиля"
+
+msgid "logged_out_message"
+msgstr "👋 Вы вышли из профиля."
+
+msgid "enter_phone_to_login"
+msgstr "📱 Введите номер телефона, чтобы войти снова:"
+
+msgid "password_invalid_format"
+msgstr "⚠️ Пароль должен содержать минимум 7 символов и состоять только из латинских букв, цифр и символов _!@#$%^&*.-"
+
+msgid "password_set"
+msgstr "✅ Установлен"
+
+msgid "enter_old_password"
+msgstr "🔑 Введите старый пароль:"
+
+msgid "old_password_incorrect"
+msgstr "❌ Старый пароль неверен"
+
+msgid "password_too_short"
+msgstr "⚠️ Пароль должен содержать минимум 6 символов"
+
+msgid "confirm_new_password"
+msgstr "🔁 Повторите новый пароль:"
+
+msgid "passwords_do_not_match"
+msgstr "❌ Пароли не совпадают"
+
+msgid "password_changed_successfully"
+msgstr "✅ Пароль успешно изменён"
+
+msgid "my_profile_button"
+msgstr "👤 Мой профиль"
+
+msgid "change_phone_button"
+msgstr "📱 Сменить номер телефона"
+
+msgid "change_password_button"
+msgstr "🔑 Сменить пароль"
+
+msgid "back_to_menu_button"
+msgstr "⬅️ Назад в меню"
+
+msgid "not_specified"
+msgstr "❌ Не указан"
+
+msgid "profile_title"
+msgstr "👤 Ваш профиль"
+
+msgid "profile_phone"
+msgstr "📞 Номер телефона"
+
+msgid "profile_password"
+msgstr "🔐 Пароль"
+
+msgid "profile_stores_count"
+msgstr "🏬 Количество магазинов"
+
+msgid "profile_employees_count"
+msgstr "👥 Количество сотрудников"
+
+msgid "enter_new_phone"
+msgstr "📱 Введите новый номер телефона:"
+
+msgid "enter_new_password"
+msgstr "🔑 Введите новый пароль:"
+
+msgid "main_menu_text"
+msgstr "🏠 Главное меню:"
+
+msgid "enter_reply_text"
+msgstr "Напишите ответ:"
+
+msgid "send_ai_reply"
+msgstr "🤖 Отправить ответ ИИ"
+
+msgid "manual_reply"
+msgstr "✍️ Ответить вручную"
+
+msgid "enter_password"
+msgstr "Придумайте пароль:"
+
+msgid "suggested_reply"
+msgstr "Предложенный ответ: %(reply_text)s"
+
+msgid "confirm_password"
+msgstr "Подтвердите пароль"
+
+msgid "registration_complete"
+msgstr "Регистрация выполнена!"
+
+msgid "unanswered_questions_list"
+msgstr "Неотвеченные вопросы"
+
+msgid "product_link"
+msgstr "Ссылка на товар"
+
+msgid "back_to_list"
+msgstr "Вернуться назад"
+
+msgid "review"
+msgstr "Отзыв"
+
+msgid "answer"
+msgstr "Ответ на вопрос"
+
+msgid "sku"
+msgstr "SKU"
+
+msgid "question"
+msgstr "Вопрос"
+
+msgid "next"
+msgstr "➡️"
+
+msgid "mode_template"
+msgstr "📄По шаблону"
+
+msgid "no_unanswered_reviews_for_rating"
+msgstr "Нет непроработанных отзывов для %(rating)s звезд 😕"
+
+msgid "template_applied"
+msgstr "Шаблон для %(rating)s звезд применен к %(count)s отзывам: %(template)s ✅"
+
+msgid "manage_templates"
+msgstr "📝Управление шаблонами"
+
+msgid "template_info"
+msgstr "Для %(rating)s звезд: %(template)s ⭐"
+
+msgid "enter_template_for_rating"
+msgstr "Введите шаблон для %(rating)s звезд: ✍️"
+
+msgid "template_set"
+msgstr "Шаблон для %(rating)s звезд установлен! ✅"
+
+msgid "no_template_for_rating"
+msgstr "Шаблон для %(rating)s звезд не задан! ⚠️"
+
+msgid "send_by_template"
+msgstr "Ответить по шаблону 📄"
+
+msgid "answered_questions_list"
+msgstr "Список отвеченных вопросов✅"
+
+msgid "answered_questions"
+msgstr "✅ Отвеченные вопросы"
+
+msgid "unanswered_questions"
+msgstr "📭 Неотвеченные вопросы"
+
+msgid "auto_questions_enabled"
+msgstr "Автоответы включены"
+
+msgid "auto_questions_disabled"
+msgstr "Автоответы выключены"
+
+msgid "confirm_reply"
+msgstr "Подтвердите ваш ответ: %(reply_text)s ❓"
+
+msgid "send"
+msgstr "Отправить ✅"
+
+msgid "cancel"
+msgstr "Отменить 🚫"
+
+msgid "back_to_review"
+msgstr "Вернуться к отзыву 🔙"
+
+msgid "answer_sent_successfully"
+msgstr "Ответ успешно отправлен! 🎉"
+
+msgid "review_not_found"
+msgstr "Отзыв не найден 😔"
+
+msgid "review_details"
+msgstr "📅 %(date)s\n\n%(user_display)s🌟 %(stars)s\n\n📦 %(product_name)s\n\n🔢 %(sku_label)s: %(sku)s\n\n💬 %(text)s"
+
+msgid "store_reply"
+msgstr "📩 Ответ магазина: %(answer)s"
+
+msgid "review_counter"
+msgstr "🔢 Отзыв %(current)s из %(total)s"
+
+msgid "next_button"
+msgstr "➡️"
+
+msgid "prev_button"
+msgstr "⬅️"
+
+msgid "back_to_list_button"
+msgstr "⬅️Назад к списку"
+
+msgid "no_answer"
+msgstr "Нет ответа"
+
+msgid "unanswered"
+msgstr "📭Неотвеченные"
+
+msgid "reviews_list_title"
+msgstr "%(type)s отзывы\n\n📊 Распределение отзывов:\n\n%(rating_summary)s"
+
+msgid "prev_page"
+msgstr "⬅️Предыдущая страница"
+
+msgid "answered"
+msgstr "✅Отвеченные "
+
+msgid "back_to_reviews_work"
+msgstr "⬅️Назад к работе с отзывами"
+
+msgid "auto_replies_disabled"
+msgstr "Автоответы выключены"
+
+msgid "auto_replies_enabled"
+msgstr "Автоответы включены"
+
+msgid "no_store_selected"
+msgstr "❌ Магазин не выбран."
+
+msgid "no_reviews_found"
+msgstr "📭 Отзывы не найдены."
+
+msgid "no_questions_found"
+msgstr "📭 Вопросы не найдены."
+
+msgid "reviews_list"
+msgstr "📋 Список отзывов"
+
+msgid "questions_list"
+msgstr "📋 Список вопросов"
+
+msgid "previous_page"
+msgstr "⬅️ Предыдущая страница"
+
+msgid "next_page"
+msgstr "➡️ Следующая страница"
+
+msgid "questions_unanswered"
+msgstr "📬 Неотвеченные вопросы"
+
+msgid "questions_answered"
+msgstr "✅ Отвеченные вопросы"
+
+msgid "enter_employee_phone"
+msgstr "📱 Введите ваш номер телефона сотрудника:"
+
+msgid "enter_access_code"
+msgstr "🔑 Введите код доступа:"
+
+msgid "welcome_employee"
+msgstr "👋 Добро пожаловать, сотрудник!"
+
+msgid "invalid_employee_credentials"
+msgstr "❌ Неверный номер телефона или код доступа."
+
+msgid "enter_new_full_name"
+msgstr "✏️ Введите новое имя сотрудника:"
+
+msgid "enter_new_phone_employee"
+msgstr "📱 Введите новый номер телефона сотрудника:"
+
+msgid "enter_new_access_code"
+msgstr "🔢 Введите новый код доступа (4 цифры):"
+
+msgid "invalid_access_code"
+msgstr "❌ Код доступа должен состоять из 4 цифр"
+
+msgid "employee_item"
+msgstr "👤 %(full_name)s (Активен: %(is_active)s)"
+
+msgid "choose_edit_employee_field"
+msgstr "✏️ Выберите поле для редактирования сотрудника:"
+
+msgid "edit_employee_name"
+msgstr "✏️ Редактировать имя сотрудника"
+
+msgid "edit_employee_phone"
+msgstr "📱 Редактировать номер телефона сотрудника"
+
+msgid "edit_employee_code"
+msgstr "🔢 Редактировать код доступа сотрудника"
+
+msgid "edit_employee_stores"
+msgstr "🏪 Редактировать магазины сотрудника"
+
+msgid "back_to_employee"
+msgstr "⬅️ Вернуться к сотруднику"
+
+msgid "confirm_delete_employee"
+msgstr "🗑️ Вы уверены, что хотите удалить сотрудника %(full_name)s?"
+
+msgid "employee_deleted"
+msgstr "🗑️ Сотрудник %(full_name)s удалён"
+
+msgid "choose_role"
+msgstr "🎭 Выберите роль:"
+
+msgid "role_owner"
+msgstr "👑 Владелец"
+
+msgid "role_employee"
+msgstr "👷 Сотрудник"
+
+msgid "my_employees"
+msgstr "👥 Мои сотрудники"
+
+msgid "no_employees"
+msgstr "👥 Нет доступных сотрудников"
+
+msgid "add_employee"
+msgstr "➕ Добавить сотрудника"
+
+msgid "enter_employee_name"
+msgstr "✏️ Введите имя сотрудника:"
+
+msgid "enter_employee_phone_input"
+msgstr "📱 Введите номер телефона сотрудника:"
+
+msgid "enter_employee_code"
+msgstr "🔢 Введите код доступа сотрудника (4 цифры):"
+
+msgid "select_employee_stores"
+msgstr "🏪 Выберите магазины для сотрудника:"
+
+msgid "select_all_stores"
+msgstr "✅ Выбрать все магазины"
+
+msgid "confirm_store_selection"
+msgstr "✔️ Подтвердить выбор магазинов"
+
+msgid "back_to_employee_action"
+msgstr "⬅️ Вернуться к действиям с сотрудником"
+
+msgid "employee_added"
+msgstr "👥 Сотрудник добавлен: %(full_name)s"
+
+msgid "employee_info"
+msgstr "👤 Сотрудник: %(full_name)s\n📱 Телефон: %(phone)s\n🔢 Код доступа: %(access_code)s\n🔄 Статус: %(status)s\n🏪 Магазины: %(stores)s"
+
+msgid "edit_employee"
+msgstr "✏️ Редактировать сотрудника"
+
+msgid "delete_employee"
+msgstr "🗑️ Удалить сотрудника"
+
+msgid "toggle_employee_status"
+msgstr "🔄 Переключить статус сотрудника"
+
+msgid "back_to_employees"
+msgstr "⬅️ Вернуться к списку сотрудников"
+
+msgid "choose_employee"
+msgstr "👥 Выберите сотрудника:"
+
+msgid "Ozon"
+msgstr "🛍️ Ozon"
+
+msgid "Wildberries"
+msgstr "🛍️ Wildberries"
+
+msgid "Yandex Market"
+msgstr "🛍️ Яндекс Маркет"
+
+msgid "questions_info"
+msgstr "📝 Автоответы: %(questions_status)s\n\n⚙️ Режим: %(questions_mode)s\n\n📭 Ждут ответа: %(unanswered_count)s"
+
+msgid "questions_status_label"
+msgstr "📝 Вопросы:"
+
+msgid "questions_mode_label"
+msgstr "⚙️ Режим:"
+
+msgid "reviews_info"
+msgstr "📝 Автоответы: %(reviews_status)s\n\n⚙️ Режимы:\n%(modes_info)s\n\n📭 Ждут ответа: %(unanswered_count)s"
+
+msgid "reviews_status_label"
+msgstr "📝 Отзывы:"
+
+msgid "reviews_modes_label"
+msgstr "⚙️ Режимы:"
+
+msgid "store_edit_info"
+msgstr "🏪 Название магазина: %(store_name)s\n📋 Тип: %(store_type)s\n🔑 API-ключ: %(api_key)s\n🆔Client ID: %(client_id)s\n\n✏️ Выберите поле для редактирования:"
+
+msgid "store_name_label"
+msgstr "🏪 Название магазина:"
+
+msgid "store_type_label"
+msgstr "📋 Тип:"
+
+msgid "api_key_label"
+msgstr "🔑 API-ключ:"
+
+msgid "client_id_label"
+msgstr "🆔Client ID:"
+
+msgid "mode_not_set"
+msgstr "⚙️ Не установлен"
+
+msgid "enter_new_store_name"
+msgstr "📝 Введите новое название магазина:"
+
+msgid "enter_new_api_key"
+msgstr "🔑 Введите новый API-ключ:"
+
+msgid "enter_new_client_id"
+msgstr "🆔 Введите новый Client ID:"
+
+msgid "back"
+msgstr "🔙 Назад"
+
+msgid "store_deleted"
+msgstr "🗑️ Магазин удалён."
+
+msgid "choose_edit_field"
+msgstr "✏️ Выберите поле для редактирования:"
+
+msgid "review_modes"
+msgstr "⚙️ Режимы работы:"
+
+msgid "view_reviews"
+msgstr "📝 Просмотреть отзывы"
+
+msgid "question_modes"
+msgstr "⚙️ Режимы работы:"
+
+msgid "view_questions"
+msgstr "❓ Просмотреть вопросы"
+
+msgid "change_language"
+msgstr "🌐 Сменить язык"
+
+msgid "choose_language"
+msgstr "🌍 Пожалуйста, выберите язык:"
+
+msgid "language_az"
+msgstr "🇦🇿 Азербайджанский"
+
+msgid "language_en"
+msgstr "🇬🇧 Английский"
+
+msgid "language_kz"
+msgstr "🇰🇿 Казахский"
+
+msgid "language_uz"
+msgstr "🇺🇿 Узбекский"
+
+msgid "language_ru"
+msgstr "🇷🇺 Русский"
+
+msgid "language_bl"
+msgstr "🇧🇾 Белорусский"
+
+msgid "language_am"
+msgstr "🇦🇲 Армянский"
+
+msgid "language_cn"
+msgstr "🇨🇳 Китайский"
+
+msgid "star_1"
+msgstr "⭐ 1 звезда"
+
+msgid "star_2"
+msgstr "⭐ 2 звезды"
+
+msgid "star_3"
+msgstr "⭐ 3 звезды"
+
+msgid "star_4"
+msgstr "⭐ 4 звезды"
+
+msgid "star_5"
+msgstr "⭐ 5 звёзд"
+
+msgid "language_set"
+msgstr "🌍 Язык установлен: %(lang_name)s"
+
+msgid "send_phone_button"
+msgstr "📱 Отправить номер телефона"
+
+msgid "store_item"
+msgstr "🏪 %(store_name)s (%(store_type)s)"
+
+msgid "back_to_main_menu"
+msgstr "⬅️ Вернуться в главное меню"
+
+msgid "send_phone_number"
+msgstr "📱 Пожалуйста, поделитесь номером телефона:"
+
+msgid "phone_received"
+msgstr "📱 Номер телефона получен"
+
+msgid "welcome_back"
+msgstr "👋 С возвращением!"
+
+msgid "unsupported_language"
+msgstr "⚠️ Неподдерживаемый язык"
+
+msgid "my_stores_button"
+msgstr "🛍️ Мои магазины"
+
+msgid "add_store_button"
+msgstr "➕ Добавить магазин"
+
+msgid "choose_store_platform"
+msgstr "🏪 Выберите платформу магазина:"
+
+msgid "enter_store_name"
+msgstr "✏️ Введите название магазина:"
+
+msgid "enter_api_key"
+msgstr "🔑 Введите API-ключ:"
+
+msgid "invalid_store_type"
+msgstr "❌ Неверный тип магазина"
+
+msgid "store_added"
+msgstr "🏪 Магазин добавлен: %(store_name)s (%(store_type)s)"
+
+msgid "enter_client_id"
+msgstr "🆔 Введите Client ID:"
+
+msgid "no_stores"
+msgstr "🛍️ Нет доступных магазинов"
+
+msgid "choose_store"
+msgstr "Выберите магазин:"
+
+msgid "store_not_selected"
+msgstr "⚠️ Магазин не выбран"
+
+msgid "store_name_exists"
+msgstr "⚠️ Название магазина уже существует"
+
+msgid "store_name_updated"
+msgstr "✏️ Название магазина обновлено: %(store_name)s"
+
+msgid "return_to_store"
+msgstr "⬅️ Вернуться к магазину: %(store_name)s"
+
+msgid "data_not_found"
+msgstr "⚠️ Данные не найдены"
+
+msgid "invalid_field"
+msgstr "❌ Неверное поле"
+
+msgid "field_updated"
+msgstr "✅ Поле обновлено: %(field)s для магазина %(store_name)s"
+
+msgid "client_id_not_used"
+msgstr "⚠️Client ID не используется для этого типа магазина"
+
+msgid "confirm_delete_store"
+msgstr "🗑️ Вы уверены, что хотите удалить магазин %(store_name)s?"
+
+msgid "store_deletion_error"
+msgstr "❌ Ошибка при удалении магазина"
+
+msgid "deletion_cancelled"
+msgstr "🚫 Удаление отменено"
+
+msgid "main_menu"
+msgstr "🏠 Главное меню"
+
+msgid "store_selected"
+msgstr "🏪 Магазин выбран: %(store_name)s"
+
+msgid "view_store"
+msgstr "👀 Просмотреть магазин"
+
+msgid "edit_store"
+msgstr "✏️ Редактировать магазин"
+
+msgid "reviews_work"
+msgstr "📝 Работа с отзывами"
+
+msgid "questions_work"
+msgstr "❓ Работа с вопросами"
+
+msgid "notifications"
+msgstr "🔔 Уведомления"
+
+msgid "back_to_menu"
+msgstr "⬅️ Вернуться в меню"
+
+msgid "store_info"
+msgstr "🏪 Магазин: %(store_name)s (%(store_type)s)\n ━━━━━━━━━━━━━━━━\n 📝Раздел отзывов\n\n 🤖Автоответы: %(reviews_status)s\n\n 📭 %(unanswered_reviews)s ждут ответа\n\n ⚙️ Режимы:\n%(modes_info)s\n━━━━━━━━━━━━━━━━\n ❓Раздел вопросов\n\n 🤖Автоответы: %(questions_status)s\n\n 📬 %(unanswered_questions)s ждут ответа\n\n ⚙️ Режим вопросов: %(questions_mode)s"
+
+msgid "modes_not_set"
+msgstr "⚙️ Режимы не установлены"
+
+msgid "mode_auto"
+msgstr "🤖 Автоматический"
+
+msgid "mode_semi"
+msgstr "⚙️ Полуавтоматический"
+
+msgid "mode_manual"
+msgstr "✋ Ручной"
+
+msgid "mode_info"
+msgstr " ⭐ %(rating)s: %(mode)s"
+
+msgid "questions_status"
+msgstr "❓ Статус вопросов: %(status)s"
+
+msgid "auto_replies_toggled"
+msgstr "🤖 Автоматические ответы %(status)s"
+
+msgid "current_modes"
+msgstr "⚙️ Текущие режимы отзывов:"
+
+msgid "rating_selected"
+msgstr "⭐ Оценка %(rating)s выбрана\n\n🤖Автоматический - бот получает отзыв и автоматически отправляет ответ.\n\n⚙️Полуавтоматический - бот сгенерирует ответ, когда Вы перейдете на определенный отзыв или вопрос.\n\n✋Ручной - генерация происходить не будет, Вы можете вручную отвечать на отзывы или вопросы.\n\n📄По шаблону - задайте нужный шаблон для выбранной оценки и бот будет отправлять ответ Вашим шаблоном.\n\nВыберите режим:"
+
+msgid "mode_updated"
+msgstr "Режим для оценки %(rating)s обновлён: %(mode)s"
+
+msgid "return_to_reviews"
+msgstr "⬅️ Вернуться к отзывам"
+
+msgid "reviews_work_for_store"
+msgstr "📝 Работа с отзывами для магазина: %(store_name)s"
+
+msgid "back_to_store_from_reviews"
+msgstr "⬅️ Вернуться к магазину из отзывов"
+
+msgid "questions_work_for_store"
+msgstr "❓ Работа с вопросами для магазина: %(store_name)s"
+
+msgid "questions_auto_replies_toggled"
+msgstr "🤖 Автоматические ответы на вопросы %(status)s для магазина %(store_name)s"
+
+msgid "current_questions_mode"
+msgstr "⚙️ Текущий режим вопросов: %(current_mode)s"
+
+msgid "questions_mode_set"
+msgstr "Режим вопросов установлен: %(mode)s"
+
+msgid "choose_action"
+msgstr "⚙️ Выберите действие:"
+
+msgid "return_to_questions"
+msgstr "⬅️ Вернуться к вопросам"
+
+msgid "back_to_menu_from_questions"
+msgstr "⬅️ Вернуться в меню из вопросов"
+
+msgid "question_text"
+msgstr "❓ Вопрос: %(question_text)s"
+
+msgid "wildberries_question_warning"
+msgstr "⚠️ Примечание: Это вопрос с Wildberries"
+
+msgid "answer_sent_auto"
+msgstr "✅ Ответ отправлен автоматически: %(reply_text)s"
+
+msgid "error_sending_answer"
+msgstr "❌ Ошибка при отправке ответа"
+
+msgid "proposed_answer"
+msgstr "📝 Предложенный ответ: %(proposed_reply)s"
+
+msgid "write_answer"
+msgstr "✏️ Напишите ваш ответ:"
+
+msgid "all_questions_viewed"
+msgstr "✅ Все вопросы просмотрены"
+
+msgid "no_more_questions"
+msgstr "❓ Больше нет вопросов"
+
+msgid "answer_sent"
+msgstr "✅ Ответ отправлен: %(reply_text)s"
+
+msgid "question_skipped"
+msgstr "➡️ Вопрос пропущен"
+
+msgid "enter_your_answer"
+msgstr "✏️ Введите ваш ответ:"
+
+msgid "back_to_store_question"
+msgstr "⬅️ Вернуться к магазину из вопросов"
+
+msgid "enter_answer_first"
+msgstr "⚠️ Сначала введите ответ"
+
+msgid "your_answer"
+msgstr "📝 Ваш ответ: %(response_text)s"
+
+msgid "send_question_reply"
+msgstr "📤 Отправить ответ"
+
+msgid "wildberries_review_warning"
+msgstr "⚠️ Примечание: Это отзыв с Wildberries"
+
+msgid "review_text"
+msgstr "📝 Отзыв: ⭐%(rating)s %(review_text)s"
+
+msgid "error_processing_review"
+msgstr "❌ Ошибка при обработке отзыва"
+
+msgid "all_reviews_viewed"
+msgstr "✅ Все отзывы просмотрены"
+
+msgid "no_more_reviews"
+msgstr "📝 Больше нет отзывов"
+
+msgid "review_skipped"
+msgstr "➡️ Отзыв пропущен"
+
+msgid "format_error"
+msgstr "❌ Ошибка формата: %(error)s"
+
+msgid "error_saving_settings"
+msgstr "❌ Ошибка при сохранении настроек"
+
+msgid "send_as_is"
+msgstr "📤 Отправить как предложено"
+
+msgid "edit_reply"
+msgstr "✏️ Редактировать ответ"
+
+msgid "skip_review"
+msgstr "➡️ Пропустить отзыв"
+
+msgid "send_reply"
+msgstr "📤 Отправить ответ"
+
+msgid "edit_question_reply"
+msgstr "✏️ Редактировать ответ на вопрос"
+
+msgid "skip_question"
+msgstr "➡️ Пропустить вопрос"
+
+msgid "back_to_reviews_menu"
+msgstr "⬅️ Вернуться в меню отзывов"
+
+msgid "send_as_is_question"
+msgstr "📤 Отправить вопрос как предложено"
+
+msgid "back_to_questions_menu"
+msgstr "⬅️ Вернуться в меню вопросов"
+
+msgid "edit_name"
+msgstr "✏️ Редактировать название"
+
+msgid "edit_api_key"
+msgstr "🔑 Редактировать API-ключ"
+
+msgid "edit_client_id"
+msgstr "🆔 Редактировать Client ID"
+
+msgid "delete_store"
+msgstr "🗑️ Удалить магазин"
+
+msgid "back_in_edit_field"
+msgstr "⬅️ Вернуться к выбору поля"
+
+msgid "confirm_delete"
+msgstr "✅ Подтвердить удаление"
+
+msgid "cancel_delete"
+msgstr "🚫 Отменить удаление"
+
+msgid "back_to_rating_selection"
+msgstr "⬅️ Вернуться к выбору оценок"
+
+msgid "only_1_star"
+msgstr "⭐ Только 1 звезда"
+
+msgid "1_2_stars"
+msgstr "⭐ 1-2 звезды"
+
+msgid "1_3_stars"
+msgstr "⭐ 1-3 звезды"
+
+msgid "disabled"
+msgstr "🚫 Отключены"
+
+msgid "enabled"
+msgstr "✅ Включены"
+
+msgid "not_set"
+msgstr "⚙️ Не установлено"
+
+msgid "store_not_found"
+msgstr "⚠️ Магазин не найден"
+
+msgid "store_access_denied"
+msgstr "🚫 Доступ к магазину запрещён"
+
+msgid "no_reviews"
+msgstr "📝 Нет отзывов для отображения"
+
+msgid "no_unanswered_questions"
+msgstr "📭 Нет неотвеченных вопросов"
+
+msgid "no_answered_questions"
+msgstr "❓ Нет отвеченных вопросов"
+
+msgid "invalid_store_id"
+msgstr "❌ Неверный ID магазина"
+
+msgid "unknown_command"
+msgstr "❓ Неизвестная команда"
+
+msgid "error_occurred"
+msgstr "❌ Произошла ошибка"
+
+msgid "star_rating"
+msgstr "⭐%(rating)s: %(count)s"
+
+msgid "back_to_store"
+msgstr "⬅️ Вернуться к магазину"

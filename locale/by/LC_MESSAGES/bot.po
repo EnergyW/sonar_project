@@ -1,0 +1,1117 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: bot\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-18 16:32+0200\n"
+"PO-Revision-Date: 2025-07-19 22:12+0200\n"
+"Last-Translator: \n"
+"Language-Team: Belarusian\n"
+"Language: be\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+
+msgid "reviews_enabled"
+msgstr "✅ Уключаны"
+
+msgid "stop_words_list"
+msgstr "🛑 Стоп-словы (%(count)s):\n\n%(words_list)s\n\nАбярыце дзеянне:"
+
+msgid "stop_words_empty"
+msgstr "🛑 Стоп-словы:\n\nАпісанне:\nЗадайце словы, пры якіх генерацыя адбывацца не будзе.\n\nПакуль нічога не дададзена.\n\nАбярыце дзеянне:"
+
+msgid "add_stop_words_instruction"
+msgstr "➕ Даданне стоп-слоў\n\nДаслуйце словы, якія трэба дадаць,\nпраз коску.\n\nПрыклад:\nдрэнны, падробка"
+
+msgid "remove_stop_words_instruction"
+msgstr "➖ Выдаленне стоп-слоў\n\nДаслуйце словы, якія трэба выдаліць,\nпраз коску.\n\nБудуць выдалены толькі супадзенні."
+
+msgid "clear_stop_words_confirm"
+msgstr "⚠️ Ачысціць усе стоп-словы?\n\nСпіс будзе цалкам выдалены."
+
+msgid "stop_words_cleared"
+msgstr "✅ Стоп-словы ачышчаны"
+
+msgid "stop_words_success"
+msgstr "✅ Стоп-словы абноўлены\n\nБягучы спіс (%(count)s):\n%(words_list)s"
+
+msgid "minus_words_list"
+msgstr "🛑 Мінус-словы (%(count)s):\n\n%(words_list)s\n\nАбярыце дзеянне:"
+
+msgid "minus_words_empty"
+msgstr "🛑 Мінус-словы:\n\nАпісанне:\nЗадайце словы, якія ШІ не будзе выкарыстоўваць пры адказе.\n\nПакуль нічога не дададзена.\n\nАбярыце дзеянне:"
+
+msgid "add_minus_words_instruction"
+msgstr "➕ Даданне мінус-слоў\n\nДаслуйце словы, якія трэба дадаць,\nпраз коску.\n\nПрыклад:\nдрэнны, падробка"
+
+msgid "remove_minus_words_instruction"
+msgstr "➖ Выдаленне мінус-слоў\n\nДаслуйце словы, якія трэба выдаліць,\nпраз коску.\n\nБудуць выдалены толькі супадзенні."
+
+msgid "clear_minus_words_confirm"
+msgstr "⚠️ Ачысціць усе мінус-словы?\n\nСпіс будзе цалкам выдалены."
+
+msgid "minus_words_cleared"
+msgstr "✅ Мінус-словы ачышчаны"
+
+msgid "minus_words_success"
+msgstr "✅ Мінус-словы абноўлены\n\nБягучы спіс (%(count)s):\n%(words_list)s"
+
+msgid "add_button"
+msgstr "➕ Дадаць"
+
+msgid "remove_button"
+msgstr "➖ Выдаліць"
+
+msgid "clear_button"
+msgstr "🗑 Ачысціць"
+
+msgid "confirm_clear"
+msgstr "✅ Ачысціць"
+
+msgid "empty"
+msgstr "пуста"
+
+msgid "yes"
+msgstr "Так"
+
+msgid "no"
+msgstr "Не"
+
+msgid "contact_developer"
+msgstr "💬 Напісаць распрацоўшчыку"
+
+msgid "support_text"
+msgstr "Калі ў вас узнікла памылка ці праблема з ботом, напішыце мне непасрэдна! Я дапамагу вырашыць пытанне.\n\nШто трэба зрабіць:\n1. Націсніце кнопку ніжэй\n2. Апішыце, што здарылася\n3. Пакажыце, якія дзеянні прывялі да памылкі\n\nЯ паспрабую адказаць як мага хутчэй!"
+
+msgid "address_style_setting"
+msgstr "Зварот"
+
+msgid "address_formal"
+msgstr "на Вы"
+
+msgid "address_lowercase"
+msgstr "на вы"
+
+msgid "address_informal"
+msgstr "на ты"
+
+msgid "address_style_header"
+msgstr "🎭 Абярыце стыль звароту:"
+
+msgid "address_style_set"
+msgstr "✅ Стыль звароту ўстаноўлены: {style}"
+
+msgid "support"
+msgstr "🛟 Падтрымка"
+
+msgid "stores_header"
+msgstr "Крамы"
+
+msgid "questions"
+msgstr "Пытанні"
+
+msgid "reviews"
+msgstr "Водгукі"
+
+msgid "store_settings"
+msgstr "⚙️ Налада ШІ"
+
+msgid "store_settings_templates"
+msgstr "📝 Шаблоны адказаў"
+
+msgid "store_settings_advanced"
+msgstr "⚙️ Пашыраныя налады"
+
+msgid "advanced_settings_header"
+msgstr "⚙️ Пашыраныя налады генерацыі:"
+
+msgid "use_name_setting"
+msgstr "👤 Зварот па імі"
+
+msgid "mention_product_setting"
+msgstr "📦 Рэкамендаваць тавары"
+
+msgid "use_emojis_setting"
+msgstr "😊 Эмаджы ў адказах"
+
+msgid "response_length_setting"
+msgstr "Даўжыня адказу"
+
+msgid "response_length_short"
+msgstr "Кароткі (да 30 слоў)"
+
+msgid "response_length_default"
+msgstr "Па змаўчанні (да 70 слоў)"
+
+msgid "response_length_long"
+msgstr "Разгорнуты (да 150 слоў)"
+
+msgid "response_length_header"
+msgstr "📏 Абярыце даўжыню адказу:"
+
+msgid "response_length_set"
+msgstr "✅ Даўжыня адказу ўстаноўлена: %(length)s"
+
+msgid "delivery_method_setting"
+msgstr "Дастаўка"
+
+msgid "delivery_method_marketplace"
+msgstr "📦 Маркетплэйс"
+
+msgid "delivery_method_self"
+msgstr "🚗 Самастойна"
+
+msgid "delivery_method_header"
+msgstr "🚚 Абярыце спосаб дастаўкі:\n\nАпісанне:\nЯкім спосабам дастаўляюцца тавары."
+
+msgid "delivery_method_set"
+msgstr "✅ Спосаб дастаўкі ўстаноўлены: %(method)s"
+
+msgid "tone_setting"
+msgstr "Танальнасць"
+
+msgid "tone_business"
+msgstr "🏢 Дзелавы"
+
+msgid "tone_friendly"
+msgstr "😊 Прыветлівы"
+
+msgid "tone_strict"
+msgstr "⚠️ Строгі"
+
+msgid "tone_header"
+msgstr "🎭 Абярыце танальнасць адказаў:\n\nАпісанне:\nВызначае характар ШІ"
+
+msgid "tone_set"
+msgstr "Танальнасць устаноўлена: %(tone)s"
+
+msgid "stop_words_setting"
+msgstr "✏️ Стоп-словы"
+
+msgid "minus_words_setting"
+msgstr "✏️ Мінус-словы"
+
+msgid "stop_words_current"
+msgstr "🚫 Бягучыя стоп-словы: %(words)s"
+
+msgid "stop_words_instruction"
+msgstr "Увядзіце стоп-словы праз коску (словы, пры якіх генерацыя не выконваецца):\nПрыклад: спам, рэклама, скарга"
+
+msgid "stop_words_updated"
+msgstr "✅ Стоп-словы абноўлены: %(words)s"
+
+msgid "minus_words_current"
+msgstr "❌ Бягучыя мінус-словы: %(words)s"
+
+msgid "minus_words_instruction"
+msgstr "Увядзіце мінус-словы праз коску (словы, якія ШІ не павінен выкарыстоўваць):\nПрыклад: жудасны, кашмар, расчараванне"
+
+msgid "minus_words_updated"
+msgstr "✅ Мінус-словы абноўлены: %(words)s"
+
+msgid "cleared"
+msgstr "ачышчаны"
+
+msgid "unknown_setting"
+msgstr "Невядомая налада"
+
+msgid "error_loading_settings"
+msgstr "Памылка загрузкі наладаў"
+
+msgid "template_preview_line"
+msgstr "⭐%(rating)s зоркі: %(preview)s"
+
+msgid "template_not_set_line"
+msgstr "⭐%(rating)s зоркі: Не зададзены🚫"
+
+msgid "current_templates_header"
+msgstr "📄Бягучыя шаблоны адказаў:"
+
+msgid "template_status_line"
+msgstr "⭐Для %(rating)s зоркі: %(status)s"
+
+msgid "current_template_for_rating"
+msgstr "Бягучы шаблон для %(rating)s зоркі:\n\n%(template)s"
+
+msgid "enter_new_template"
+msgstr "Увядзіце новы шаблон для %(rating)s зоркі:"
+
+msgid "template_updated"
+msgstr "Шаблон для %(rating)s зоркі абноўлены!"
+
+msgid "template_deleted"
+msgstr "Шаблон для %(rating)s зоркі выдалены."
+
+msgid "edit_template"
+msgstr "✏️Змяніць шаблон"
+
+msgid "delete_template"
+msgstr "🗑Выдаліць шаблон"
+
+msgid "rating_button_1"
+msgstr "⭐1 зорка"
+
+msgid "rating_button_2"
+msgstr "⭐2 зоркі"
+
+msgid "rating_button_3"
+msgstr "⭐3 зоркі"
+
+msgid "rating_button_4"
+msgstr "⭐4 зоркі"
+
+msgid "rating_button_5"
+msgstr "⭐5 зорак"
+
+msgid "not_applicable"
+msgstr "Не патрабуецца"
+
+msgid "article"
+msgstr "Артыкул"
+
+msgid "pros"
+msgstr "Плюсы"
+
+msgid "cons"
+msgstr "Мінусы"
+
+msgid "back_to_stores_list"
+msgstr "⬅️Вярнуцца да спісу крам"
+
+msgid "sku_not_available"
+msgstr "Артыкул не паказаны"
+
+msgid "unknown_product"
+msgstr "Невядомы тавар"
+
+msgid "no_store_reply"
+msgstr "Крама яшчэ не адказала на гэты водгук"
+
+msgid "product_name"
+msgstr "Назва тавара"
+
+msgid "enter_password_to_login"
+msgstr "🔐 Увядзіце пароль для ўваходу:"
+
+msgid "invalid_password"
+msgstr "❌ Няправільны пароль, паспрабуйце яшчэ раз."
+
+msgid "logout_button"
+msgstr "🚪 Выйсці з профілю"
+
+msgid "logged_out_message"
+msgstr "👋 Вы выйшлі з профілю."
+
+msgid "enter_phone_to_login"
+msgstr "📱 Увядзіце нумар тэлефона, каб увайсці зноў:"
+
+msgid "password_invalid_format"
+msgstr "⚠️ Пароль павінен змяшчаць мінімум 7 сімвалаў і складацца толькі з лацінскіх літар, лічбаў і сімвалаў _!@#$%^&*.-"
+
+msgid "password_set"
+msgstr "✅ Устаноўлены"
+
+msgid "enter_old_password"
+msgstr "🔑 Увядзіце стары пароль:"
+
+msgid "old_password_incorrect"
+msgstr "❌ Стары пароль няправільны"
+
+msgid "password_too_short"
+msgstr "⚠️ Пароль павінен змяшчаць мінімум 6 сімвалаў"
+
+msgid "confirm_new_password"
+msgstr "🔁 Паўтарыце новы пароль:"
+
+msgid "passwords_do_not_match"
+msgstr "❌ Паролі не супадаюць"
+
+msgid "password_changed_successfully"
+msgstr "✅ Пароль паспяхова зменены"
+
+msgid "my_profile_button"
+msgstr "👤 Мой профіль"
+
+msgid "change_phone_button"
+msgstr "📱 Змяніць нумар тэлефона"
+
+msgid "change_password_button"
+msgstr "🔑 Змяніць пароль"
+
+msgid "back_to_menu_button"
+msgstr "⬅️ Назад у меню"
+
+msgid "not_specified"
+msgstr "❌ Не паказаны"
+
+msgid "profile_title"
+msgstr "👤 Ваш профіль"
+
+msgid "profile_phone"
+msgstr "📞 Нумар тэлефона"
+
+msgid "profile_password"
+msgstr "🔐 Пароль"
+
+msgid "profile_stores_count"
+msgstr "🏬 Колькасць крам"
+
+msgid "profile_employees_count"
+msgstr "👥 Колькасць супрацоўнікаў"
+
+msgid "enter_new_phone"
+msgstr "📱 Увядзіце новы нумар тэлефона:"
+
+msgid "enter_new_password"
+msgstr "🔑 Увядзіце новы пароль:"
+
+msgid "main_menu_text"
+msgstr "🏠 Галоўнае меню:"
+
+msgid "enter_reply_text"
+msgstr "Напішыце адказ:"
+
+msgid "send_ai_reply"
+msgstr "🤖 Даслаць адказ ШІ"
+
+msgid "manual_reply"
+msgstr "✍️ Адказаць уручную"
+
+msgid "enter_password"
+msgstr "Прыдумайце пароль:"
+
+msgid "suggested_reply"
+msgstr "Прапанаваны адказ: %(reply_text)s"
+
+msgid "confirm_password"
+msgstr "Пацвердзіце пароль"
+
+msgid "registration_complete"
+msgstr "Рэгістрацыя выкананая!"
+
+msgid "unanswered_questions_list"
+msgstr "Неадказаныя пытанні"
+
+msgid "product_link"
+msgstr "Спасылка на тавар"
+
+msgid "back_to_list"
+msgstr "Вярнуцца назад"
+
+msgid "review"
+msgstr "Водгук"
+
+msgid "answer"
+msgstr "Адказ на пытанне"
+
+msgid "sku"
+msgstr "SKU"
+
+msgid "question"
+msgstr "Пытанне"
+
+msgid "next"
+msgstr "➡️"
+
+msgid "mode_template"
+msgstr "📄Па шаблоне"
+
+msgid "no_unanswered_reviews_for_rating"
+msgstr "Няма неапрацаваных водгукаў для %(rating)s зорак 😕"
+
+msgid "template_applied"
+msgstr "Шаблон для %(rating)s зорак ужыты да %(count)s водгукам: %(template)s ✅"
+
+msgid "manage_templates"
+msgstr "📝Кіраванне шаблонамі"
+
+msgid "template_info"
+msgstr "Для %(rating)s зорак: %(template)s ⭐"
+
+msgid "enter_template_for_rating"
+msgstr "Увядзіце шаблон для %(rating)s зорак: ✍️"
+
+msgid "template_set"
+msgstr "Шаблон для %(rating)s зорак устаноўлены! ✅"
+
+msgid "no_template_for_rating"
+msgstr "Шаблон для %(rating)s зорак не зададзены! ⚠️"
+
+msgid "send_by_template"
+msgstr "Адказаць па шаблоне 📄"
+
+msgid "answered_questions_list"
+msgstr "Спіс адказаных пытанняў✅"
+
+msgid "answered_questions"
+msgstr "✅ Адказаныя пытанні"
+
+msgid "unanswered_questions"
+msgstr "📭 Неадказаныя пытанні"
+
+msgid "auto_questions_enabled"
+msgstr "Аўтаадказы ўключаны"
+
+msgid "auto_questions_disabled"
+msgstr "Аўтаадказы выключаны"
+
+msgid "confirm_reply"
+msgstr "Пацвердзіце ваш адказ: %(reply_text)s ❓"
+
+msgid "send"
+msgstr "Даслаць ✅"
+
+msgid "cancel"
+msgstr "Адмяніць 🚫"
+
+msgid "back_to_review"
+msgstr "Вярнуцца да водгуку 🔙"
+
+msgid "answer_sent_successfully"
+msgstr "Адказ паспяхова дасланы! 🎉"
+
+msgid "review_not_found"
+msgstr "Водгук не знойдзены 😔"
+
+msgid "review_details"
+msgstr "📅 %(date)s\n\n%(user_display)s🌟 %(stars)s\n\n📦 %(product_name)s\n\n🔢 %(sku_label)s: %(sku)s\n\n💬 %(text)s"
+
+msgid "store_reply"
+msgstr "📩 Адказ крамы: %(answer)s"
+
+msgid "review_counter"
+msgstr "🔢 Водгук %(current)s з %(total)s"
+
+msgid "next_button"
+msgstr "➡️"
+
+msgid "prev_button"
+msgstr "⬅️"
+
+msgid "back_to_list_button"
+msgstr "⬅️Назад да спісу"
+
+msgid "no_answer"
+msgstr "Няма адказу"
+
+msgid "unanswered"
+msgstr "📭Неадказаныя"
+
+msgid "reviews_list_title"
+msgstr "%(type)s водгукі\n\n📊 Размеркаванне водгукаў:\n\n%(rating_summary)s"
+
+msgid "prev_page"
+msgstr "⬅️Папярэдняя старонка"
+
+msgid "answered"
+msgstr "✅Адказаныя "
+
+msgid "back_to_reviews_work"
+msgstr "⬅️Назад да працы з водгукамі"
+
+msgid "auto_replies_disabled"
+msgstr "Аўтаадказы выключаны"
+
+msgid "auto_replies_enabled"
+msgstr "Аўтаадказы ўключаны"
+
+msgid "no_store_selected"
+msgstr "❌ Крама не абраная."
+
+msgid "no_reviews_found"
+msgstr "📭 Водгукі не знойдзеныя."
+
+msgid "no_questions_found"
+msgstr "📭 Пытанні не знойдзеныя."
+
+msgid "reviews_list"
+msgstr "📋 Спіс водгукаў"
+
+msgid "questions_list"
+msgstr "📋 Спіс пытанняў"
+
+msgid "previous_page"
+msgstr "⬅️ Папярэдняя старонка"
+
+msgid "next_page"
+msgstr "➡️ Наступная старонка"
+
+msgid "questions_unanswered"
+msgstr "📬 Неадказаныя пытанні"
+
+msgid "questions_answered"
+msgstr "✅ Адказаныя пытанні"
+
+msgid "enter_employee_phone"
+msgstr "📱 Увядзіце ваш нумар тэлефона супрацоўніка:"
+
+msgid "enter_access_code"
+msgstr "🔑 Увядзіце код доступу:"
+
+msgid "welcome_employee"
+msgstr "👋 Сардэчна запрашаем, супрацоўнік!"
+
+msgid "invalid_employee_credentials"
+msgstr "❌ Няправільны нумар тэлефона ці код доступу."
+
+msgid "enter_new_full_name"
+msgstr "✏️ Увядзіце новае імя супрацоўніка:"
+
+msgid "enter_new_phone_employee"
+msgstr "📱 Увядзіце новы нумар тэлефона супрацоўніка:"
+
+msgid "enter_new_access_code"
+msgstr "🔢 Увядзіце новы код доступу (4 лічбы):"
+
+msgid "invalid_access_code"
+msgstr "❌ Код доступу павінен складацца з 4 лічбаў"
+
+msgid "employee_item"
+msgstr "👤 %(full_name)s (Актыўны: %(is_active)s)"
+
+msgid "choose_edit_employee_field"
+msgstr "✏️ Абярыце поле для рэдагавання супрацоўніка:"
+
+msgid "edit_employee_name"
+msgstr "✏️ Рэдагаваць імя супрацоўніка"
+
+msgid "edit_employee_phone"
+msgstr "📱 Рэдагаваць нумар тэлефона супрацоўніка"
+
+msgid "edit_employee_code"
+msgstr "🔢 Рэдагаваць код доступу супрацоўніка"
+
+msgid "edit_employee_stores"
+msgstr "🏪 Рэдагаваць крамы супрацоўніка"
+
+msgid "back_to_employee"
+msgstr "⬅️ Вярнуцца да супрацоўніка"
+
+msgid "confirm_delete_employee"
+msgstr "🗑️ Вы ўпэўненыя, што хочаце выдаліць супрацоўніка %(full_name)s?"
+
+msgid "employee_deleted"
+msgstr "🗑️ Супрацоўнік %(full_name)s выдалены"
+
+msgid "choose_role"
+msgstr "🎭 Абярыце ролю:"
+
+msgid "role_owner"
+msgstr "👑 Уласнік"
+
+msgid "role_employee"
+msgstr "👷 Супрацоўнік"
+
+msgid "my_employees"
+msgstr "👥 Мае супрацоўнікі"
+
+msgid "no_employees"
+msgstr "👥 Няма даступных супрацоўнікаў"
+
+msgid "add_employee"
+msgstr "➕ Дадаць супрацоўніка"
+
+msgid "enter_employee_name"
+msgstr "✏️ Увядзіце імя супрацоўніка:"
+
+msgid "enter_employee_phone_input"
+msgstr "📱 Увядзіце нумар тэлефона супрацоўніка:"
+
+msgid "enter_employee_code"
+msgstr "🔢 Увядзіце код доступу супрацоўніка (4 лічбы):"
+
+msgid "select_employee_stores"
+msgstr "🏪 Абярыце крамы для супрацоўніка:"
+
+msgid "select_all_stores"
+msgstr "✅ Абраць усе крамы"
+
+msgid "confirm_store_selection"
+msgstr "✔️ Пацвердзіць выбар крам"
+
+msgid "back_to_employee_action"
+msgstr "⬅️ Вярнуцца да дзеянняў з супрацоўнікам"
+
+msgid "employee_added"
+msgstr "👥 Супрацоўнік дададзены: %(full_name)s"
+
+msgid "employee_info"
+msgstr "👤 Супрацоўнік: %(full_name)s\n📱 Тэлефон: %(phone)s\n🔢 Код доступу: %(access_code)s\n🔄 Статус: %(status)s\n🏪 Крамы: %(stores)s"
+
+msgid "edit_employee"
+msgstr "✏️ Рэдагаваць супрацоўніка"
+
+msgid "delete_employee"
+msgstr "🗑️ Выдаліць супрацоўніка"
+
+msgid "toggle_employee_status"
+msgstr "🔄 Пераключыць статус супрацоўніка"
+
+msgid "back_to_employees"
+msgstr "⬅️ Вярнуцца да спісу супрацоўнікаў"
+
+msgid "choose_employee"
+msgstr "👥 Абярыце супрацоўніка:"
+
+msgid "Ozon"
+msgstr "🛍️ Ozon"
+
+msgid "Wildberries"
+msgstr "🛍️ Wildberries"
+
+msgid "Yandex Market"
+msgstr "🛍️ Яндекс Маркет"
+
+msgid "questions_info"
+msgstr "📝 Аўтаадказы: %(questions_status)s\n\n⚙️ Рэжым: %(questions_mode)s\n\n📭 Чакаюць адказу: %(unanswered_count)s"
+
+msgid "questions_status_label"
+msgstr "📝 Пытанні:"
+
+msgid "questions_mode_label"
+msgstr "⚙️ Рэжым:"
+
+msgid "reviews_info"
+msgstr "📝 Аўтаадказы: %(reviews_status)s\n\n⚙️ Рэжымы:\n%(modes_info)s\n\n📭 Чакаюць адказу: %(unanswered_count)s"
+
+msgid "reviews_status_label"
+msgstr "📝 Водгукі:"
+
+msgid "reviews_modes_label"
+msgstr "⚙️ Рэжымы:"
+
+msgid "store_edit_info"
+msgstr "🏪 Назва крамы: %(store_name)s\n📋 Тып: %(store_type)s\n🔑 API-ключ: %(api_key)s\n🆔Client ID: %(client_id)s\n\n✏️ Абярыце поле для рэдагавання:"
+
+msgid "store_name_label"
+msgstr "🏪 Назва крамы:"
+
+msgid "store_type_label"
+msgstr "📋 Тып:"
+
+msgid "api_key_label"
+msgstr "🔑 API-ключ:"
+
+msgid "client_id_label"
+msgstr "🆔Client ID:"
+
+msgid "mode_not_set"
+msgstr "⚙️ Не ўстаноўлены"
+
+msgid "enter_new_store_name"
+msgstr "📝 Увядзіце новую назву крамы:"
+
+msgid "enter_new_api_key"
+msgstr "🔑 Увядзіце новы API-ключ:"
+
+msgid "enter_new_client_id"
+msgstr "🆔 Увядзіце новы Client ID:"
+
+msgid "back"
+msgstr "🔙 Назад"
+
+msgid "store_deleted"
+msgstr "🗑️ Крама выдалена."
+
+msgid "choose_edit_field"
+msgstr "✏️ Абярыце поле для рэдагавання:"
+
+msgid "review_modes"
+msgstr "⚙️ Рэжымы працы:"
+
+msgid "view_reviews"
+msgstr "📝 Праглядзець водгукі"
+
+msgid "question_modes"
+msgstr "⚙️ Рэжымы працы:"
+
+msgid "view_questions"
+msgstr "❓ Праглядзець пытанні"
+
+msgid "change_language"
+msgstr "🌐 Змяніць мову"
+
+msgid "choose_language"
+msgstr "🌍 Калі ласка, абярыце мову:"
+
+msgid "language_az"
+msgstr "🇦🇿 Азербайджанская"
+
+msgid "language_en"
+msgstr "🇬🇧 Англійская"
+
+msgid "language_kz"
+msgstr "🇰🇿 Казахская"
+
+msgid "language_uz"
+msgstr "🇺🇿 Узбекская"
+
+msgid "language_ru"
+msgstr "🇷🇺 Руская"
+
+msgid "language_bl"
+msgstr "🇧🇾 Беларуская"
+
+msgid "language_am"
+msgstr "🇦🇲 Армянская"
+
+msgid "language_cn"
+msgstr "🇨🇳 Кітайская"
+
+msgid "star_1"
+msgstr "⭐ 1 зорка"
+
+msgid "star_2"
+msgstr "⭐ 2 зоркі"
+
+msgid "star_3"
+msgstr "⭐ 3 зоркі"
+
+msgid "star_4"
+msgstr "⭐ 4 зоркі"
+
+msgid "star_5"
+msgstr "⭐ 5 зорак"
+
+msgid "language_set"
+msgstr "🌍 Мова ўстаноўлена: %(lang_name)s"
+
+msgid "send_phone_button"
+msgstr "📱 Даслаць нумар тэлефона"
+
+msgid "store_item"
+msgstr "🏪 %(store_name)s (%(store_type)s)"
+
+msgid "back_to_main_menu"
+msgstr "⬅️ Вярнуцца ў галоўнае меню"
+
+msgid "send_phone_number"
+msgstr "📱 Калі ласка, падзяліцеся нумарам тэлефона:"
+
+msgid "phone_received"
+msgstr "📱 Нумар тэлефона атрыманы"
+
+msgid "welcome_back"
+msgstr "👋 З вяртаннем!"
+
+msgid "unsupported_language"
+msgstr "⚠️ Непадтрыманая мова"
+
+msgid "my_stores_button"
+msgstr "🛍️ Мае крамы"
+
+msgid "add_store_button"
+msgstr "➕ Дадаць краму"
+
+msgid "choose_store_platform"
+msgstr "🏪 Абярыце платформу крамы:"
+
+msgid "enter_store_name"
+msgstr "✏️ Увядзіце назву крамы:"
+
+msgid "enter_api_key"
+msgstr "🔑 Увядзіце API-ключ:"
+
+msgid "invalid_store_type"
+msgstr "❌ Няправільны тып крамы"
+
+msgid "store_added"
+msgstr "🏪 Крама дададзена: %(store_name)s (%(store_type)s)"
+
+msgid "enter_client_id"
+msgstr "🆔 Увядзіце Client ID:"
+
+msgid "no_stores"
+msgstr "🛍️ Няма даступных крам"
+
+msgid "choose_store"
+msgstr "Абярыце краму:"
+
+msgid "store_not_selected"
+msgstr "⚠️ Крама не абраная"
+
+msgid "store_name_exists"
+msgstr "⚠️ Назва крамы ўжо існуе"
+
+msgid "store_name_updated"
+msgstr "✏️ Назва крамы абноўлена: %(store_name)s"
+
+msgid "return_to_store"
+msgstr "⬅️ Вярнуцца да крамы: %(store_name)s"
+
+msgid "data_not_found"
+msgstr "⚠️ Дадзеныя не знойдзены"
+
+msgid "invalid_field"
+msgstr "❌ Няправільнае поле"
+
+msgid "field_updated"
+msgstr "✅ Поле абноўлена: %(field)s для крамы %(store_name)s"
+
+msgid "client_id_not_used"
+msgstr "⚠️Client ID не выкарыстоўваецца для гэтага тыпу крамы"
+
+msgid "confirm_delete_store"
+msgstr "🗑️ Вы ўпэўненыя, што хочаце выдаліць краму %(store_name)s?"
+
+msgid "store_deletion_error"
+msgstr "❌ Памылка пры выдаленні крамы"
+
+msgid "deletion_cancelled"
+msgstr "🚫 Выдаленне адменена"
+
+msgid "main_menu"
+msgstr "🏠 Галоўнае меню"
+
+msgid "store_selected"
+msgstr "🏪 Крама абраная: %(store_name)s"
+
+msgid "view_store"
+msgstr "👀 Праглядзець краму"
+
+msgid "edit_store"
+msgstr "✏️ Рэдагаваць краму"
+
+msgid "reviews_work"
+msgstr "📝 Праца з водгукамі"
+
+msgid "questions_work"
+msgstr "❓ Праца з пытаннямі"
+
+msgid "notifications"
+msgstr "🔔 Апавяшчэнні"
+
+msgid "back_to_menu"
+msgstr "⬅️ Вярнуцца ў меню"
+
+msgid "store_info"
+msgstr "🏪 Крама: %(store_name)s (%(store_type)s)\n ━━━━━━━━━━━━━━━━\n 📝Раздзел водгукаў\n\n 🤖Аўтаадказы: %(reviews_status)s\n\n 📭 %(unanswered_reviews)s чакаюць адказу\n\n ⚙️ Рэжымы:\n%(modes_info)s\n━━━━━━━━━━━━━━━━\n ❓Раздзел пытанняў\n\n 🤖Аўтаадказы: %(questions_status)s\n\n 📬 %(unanswered_questions)s чакаюць адказу\n\n ⚙️ Рэжым пытанняў: %(questions_mode)s"
+
+msgid "modes_not_set"
+msgstr "⚙️ Рэжымы не ўстаноўлены"
+
+msgid "mode_auto"
+msgstr "🤖 Аўтаматычны"
+
+msgid "mode_semi"
+msgstr "⚙️ Паўаўтаматычны"
+
+msgid "mode_manual"
+msgstr "✋ Рукавы"
+
+msgid "mode_info"
+msgstr " ⭐ %(rating)s: %(mode)s"
+
+msgid "questions_status"
+msgstr "❓ Статус пытанняў: %(status)s"
+
+msgid "auto_replies_toggled"
+msgstr "🤖 Аўтаматычныя адказы %(status)s"
+
+msgid "current_modes"
+msgstr "⚙️ Бягучыя рэжымы водгукаў:"
+
+msgid "rating_selected"
+msgstr "⭐ Ацэнка %(rating)s абраная\n\n🤖Аўтаматычны - бот атрымлівае водгук і аўтаматычна дасылае адказ.\n\n⚙️Паўаўтаматычны - бот згенеруе адказ, калі Вы перайдзеце на пэўны водгук ці пытанне.\n\n✋Рукавы - генерацыя адбывацца не будзе, Вы можаце ўручную адказваць на водгукі ці пытанні.\n\n📄Па шаблоне - задайце патрэбны шаблон для абранай ацэнкі і бот будзе дасылаць адказ Вашым шаблонам.\n\n\nАбярыце рэжым:"
+
+msgid "mode_updated"
+msgstr "Рэжым для ацэнкі %(rating)s абноўлены: %(mode)s"
+
+msgid "return_to_reviews"
+msgstr "⬅️ Вярнуцца да водгукаў"
+
+msgid "reviews_work_for_store"
+msgstr "📝 Праца з водгукамі для крамы: %(store_name)s"
+
+msgid "back_to_store_from_reviews"
+msgstr "⬅️ Вярнуцца да крамы з водгукаў"
+
+msgid "questions_work_for_store"
+msgstr "❓ Праца з пытаннямі для крамы: %(store_name)s"
+
+msgid "questions_auto_replies_toggled"
+msgstr "🤖 Аўтаматычныя адказы на пытанні %(status)s для крамы %(store_name)s"
+
+msgid "current_questions_mode"
+msgstr "⚙️ Бягучы рэжым пытанняў: %(current_mode)s"
+
+msgid "questions_mode_set"
+msgstr "Рэжым пытанняў устаноўлены: %(mode)s"
+
+msgid "choose_action"
+msgstr "⚙️ Абярыце дзеянне:"
+
+msgid "return_to_questions"
+msgstr "⬅️ Вярнуцца да пытанняў"
+
+msgid "back_to_menu_from_questions"
+msgstr "⬅️ Вярнуцца ў меню з пытанняў"
+
+msgid "question_text"
+msgstr "❓ Пытанне: %(question_text)s"
+
+msgid "wildberries_question_warning"
+msgstr "⚠️ Заўвага: Гэта пытанне з Wildberries"
+
+msgid "answer_sent_auto"
+msgstr "✅ Адказ дасланы аўтаматычна: %(reply_text)s"
+
+msgid "error_sending_answer"
+msgstr "❌ Памылка пры дасыланні адказу"
+
+msgid "proposed_answer"
+msgstr "📝 Прапанаваны адказ: %(proposed_reply)s"
+
+msgid "write_answer"
+msgstr "✏️ Напішыце ваш адказ:"
+
+msgid "all_questions_viewed"
+msgstr "✅ Усе пытанні прагледжаны"
+
+msgid "no_more_questions"
+msgstr "❓ Больш няма пытанняў"
+
+msgid "answer_sent"
+msgstr "✅ Адказ дасланы: %(reply_text)s"
+
+msgid "question_skipped"
+msgstr "➡️ Пытанне прапушчана"
+
+msgid "enter_your_answer"
+msgstr "✏️ Увядзіце ваш адказ:"
+
+msgid "back_to_store_question"
+msgstr "⬅️ Вярнуцца да крамы з пытанняў"
+
+msgid "enter_answer_first"
+msgstr "⚠️ Спачатку ўвядзіце адказ"
+
+msgid "your_answer"
+msgstr "📝 Ваш адказ: %(response_text)s"
+
+msgid "send_question_reply"
+msgstr "📤 Даслаць адказ"
+
+msgid "wildberries_review_warning"
+msgstr "⚠️ Заўвага: Гэта водгук з Wildberries"
+
+msgid "review_text"
+msgstr "📝 Водгук: ⭐%(rating)s %(review_text)s"
+
+msgid "error_processing_review"
+msgstr "❌ Памылка пры апрацоўцы водгуку"
+
+msgid "all_reviews_viewed"
+msgstr "✅ Усе водгукі прагледжаны"
+
+msgid "no_more_reviews"
+msgstr "📝 Больш няма водгукаў"
+
+msgid "review_skipped"
+msgstr "➡️ Водгук прапушчаны"
+
+msgid "format_error"
+msgstr "❌ Памылка фармату: %(error)s"
+
+msgid "error_saving_settings"
+msgstr "❌ Памылка пры захаванні наладаў"
+
+msgid "send_as_is"
+msgstr "📤 Даслаць як прапанавана"
+
+msgid "edit_reply"
+msgstr "✏️ Рэдагаваць адказ"
+
+msgid "skip_review"
+msgstr "➡️ Прапусціць водгук"
+
+msgid "send_reply"
+msgstr "📤 Даслаць адказ"
+
+msgid "edit_question_reply"
+msgstr "✏️ Рэдагаваць адказ на пытанне"
+
+msgid "skip_question"
+msgstr "➡️ Прапусціць пытанне"
+
+msgid "back_to_reviews_menu"
+msgstr "⬅️ Вярнуцца ў меню водгукаў"
+
+msgid "send_as_is_question"
+msgstr "📤 Даслаць пытанне як прапанавана"
+
+msgid "back_to_questions_menu"
+msgstr "⬅️ Вярнуцца ў меню пытанняў"
+
+msgid "edit_name"
+msgstr "✏️ Рэдагаваць назву"
+
+msgid "edit_api_key"
+msgstr "🔑 Рэдагаваць API-ключ"
+
+msgid "edit_client_id"
+msgstr "🆔 Рэдагаваць Client ID"
+
+msgid "delete_store"
+msgstr "🗑️ Выдаліць краму"
+
+msgid "back_in_edit_field"
+msgstr "⬅️ Вярнуцца да выбару поля"
+
+msgid "confirm_delete"
+msgstr "✅ Пацвердзіць выдаленне"
+
+msgid "cancel_delete"
+msgstr "🚫 Адмяніць выдаленне"
+
+msgid "back_to_rating_selection"
+msgstr "⬅️ Вярнуцца да выбару ацэнак"
+
+msgid "only_1_star"
+msgstr "⭐ Толькі 1 зорка"
+
+msgid "1_2_stars"
+msgstr "⭐ 1-2 зоркі"
+
+msgid "1_3_stars"
+msgstr "⭐ 1-3 зоркі"
+
+msgid "disabled"
+msgstr "🚫 Адключаны"
+
+msgid "enabled"
+msgstr "✅ Уключаны"
+
+msgid "not_set"
+msgstr "⚙️ Не ўстаноўлена"
+
+msgid "store_not_found"
+msgstr "⚠️ Крама не знойдзена"
+
+msgid "store_access_denied"
+msgstr "🚫 Доступ да крамы забаронены"
+
+msgid "no_reviews"
+msgstr "📝 Няма водгукаў для адлюстравання"
+
+msgid "no_unanswered_questions"
+msgstr "📭 Няма неадказаных пытанняў"
+
+msgid "no_answered_questions"
+msgstr "❓ Няма адказаных пытанняў"
+
+msgid "invalid_store_id"
+msgstr "❌ Няправільны ID крамы"
+
+msgid "unknown_command"
+msgstr "❓ Невядомая каманда"
+
+msgid "error_occurred"
+msgstr "❌ Адбылася памылка"
+
+msgid "star_rating"
+msgstr "⭐%(rating)s: %(count)s"
+
+msgid "back_to_store"
+msgstr "⬅️ Вярнуцца да крамы"

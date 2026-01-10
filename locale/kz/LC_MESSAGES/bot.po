@@ -1,0 +1,1117 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: bot\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-18 16:32+0200\n"
+"PO-Revision-Date: 2025-07-19 22:12+0200\n"
+"Last-Translator: \n"
+"Language-Team: Kazakh\n"
+"Language: kk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "reviews_enabled"
+msgstr "✅ Қосылған"
+
+msgid "stop_words_list"
+msgstr "🛑 Сөз тоқтатқыштар (%(count)s):\n\n%(words_list)s\n\nӘрекет таңдаңыз:"
+
+msgid "stop_words_empty"
+msgstr "🛑 Сөз тоқтатқыштар:\n\nСипаттама:\nГенерация жүрмейтін сөздерді орнатыңыз.\n\nӘлі ешнәрсе қосылмаған.\n\nӘрекет таңдаңыз:"
+
+msgid "add_stop_words_instruction"
+msgstr "➕ Сөз тоқтатқыштарды қосу\n\nҚосу керек сөздерді үтірмен бөліп жіберіңіз.\n\nМысал:\nжаман, қолдан жасалған"
+
+msgid "remove_stop_words_instruction"
+msgstr "➖ Сөз тоқтатқыштарды жою\n\nЖою керек сөздерді үтірмен бөліп жіберіңіз.\n\nТек дәл келетіндер жойылады."
+
+msgid "clear_stop_words_confirm"
+msgstr "⚠️ Барлық сөз тоқтатқыштарды тазартқыңыз келе ме?\n\nТізім толығымен жойылады."
+
+msgid "stop_words_cleared"
+msgstr "✅ Сөз тоқтатқыштар тазартылды"
+
+msgid "stop_words_success"
+msgstr "✅ Сөз тоқтатқыштар жаңартылды\n\nАғымдағы тізім (%(count)s):\n%(words_list)s"
+
+msgid "minus_words_list"
+msgstr "🛑 Минус-сөздер (%(count)s):\n\n%(words_list)s\n\nӘрекет таңдаңыз:"
+
+msgid "minus_words_empty"
+msgstr "🛑 Минус-сөздер:\n\nСипаттама:\nЖауапта AI қолданбайтын сөздерді орнатыңыз.\n\nӘлі ешнәрсе қосылмаған.\n\nӘрекет таңдаңыз:"
+
+msgid "add_minus_words_instruction"
+msgstr "➕ Минус-сөздерді қосу\n\nҚосу керек сөздерді үтірмен бөліп жіберіңіз.\n\nМысал:\nжаман, қолдан жасалған"
+
+msgid "remove_minus_words_instruction"
+msgstr "➖ Минус-сөздерді жою\n\nЖою керек сөздерді үтірмен бөліп жіберіңіз.\n\nТек дәл келетіндер жойылады."
+
+msgid "clear_minus_words_confirm"
+msgstr "⚠️ Барлық минус-сөздерді тазартқыңыз келе ме?\n\nТізім толығымен жойылады."
+
+msgid "minus_words_cleared"
+msgstr "✅ Минус-сөздер тазартылды"
+
+msgid "minus_words_success"
+msgstr "✅ Минус-сөздер жаңартылды\n\nАғымдағы тізім (%(count)s):\n%(words_list)s"
+
+msgid "add_button"
+msgstr "➕ Қосу"
+
+msgid "remove_button"
+msgstr "➖ Жою"
+
+msgid "clear_button"
+msgstr "🗑 Тазарту"
+
+msgid "confirm_clear"
+msgstr "✅ Тазарту"
+
+msgid "empty"
+msgstr "бос"
+
+msgid "yes"
+msgstr "Иә"
+
+msgid "no"
+msgstr "Жоқ"
+
+msgid "contact_developer"
+msgstr "💬 Әзірлеушіге жазу"
+
+msgid "support_text"
+msgstr "Егер ботта қате немесе мәселе кездессе, маған тікелей жазыңыз! Мәселені шешуге көмектесемін.\n\nНе істеу керек:\n1. Төмендегі түймені басыңыз\n2. Не болғанын сипаттаңыз\n3 Қандай әрекеттер қатеге әкелгенін көрсетіңіз\n\nМүмкіндігінше тез жауап беруге тырысамын!"
+
+msgid "address_style_setting"
+msgstr "Хабарласу үлгісі"
+
+msgid "address_formal"
+msgstr "Сіз (ресми)"
+
+msgid "address_lowercase"
+msgstr "сіз (кіші әріппен)"
+
+msgid "address_informal"
+msgstr "сен (ресми емес)"
+
+msgid "address_style_header"
+msgstr "🎭 Хабарласу үлгісін таңдаңыз:"
+
+msgid "address_style_set"
+msgstr "✅ Хабарласу үлгісі орнатылды: {style}"
+
+msgid "support"
+msgstr "🛟 Қолдау"
+
+msgid "stores_header"
+msgstr "Дүкендер"
+
+msgid "questions"
+msgstr "Сұрақтар"
+
+msgid "reviews"
+msgstr "Пікірлер"
+
+msgid "store_settings"
+msgstr "⚙️ AI параметрлері"
+
+msgid "store_settings_templates"
+msgstr "📝 Жауап үлгілері"
+
+msgid "store_settings_advanced"
+msgstr "⚙️ Кеңейтілген параметрлер"
+
+msgid "advanced_settings_header"
+msgstr "⚙️ Генерацияның кеңейтілген параметрлері:"
+
+msgid "use_name_setting"
+msgstr "👤 Атымен хабарласу"
+
+msgid "mention_product_setting"
+msgstr "📦 Өнім ұсыну"
+
+msgid "use_emojis_setting"
+msgstr "😊 Жауаптарда эмодзи"
+
+msgid "response_length_setting"
+msgstr "Жауап ұзындығы"
+
+msgid "response_length_short"
+msgstr "Қысқа (30 сөзге дейін)"
+
+msgid "response_length_default"
+msgstr "Әдепкі (70 сөзге дейін)"
+
+msgid "response_length_long"
+msgstr "Егжей-тегжейлі (150 сөзге дейін)"
+
+msgid "response_length_header"
+msgstr "📏 Жауап ұзындығын таңдаңыз:"
+
+msgid "response_length_set"
+msgstr "✅ Жауап ұзындығы орнатылды: %(length)s"
+
+msgid "delivery_method_setting"
+msgstr "Жеткізу"
+
+msgid "delivery_method_marketplace"
+msgstr "📦 Маркетплейс"
+
+msgid "delivery_method_self"
+msgstr "🚗 Өз бетінше"
+
+msgid "delivery_method_header"
+msgstr "🚚 Жеткізу әдісін таңдаңыз:\n\nСипаттама:\nТауарлар қалай жеткізіледі."
+
+msgid "delivery_method_set"
+msgstr "✅ Жеткізу әдісі орнатылды: %(method)s"
+
+msgid "tone_setting"
+msgstr "Үн"
+
+msgid "tone_business"
+msgstr "🏢 Бизнес"
+
+msgid "tone_friendly"
+msgstr "😊 Достық"
+
+msgid "tone_strict"
+msgstr "⚠️ Қатаң"
+
+msgid "tone_header"
+msgstr "🎭 Жауаптар үнін таңдаңыз:\n\nСипаттама:\nAI сипатын анықтайды"
+
+msgid "tone_set"
+msgstr "Үн орнатылды: %(tone)s"
+
+msgid "stop_words_setting"
+msgstr "✏️ Сөз тоқтатқыштар"
+
+msgid "minus_words_setting"
+msgstr "✏️ Минус-сөздер"
+
+msgid "stop_words_current"
+msgstr "🚫 Ағымдағы сөз тоқтатқыштар: %(words)s"
+
+msgid "stop_words_instruction"
+msgstr "Сөз тоқтатқыштарды үтірмен бөліп енгізіңіз (генерация жүрмейтін сөздер):\nМысал: спам, жарнама, шағым"
+
+msgid "stop_words_updated"
+msgstr "✅ Сөз тоқтатқыштар жаңартылды: %(words)s"
+
+msgid "minus_words_current"
+msgstr "❌ Ағымдағы минус-сөздер: %(words)s"
+
+msgid "minus_words_instruction"
+msgstr "Минус-сөздерді үтірмен бөліп енгізіңіз (AI қолданбауы керек сөздер):\nМысал: қорқынышты, түс, қайғы"
+
+msgid "minus_words_updated"
+msgstr "✅ Минус-сөздер жаңартылды: %(words)s"
+
+msgid "cleared"
+msgstr "тазартылды"
+
+msgid "unknown_setting"
+msgstr "Белгісіз параметр"
+
+msgid "error_loading_settings"
+msgstr "Параметрлерді жүктеу қатесі"
+
+msgid "template_preview_line"
+msgstr "⭐%(rating)s жұлдыз: %(preview)s"
+
+msgid "template_not_set_line"
+msgstr "⭐%(rating)s жұлдыз: Орнатылмаған 🚫"
+
+msgid "current_templates_header"
+msgstr "📄 Ағымдағы жауап үлгілері:"
+
+msgid "template_status_line"
+msgstr "⭐ %(rating)s жұлдыз үшін: %(status)s"
+
+msgid "current_template_for_rating"
+msgstr "%(rating)s жұлдыз үшін ағымдағы үлгі:\n\n%(template)s"
+
+msgid "enter_new_template"
+msgstr "%(rating)s жұлдыз үшін жаңа үлгі енгізіңіз:"
+
+msgid "template_updated"
+msgstr "%(rating)s жұлдыз үшін үлгі жаңартылды!"
+
+msgid "template_deleted"
+msgstr "%(rating)s жұлдыз үшін үлгі жойылды."
+
+msgid "edit_template"
+msgstr "✏️ Үлгіні өңдеу"
+
+msgid "delete_template"
+msgstr "🗑 Үлгіні жою"
+
+msgid "rating_button_1"
+msgstr "⭐1 жұлдыз"
+
+msgid "rating_button_2"
+msgstr "⭐2 жұлдыз"
+
+msgid "rating_button_3"
+msgstr "⭐3 жұлдыз"
+
+msgid "rating_button_4"
+msgstr "⭐4 жұлдыз"
+
+msgid "rating_button_5"
+msgstr "⭐5 жұлдыз"
+
+msgid "not_applicable"
+msgstr "Қажет емес"
+
+msgid "article"
+msgstr "Артикул"
+
+msgid "pros"
+msgstr "Артықшылықтар"
+
+msgid "cons"
+msgstr "Кемшіліктер"
+
+msgid "back_to_stores_list"
+msgstr "⬅️ Дүкендер тізіміне оралу"
+
+msgid "sku_not_available"
+msgstr "Артикул көрсетілмеген"
+
+msgid "unknown_product"
+msgstr "Белгісіз өнім"
+
+msgid "no_store_reply"
+msgstr "Дүкен әлі бұл пікірге жауап бермеді"
+
+msgid "product_name"
+msgstr "Өнім атауы"
+
+msgid "enter_password_to_login"
+msgstr "🔐 Кіру үшін құпия сөзді енгізіңіз:"
+
+msgid "invalid_password"
+msgstr "❌ Қате құпия сөз, қайталап көріңіз."
+
+msgid "logout_button"
+msgstr "🚪 Профильден шығу"
+
+msgid "logged_out_message"
+msgstr "👋 Профильден шықтыңыз."
+
+msgid "enter_phone_to_login"
+msgstr "📱 Қайта кіру үшін телефон нөмірін енгізіңіз:"
+
+msgid "password_invalid_format"
+msgstr "⚠️ Құпия сөз кемінде 7 таңбадан тұруы керек және тек латын әріптерінен, сандар мен _!@#$%^&*.- таңбаларынан тұруы керек"
+
+msgid "password_set"
+msgstr "✅ Орнатылды"
+
+msgid "enter_old_password"
+msgstr "🔑 Ескі құпия сөзді енгізіңіз:"
+
+msgid "old_password_incorrect"
+msgstr "❌ Ескі құпия сөз қате"
+
+msgid "password_too_short"
+msgstr "⚠️ Құпия сөз кемінде 6 таңбадан тұруы керек"
+
+msgid "confirm_new_password"
+msgstr "🔁 Жаңа құпия сөзді қайталаңыз:"
+
+msgid "passwords_do_not_match"
+msgstr "❌ Құпия сөздер сәйкес келмейді"
+
+msgid "password_changed_successfully"
+msgstr "✅ Құпия сөз сәтті өзгертілді"
+
+msgid "my_profile_button"
+msgstr "👤 Менің Профилім"
+
+msgid "change_phone_button"
+msgstr "📱 Телефон нөмірін өзгерту"
+
+msgid "change_password_button"
+msgstr "🔑 Құпия сөзді өзгерту"
+
+msgid "back_to_menu_button"
+msgstr "⬅️ Мәзірге оралу"
+
+msgid "not_specified"
+msgstr "❌ Көрсетілмеген"
+
+msgid "profile_title"
+msgstr "👤 Сіздің Профиліңіз"
+
+msgid "profile_phone"
+msgstr "📞 Телефон нөмірі"
+
+msgid "profile_password"
+msgstr "🔐 Құпия сөз"
+
+msgid "profile_stores_count"
+msgstr "🏬 Дүкендер саны"
+
+msgid "profile_employees_count"
+msgstr "👥 Қызметкерлер саны"
+
+msgid "enter_new_phone"
+msgstr "📱 Жаңа телефон нөмірін енгізіңіз:"
+
+msgid "enter_new_password"
+msgstr "🔑 Жаңа құпия сөзді енгізіңіз:"
+
+msgid "main_menu_text"
+msgstr "🏠 Негізгі Мәзір:"
+
+msgid "enter_reply_text"
+msgstr "Жауап жазыңыз:"
+
+msgid "send_ai_reply"
+msgstr "🤖 AI жауабын жіберу"
+
+msgid "manual_reply"
+msgstr "✍️ Қолмен жауап беру"
+
+msgid "enter_password"
+msgstr "Құпия сөзді таңдаңыз:"
+
+msgid "suggested_reply"
+msgstr "Ұсынылған жауап: %(reply_text)s"
+
+msgid "confirm_password"
+msgstr "Құпия сөзді растаңыз"
+
+msgid "registration_complete"
+msgstr "Тіркеу аяқталды!"
+
+msgid "unanswered_questions_list"
+msgstr "Жауапсыз сұрақтар"
+
+msgid "product_link"
+msgstr "Өнім сілтемесі"
+
+msgid "back_to_list"
+msgstr "Артқа оралу"
+
+msgid "review"
+msgstr "Пікір"
+
+msgid "answer"
+msgstr "Сұраққа жауап"
+
+msgid "sku"
+msgstr "SKU"
+
+msgid "question"
+msgstr "Сұрақ"
+
+msgid "next"
+msgstr "➡️"
+
+msgid "mode_template"
+msgstr "📄 Үлгі бойынша"
+
+msgid "no_unanswered_reviews_for_rating"
+msgstr "%(rating)s жұлдызға өңделмеген пікірлер жоқ 😕"
+
+msgid "template_applied"
+msgstr "%(rating)s жұлдыз үшін үлгі %(count)s пікірге қолданылды: %(template)s ✅"
+
+msgid "manage_templates"
+msgstr "📝 Үлгілерді басқару"
+
+msgid "template_info"
+msgstr "%(rating)s жұлдыз үшін: %(template)s ⭐"
+
+msgid "enter_template_for_rating"
+msgstr "%(rating)s жұлдыз үшін үлгі енгізіңіз: ✍️"
+
+msgid "template_set"
+msgstr "%(rating)s жұлдыз үшін үлгі орнатылды! ✅"
+
+msgid "no_template_for_rating"
+msgstr "%(rating)s жұлдыз үшін үлгі орнатылмаған! ⚠️"
+
+msgid "send_by_template"
+msgstr "Үлгі бойынша жауап беру 📄"
+
+msgid "answered_questions_list"
+msgstr "Жауап берілген сұрақтар тізімі ✅"
+
+msgid "answered_questions"
+msgstr "✅ Жауап берілген сұрақтар"
+
+msgid "unanswered_questions"
+msgstr "📭 Жауап берілмеген сұрақтар"
+
+msgid "auto_questions_enabled"
+msgstr "Автожауаптар қосылған"
+
+msgid "auto_questions_disabled"
+msgstr "Автожауаптар өшірілген"
+
+msgid "confirm_reply"
+msgstr "Жауабыңызды растаңыз: %(reply_text)s ❓"
+
+msgid "send"
+msgstr "Жіберу ✅"
+
+msgid "cancel"
+msgstr "Бас тарту 🚫"
+
+msgid "back_to_review"
+msgstr "Пікірге оралу 🔙"
+
+msgid "answer_sent_successfully"
+msgstr "Жауап сәтті жіберілді! 🎉"
+
+msgid "review_not_found"
+msgstr "Пікір табылмады 😔"
+
+msgid "review_details"
+msgstr "📅 %(date)s\n\n%(user_display)s🌟 %(stars)s\n\n📦 %(product_name)s\n\n🔢 %(sku_label)s: %(sku)s\n\n💬 %(text)s"
+
+msgid "store_reply"
+msgstr "📩 Дүкен жауабы: %(answer)s"
+
+msgid "review_counter"
+msgstr "🔢 Пікір %(current)s / %(total)s"
+
+msgid "next_button"
+msgstr "➡️"
+
+msgid "prev_button"
+msgstr "⬅️"
+
+msgid "back_to_list_button"
+msgstr "⬅️Тізімге оралу"
+
+msgid "no_answer"
+msgstr "Жауап жоқ"
+
+msgid "unanswered"
+msgstr "📭 Жауап берілмеген"
+
+msgid "reviews_list_title"
+msgstr "%(type)s пікірлер\n\n📊 Пікірлердің таралуы:\n\n%(rating_summary)s"
+
+msgid "prev_page"
+msgstr "⬅️Алдыңғы бет"
+
+msgid "answered"
+msgstr "✅ Жауап берілген"
+
+msgid "back_to_reviews_work"
+msgstr "⬅️Пікірлермен жұмысқа оралу"
+
+msgid "auto_replies_disabled"
+msgstr "Автожауаптар өшірілген"
+
+msgid "auto_replies_enabled"
+msgstr "Автожауаптар қосылған"
+
+msgid "no_store_selected"
+msgstr "❌ Дүкен таңдалмаған."
+
+msgid "no_reviews_found"
+msgstr "📭 Пікірлер табылмады."
+
+msgid "no_questions_found"
+msgstr "📭 Сұрақтар табылмады."
+
+msgid "reviews_list"
+msgstr "📋 Пікірлер тізімі"
+
+msgid "questions_list"
+msgstr "📋 Сұрақтар тізімі"
+
+msgid "previous_page"
+msgstr "⬅️ Алдыңғы бет"
+
+msgid "next_page"
+msgstr "➡️ Келесі бет"
+
+msgid "questions_unanswered"
+msgstr "📬 Жауап берілмеген сұрақтар"
+
+msgid "questions_answered"
+msgstr "✅ Жауап берілген сұрақтар"
+
+msgid "enter_employee_phone"
+msgstr "📱 Қызметкер телефон нөміріңізді енгізіңіз:"
+
+msgid "enter_access_code"
+msgstr "🔑 Кіру кодын енгізіңіз:"
+
+msgid "welcome_employee"
+msgstr "👋 Қош келдіңіз, қызметкер!"
+
+msgid "invalid_employee_credentials"
+msgstr "❌ Қате телефон нөмірі немесе кіру коды."
+
+msgid "enter_new_full_name"
+msgstr "✏️ Қызметкердің жаңа атын енгізіңіз:"
+
+msgid "enter_new_phone_employee"
+msgstr "📱 Қызметкердің жаңа телефон нөмірін енгізіңіз:"
+
+msgid "enter_new_access_code"
+msgstr "🔢 Жаңа кіру кодын енгізіңіз (4 сан):"
+
+msgid "invalid_access_code"
+msgstr "❌ Кіру коды 4 саннан тұруы керек"
+
+msgid "employee_item"
+msgstr "👤 %(full_name)s (Белсенді: %(is_active)s)"
+
+msgid "choose_edit_employee_field"
+msgstr "✏️ Қызметкерді өңдеу үшін өрісті таңдаңыз:"
+
+msgid "edit_employee_name"
+msgstr "✏️ Қызметкер атын өңдеу"
+
+msgid "edit_employee_phone"
+msgstr "📱 Қызметкер телефон нөмірін өңдеу"
+
+msgid "edit_employee_code"
+msgstr "🔢 Қызметкер кіру кодын өңдеу"
+
+msgid "edit_employee_stores"
+msgstr "🏪 Қызметкер дүкендерін өңдеу"
+
+msgid "back_to_employee"
+msgstr "⬅️ Қызметкерге оралу"
+
+msgid "confirm_delete_employee"
+msgstr "🗑️ Қызметкерді %(full_name)s жоюға сенімдісіз бе?"
+
+msgid "employee_deleted"
+msgstr "🗑️ Қызметкер %(full_name)s жойылды"
+
+msgid "choose_role"
+msgstr "🎭 Рөлді таңдаңыз:"
+
+msgid "role_owner"
+msgstr "👑 Иесі"
+
+msgid "role_employee"
+msgstr "👷 Қызметкер"
+
+msgid "my_employees"
+msgstr "👥 Менің Қызметкерлерім"
+
+msgid "no_employees"
+msgstr "👥 Қолжетімді қызметкерлер жоқ"
+
+msgid "add_employee"
+msgstr "➕ Қызметкер қосу"
+
+msgid "enter_employee_name"
+msgstr "✏️ Қызметкер атын енгізіңіз:"
+
+msgid "enter_employee_phone_input"
+msgstr "📱 Қызметкер телефон нөмірін енгізіңіз:"
+
+msgid "enter_employee_code"
+msgstr "🔢 Қызметкер кіру кодын енгізіңіз (4 сан):"
+
+msgid "select_employee_stores"
+msgstr "🏪 Қызметкер үшін дүкендерді таңдаңыз:"
+
+msgid "select_all_stores"
+msgstr "✅ Барлық дүкендерді таңдау"
+
+msgid "confirm_store_selection"
+msgstr "✔️ Дүкен таңдауын растау"
+
+msgid "back_to_employee_action"
+msgstr "⬅️ Қызметкер әрекеттеріне оралу"
+
+msgid "employee_added"
+msgstr "👥 Қызметкер қосылды: %(full_name)s"
+
+msgid "employee_info"
+msgstr "👤 Қызметкер: %(full_name)s\n📱 Телефон: %(phone)s\n🔢 Кіру коды: %(access_code)s\n🔄 Мәртебе: %(status)s\n🏪 Дүкендер: %(stores)s"
+
+msgid "edit_employee"
+msgstr "✏️ Қызметкерді өңдеу"
+
+msgid "delete_employee"
+msgstr "🗑️ Қызметкерді жою"
+
+msgid "toggle_employee_status"
+msgstr "🔄 Қызметкер мәртебесін ауыстыру"
+
+msgid "back_to_employees"
+msgstr "⬅️ Қызметкерлер тізіміне оралу"
+
+msgid "choose_employee"
+msgstr "👥 Қызметкерді таңдаңыз:"
+
+msgid "Ozon"
+msgstr "🛍️ Ozon"
+
+msgid "Wildberries"
+msgstr "🛍️ Wildberries"
+
+msgid "Yandex Market"
+msgstr "🛍️ Яндекс Маркет"
+
+msgid "questions_info"
+msgstr "📝 Автожауаптар: %(questions_status)s\n\n⚙️ Режим: %(questions_mode)s\n\n📭 Жауап күтілуде: %(unanswered_count)s"
+
+msgid "questions_status_label"
+msgstr "📝 Сұрақтар:"
+
+msgid "questions_mode_label"
+msgstr "⚙️ Режим:"
+
+msgid "reviews_info"
+msgstr "📝 Автожауаптар: %(reviews_status)s\n\n⚙️ Режимдер:\n%(modes_info)s\n\n📭 Жауап күтілуде: %(unanswered_count)s"
+
+msgid "reviews_status_label"
+msgstr "📝 Пікірлер:"
+
+msgid "reviews_modes_label"
+msgstr "⚙️ Режимдер:"
+
+msgid "store_edit_info"
+msgstr "🏪 Дүкен атауы: %(store_name)s\n📋 Түрі: %(store_type)s\n🔑 API кілті: %(api_key)s\n🆔Client ID: %(client_id)s\n\n✏️ Өңдеу үшін өрісті таңдаңыз:"
+
+msgid "store_name_label"
+msgstr "🏪 Дүкен атауы:"
+
+msgid "store_type_label"
+msgstr "📋 Түрі:"
+
+msgid "api_key_label"
+msgstr "🔑 API кілті:"
+
+msgid "client_id_label"
+msgstr "🆔Client ID:"
+
+msgid "mode_not_set"
+msgstr "⚙️ Орнатылмаған"
+
+msgid "enter_new_store_name"
+msgstr "📝 Жаңа дүкен атауын енгізіңіз:"
+
+msgid "enter_new_api_key"
+msgstr "🔑 Жаңа API кілтін енгізіңіз:"
+
+msgid "enter_new_client_id"
+msgstr "🆔 Жаңа Client ID енгізіңіз:"
+
+msgid "back"
+msgstr "🔙 Артқа"
+
+msgid "store_deleted"
+msgstr "🗑️ Дүкен жойылды."
+
+msgid "choose_edit_field"
+msgstr "✏️ Өңдеу үшін өрісті таңдаңыз:"
+
+msgid "review_modes"
+msgstr "⚙️ Жұмыс режимдері:"
+
+msgid "view_reviews"
+msgstr "📝 Пікірлерді қарау"
+
+msgid "question_modes"
+msgstr "⚙️ Жұмыс режимдері:"
+
+msgid "view_questions"
+msgstr "❓ Сұрақтарды қарау"
+
+msgid "change_language"
+msgstr "🌐 Тілді өзгерту"
+
+msgid "choose_language"
+msgstr "🌍 Тілді таңдаңыз:"
+
+msgid "language_az"
+msgstr "🇦🇿 Әзірбайжан тілі"
+
+msgid "language_en"
+msgstr "🇬🇧 Ағылшын тілі"
+
+msgid "language_kz"
+msgstr "🇰🇿 Қазақ тілі"
+
+msgid "language_uz"
+msgstr "🇺🇿 Өзбек тілі"
+
+msgid "language_ru"
+msgstr "🇷🇺 Орыс тілі"
+
+msgid "language_bl"
+msgstr "🇧🇾 Беларусь тілі"
+
+msgid "language_am"
+msgstr "🇦🇲 Армян тілі"
+
+msgid "language_cn"
+msgstr "🇨🇳 Қытай тілі"
+
+msgid "star_1"
+msgstr "⭐ 1 жұлдыз"
+
+msgid "star_2"
+msgstr "⭐ 2 жұлдыз"
+
+msgid "star_3"
+msgstr "⭐ 3 жұлдыз"
+
+msgid "star_4"
+msgstr "⭐ 4 жұлдыз"
+
+msgid "star_5"
+msgstr "⭐ 5 жұлдыз"
+
+msgid "language_set"
+msgstr "🌍 Тіл орнатылды: %(lang_name)s"
+
+msgid "send_phone_button"
+msgstr "📱 Телефон нөмірін жіберу"
+
+msgid "store_item"
+msgstr "🏪 %(store_name)s (%(store_type)s)"
+
+msgid "back_to_main_menu"
+msgstr "⬅️ Негізгі мәзірге оралу"
+
+msgid "send_phone_number"
+msgstr "📱 Телефон нөміріңізді бөлісіңіз:"
+
+msgid "phone_received"
+msgstr "📱 Телефон нөмірі қабылданды"
+
+msgid "welcome_back"
+msgstr "👪 Қайта қош келдіңіз!"
+
+msgid "unsupported_language"
+msgstr "⚠️ Қолдау көрсетілмейтін тіл"
+
+msgid "my_stores_button"
+msgstr "🛍️ Менің Дүкендерім"
+
+msgid "add_store_button"
+msgstr "➕ Дүкен қосу"
+
+msgid "choose_store_platform"
+msgstr "🏪 Дүкен платформасын таңдаңыз:"
+
+msgid "enter_store_name"
+msgstr "✏️ Дүкен атауын енгізіңіз:"
+
+msgid "enter_api_key"
+msgstr "🔑 API кілтін енгізіңіз:"
+
+msgid "invalid_store_type"
+msgstr "❌ Дүкен түрі қате"
+
+msgid "store_added"
+msgstr "🏪 Дүкен қосылды: %(store_name)s (%(store_type)s)"
+
+msgid "enter_client_id"
+msgstr "🆔 Client ID енгізіңіз:"
+
+msgid "no_stores"
+msgstr "🛍️ Қолжетімді дүкендер жоқ"
+
+msgid "choose_store"
+msgstr "Дүкенді таңдаңыз:"
+
+msgid "store_not_selected"
+msgstr "⚠️ Дүкен таңдалмаған"
+
+msgid "store_name_exists"
+msgstr "⚠️ Дүкен атауы бар болып тұр"
+
+msgid "store_name_updated"
+msgstr "✏️ Дүкен атауы жаңартылды: %(store_name)s"
+
+msgid "return_to_store"
+msgstr "⬅️ Дүкенге оралу: %(store_name)s"
+
+msgid "data_not_found"
+msgstr "⚠️ Деректер табылмады"
+
+msgid "invalid_field"
+msgstr "❌ Өріс қате"
+
+msgid "field_updated"
+msgstr "✅ Өріс жаңартылды: %(field)s дүкені үшін %(store_name)s"
+
+msgid "client_id_not_used"
+msgstr "⚠️Client ID бұл түрдегі дүкен үшін қолданылмайды"
+
+msgid "confirm_delete_store"
+msgstr "🗑️ %(store_name)s дүкенін жоюға сенімдісіз бе?"
+
+msgid "store_deletion_error"
+msgstr "❌ Дүкенді жою қатесі"
+
+msgid "deletion_cancelled"
+msgstr "🚫 Жою болдырмалды"
+
+msgid "main_menu"
+msgstr "🏠 Негізгі Мәзір"
+
+msgid "store_selected"
+msgstr "🏪 Дүкен таңдалды: %(store_name)s"
+
+msgid "view_store"
+msgstr "👀 Дүкенді қарау"
+
+msgid "edit_store"
+msgstr "✏️ Дүкенді өңдеу"
+
+msgid "reviews_work"
+msgstr "📝 Пікірлермен жұмыс"
+
+msgid "questions_work"
+msgstr "❓ Сұрақтармен жұмыс"
+
+msgid "notifications"
+msgstr "🔔 Хабарландырулар"
+
+msgid "back_to_menu"
+msgstr "⬅️ Мәзірге оралу"
+
+msgid "store_info"
+msgstr "🏪 Дүкен: %(store_name)s (%(store_type)s)\n ━━━━━━━━━━━━━━━━\n 📝Пікірлер бөлімі\n\n 🤖Автожауаптар: %(reviews_status)s\n\n 📭 %(unanswered_reviews)s жауап күтілуде\n\n ⚙️ Режимдер:\n%(modes_info)s\n━━━━━━━━━━━━━━━━\n ❓Сұрақтар бөлімі\n\n 🤖Автожауаптар: %(questions_status)s\n\n 📬 %(unanswered_questions)s жауап күтілуде\n\n ⚙️ Сұрақ режимі: %(questions_mode)s"
+
+msgid "modes_not_set"
+msgstr "⚙️ Режимдер орнатылмаған"
+
+msgid "mode_auto"
+msgstr "🤖 Автоматты"
+
+msgid "mode_semi"
+msgstr "⚙️ Жартылай автоматты"
+
+msgid "mode_manual"
+msgstr "✋ Қолмен"
+
+msgid "mode_info"
+msgstr " ⭐ %(rating)s: %(mode)s"
+
+msgid "questions_status"
+msgstr "❓ Сұрақтардың мәртебесі: %(status)s"
+
+msgid "auto_replies_toggled"
+msgstr "🤖 Автоматты жауаптар %(status)s"
+
+msgid "current_modes"
+msgstr "⚙️ Ағымдағы пікір режимдері:"
+
+msgid "rating_selected"
+msgstr "⭐ %(rating)s бағасы таңдалды\n\n🤖Автоматты - бот пікірді алады және автоматты түрде жауап жібереді.\n\n⚙️Жартылай автоматты - бот белгілі бір пікірге немесе сұраққа өткенде жауап жасайды.\n\n✋Қолмен - генерация жүрмейді, сіз пікірлерге немесе сұрақтарға қолмен жауап бере аласыз.\n\n📄Үлгі бойынша - таңдалған баға үшін қажетті үлгіні орнатыңыз және бот сіздің үлгіңізбен жауап жібереді.\n\n\nРежимді таңдаңыз:"
+
+msgid "mode_updated"
+msgstr "%(rating)s бағасы үшін режим жаңартылды: %(mode)s"
+
+msgid "return_to_reviews"
+msgstr "⬅️ Пікірлерге оралу"
+
+msgid "reviews_work_for_store"
+msgstr "📝 Дүкен үшін пікірлермен жұмыс: %(store_name)s"
+
+msgid "back_to_store_from_reviews"
+msgstr "⬅️ Пікірлерден дүкенге оралу"
+
+msgid "questions_work_for_store"
+msgstr "❓ Дүкен үшін сұрақтармен жұмыс: %(store_name)s"
+
+msgid "questions_auto_replies_toggled"
+msgstr "🤖 %(store_name)s дүкені үшін сұрақтардың автоматты жауаптары %(status)s"
+
+msgid "current_questions_mode"
+msgstr "⚙️ Ағымдағы сұрақ режимі: %(current_mode)s"
+
+msgid "questions_mode_set"
+msgstr "Сұрақ режимі орнатылды: %(mode)s"
+
+msgid "choose_action"
+msgstr "⚙️ Әрекетті таңдаңыз:"
+
+msgid "return_to_questions"
+msgstr "⬅️ Сұрақтарға оралу"
+
+msgid "back_to_menu_from_questions"
+msgstr "⬅️ Сұрақтардан мәзірге оралу"
+
+msgid "question_text"
+msgstr "❓ Сұрақ: %(question_text)s"
+
+msgid "wildberries_question_warning"
+msgstr "⚠️ Ескерту: Бұл Wildberries-тен сұрақ"
+
+msgid "answer_sent_auto"
+msgstr "✅ Жауап автоматты түрде жіберілді: %(reply_text)s"
+
+msgid "error_sending_answer"
+msgstr "❌ Жауапты жіберу қатесі"
+
+msgid "proposed_answer"
+msgstr "📝 Ұсынылған жауап: %(proposed_reply)s"
+
+msgid "write_answer"
+msgstr "✏️ Жауабыңызды жазыңыз:"
+
+msgid "all_questions_viewed"
+msgstr "✅ Барлық сұрақтар қаралды"
+
+msgid "no_more_questions"
+msgstr "❓ Сұрақтар табылмады"
+
+msgid "answer_sent"
+msgstr "✅ Жауап жіберілді: %(reply_text)s"
+
+msgid "question_skipped"
+msgstr "➡️ Сұрақ өткізілді"
+
+msgid "enter_your_answer"
+msgstr "✏️ Жауабыңызды енгізіңіз:"
+
+msgid "back_to_store_question"
+msgstr "⬅️ Сұрақтардан дүкенге оралу"
+
+msgid "enter_answer_first"
+msgstr "⚠️ Алдымен жауап енгізіңіз"
+
+msgid "your_answer"
+msgstr "📝 Сіздің жауабыңыз: %(response_text)s"
+
+msgid "send_question_reply"
+msgstr "📤 Жауап жіберу"
+
+msgid "wildberries_review_warning"
+msgstr "⚠️ Ескерту: Бұл Wildberries-тен пікір"
+
+msgid "review_text"
+msgstr "📝 Пікір: ⭐%(rating)s %(review_text)s"
+
+msgid "error_processing_review"
+msgstr "❌ Пікірді өңдеу қатесі"
+
+msgid "all_reviews_viewed"
+msgstr "✅ Барлық пікірлер қаралды"
+
+msgid "no_more_reviews"
+msgstr "📝 Пікірлер табылмады"
+
+msgid "review_skipped"
+msgstr "➡️ Пікір өткізілді"
+
+msgid "format_error"
+msgstr "❌ Пішімдеу қатесі: %(error)s"
+
+msgid "error_saving_settings"
+msgstr "❌ Параметрлерді сақтау қатесі"
+
+msgid "send_as_is"
+msgstr "📤 Ұсынылғандай жіберу"
+
+msgid "edit_reply"
+msgstr "✏️ Жауапты өңдеу"
+
+msgid "skip_review"
+msgstr "➡️ Пікірді өткізіп жіберу"
+
+msgid "send_reply"
+msgstr "📤 Жауап жіберу"
+
+msgid "edit_question_reply"
+msgstr "✏️ Сұраққа жауапты өңдеу"
+
+msgid "skip_question"
+msgstr "➡️ Сұрақты өткізіп жіберу"
+
+msgid "back_to_reviews_menu"
+msgstr "⬅️ Пікірлер мәзіріне оралу"
+
+msgid "send_as_is_question"
+msgstr "📤 Сұрақты ұсынылғандай жіберу"
+
+msgid "back_to_questions_menu"
+msgstr "⬅️ Сұрақтар мәзіріне оралу"
+
+msgid "edit_name"
+msgstr "✏️ Атауын өңдеу"
+
+msgid "edit_api_key"
+msgstr "🔑 API кілтін өңдеу"
+
+msgid "edit_client_id"
+msgstr "🆔 Client ID өңдеу"
+
+msgid "delete_store"
+msgstr "🗑️ Дүкенді жою"
+
+msgid "back_in_edit_field"
+msgstr "⬅️ Өріс таңдауына оралу"
+
+msgid "confirm_delete"
+msgstr "✅ Жоюды растау"
+
+msgid "cancel_delete"
+msgstr "🚫 Жоюды болдырмау"
+
+msgid "back_to_rating_selection"
+msgstr "⬅️ Бағаларды таңдауға оралу"
+
+msgid "only_1_star"
+msgstr "⭐ Тек 1 жұлдыз"
+
+msgid "1_2_stars"
+msgstr "⭐ 1-2 жұлдыз"
+
+msgid "1_3_stars"
+msgstr "⭐ 1-3 жұлдыз"
+
+msgid "disabled"
+msgstr "🚫 Өшірілген"
+
+msgid "enabled"
+msgstr "✅ Қосылған"
+
+msgid "not_set"
+msgstr "⚙️ Орнатылмаған"
+
+msgid "store_not_found"
+msgstr "⚠️ Дүкен табылмады"
+
+msgid "store_access_denied"
+msgstr "🚫 Дүкенге кіруге тыйым салынған"
+
+msgid "no_reviews"
+msgstr "📝 Көрсету үшін пікірлер жоқ"
+
+msgid "no_unanswered_questions"
+msgstr "📭 Жауап берілмеген сұрақтар жоқ"
+
+msgid "no_answered_questions"
+msgstr "❓ Жауап берілген сұрақтар жоқ"
+
+msgid "invalid_store_id"
+msgstr "❌ Дүкен ID қате"
+
+msgid "unknown_command"
+msgstr "❓ Белгісіз команда"
+
+msgid "error_occurred"
+msgstr "❌ Қате орын алды"
+
+msgid "star_rating"
+msgstr "⭐%(rating)s: %(count)s"
+
+msgid "back_to_store"
+msgstr "⬅️ Дүкенге оралу"

@@ -1,0 +1,1117 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: bot\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-18 16:32+0200\n"
+"PO-Revision-Date: 2025-07-19 22:12+0200\n"
+"Last-Translator: \n"
+"Language-Team: Azerbaijani\n"
+"Language: az\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "reviews_enabled"
+msgstr "✅ Aktivdir"
+
+msgid "stop_words_list"
+msgstr "🛑 Dayandırma sözləri (%(count)s):\n\n%(words_list)s\n\nFəaliyyəti seçin:"
+
+msgid "stop_words_empty"
+msgstr "🛑 Dayandırma sözləri:\n\nTəsvir:\nGenerasiyanın baş verməyəcəyi sözləri təyin edin.\n\nHələ heç nə əlavə edilməyib.\n\nFəaliyyəti seçin:"
+
+msgid "add_stop_words_instruction"
+msgstr "➕ Dayandırma sözlərinin əlavə edilməsi\n\nƏlavə edilməli olan sözləri vergüllə ayıraraq göndərin.\n\nMisal:\npis, saxta"
+
+msgid "remove_stop_words_instruction"
+msgstr "➖ Dayandırma sözlərinin silinməsi\n\nSilinməli olan sözləri vergüllə ayıraraq göndərin.\n\nYalnız dəqiq uyğunluqlar silinəcək."
+
+msgid "clear_stop_words_confirm"
+msgstr "⚠️ Bütün dayandırma sözlərini təmizləmək istəyirsiniz?\n\nSiyahı tamamilə silinəcək."
+
+msgid "stop_words_cleared"
+msgstr "✅ Dayandırma sözləri təmizləndi"
+
+msgid "stop_words_success"
+msgstr "✅ Dayandırma sözləri yeniləndi\n\nCari siyahı (%(count)s):\n%(words_list)s"
+
+msgid "minus_words_list"
+msgstr "🛑 Minus sözlər (%(count)s):\n\n%(words_list)s\n\nFəaliyyəti seçin:"
+
+msgid "minus_words_empty"
+msgstr "🛑 Minus sözlər:\n\nTəsvir:\n\nAI-nın cavabında istifadə etməyəcəyi sözləri təyin edin.\n\nHələ heç nə əlavə edilməyib.\n\nFəaliyyəti seçin:"
+
+msgid "add_minus_words_instruction"
+msgstr "➕ Minus sözlərin əlavə edilməsi\n\nƏlavə edilməli olan sözləri vergüllə ayıraraq göndərin.\n\nMisal:\npis, saxta"
+
+msgid "remove_minus_words_instruction"
+msgstr "➖ Minus sözlərin silinməsi\n\nSilinməli olan sözləri vergüllə ayıraraq göndərin.\n\nYalnız dəqiq uyğunluqlar silinəcək."
+
+msgid "clear_minus_words_confirm"
+msgstr "⚠️ Bütün minus sözləri təmizləmək istəyirsiniz?\n\nSiyahı tamamilə silinəcək."
+
+msgid "minus_words_cleared"
+msgstr "✅ Minus sözlər təmizləndi"
+
+msgid "minus_words_success"
+msgstr "✅ Minus sözlər yeniləndi\n\nCari siyahı (%(count)s):\n%(words_list)s"
+
+msgid "add_button"
+msgstr "➕ Əlavə et"
+
+msgid "remove_button"
+msgstr "➖ Sil"
+
+msgid "clear_button"
+msgstr "🗑 Təmizlə"
+
+msgid "confirm_clear"
+msgstr "✅ Təmizlə"
+
+msgid "empty"
+msgstr "boş"
+
+msgid "yes"
+msgstr "Bəli"
+
+msgid "no"
+msgstr "Xeyr"
+
+msgid "contact_developer"
+msgstr "💬 Tərtibatçıya yaz"
+
+msgid "support_text"
+msgstr "Botla bağlı səhv və ya problem yaşayırsınızsa, birbaşa mənə yazın! Məsələni həll etməyə kömək edəcəyəm.\n\nNə etməlisiniz:\n1. Aşağıdakı düyməni basın\n2. Nə baş verdiyini təsvir edin\n3. Hansı hərəkətlərin səhvə səbəb olduğunu göstərin\n\nMümkün qədər tez cavab verməyə çalışacağam!"
+
+msgid "address_style_setting"
+msgstr "Müraciət üslubu"
+
+msgid "address_formal"
+msgstr "Siz (rəsmi)"
+
+msgid "address_lowercase"
+msgstr "siz (kiçik hərflə)"
+
+msgid "address_informal"
+msgstr "sən (qeyri-rəsmi)"
+
+msgid "address_style_header"
+msgstr "🎭 Müraciət üslubunu seçin:"
+
+msgid "address_style_set"
+msgstr "✅ Müraciət üslubu təyin edildi: {style}"
+
+msgid "support"
+msgstr "🛟 Dəstək"
+
+msgid "stores_header"
+msgstr "Mağazalar"
+
+msgid "questions"
+msgstr "Suallar"
+
+msgid "reviews"
+msgstr "Rəylər"
+
+msgid "store_settings"
+msgstr "⚙️ AI Parametrləri"
+
+msgid "store_settings_templates"
+msgstr "📝 Cavab Şablonları"
+
+msgid "store_settings_advanced"
+msgstr "⚙️ Ətraflı Parametrlər"
+
+msgid "advanced_settings_header"
+msgstr "⚙️ Generasiya üçün ətraflı parametrlər:"
+
+msgid "use_name_setting"
+msgstr "👤 Adla müraciət"
+
+msgid "mention_product_setting"
+msgstr "📦 Məhsul tövsiyə et"
+
+msgid "use_emojis_setting"
+msgstr "😊 Cavablarda emoji"
+
+msgid "response_length_setting"
+msgstr "Cavab uzunluğu"
+
+msgid "response_length_short"
+msgstr "Qısa (30-a qədər söz)"
+
+msgid "response_length_default"
+msgstr "Standart (70-ə qədər söz)"
+
+msgid "response_length_long"
+msgstr "Geniş (150-ə qədər söz)"
+
+msgid "response_length_header"
+msgstr "📏 Cavab uzunluğunu seçin:"
+
+msgid "response_length_set"
+msgstr "✅ Cavab uzunluğu təyin edildi: %(length)s"
+
+msgid "delivery_method_setting"
+msgstr "Çatdırılma"
+
+msgid "delivery_method_marketplace"
+msgstr "📦 Marketpleys"
+
+msgid "delivery_method_self"
+msgstr "🚗 Özü"
+
+msgid "delivery_method_header"
+msgstr "🚚 Çatdırılma üsulunu seçin:\n\nTəsvir:\nMəhsullar hansı üsulla çatdırılır."
+
+msgid "delivery_method_set"
+msgstr "✅ Çatdırılma üsulu təyin edildi: %(method)s"
+
+msgid "tone_setting"
+msgstr "Ton"
+
+msgid "tone_business"
+msgstr "🏢 Biznes"
+
+msgid "tone_friendly"
+msgstr "😊 Dostcanlı"
+
+msgid "tone_strict"
+msgstr "⚠️ Sərt"
+
+msgid "tone_header"
+msgstr "🎭 Cavabların tonunu seçin:\n\nTəsvir:\nAI-nın xarakterini müəyyən edir"
+
+msgid "tone_set"
+msgstr "Ton təyin edildi: %(tone)s"
+
+msgid "stop_words_setting"
+msgstr "✏️ Dayandırma sözləri"
+
+msgid "minus_words_setting"
+msgstr "✏️ Minus sözlər"
+
+msgid "stop_words_current"
+msgstr "🚫 Cari dayandırma sözləri: %(words)s"
+
+msgid "stop_words_instruction"
+msgstr "Vergüllə ayrılmış dayandırma sözlərini daxil edin (generasiyanın baş vermədiyi sözlər):\nMisal: spam, reklam, şikayət"
+
+msgid "stop_words_updated"
+msgstr "✅ Dayandırma sözləri yeniləndi: %(words)s"
+
+msgid "minus_words_current"
+msgstr "❌ Cari minus sözlər: %(words)s"
+
+msgid "minus_words_instruction"
+msgstr "Vergüllə ayrılmış minus sözləri daxil edin (AI-nın istifadə etməməli olduğu sözlər):\nMisal: dəhşətli, kabus, məyusluq"
+
+msgid "minus_words_updated"
+msgstr "✅ Minus sözlər yeniləndi: %(words)s"
+
+msgid "cleared"
+msgstr "təmizləndi"
+
+msgid "unknown_setting"
+msgstr "Naməlum parametr"
+
+msgid "error_loading_settings"
+msgstr "Parametrlərin yüklənməsində səhv"
+
+msgid "template_preview_line"
+msgstr "⭐%(rating)s ulduz: %(preview)s"
+
+msgid "template_not_set_line"
+msgstr "⭐%(rating)s ulduz: Təyin edilməyib 🚫"
+
+msgid "current_templates_header"
+msgstr "📄 Cari cavab şablonları:"
+
+msgid "template_status_line"
+msgstr "⭐ %(rating)s ulduz üçün: %(status)s"
+
+msgid "current_template_for_rating"
+msgstr "%(rating)s ulduz üçün cari şablon:\n\n%(template)s"
+
+msgid "enter_new_template"
+msgstr "%(rating)s ulduz üçün yeni şablon daxil edin:"
+
+msgid "template_updated"
+msgstr "%(rating)s ulduz üçün şablon yeniləndi!"
+
+msgid "template_deleted"
+msgstr "%(rating)s ulduz üçün şablon silindi."
+
+msgid "edit_template"
+msgstr "✏️ Şablonu redaktə et"
+
+msgid "delete_template"
+msgstr "🗑 Şablonu sil"
+
+msgid "rating_button_1"
+msgstr "⭐1 ulduz"
+
+msgid "rating_button_2"
+msgstr "⭐2 ulduz"
+
+msgid "rating_button_3"
+msgstr "⭐3 ulduz"
+
+msgid "rating_button_4"
+msgstr "⭐4 ulduz"
+
+msgid "rating_button_5"
+msgstr "⭐5 ulduz"
+
+msgid "not_applicable"
+msgstr "Tələb olunmur"
+
+msgid "article"
+msgstr "Artikul"
+
+msgid "pros"
+msgstr "Üstünlüklər"
+
+msgid "cons"
+msgstr "Çatışmazlıqlar"
+
+msgid "back_to_stores_list"
+msgstr "⬅️ Mağazalar siyahısına qayıt"
+
+msgid "sku_not_available"
+msgstr "Artikul göstərilməyib"
+
+msgid "unknown_product"
+msgstr "Naməlum məhsul"
+
+msgid "no_store_reply"
+msgstr "Mağaza hələ bu rəyə cavab verməyib"
+
+msgid "product_name"
+msgstr "Məhsul adı"
+
+msgid "enter_password_to_login"
+msgstr "🔐 Daxil olmaq üçün parolu daxil edin:"
+
+msgid "invalid_password"
+msgstr "❌ Səhv parol, yenidən cəhd edin."
+
+msgid "logout_button"
+msgstr "🚪 Profildən çıx"
+
+msgid "logged_out_message"
+msgstr "👋 Profildən çıxdınız."
+
+msgid "enter_phone_to_login"
+msgstr "📱 Yenidən daxil olmaq üçün telefon nömrəsini daxil edin:"
+
+msgid "password_invalid_format"
+msgstr "⚠️ Parol minimum 7 simvoldan ibarət olmalı və yalnız latın hərfləri, rəqəmlər və _!@#$%^&*.- simvollarından ibarət olmalıdır"
+
+msgid "password_set"
+msgstr "✅ Təyin edildi"
+
+msgid "enter_old_password"
+msgstr "🔑 Köhnə parolu daxil edin:"
+
+msgid "old_password_incorrect"
+msgstr "❌ Köhnə parol səhvdir"
+
+msgid "password_too_short"
+msgstr "⚠️ Parol minimum 6 simvoldan ibarət olmalıdır"
+
+msgid "confirm_new_password"
+msgstr "🔁 Yeni parolu təkrar edin:"
+
+msgid "passwords_do_not_match"
+msgstr "❌ Parollar uyğun gəlmir"
+
+msgid "password_changed_successfully"
+msgstr "✅ Parol uğurla dəyişdirildi"
+
+msgid "my_profile_button"
+msgstr "👤 Mənim Profilim"
+
+msgid "change_phone_button"
+msgstr "📱 Telefon nömrəsini dəyiş"
+
+msgid "change_password_button"
+msgstr "🔑 Parolu dəyiş"
+
+msgid "back_to_menu_button"
+msgstr "⬅️ Menyaya qayıt"
+
+msgid "not_specified"
+msgstr "❌ Göstərilməyib"
+
+msgid "profile_title"
+msgstr "👤 Sizin Profiliniz"
+
+msgid "profile_phone"
+msgstr "📞 Telefon nömrəsi"
+
+msgid "profile_password"
+msgstr "🔐 Parol"
+
+msgid "profile_stores_count"
+msgstr "🏬 Mağazaların sayı"
+
+msgid "profile_employees_count"
+msgstr "👥 İşçilərin sayı"
+
+msgid "enter_new_phone"
+msgstr "📱 Yeni telefon nömrəsini daxil edin:"
+
+msgid "enter_new_password"
+msgstr "🔑 Yeni parolu daxil edin:"
+
+msgid "main_menu_text"
+msgstr "🏠 Əsas Menyu:"
+
+msgid "enter_reply_text"
+msgstr "Cavab yazın:"
+
+msgid "send_ai_reply"
+msgstr "🤖 AI cavabı göndər"
+
+msgid "manual_reply"
+msgstr "✍️ Əl ilə cavab ver"
+
+msgid "enter_password"
+msgstr "Parol təyin edin:"
+
+msgid "suggested_reply"
+msgstr "Təklif edilən cavab: %(reply_text)s"
+
+msgid "confirm_password"
+msgstr "Parolu təsdiq edin"
+
+msgid "registration_complete"
+msgstr "Qeydiyyat tamamlandı!"
+
+msgid "unanswered_questions_list"
+msgstr "Cavablanmamış suallar"
+
+msgid "product_link"
+msgstr "Məhsul linki"
+
+msgid "back_to_list"
+msgstr "Geri qayıt"
+
+msgid "review"
+msgstr "Rəy"
+
+msgid "answer"
+msgstr "Sualın cavabı"
+
+msgid "sku"
+msgstr "SKU"
+
+msgid "question"
+msgstr "Sual"
+
+msgid "next"
+msgstr "➡️"
+
+msgid "mode_template"
+msgstr "📄 Şablona görə"
+
+msgid "no_unanswered_reviews_for_rating"
+msgstr "%(rating)s ulduz üçün işlənməmiş rəylər yoxdur 😕"
+
+msgid "template_applied"
+msgstr "%(rating)s ulduz üçün şablon %(count)s rəyə tətbiq edildi: %(template)s ✅"
+
+msgid "manage_templates"
+msgstr "📝 Şablonların idarə edilməsi"
+
+msgid "template_info"
+msgstr "%(rating)s ulduz üçün: %(template)s ⭐"
+
+msgid "enter_template_for_rating"
+msgstr "%(rating)s ulduz üçün şablon daxil edin: ✍️"
+
+msgid "template_set"
+msgstr "%(rating)s ulduz üçün şablon təyin edildi! ✅"
+
+msgid "no_template_for_rating"
+msgstr "%(rating)s ulduz üçün şablon təyin edilməyib! ⚠️"
+
+msgid "send_by_template"
+msgstr "Şablona görə cavab ver 📄"
+
+msgid "answered_questions_list"
+msgstr "Cavablanmış suallar siyahısı ✅"
+
+msgid "answered_questions"
+msgstr "✅ Cavablanmış suallar"
+
+msgid "unanswered_questions"
+msgstr "📭 Cavablanmamış suallar"
+
+msgid "auto_questions_enabled"
+msgstr "Avtocavablar aktivdir"
+
+msgid "auto_questions_disabled"
+msgstr "Avtocavablar deaktivdir"
+
+msgid "confirm_reply"
+msgstr "Cavabınızı təsdiq edin: %(reply_text)s ❓"
+
+msgid "send"
+msgstr "Göndər ✅"
+
+msgid "cancel"
+msgstr "Ləğv et 🚫"
+
+msgid "back_to_review"
+msgstr "Rəyə qayıt 🔙"
+
+msgid "answer_sent_successfully"
+msgstr "Cavab uğurla göndərildi! 🎉"
+
+msgid "review_not_found"
+msgstr "Rəy tapılmadı 😔"
+
+msgid "review_details"
+msgstr "📅 %(date)s\n\n%(user_display)s🌟 %(stars)s\n\n📦 %(product_name)s\n\n🔢 %(sku_label)s: %(sku)s\n\n💬 %(text)s"
+
+msgid "store_reply"
+msgstr "📩 Mağaza cavabı: %(answer)s"
+
+msgid "review_counter"
+msgstr "🔢 Rəy %(current)s / %(total)s"
+
+msgid "next_button"
+msgstr "➡️"
+
+msgid "prev_button"
+msgstr "⬅️"
+
+msgid "back_to_list_button"
+msgstr "⬅️Siyahıya qayıt"
+
+msgid "no_answer"
+msgstr "Cavab yoxdur"
+
+msgid "unanswered"
+msgstr "📭 Cavablanmamış"
+
+msgid "reviews_list_title"
+msgstr "%(type)s rəylər\n\n📊 Rəylərin paylanması:\n\n%(rating_summary)s"
+
+msgid "prev_page"
+msgstr "⬅️Əvvəlki səhifə"
+
+msgid "answered"
+msgstr "✅ Cavablanmış"
+
+msgid "back_to_reviews_work"
+msgstr "⬅️Rəylərlə işə qayıt"
+
+msgid "auto_replies_disabled"
+msgstr "Avtocavablar deaktivdir"
+
+msgid "auto_replies_enabled"
+msgstr "Avtocavablar aktivdir"
+
+msgid "no_store_selected"
+msgstr "❌ Mağaza seçilməyib."
+
+msgid "no_reviews_found"
+msgstr "📭 Rəylər tapılmadı."
+
+msgid "no_questions_found"
+msgstr "📭 Suallar tapılmadı."
+
+msgid "reviews_list"
+msgstr "📋 Rəylər siyahısı"
+
+msgid "questions_list"
+msgstr "📋 Suallar siyahısı"
+
+msgid "previous_page"
+msgstr "⬅️ Əvvəlki səhifə"
+
+msgid "next_page"
+msgstr "➡️ Sonrakı səhifə"
+
+msgid "questions_unanswered"
+msgstr "📬 Cavablanmamış suallar"
+
+msgid "questions_answered"
+msgstr "✅ Cavablanmış suallar"
+
+msgid "enter_employee_phone"
+msgstr "📱 İşçi telefon nömrənizi daxil edin:"
+
+msgid "enter_access_code"
+msgstr "🔑 Giriş kodunu daxil edin:"
+
+msgid "welcome_employee"
+msgstr "👋 Xoş gəlmisiniz, işçi!"
+
+msgid "invalid_employee_credentials"
+msgstr "❌ Səhv telefon nömrəsi və ya giriş kodu."
+
+msgid "enter_new_full_name"
+msgstr "✏️ İşçinin yeni adını daxil edin:"
+
+msgid "enter_new_phone_employee"
+msgstr "📱 İşçinin yeni telefon nömrəsini daxil edin:"
+
+msgid "enter_new_access_code"
+msgstr "🔢 Yeni giriş kodu daxil edin (4 rəqəm):"
+
+msgid "invalid_access_code"
+msgstr "❌ Giriş kodu 4 rəqəmdən ibarət olmalıdır"
+
+msgid "employee_item"
+msgstr "👤 %(full_name)s (Aktiv: %(is_active)s)"
+
+msgid "choose_edit_employee_field"
+msgstr "✏️ İşçinin redaktə ediləcək sahəsini seçin:"
+
+msgid "edit_employee_name"
+msgstr "✏️ İşçi adını redaktə et"
+
+msgid "edit_employee_phone"
+msgstr "📱 İşçi telefon nömrəsini redaktə et"
+
+msgid "edit_employee_code"
+msgstr "🔢 İşçi giriş kodunu redaktə et"
+
+msgid "edit_employee_stores"
+msgstr "🏪 İşçi mağazalarını redaktə et"
+
+msgid "back_to_employee"
+msgstr "⬅️ İşçiyə qayıt"
+
+msgid "confirm_delete_employee"
+msgstr "🗑️ İşçini %(full_name)s silmək istədiyinizə əminsiniz?"
+
+msgid "employee_deleted"
+msgstr "🗑️ İşçi %(full_name)s silindi"
+
+msgid "choose_role"
+msgstr "🎭 Rolu seçin:"
+
+msgid "role_owner"
+msgstr "👑 Sahib"
+
+msgid "role_employee"
+msgstr "👷 İşçi"
+
+msgid "my_employees"
+msgstr "👥 Mənim İşçilərim"
+
+msgid "no_employees"
+msgstr "👥 Mövcud işçi yoxdur"
+
+msgid "add_employee"
+msgstr "➕ İşçi əlavə et"
+
+msgid "enter_employee_name"
+msgstr "✏️ İşçi adını daxil edin:"
+
+msgid "enter_employee_phone_input"
+msgstr "📱 İşçi telefon nömrəsini daxil edin:"
+
+msgid "enter_employee_code"
+msgstr "🔢 İşçi giriş kodunu daxil edin (4 rəqəm):"
+
+msgid "select_employee_stores"
+msgstr "🏪 İşçi üçün mağazaları seçin:"
+
+msgid "select_all_stores"
+msgstr "✅ Bütün mağazaları seç"
+
+msgid "confirm_store_selection"
+msgstr "✔️ Mağaza seçimini təsdiq et"
+
+msgid "back_to_employee_action"
+msgstr "⬅️ İşçi əməliyyatlarına qayıt"
+
+msgid "employee_added"
+msgstr "👥 İşçi əlavə edildi: %(full_name)s"
+
+msgid "employee_info"
+msgstr "👤 İşçi: %(full_name)s\n📱 Telefon: %(phone)s\n🔢 Giriş kodu: %(access_code)s\n🔄 Status: %(status)s\n🏪 Mağazalar: %(stores)s"
+
+msgid "edit_employee"
+msgstr "✏️ İşçini redaktə et"
+
+msgid "delete_employee"
+msgstr "🗑️ İşçini sil"
+
+msgid "toggle_employee_status"
+msgstr "🔄 İşçi statusunu dəyiş"
+
+msgid "back_to_employees"
+msgstr "⬅️ İşçilər siyahısına qayıt"
+
+msgid "choose_employee"
+msgstr "👥 İşçi seçin:"
+
+msgid "Ozon"
+msgstr "🛍️ Ozon"
+
+msgid "Wildberries"
+msgstr "🛍️ Wildberries"
+
+msgid "Yandex Market"
+msgstr "🛍️ Yandex Market"
+
+msgid "questions_info"
+msgstr "📝 Avtocavablar: %(questions_status)s\n\n⚙️ Rejim: %(questions_mode)s\n\n📭 Cavab gözləyir: %(unanswered_count)s"
+
+msgid "questions_status_label"
+msgstr "📝 Suallar:"
+
+msgid "questions_mode_label"
+msgstr "⚙️ Rejim:"
+
+msgid "reviews_info"
+msgstr "📝 Avtocavablar: %(reviews_status)s\n\n⚙️ Rejimlər:\n%(modes_info)s\n\n📭 Cavab gözləyir: %(unanswered_count)s"
+
+msgid "reviews_status_label"
+msgstr "📝 Rəylər:"
+
+msgid "reviews_modes_label"
+msgstr "⚙️ Rejimlər:"
+
+msgid "store_edit_info"
+msgstr "🏪 Mağaza adı: %(store_name)s\n📋 Növ: %(store_type)s\n🔑 API açarı: %(api_key)s\n🆔Client ID: %(client_id)s\n\n✏️ Redaktə ediləcək sahəni seçin:"
+
+msgid "store_name_label"
+msgstr "🏪 Mağaza adı:"
+
+msgid "store_type_label"
+msgstr "📋 Növ:"
+
+msgid "api_key_label"
+msgstr "🔑 API açarı:"
+
+msgid "client_id_label"
+msgstr "🆔Client ID:"
+
+msgid "mode_not_set"
+msgstr "⚙️ Təyin edilməyib"
+
+msgid "enter_new_store_name"
+msgstr "📝 Yeni mağaza adını daxil edin:"
+
+msgid "enter_new_api_key"
+msgstr "🔑 Yeni API açarını daxil edin:"
+
+msgid "enter_new_client_id"
+msgstr "🆔 Yeni Client ID daxil edin:"
+
+msgid "back"
+msgstr "🔙 Geri"
+
+msgid "store_deleted"
+msgstr "🗑️ Mağaza silindi."
+
+msgid "choose_edit_field"
+msgstr "✏️ Redaktə ediləcək sahəni seçin:"
+
+msgid "review_modes"
+msgstr "⚙️ İş rejimləri:"
+
+msgid "view_reviews"
+msgstr "📝 Rəylərə bax"
+
+msgid "question_modes"
+msgstr "⚙️ İş rejimləri:"
+
+msgid "view_questions"
+msgstr "❓ Suallara bax"
+
+msgid "change_language"
+msgstr "🌐 Dilini dəyiş"
+
+msgid "choose_language"
+msgstr "🌍 Zəhmət olmasa dil seçin:"
+
+msgid "language_az"
+msgstr "🇦🇿 Azərbaycanca"
+
+msgid "language_en"
+msgstr "🇬🇧 İngiliscə"
+
+msgid "language_kz"
+msgstr "🇰🇿 Qazaxca"
+
+msgid "language_uz"
+msgstr "🇺🇿 Özbəkcə"
+
+msgid "language_ru"
+msgstr "🇷🇺 Rusca"
+
+msgid "language_bl"
+msgstr "🇧🇾 Belarusca"
+
+msgid "language_am"
+msgstr "🇦🇲 Ermənicə"
+
+msgid "language_cn"
+msgstr "🇨🇳 Çincə"
+
+msgid "star_1"
+msgstr "⭐ 1 ulduz"
+
+msgid "star_2"
+msgstr "⭐ 2 ulduz"
+
+msgid "star_3"
+msgstr "⭐ 3 ulduz"
+
+msgid "star_4"
+msgstr "⭐ 4 ulduz"
+
+msgid "star_5"
+msgstr "⭐ 5 ulduz"
+
+msgid "language_set"
+msgstr "🌍 Dil təyin edildi: %(lang_name)s"
+
+msgid "send_phone_button"
+msgstr "📱 Telefon nömrəsini göndər"
+
+msgid "store_item"
+msgstr "🏪 %(store_name)s (%(store_type)s)"
+
+msgid "back_to_main_menu"
+msgstr "⬅️ Əsas menyuya qayıt"
+
+msgid "send_phone_number"
+msgstr "📱 Zəhmət olmasa telefon nömrənizi paylaşın:"
+
+msgid "phone_received"
+msgstr "📱 Telefon nömrəsi qəbul edildi"
+
+msgid "welcome_back"
+msgstr "👋 Yenidən xoş gəlmisiniz!"
+
+msgid "unsupported_language"
+msgstr "⚠️ Dəstəklənməyən dil"
+
+msgid "my_stores_button"
+msgstr "🛍️ Mənim Mağazalarım"
+
+msgid "add_store_button"
+msgstr "➕ Mağaza əlavə et"
+
+msgid "choose_store_platform"
+msgstr "🏪 Mağaza platformasını seçin:"
+
+msgid "enter_store_name"
+msgstr "✏️ Mağaza adını daxil edin:"
+
+msgid "enter_api_key"
+msgstr "🔑 API açarını daxil edin:"
+
+msgid "invalid_store_type"
+msgstr "❌ Səhv mağaza növü"
+
+msgid "store_added"
+msgstr "🏪 Mağaza əlavə edildi: %(store_name)s (%(store_type)s)"
+
+msgid "enter_client_id"
+msgstr "🆔 Client ID daxil edin:"
+
+msgid "no_stores"
+msgstr "🛍️ Mövcud mağaza yoxdur"
+
+msgid "choose_store"
+msgstr "Mağaza seçin:"
+
+msgid "store_not_selected"
+msgstr "⚠️ Mağaza seçilməyib"
+
+msgid "store_name_exists"
+msgstr "⚠️ Mağaza adı artıq mövcuddur"
+
+msgid "store_name_updated"
+msgstr "✏️ Mağaza adı yeniləndi: %(store_name)s"
+
+msgid "return_to_store"
+msgstr "⬅️ Mağazaya qayıt: %(store_name)s"
+
+msgid "data_not_found"
+msgstr "⚠️ Məlumat tapılmadı"
+
+msgid "invalid_field"
+msgstr "❌ Səhv sahə"
+
+msgid "field_updated"
+msgstr "✅ Sahə yeniləndi: %(field)s mağazası üçün %(store_name)s"
+
+msgid "client_id_not_used"
+msgstr "⚠️Client ID bu növ mağaza üçün istifadə edilmir"
+
+msgid "confirm_delete_store"
+msgstr "🗑️ %(store_name)s mağazasını silmək istədiyinizə əminsiniz?"
+
+msgid "store_deletion_error"
+msgstr "❌ Mağazanın silinməsində səhv"
+
+msgid "deletion_cancelled"
+msgstr "🚫 Silinmə ləğv edildi"
+
+msgid "main_menu"
+msgstr "🏠 Əsas Menyu"
+
+msgid "store_selected"
+msgstr "🏪 Mağaza seçildi: %(store_name)s"
+
+msgid "view_store"
+msgstr "👀 Mağazaya bax"
+
+msgid "edit_store"
+msgstr "✏️ Mağazanı redaktə et"
+
+msgid "reviews_work"
+msgstr "📝 Rəylərlə iş"
+
+msgid "questions_work"
+msgstr "❓ Suallarla iş"
+
+msgid "notifications"
+msgstr "🔔 Bildirişlər"
+
+msgid "back_to_menu"
+msgstr "⬅️ Menyaya qayıt"
+
+msgid "store_info"
+msgstr "🏪 Mağaza: %(store_name)s (%(store_type)s)\n ━━━━━━━━━━━━━━━━\n 📝Rəylər bölməsi\n\n 🤖Avtocavablar: %(reviews_status)s\n\n 📭 %(unanswered_reviews)s cavab gözləyir\n\n ⚙️ Rejimlər:\n%(modes_info)s\n━━━━━━━━━━━━━━━━\n ❓Suallar bölməsi\n\n 🤖Avtocavablar: %(questions_status)s\n\n 📬 %(unanswered_questions)s cavab gözləyir\n\n ⚙️ Sual rejimi: %(questions_mode)s"
+
+msgid "modes_not_set"
+msgstr "⚙️ Rejimlər təyin edilməyib"
+
+msgid "mode_auto"
+msgstr "🤖 Avtomatik"
+
+msgid "mode_semi"
+msgstr "⚙️ Yarıavtomatik"
+
+msgid "mode_manual"
+msgstr "✋ Əl ilə"
+
+msgid "mode_info"
+msgstr " ⭐ %(rating)s: %(mode)s"
+
+msgid "questions_status"
+msgstr "❓ Sualların statusu: %(status)s"
+
+msgid "auto_replies_toggled"
+msgstr "🤖 Avtomatik cavablar %(status)s"
+
+msgid "current_modes"
+msgstr "⚙️ Cari rəy rejimləri:"
+
+msgid "rating_selected"
+msgstr "⭐ %(rating)s qiymətləndirməsi seçildi\n\n🤖Avtomatik - bot rəyi alır və avtomatik olaraq cavab göndərir.\n\n⚙️Yarıavtomatik - bot müəyyən bir rəyə və ya suala keçdiyinizdə cavab yaradacaq.\n\n✋Əl ilə - generasiya baş verməyəcək, siz rəylərə və ya suallara əl ilə cavab verə bilərsiniz.\n\n📄Şablona görə - seçilmiş qiymətləndirmə üçün lazım olan şablonu təyin edin və bot cavabı sizin şablonunuzla göndərəcək.\n\n\nRejimi seçin:"
+
+msgid "mode_updated"
+msgstr "%(rating)s qiymətləndirməsi üçün rejim yeniləndi: %(mode)s"
+
+msgid "return_to_reviews"
+msgstr "⬅️ Rəylərə qayıt"
+
+msgid "reviews_work_for_store"
+msgstr "📝 Mağaza üçün rəylərlə iş: %(store_name)s"
+
+msgid "back_to_store_from_reviews"
+msgstr "⬅️ Rəylərdən mağazaya qayıt"
+
+msgid "questions_work_for_store"
+msgstr "❓ Mağaza üçün suallarla iş: %(store_name)s"
+
+msgid "questions_auto_replies_toggled"
+msgstr "🤖 %(store_name)s mağazası üçün sualların avtomatik cavabları %(status)s"
+
+msgid "current_questions_mode"
+msgstr "⚙️ Cari sual rejimi: %(current_mode)s"
+
+msgid "questions_mode_set"
+msgstr "Sual rejimi təyin edildi: %(mode)s"
+
+msgid "choose_action"
+msgstr "⚙️ Fəaliyyəti seçin:"
+
+msgid "return_to_questions"
+msgstr "⬅️ Suallara qayıt"
+
+msgid "back_to_menu_from_questions"
+msgstr "⬅️ Suallardan menyuya qayıt"
+
+msgid "question_text"
+msgstr "❓ Sual: %(question_text)s"
+
+msgid "wildberries_question_warning"
+msgstr "⚠️ Qeyd: Bu Wildberries-dən gələn sualdır"
+
+msgid "answer_sent_auto"
+msgstr "✅ Cavab avtomatik olaraq göndərildi: %(reply_text)s"
+
+msgid "error_sending_answer"
+msgstr "❌ Cavab göndərilərkən səhv"
+
+msgid "proposed_answer"
+msgstr "📝 Təklif edilən cavab: %(proposed_reply)s"
+
+msgid "write_answer"
+msgstr "✏️ Cavabınızı yazın:"
+
+msgid "all_questions_viewed"
+msgstr "✅ Bütün suallar baxıldı"
+
+msgid "no_more_questions"
+msgstr "❓ Artıq sual yoxdur"
+
+msgid "answer_sent"
+msgstr "✅ Cavab göndərildi: %(reply_text)s"
+
+msgid "question_skipped"
+msgstr "➡️ Sual keçildi"
+
+msgid "enter_your_answer"
+msgstr "✏️ Cavabınızı daxil edin:"
+
+msgid "back_to_store_question"
+msgstr "⬅️ Suallardan mağazaya qayıt"
+
+msgid "enter_answer_first"
+msgstr "⚠️ Əvvəlcə cavab daxil edin"
+
+msgid "your_answer"
+msgstr "📝 Sizin cavabınız: %(response_text)s"
+
+msgid "send_question_reply"
+msgstr "📤 Cavab göndər"
+
+msgid "wildberries_review_warning"
+msgstr "⚠️ Qeyd: Bu Wildberries-dən gələn rəydir"
+
+msgid "review_text"
+msgstr "📝 Rəy: ⭐%(rating)s %(review_text)s"
+
+msgid "error_processing_review"
+msgstr "❌ Rəyi emal edərkən səhv"
+
+msgid "all_reviews_viewed"
+msgstr "✅ Bütün rəylər baxıldı"
+
+msgid "no_more_reviews"
+msgstr "📝 Artıq rəy yoxdur"
+
+msgid "review_skipped"
+msgstr "➡️ Rəy keçildi"
+
+msgid "format_error"
+msgstr "❌ Format səhvi: %(error)s"
+
+msgid "error_saving_settings"
+msgstr "❌ Parametrləri saxlayarkən səhv"
+
+msgid "send_as_is"
+msgstr "📤 Təklif edildiyi kimi göndər"
+
+msgid "edit_reply"
+msgstr "✏️ Cavabı redaktə et"
+
+msgid "skip_review"
+msgstr "➡️ Rəyi keç"
+
+msgid "send_reply"
+msgstr "📤 Cavab göndər"
+
+msgid "edit_question_reply"
+msgstr "✏️ Sual cavabını redaktə et"
+
+msgid "skip_question"
+msgstr "➡️ Sualı keç"
+
+msgid "back_to_reviews_menu"
+msgstr "⬅️ Rəylər menyusuna qayıt"
+
+msgid "send_as_is_question"
+msgstr "📤 Sualı təklif edildiyi kimi göndər"
+
+msgid "back_to_questions_menu"
+msgstr "⬅️ Suallar menyusuna qayıt"
+
+msgid "edit_name"
+msgstr "✏️ Adı redaktə et"
+
+msgid "edit_api_key"
+msgstr "🔑 API açarını redaktə et"
+
+msgid "edit_client_id"
+msgstr "🆔 Client ID-ni redaktə et"
+
+msgid "delete_store"
+msgstr "🗑️ Mağazanı sil"
+
+msgid "back_in_edit_field"
+msgstr "⬅️ Sahə seçimlərinə qayıt"
+
+msgid "confirm_delete"
+msgstr "✅ Silinməni təsdiq et"
+
+msgid "cancel_delete"
+msgstr "🚫 Silinməni ləğv et"
+
+msgid "back_to_rating_selection"
+msgstr "⬅️ Qiymətləndirmə seçiminə qayıt"
+
+msgid "only_1_star"
+msgstr "⭐ Yalnız 1 ulduz"
+
+msgid "1_2_stars"
+msgstr "⭐ 1-2 ulduz"
+
+msgid "1_3_stars"
+msgstr "⭐ 1-3 ulduz"
+
+msgid "disabled"
+msgstr "🚫 Deaktivdir"
+
+msgid "enabled"
+msgstr "✅ Aktivdir"
+
+msgid "not_set"
+msgstr "⚙️ Təyin edilməyib"
+
+msgid "store_not_found"
+msgstr "⚠️ Mağaza tapılmadı"
+
+msgid "store_access_denied"
+msgstr "🚫 Mağazaya giriş qadağandır"
+
+msgid "no_reviews"
+msgstr "📝 Görüntülənəcək rəy yoxdur"
+
+msgid "no_unanswered_questions"
+msgstr "📭 Cavablanmamış sual yoxdur"
+
+msgid "no_answered_questions"
+msgstr "❓ Cavablanmış sual yoxdur"
+
+msgid "invalid_store_id"
+msgstr "❌ Səhv mağaza ID"
+
+msgid "unknown_command"
+msgstr "❓ Naməlum əmr"
+
+msgid "error_occurred"
+msgstr "❌ Səhv baş verdi"
+
+msgid "star_rating"
+msgstr "⭐%(rating)s: %(count)s"
+
+msgid "back_to_store"
+msgstr "⬅️ Mağazaya qayıt"
