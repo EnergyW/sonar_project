@@ -13,13 +13,11 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(
 logger = logging.getLogger(__name__)
 load_dotenv()
 
-# Глобальные переменные для асинхронного клиента
 API_CLIENT: AsyncOpenAI = None
 load_lock = asyncio.Lock()
 
 
 async def init_ai_client():
-    """Инициализация асинхронного клиента OpenAI"""
     global API_CLIENT
 
     if API_CLIENT is not None:
@@ -70,7 +68,6 @@ async def init_ai_client():
             logger.info("⚠️ Async клиент без прокси (fallback)")
             return API_CLIENT
 
-
 def get_address_form(address_style: str) -> str:
     address_map = {
         'formal': 'Вы',
@@ -78,7 +75,6 @@ def get_address_form(address_style: str) -> str:
         'informal_ty': 'ты'
     }
     return address_map.get(address_style, 'Вы')
-
 
 def build_minus_words_instruction(minus_words: list) -> str:
     if not minus_words or len(minus_words) == 0:
@@ -106,6 +102,16 @@ async def generate_reply(
         product_id: str = None,
         reviewer_name: str = None
 ):
+    """
+    Генерирует ответ на отзыв
+
+    Returns:
+        dict: {
+            "success": bool,
+            "text": str (если success=True),
+            "error": str (если success=False)
+        }
+    """
     logger.info("=" * 80)
     logger.info("🚀 НАЧАЛО ГЕНЕРАЦИИ ОТВЕТА НА ОТЗЫВ")
     logger.info(f"📝 Параметры функции:")
@@ -129,12 +135,15 @@ async def generate_reply(
         if len(store_products) > 0:
             logger.info(f"  - Пример первого товара: {store_products[0][:100]}...")
 
-    client = await init_ai_client()
-    if not client:
-        logger.error("❌ Не удалось инициализировать клиент OpenAI")
-        return "Спасибо за ваш отзыв! Мы ценим ваше мнение."
-
     try:
+        client = await init_ai_client()
+        if not client:
+            logger.error("❌ Не удалось инициализировать клиент OpenAI")
+            return {
+                "success": False,
+                "error": "Не удалось инициализировать AI клиент"
+            }
+
         # ---------- ПОЛУЧЕНИЕ НАСТРОЕК ----------
         platform = (client_config.get("platform") or "").lower() if client_config else "ozon"
         settings = store_settings or {}
@@ -166,7 +175,7 @@ async def generate_reply(
 
         if store_products is None and client_config:
             try:
-                logger.info("🔄 store_products не передан, получаем список товаров магазина...")
+                logger.info("📄 store_products не передан, получаем список товаров магазина...")
                 store_products = await get_store_products(
                     client_config.get("client_id", ""),
                     client_config.get("api_key", ""),
@@ -229,7 +238,7 @@ async def generate_reply(
             recommendation_text = ""
             # ИСПРАВЛЕННАЯ ПРОВЕРКА: проверяем не просто наличие store_products, а что он не пустой
             if mention_product and store_products and len(store_products) > 0:
-                logger.info(f"🛍️ Упоминание товаров: ДА, товаров получено: {len(store_products)}")
+                logger.info(f"�️ Упоминание товаров: ДА, товаров получено: {len(store_products)}")
 
                 short_products = []
                 for i, prod in enumerate(store_products[:20]):
@@ -252,7 +261,7 @@ async def generate_reply(
                 logger.info(f"📋 Текст рекомендаций сгенерирован ({len(recommendation_text)} символов)")
             else:
                 recommendation_text = "Не упоминай другие товары."
-                logger.info(f"🛍️ Упоминание товаров: НЕТ - mention_product={mention_product}, "
+                logger.info(f"�️ Упоминание товаров: НЕТ - mention_product={mention_product}, "
                             f"store_products существует: {store_products is not None}, "
                             f"длина store_products: {len(store_products) if store_products else 0}")
 
@@ -266,9 +275,9 @@ async def generate_reply(
 
             # 5. Промпты для WB
             system_prompt = (
-                f"Ты — вежливый и профессиональный помощник продавца на маркетплейсе Wildberries 🛍️. "
+                f"Ты — вежливый и профессиональный помощник продавца на маркетплейсе Wildberries 🛒. "
                 f"Твоя задача — написать {length_desc} {tone_desc} ответ на отзыв клиента. "
-                f"Отвечай на русском, {'' if use_emojis else 'БЕЗ '}эмайликов, естественно и по-человечески. "
+                f"Отвечай на русском, {'' if use_emojis else 'БЕЗ '}смайликов, естественно и по-человечески. "
                 f"Используй обращение на '{address_form}'. "
                 f"{name_instruction}\n"
                 f"Если отзыв положительный (4—5): поблагодари, подчеркни плюсы и качество товара. "
@@ -299,7 +308,7 @@ async def generate_reply(
                 user_prompt += f"👤 Имя клиента: {reviewer_name}\n"
 
             user_prompt += (
-                f"🛍️ {recommendation_text}\n\n"
+                f"🛒 {recommendation_text}\n\n"
                 "Сформируй ответ продавца. "
                 "Важно: обязательно вставь в текст название и артикул (nmId) товара, например: "
                 "'Спасибо за отзыв о кресле (Артикул 466657417)!' "
@@ -378,7 +387,7 @@ async def generate_reply(
 
             recommendation_text = ""
             if mention_product and store_products and len(store_products) > 0:
-                logger.info(f"🛍️ Упоминание товаров Ozon: ДА, товаров получено: {len(store_products)}")
+                logger.info(f"🛒 Упоминание товаров Ozon: ДА, товаров получено: {len(store_products)}")
 
                 short_products = []
                 for i, prod in enumerate(store_products[:20]):
@@ -409,7 +418,7 @@ async def generate_reply(
                     logger.info(f"📋 Не рекомендуем товары для рейтинга {rating}")
             else:
                 recommendation_text = "Не упоминай другие товары."
-                logger.info(f"🛍️ Упоминание товаров Ozon: НЕТ")
+                logger.info(f"🛒 Упоминание товаров Ozon: НЕТ")
 
             minus_words_instruction = build_minus_words_instruction(minus_words)
             if minus_words_instruction:
@@ -490,41 +499,61 @@ async def generate_reply(
 
         logger.info(f"🔍 Первые 500 символов user_prompt: {user_prompt[:500]}...")
 
-        response = await client.chat.completions.create(
-            model="gpt-5-nano-2025-08-07",
-            messages=[
-                {"role": "system", "content": system_prompt},
-                {"role": "user", "content": user_prompt},
-            ],
-            max_completion_tokens=50000,
-        )
+        try:
+            response = await client.chat.completions.create(
+                model="gpt-5-nano-2025-08-07",
+                messages=[
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": user_prompt},
+                ],
+                max_completion_tokens=50000,
+            )
 
-        logger.info("✅ Ответ от OpenAI получен")
-        logger.info(f"📦 Структура ответа: {type(response)}")
-        logger.info(f"🔑 Атрибуты ответа: {dir(response)[:20]}...")
+            logger.info("✅ Ответ от OpenAI получен")
+            logger.info(f"📦 Структура ответа: {type(response)}")
+            logger.info(f"🔑 Атрибуты ответа: {dir(response)[:20]}...")
 
-        if not hasattr(response, "choices") or not response.choices:
-            logger.warning("⚠️ API не вернул choices")
-            return "Спасибо за вашу оценку! Мы ценим ваше мнение."
+            if not hasattr(response, "choices") or not response.choices:
+                logger.warning("⚠️ API не вернул choices")
+                return {
+                    "success": False,
+                    "error": "API вернул пустой ответ (нет choices)"
+                }
 
-        reply = response.choices[0].message.content.strip()
+            reply = response.choices[0].message.content.strip()
 
-        logger.info("=" * 80)
-        logger.info("📝 СГЕНЕРИРОВАННЫЙ ОТВЕТ")
-        logger.info(f"📊 Длина ответа: {len(reply)} символов")
-        logger.info(f"📄 Ответ: {reply}")
+            logger.info("=" * 80)
+            logger.info("📝 СГЕНЕРИРОВАН ОТВЕТ")
+            logger.info(f"📊 Длина ответа: {len(reply)} символов")
+            logger.info(f"📄 Ответ: {reply}")
 
-        if not reply:
-            logger.warning("⚠️ API не вернул текст")
-            return "Спасибо за вашу оценку! Мы ценим ваше мнение."
+            if not reply:
+                logger.warning("⚠️ API не вернул текст")
+                return {
+                    "success": False,
+                    "error": "API вернул пустой текст"
+                }
 
-        return reply
+            return {
+                "success": True,
+                "text": reply
+            }
+
+        except Exception as api_error:
+            logger.error(f"❌ Ошибка при вызове OpenAI API: {api_error}")
+            logger.exception("Детали ошибки API:")
+            return {
+                "success": False,
+                "error": f"Ошибка OpenAI API: {str(api_error)}"
+            }
 
     except Exception as e:
-        logger.error(f"❌ Ошибка генерации ответа: {e}")
+        logger.error(f"❌ Общая ошибка генерации ответа: {e}")
         logger.exception("Детали ошибки:")
-        return "Благодарим за отзыв! Мы учтём ваше мнение."
-
+        return {
+            "success": False,
+            "error": f"Ошибка генерации: {str(e)}"
+        }
 
 async def build_ozon_characteristics_text(product_attributes: Dict[str, Any]) -> str:
     try:
@@ -574,7 +603,6 @@ async def build_ozon_characteristics_text(product_attributes: Dict[str, Any]) ->
     except Exception as e:
         logger.error(f"Ошибка формирования характеристик: {e}")
         return ""
-
 
 async def generate_question_reply(
         question_text: str,
@@ -813,7 +841,6 @@ async def generate_question_reply(
         logger.error(f"Ошибка генерации ответа на вопрос: {e}")
         return create_fallback_reply(platform, sku, link, product_name, store_settings)
 
-
 def create_fallback_reply(
         platform: str,
         sku: str,
@@ -845,9 +872,7 @@ def create_fallback_reply(
 
     return reply
 
-
 def extract_text(response):
-    """Извлекает текст из ответа API"""
     logger.info(f"API response: {response}")
     try:
         if response.choices and len(response.choices) > 0:

@@ -60,13 +60,11 @@ async def process_single_store(store_data):
 
         logging.info(f"🪐 [PROCESSING] Обработка магазина: {store_name} ({store_type})")
 
-        # Получаем настройки магазина для ИИ
         logging.debug(f"🗄️ [DB] Запрос настроек ИИ для магазина {store_id}...")
         store_settings = await db.get_store_settings(store_id)
         logging.debug(
             f"✅ [DB_SUCCESS] Настройки ИИ получены: {json.dumps(store_settings, ensure_ascii=False, default=str)[:300]}...")
 
-        # ===== ОБРАБОТКА ОТЗЫВОВ =====
         try:
             logging.info(f"📝 [REVIEWS_START] Запрос необработанных отзывов для {store_name}...")
 
@@ -104,14 +102,10 @@ async def process_single_store(store_data):
                 logging.info(f"🎯 [MODE] Режим для рейтинга {rating}: {mode}")
 
                 if mode == "auto":
-                    if not text:
-                        logging.warning(f"⚠️ [SKIP] Отзыв {review_id} пропущен - пустой текст")
-                        continue
 
                     try:
                         logging.info(f"🤖 [AI_START] Генерация ИИ-ответа для отзыва {review_id}...")
 
-                        # Подготовка базовых параметров для generate_reply
                         generate_reply_kwargs = {
                             "review_text": text,
                             "rating": rating,
@@ -123,7 +117,6 @@ async def process_single_store(store_data):
                             "store_settings": store_settings
                         }
 
-                        # Добавляем специфичные для платформы параметры
                         if store_type.lower() == "wildberries":
                             wb_params = {
                                 "product_name": review.get("product_name", ""),
@@ -148,26 +141,33 @@ async def process_single_store(store_data):
                         logging.debug(
                             f"🔧 [AI_INPUT] Параметры для ИИ: {json.dumps({k: v for k, v in generate_reply_kwargs.items() if k != 'client_config'}, ensure_ascii=False, default=str)[:500]}...")
 
-                        # Генерация ответа с полным контекстом
-                        reply = await generate_reply(**generate_reply_kwargs)
+                        result = await generate_reply(**generate_reply_kwargs)
 
-                        logging.info(f"✅ [AI_SUCCESS] ИИ-ответ сгенерирован для отзыва {review_id}")
-                        logging.debug(
-                            f"💡 [AI_OUTPUT] Сгенерированный ответ ({len(reply)} символов): {reply[:200]}{'...' if len(reply) > 200 else ''}")
+                        if result["success"]:
+                            reply = result["text"]
 
-                        logging.info(f"📤 [API_SEND] Отправка ответа на отзыв {review_id}...")
-                        success = await post_review_answer(
-                            client_id=client_id,
-                            api_key=api_key,
-                            review_id=review_id,
-                            answer_text=reply,
-                            platform=store_type
-                        )
+                            logging.info(f"✅ [AI_SUCCESS] ИИ-ответ сгенерирован для отзыва {review_id}")
+                            logging.debug(
+                                f"💡 [AI_OUTPUT] Сгенерированный ответ ({len(reply)} символов): {reply[:200]}{'...' if len(reply) > 200 else ''}")
 
-                        if success:
-                            logging.info(f"✅ [SUCCESS] Автоответ отправлен на отзыв {review_id} (рейтинг: {rating}⭐️)")
+                            logging.info(f"📤 [API_SEND] Отправка ответа на отзыв {review_id}...")
+                            success = await post_review_answer(
+                                client_id=client_id,
+                                api_key=api_key,
+                                review_id=review_id,
+                                answer_text=reply,
+                                platform=store_type
+                            )
+
+                            if success:
+                                logging.info(
+                                    f"✅ [SUCCESS] Автоответ отправлен на отзыв {review_id} (рейтинг: {rating}⭐️)")
+                            else:
+                                logging.error(f"❌ [API_ERROR] Ошибка отправки ответа на отзыв {review_id}")
                         else:
-                            logging.error(f"❌ [API_ERROR] Ошибка отправки ответа на отзыв {review_id}")
+                            logging.error(f"❌ [AI_FAILED] ИИ не смог сгенерировать ответ для отзыва {review_id}")
+                            logging.error(f"   Причина: {result['error']}")
+                            logging.warning(f"⚠️ [SKIP_SEND] Автоответ НЕ отправлен для отзыва {review_id}")
 
                     except Exception as e:
                         logging.error(
@@ -213,7 +213,6 @@ async def process_single_store(store_data):
                 f"❌ [REVIEWS_EXCEPTION] Ошибка обработки отзывов для магазина {store_name}: {type(e).__name__}: {str(e)}")
             logging.debug(f"🔍 [TRACEBACK]", exc_info=True)
 
-        # ===== ОБРАБОТКА ВОПРОСОВ =====
         try:
             if settings.get("questions_enabled", False) and settings.get("questions_mode", "manual") == "auto":
                 logging.info(f"❓ [QUESTIONS_START] Запрос необработанных вопросов для {store_name}...")
@@ -292,7 +291,6 @@ async def process_single_store(store_data):
 
     logging.info(f"✅ [STORE_END] Обработка магазина {store_name} завершена\n" + "=" * 80)
 
-
 async def process_all_stores():
     logging.info("=" * 80)
     logging.info(f"🌍 [CYCLE_START] Начало нового цикла обработки магазинов")
@@ -357,7 +355,6 @@ async def process_all_stores():
             logging.warning(f"⚠️ [FAILED] Неудачных обработок: {failed}")
         logging.info("=" * 80 + "\n")
 
-
 async def main_loop():
     logging.info("\n" + "🚀" * 40)
     logging.info("🚀 [SYSTEM_START] Запуск асинхронного цикла обработки...")
@@ -403,7 +400,6 @@ async def main_loop():
         await close_db()
         logging.info("✅ [DB_CLOSED] База данных закрыта.")
         logging.info("👋 [SYSTEM_END] Завершение работы системы\n")
-
 
 if __name__ == "__main__":
     asyncio.run(main_loop())
