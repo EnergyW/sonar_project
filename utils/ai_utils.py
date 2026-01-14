@@ -86,7 +86,6 @@ def build_minus_words_instruction(minus_words: list) -> str:
         f"Найди синонимы или перефразируй, но избегай этих слов."
     )
 
-
 async def generate_reply(
         review_text: str,
         rating: int,
@@ -102,16 +101,7 @@ async def generate_reply(
         product_id: str = None,
         reviewer_name: str = None
 ):
-    """
-    Генерирует ответ на отзыв
 
-    Returns:
-        dict: {
-            "success": bool,
-            "text": str (если success=True),
-            "error": str (если success=False)
-        }
-    """
     logger.info("=" * 80)
     logger.info("🚀 НАЧАЛО ГЕНЕРАЦИИ ОТВЕТА НА ОТЗЫВ")
     logger.info(f"📝 Параметры функции:")
@@ -329,7 +319,6 @@ async def generate_reply(
         elif platform == "ozon":
             logger.info("🎯 Обработка для платформы OZON")
 
-            # 1. Получение данных товара Ozon
             product_attributes = {}
             product_description = ""
             characteristics_text = ""
@@ -360,7 +349,6 @@ async def generate_reply(
                         characteristics_text = await build_ozon_characteristics_text(product_attributes)
                         logger.info(f"📋 Характеристики сформированы: {len(characteristics_text)} символов")
 
-                        # Очистка описания
                         clean_description = re.sub('<[^<]+?>', '', product_description)
                         clean_description = re.sub(r'\s+', ' ', clean_description).strip()
                         if len(clean_description) > 50:
@@ -376,7 +364,6 @@ async def generate_reply(
             else:
                 logger.info("ℹ️ client_config не предоставлен, пропускаем получение атрибутов товара")
 
-            # 2. Настройки для Ozon
             length_desc = {
                 'short': 'очень короткий (до 30 слов)',
                 'default': 'короткий (до 70 слов)',
@@ -423,7 +410,7 @@ async def generate_reply(
             minus_words_instruction = build_minus_words_instruction(minus_words)
             if minus_words_instruction:
                 logger.info(f"🚫 Запрещённые слова Ozon: {minus_words}")
-                logger.info(f"   Инструкция: {minus_words_instruction[:200]}...")
+                logger.info(f"   Инструкция: {minus_words_instruction[:20]}...")
             else:
                 logger.info("🚫 Запрещённые слова Ozon: не указаны")
 
@@ -474,7 +461,6 @@ async def generate_reply(
             logger.info(f"   Начало: {user_prompt[:300]}...")
 
         else:
-            # Неизвестная платформа - используем общий шаблон
             logger.warning(f"⚠️ Неизвестная платформа: {platform}, используем общий шаблон")
             system_prompt = (
                 f"Ты — вежливый помощник продавца. "

@@ -294,13 +294,9 @@ async def get_store_reviews(
             })
             reviews = await get_reviews_since(**clean_params)
         elif platform.lower() == "wildberries":
-            # Для WB: API некорректно классифицирует отзывы
-            # В isAnswered=true могут быть отзывы БЕЗ ответа
-            # Поэтому получаем ОБА списка и фильтруем по факту
 
             all_reviews = []
 
-            # Получаем отзывы с isAnswered=false
             clean_params_unanswered = {
                 "client_id": str(client_id) if client_id else "",
                 "api_key": str(api_key),
@@ -316,7 +312,6 @@ async def get_store_reviews(
             logging.info(f"📥 WB вернул {len(unanswered_reviews)} отзывов с isAnswered=false")
             all_reviews.extend(unanswered_reviews)
 
-            # Получаем отзывы с isAnswered=true
             clean_params_answered = {
                 "client_id": str(client_id) if client_id else "",
                 "api_key": str(api_key),
@@ -332,16 +327,13 @@ async def get_store_reviews(
             logging.info(f"📥 WB вернул {len(answered_reviews)} отзывов с isAnswered=true")
             all_reviews.extend(answered_reviews)
 
-            # Теперь фильтруем по РЕАЛЬНОМУ наличию ответа
             filtered_reviews = []
             for review in all_reviews:
                 has_answer = bool(review.get("answer", "").strip())
 
                 if answered and has_answer:
-                    # Запросили отвеченные - берем только с ответом
                     filtered_reviews.append(review)
                 elif not answered and not has_answer:
-                    # Запросили неотвеченные - берем только без ответа
                     filtered_reviews.append(review)
 
             reviews = filtered_reviews
@@ -986,9 +978,6 @@ async def get_ozon_product_attributes(
         sku: str = None,
         visibility: str = "ALL"
 ) -> Dict[str, Any]:
-    """
-    Получает характеристики и описание товара Ozon по одному из идентификаторов
-    """
     attributes_url = "https://api-seller.ozon.ru/v4/product/info/attributes"
     description_url = "https://api-seller.ozon.ru/v1/product/info/description"
 
@@ -998,7 +987,6 @@ async def get_ozon_product_attributes(
         "Content-Type": "application/json"
     }
 
-    # Формируем фильтр для атрибутов
     filter_params = {"visibility": visibility}
 
     if offer_id:
@@ -1019,13 +1007,11 @@ async def get_ozon_product_attributes(
 
     try:
         async with aiohttp.ClientSession() as session:
-            # Запрос характеристик
             logging.info(f"[Ozon Attributes] POST {attributes_url} body={attributes_body}")
             async with session.post(attributes_url, headers=headers, json=attributes_body) as response:
                 response.raise_for_status()
                 attributes_data = await response.json()
 
-            # Обрабатываем результаты характеристик
             if not attributes_data.get("result"):
                 logging.warning("Товар не найден или нет характеристик")
                 return {}
@@ -1033,17 +1019,14 @@ async def get_ozon_product_attributes(
             product_data = attributes_data["result"][0]
             logging.info(f"Получены характеристики товара: {product_data.get('name', 'Unknown')}")
 
-            # Теперь формируем запрос для описания, используя данные из характеристик
             description_body = {}
             description_result = {}
 
-            # Используем offer_id или product_id из полученных характеристик
             if product_data.get('offer_id'):
                 description_body["offer_id"] = product_data['offer_id']
             if product_data.get('id'):
                 description_body["product_id"] = product_data['id']
 
-            # Запрос описания (если есть идентификаторы для него)
             if description_body:
                 logging.info(f"[Ozon Description] POST {description_url} body={description_body}")
                 async with session.post(description_url, headers=headers, json=description_body) as response:
@@ -1051,7 +1034,6 @@ async def get_ozon_product_attributes(
                     description_data = await response.json()
                     description_result = description_data.get("result", {})
 
-                # Добавляем описание к данным товара
                 if description_result and 'description' in description_result:
                     product_data['description'] = description_result['description']
                     logging.info(f"Получено описание товара ({len(product_data['description'])} символов)")
