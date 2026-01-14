@@ -19,7 +19,6 @@ async def reviews_menu_ikb(account_id: str, store_id: str) -> InlineKeyboardMark
         async with AsyncDatabase() as db:
             store = await db.get_store_details(store_id)
 
-    # Исправляем: используем 'reviews_enabled' вместо 'enabled'
     is_enabled = store.get("reviews_enabled", False) if store else False
 
     toggle_text = (
@@ -47,7 +46,6 @@ async def review_action_ikb(account_id: str):
         inline_keyboard=[
             [InlineKeyboardButton(text=await _(account_id, "send_as_is"), callback_data="send_as_is")],
             [InlineKeyboardButton(text=await _(account_id, "edit_reply"), callback_data="edit_reply")],
-            [InlineKeyboardButton(text=await _(account_id, "send_by_template"), callback_data="send_by_template")],
             [InlineKeyboardButton(text=await _(account_id, "send_by_template"), callback_data="send_by_template")],
             [InlineKeyboardButton(text=await _(account_id, "skip_review"), callback_data="skip_review")],
             [InlineKeyboardButton(text=await _(account_id, "back_to_store"), callback_data="back_to_store")]

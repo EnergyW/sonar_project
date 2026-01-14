@@ -734,7 +734,11 @@ async def handle_navigate_review(callback: CallbackQuery, state: FSMContext):
                             "product_id": product_id
                         })
 
-                    suggested_reply = await generate_reply(**generate_reply_kwargs)
+                    suggested_reply_result = await generate_reply(**generate_reply_kwargs)
+                    if suggested_reply_result.get('success'):
+                        suggested_reply = suggested_reply_result['text']
+                    else:
+                        suggested_reply = await _(account_id, "error_reply_placeholder")
                 await generating_msg.delete()
             except Exception as e:
                 logging.error(f"Error generating AI reply: {str(e)}")
@@ -975,7 +979,11 @@ async def handle_review_selection(callback: CallbackQuery, state: FSMContext):
                         "product_id": product_id
                     })
 
-                suggested_reply = await generate_reply(**generate_reply_kwargs)
+                suggested_reply_result = await generate_reply(**generate_reply_kwargs)
+                if suggested_reply_result.get('success'):
+                    suggested_reply = suggested_reply_result['text']
+                else:
+                    suggested_reply = await _(account_id, "error_reply_placeholder")
             await generating_msg.delete()
         except Exception as e:
             logging.error(f"Error generating AI reply: {str(e)}")

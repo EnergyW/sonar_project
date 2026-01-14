@@ -116,7 +116,6 @@ async def generate_reply(
     logger.info(f"  - product_id: {product_id}")
     logger.info(f"  - reviewer_name: {reviewer_name}")
 
-    # ДОБАВЛЯЕМ ПОДРОБНОЕ ЛОГИРОВАНИЕ store_products
     logger.info("📊 АНАЛИЗ store_products:")
     logger.info(f"  - store_products передан: {store_products is not None}")
     if store_products is not None:
@@ -196,7 +195,6 @@ async def generate_reply(
         if platform == "wildberries":
             logger.info("🎯 Обработка для платформы WILDBERRIES")
 
-            # 1. Настройки длины и тона
             length_desc = {
                 'short': 'очень короткий (до 30 слов)',
                 'default': 'короткий (до 70 слов)',
@@ -212,7 +210,6 @@ async def generate_reply(
             logger.info(f"📏 Длина ответа: {response_length} -> {length_desc}")
             logger.info(f"🎭 Тон ответа: {tone} -> {tone_desc}")
 
-            # 2. Обработка имени клиента (только для WB)
             name_instruction = ""
             if use_name and reviewer_name:
                 name_instruction = (
@@ -224,9 +221,7 @@ async def generate_reply(
             else:
                 logger.info(f"👤 Использование имени клиента: НЕТ (use_name={use_name}, reviewer_name={reviewer_name})")
 
-            # 3. Рекомендации товаров для WB
             recommendation_text = ""
-            # ИСПРАВЛЕННАЯ ПРОВЕРКА: проверяем не просто наличие store_products, а что он не пустой
             if mention_product and store_products and len(store_products) > 0:
                 logger.info(f"�️ Упоминание товаров: ДА, товаров получено: {len(store_products)}")
 
@@ -239,7 +234,7 @@ async def generate_reply(
                     short_name = f"{product_name_wb} (Артикул: {nm_id})" if nm_id else product_name_wb
                     short_products.append(short_name)
 
-                    if i < 3:  # Логируем только первые 3 для наглядности
+                    if i < 3:
                         logger.info(f"   Товар {i + 1}: {prod[:80]}...")
 
                 products_list = "; ".join(short_products)
@@ -255,7 +250,6 @@ async def generate_reply(
                             f"store_products существует: {store_products is not None}, "
                             f"длина store_products: {len(store_products) if store_products else 0}")
 
-            # 4. Инструкция по запрещённым словам
             minus_words_instruction = build_minus_words_instruction(minus_words)
             if minus_words_instruction:
                 logger.info(f"🚫 Запрещённые слова: {minus_words}")
@@ -263,7 +257,6 @@ async def generate_reply(
             else:
                 logger.info("🚫 Запрещённые слова: не указаны")
 
-            # 5. Промпты для WB
             system_prompt = (
                 f"Ты — вежливый и профессиональный помощник продавца на маркетплейсе Wildberries 🛒. "
                 f"Твоя задача — написать {length_desc} {tone_desc} ответ на отзыв клиента. "
@@ -417,7 +410,7 @@ async def generate_reply(
             system_prompt = (
                 f"Ты — живой, {tone} помощник продавца на Ozon {'😊' if use_emojis else ''} "
                 f"Пиши естественно, по-человечески, не как робот. "
-                f"Используй обращение на '{address_form}'. "
+                f"Используй обращение на '{address_form}' и обязательно поздоровайся, например: 'Здравствуйте или добрый день или вечер.' "
                 f"Не упоминай конкретно какую оценку поставил пользователь. "
                 f"Длинные официальные названия товаров НЕ используй — сокращай до понятных форм: "
                 f"'кресле', 'матрас', 'массажёр', 'подушка' и т.п. "

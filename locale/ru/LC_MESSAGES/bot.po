@@ -382,7 +382,7 @@ msgid "enter_password"
 msgstr "Придумайте пароль:"
 
 msgid "suggested_reply"
-msgstr "Предложенный ответ: %(reply_text)s"
+msgstr "🤖Предложенный ответ: %(reply_text)s"
 
 msgid "confirm_password"
 msgstr "Подтвердите пароль"
@@ -901,7 +901,7 @@ msgid "mode_manual"
 msgstr "✋ Ручной"
 
 msgid "mode_info"
-msgstr " ⭐ %(rating)s: %(mode)s"
+msgstr "⭐ %(rating)s: %(mode)s"
 
 msgid "questions_status"
 msgstr "❓ Статус вопросов: %(status)s"
