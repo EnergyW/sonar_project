@@ -244,6 +244,7 @@ async def get_reviews(
 
     return []
 
+
 async def get_store_reviews(
         store_details,
         answered: bool = False,
@@ -293,14 +294,59 @@ async def get_store_reviews(
             })
             reviews = await get_reviews_since(**clean_params)
         elif platform.lower() == "wildberries":
-            clean_params.update({
-                "status": str(status),
-                "last_id": str(last_id) if last_id else "",
-            })
-            if nmId is not None:
-                clean_params["nmId"] = int(nmId)
+            # Для WB: API некорректно классифицирует отзывы
+            # В isAnswered=true могут быть отзывы БЕЗ ответа
+            # Поэтому получаем ОБА списка и фильтруем по факту
 
-            reviews = await get_reviews(**clean_params)
+            all_reviews = []
+
+            # Получаем отзывы с isAnswered=false
+            clean_params_unanswered = {
+                "client_id": str(client_id) if client_id else "",
+                "api_key": str(api_key),
+                "platform": str(platform),
+                "limit": int(limit) if limit else 100,
+                "status": "UNPROCESSED",
+                "last_id": str(last_id) if last_id else "",
+            }
+            if nmId is not None:
+                clean_params_unanswered["nmId"] = int(nmId)
+
+            unanswered_reviews = await get_reviews(**clean_params_unanswered)
+            logging.info(f"📥 WB вернул {len(unanswered_reviews)} отзывов с isAnswered=false")
+            all_reviews.extend(unanswered_reviews)
+
+            # Получаем отзывы с isAnswered=true
+            clean_params_answered = {
+                "client_id": str(client_id) if client_id else "",
+                "api_key": str(api_key),
+                "platform": str(platform),
+                "limit": int(limit) if limit else 100,
+                "status": "PROCESSED",
+                "last_id": str(last_id) if last_id else "",
+            }
+            if nmId is not None:
+                clean_params_answered["nmId"] = int(nmId)
+
+            answered_reviews = await get_reviews(**clean_params_answered)
+            logging.info(f"📥 WB вернул {len(answered_reviews)} отзывов с isAnswered=true")
+            all_reviews.extend(answered_reviews)
+
+            # Теперь фильтруем по РЕАЛЬНОМУ наличию ответа
+            filtered_reviews = []
+            for review in all_reviews:
+                has_answer = bool(review.get("answer", "").strip())
+
+                if answered and has_answer:
+                    # Запросили отвеченные - берем только с ответом
+                    filtered_reviews.append(review)
+                elif not answered and not has_answer:
+                    # Запросили неотвеченные - берем только без ответа
+                    filtered_reviews.append(review)
+
+            reviews = filtered_reviews
+            logging.info(
+                f"✅ После фильтрации WB: {len(reviews)} отзывов (запрошено answered={answered}, всего получено {len(all_reviews)})")
         else:
             logging.error(f"❌ Платформа {platform} не поддерживается.")
             return []
