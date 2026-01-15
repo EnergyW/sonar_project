@@ -28,7 +28,6 @@ async def edit_or_reply(callback: CallbackQuery, text: str, reply_markup=None, p
 
 async def render_reviews_info(account_id: str, store: dict, store_id: str) -> tuple[str, InlineKeyboardMarkup]:
     try:
-        # Исправляем: используем 'reviews_enabled' вместо 'enabled'
         reviews_status = await _(account_id, "enabled") if store.get("reviews_enabled", False) else await _(account_id,
                                                                                                             "disabled")
 
@@ -188,7 +187,7 @@ async def show_review_details(callback: CallbackQuery, state: FSMContext):
         response = await _(account_id, "review_details",
                            date=date,
                            stars=stars,
-                           user_display=user_display,  # ДОБАВЛЕНО: передаем user_display
+                           user_display=user_display,
                            sku_label=sku_label,
                            sku=sku,
                            product_name=product_display,
@@ -199,7 +198,7 @@ async def show_review_details(callback: CallbackQuery, state: FSMContext):
         response = (
             f"📅 {date}\n\n"
             f"🌟 {stars}\n\n"
-            f"{user_display}"  # ДОБАВЛЕНО: добавляем имя пользователя в fallback
+            f"{user_display}"
             f"📦 Название: {product_display}\n"
             f"🔢 {sku_label}: {sku}\n\n"
             f"💬 {template_text if template_text else '(нет текста)'}"

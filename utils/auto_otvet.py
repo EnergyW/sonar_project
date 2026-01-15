@@ -3,7 +3,7 @@ import logging
 import asyncio
 import json
 from db.database import AsyncDatabase, init_db, close_db
-from utils.api_utils import get_reviews, post_review_answer, get_questions, post_question_answer
+from utils.api_utils import get_reviews, post_review_answer, get_questions, post_question_answer, get_store_products
 from utils.ai_utils import generate_reply, generate_question_reply
 
 logging.basicConfig(
@@ -65,6 +65,33 @@ async def process_single_store(store_data):
         logging.debug(
             f"✅ [DB_SUCCESS] Настройки ИИ получены: {json.dumps(store_settings, ensure_ascii=False, default=str)[:300]}...")
 
+        sku_to_name = {}
+        try:
+            logging.debug(f"📦 [PRODUCTS] Запрос списка товаров для {store_name}...")
+            products_list = await get_store_products(
+                client_id=client_id,
+                api_key=api_key,
+                platform=store_type,
+                include_archived=True
+            )
+
+            for product in products_list:
+                if "(sku:" in product:
+                    try:
+                        name_part, sku_part = product.split("(sku:")
+                        sku = sku_part.strip(" )")
+                        sku_to_name[sku] = name_part.strip()
+                    except Exception:
+                        continue
+
+            logging.info(f"✅ [PRODUCTS] Получено {len(sku_to_name)} товаров для сопоставления SKU")
+            if sku_to_name:
+                sample_items = list(sku_to_name.items())[:3]
+                logging.debug(f"📋 [PRODUCTS_SAMPLE] Примеры товаров: {sample_items}")
+        except Exception as e:
+            logging.warning(f"⚠️ [PRODUCTS_ERROR] Не удалось загрузить список товаров: {e}")
+
+        # ===== ОБРАБОТКА ОТЗЫВОВ =====
         try:
             logging.info(f"📝 [REVIEWS_START] Запрос необработанных отзывов для {store_name}...")
 
@@ -90,18 +117,47 @@ async def process_single_store(store_data):
             if not reviews:
                 logging.info(f"✅ [REVIEWS_EMPTY] Нет необработанных отзывов для {store_name}")
 
-            for idx, review in enumerate(reviews, 1):
+            processed_reviews = []
+            for review in reviews:
+                if store_type.lower() == "ozon":
+                    sku = str(review.get("sku", review.get("product", {}).get("sku", "")))
+                elif store_type.lower() == "wildberries":
+                    sku = str(review.get("nmId", ""))
+                else:
+                    sku = "N/A"
+
+                if not sku:
+                    sku = "N/A"
+
+                if store_type.lower() == "wildberries":
+                    product_name = review.get("product_name", "Неизвестный товар")
+                else:
+                    product_name = sku_to_name.get(sku, "Неизвестный товар")
+
+                review["product_name"] = product_name
+                review["sku"] = sku
+                processed_reviews.append(review)
+
+            logging.info(f"✅ [REVIEWS_PROCESSED] Обработано {len(processed_reviews)} отзывов с названиями товаров")
+
+            for idx, review in enumerate(processed_reviews, 1):
                 review_id = review.get("id", "UNKNOWN")
                 rating = review.get("rating", 0)
                 text = review.get("text", "").strip()
+                product_name = review.get("product_name", "Неизвестный товар")
+                sku = review.get("sku", "N/A")
 
-                logging.info(f"📄 [REVIEW_{idx}/{len(reviews)}] ID: {review_id}, Рейтинг: {rating}⭐️")
+                logging.info(f"📄 [REVIEW_{idx}/{len(processed_reviews)}] ID: {review_id}, Рейтинг: {rating}⭐️")
+                logging.info(f"📦 [PRODUCT] '{product_name}' (SKU: {sku})")
                 logging.debug(f"💬 [REVIEW_TEXT] {text[:100]}{'...' if len(text) > 100 else ''}")
 
                 mode = settings.get("modes", {}).get(str(rating), "manual")
                 logging.info(f"🎯 [MODE] Режим для рейтинга {rating}: {mode}")
 
                 if mode == "auto":
+                    if not text:
+                        logging.warning(f"⚠️ [SKIP] Отзыв {review_id} пропущен - пустой текст")
+                        continue
 
                     try:
                         logging.info(f"🤖 [AI_START] Генерация ИИ-ответа для отзыва {review_id}...")
@@ -118,56 +174,65 @@ async def process_single_store(store_data):
                         }
 
                         if store_type.lower() == "wildberries":
+                            base_product_name = review.get("product_name", "Товар")
+                            supplier_article = review.get("supplierArticle", "")
+
+                            if supplier_article and supplier_article != "N/A":
+                                product_name = f"{base_product_name} ({supplier_article})"
+                            else:
+                                product_name = base_product_name
+
+                            sku = review.get("nmId", "")
+
                             wb_params = {
-                                "product_name": review.get("product_name", ""),
-                                "supplier_article": review.get("supplierArticle", ""),
-                                "sku": review.get("nmId", ""),
+                                "product_name": product_name,
+                                "supplier_article": supplier_article,
+                                "sku": sku,
                                 "pros": review.get("pros", ""),
                                 "cons": review.get("cons", "")
                             }
                             generate_reply_kwargs.update(wb_params)
-                            logging.debug(f"📦 [WB_PARAMS] {json.dumps(wb_params, ensure_ascii=False)}")
+                            logging.debug(
+                                f"📦 [WB_PARAMS] Product: '{product_name}', SKU: {sku}, Article: {supplier_article}")
 
                         elif store_type.lower() == "ozon":
+                            base_product_name = review.get("product_name", "Товар")
+                            sku = review.get("sku", "")
+                            offer_id = review.get("offer_id", "")
+                            product_id = review.get("product_id", "")
+                            product_name = base_product_name
+
                             ozon_params = {
-                                "product_name": review.get("product_name", ""),
-                                "sku": review.get("sku", ""),
-                                "offer_id": review.get("offer_id", ""),
-                                "product_id": review.get("product_id", "")
+                                "product_name": product_name,
+                                "sku": sku,
+                                "offer_id": offer_id,
+                                "product_id": product_id
                             }
                             generate_reply_kwargs.update(ozon_params)
-                            logging.debug(f"📦 [OZON_PARAMS] {json.dumps(ozon_params, ensure_ascii=False)}")
+                            logging.debug(f"📦 [OZON_PARAMS] Product: '{product_name}', SKU: {sku}, Offer: {offer_id}")
 
                         logging.debug(
                             f"🔧 [AI_INPUT] Параметры для ИИ: {json.dumps({k: v for k, v in generate_reply_kwargs.items() if k != 'client_config'}, ensure_ascii=False, default=str)[:500]}...")
 
-                        result = await generate_reply(**generate_reply_kwargs)
+                        reply = await generate_reply(**generate_reply_kwargs)
 
-                        if result["success"]:
-                            reply = result["text"]
+                        logging.info(f"✅ [AI_SUCCESS] ИИ-ответ сгенерирован для отзыва {review_id}")
+                        logging.debug(
+                            f"💡 [AI_OUTPUT] Сгенерированный ответ ({len(reply)} символов): {reply[:200]}{'...' if len(reply) > 200 else ''}")
 
-                            logging.info(f"✅ [AI_SUCCESS] ИИ-ответ сгенерирован для отзыва {review_id}")
-                            logging.debug(
-                                f"💡 [AI_OUTPUT] Сгенерированный ответ ({len(reply)} символов): {reply[:200]}{'...' if len(reply) > 200 else ''}")
+                        logging.info(f"📤 [API_SEND] Отправка ответа на отзыв {review_id}...")
+                        success = await post_review_answer(
+                            client_id=client_id,
+                            api_key=api_key,
+                            review_id=review_id,
+                            answer_text=reply,
+                            platform=store_type
+                        )
 
-                            logging.info(f"📤 [API_SEND] Отправка ответа на отзыв {review_id}...")
-                            success = await post_review_answer(
-                                client_id=client_id,
-                                api_key=api_key,
-                                review_id=review_id,
-                                answer_text=reply,
-                                platform=store_type
-                            )
-
-                            if success:
-                                logging.info(
-                                    f"✅ [SUCCESS] Автоответ отправлен на отзыв {review_id} (рейтинг: {rating}⭐️)")
-                            else:
-                                logging.error(f"❌ [API_ERROR] Ошибка отправки ответа на отзыв {review_id}")
+                        if success:
+                            logging.info(f"✅ [SUCCESS] Автоответ отправлен на отзыв {review_id} (рейтинг: {rating}⭐️)")
                         else:
-                            logging.error(f"❌ [AI_FAILED] ИИ не смог сгенерировать ответ для отзыва {review_id}")
-                            logging.error(f"   Причина: {result['error']}")
-                            logging.warning(f"⚠️ [SKIP_SEND] Автоответ НЕ отправлен для отзыва {review_id}")
+                            logging.error(f"❌ [API_ERROR] Ошибка отправки ответа на отзыв {review_id}")
 
                     except Exception as e:
                         logging.error(
@@ -213,6 +278,7 @@ async def process_single_store(store_data):
                 f"❌ [REVIEWS_EXCEPTION] Ошибка обработки отзывов для магазина {store_name}: {type(e).__name__}: {str(e)}")
             logging.debug(f"🔍 [TRACEBACK]", exc_info=True)
 
+        # ===== ОБРАБОТКА ВОПРОСОВ =====
         try:
             if settings.get("questions_enabled", False) and settings.get("questions_mode", "manual") == "auto":
                 logging.info(f"❓ [QUESTIONS_START] Запрос необработанных вопросов для {store_name}...")
@@ -291,6 +357,7 @@ async def process_single_store(store_data):
 
     logging.info(f"✅ [STORE_END] Обработка магазина {store_name} завершена\n" + "=" * 80)
 
+
 async def process_all_stores():
     logging.info("=" * 80)
     logging.info(f"🌍 [CYCLE_START] Начало нового цикла обработки магазинов")
@@ -355,6 +422,7 @@ async def process_all_stores():
             logging.warning(f"⚠️ [FAILED] Неудачных обработок: {failed}")
         logging.info("=" * 80 + "\n")
 
+
 async def main_loop():
     logging.info("\n" + "🚀" * 40)
     logging.info("🚀 [SYSTEM_START] Запуск асинхронного цикла обработки...")
@@ -400,6 +468,7 @@ async def main_loop():
         await close_db()
         logging.info("✅ [DB_CLOSED] База данных закрыта.")
         logging.info("👋 [SYSTEM_END] Завершение работы системы\n")
+
 
 if __name__ == "__main__":
     asyncio.run(main_loop())
