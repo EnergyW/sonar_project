@@ -244,7 +244,6 @@ async def get_reviews(
 
     return []
 
-
 async def get_store_reviews(
         store_details,
         answered: bool = False,
