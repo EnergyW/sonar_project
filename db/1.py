@@ -1,50 +1,57 @@
-import requests
+import psycopg2
+from psycopg2 import Error
 
-API_KEY = "eyJhbGciOiJFUzI1NiIsImtpZCI6IjIwMjUwOTA0djEiLCJ0eXAiOiJKV1QifQ.eyJhY2MiOjEsImVudCI6MSwiZXhwIjoxNzc2OTc3NTk4LCJpZCI6IjAxOWExMDQ1LWMyZGItN2NmMS05NzVkLWYxNmEyNDY2YTg0MSIsImlpZCI6MzYxNjE1NzYsIm9pZCI6MTM0MTYxMywicyI6NjQyLCJzaWQiOiIwYmIxNTMxOC01ODBiLTRkN2UtYTM3ZS1iYjNmOWY1ZmEwZmQiLCJ0IjpmYWxzZSwidWlkIjozNjE2MTU3Nn0.Yd5RcVtfIo4x8k3hL67pnlYdbDfUmkE_A9e6pVG4_DGKS7lm49SAmGEF_-zzOG_cpgarprnKnaCGF_Of0KDalg"
-BASE_URL = "https://feedbacks-api.wildberries.ru/api/v1/feedbacks"
+DB_HOST = 'localhost'
+DB_NAME = 'sonar_db_utf8'
+DB_USER = 'postgres'
+DB_PASSWORD = '123'
+DB_PORT = '5432'
 
-HEADERS = {
-    "Authorization": API_KEY,
-    "Content-Type": "application/json"
-}
+try:
 
+    connection = psycopg2.connect(
+        host=DB_HOST,
+        database=DB_NAME,
+        user=DB_USER,
+        password=DB_PASSWORD,
+        port=DB_PORT
+    )
+    cursor = connection.cursor()
 
-def get_feedbacks_count(is_answered: bool) -> int:
+    query = """
+    SELECT 
+        table_name, 
+        column_name, 
+        data_type, 
+        is_nullable,
+        column_default
+    FROM 
+        information_schema.columns
+    WHERE 
+        table_schema = 'public'
+    ORDER BY 
+        table_name, ordinal_position;
     """
-    Возвращает количество отзывов:
-    is_answered=True  -> отвеченные
-    is_answered=False -> неотвеченные
-    """
 
-    total = 0
-    take = 5000
-    skip = 0
+    cursor.execute(query)
+    rows = cursor.fetchall()
 
-    while True:
-        params = {
-            "isAnswered": is_answered,
-            "take": take,
-            "skip": skip,
-            "order": "dateDesc"
-        }
+    if not rows:
+        print("В базе данных не найдено таблиц или столбцов.")
+    else:
+        current_table = None
+        for row in rows:
+            table_name, column_name, data_type, is_nullable, column_default = row
+            if current_table != table_name:
+                current_table = table_name
+                print(f"\n--- Таблица: {table_name} ---")
+            print(f"  Столбец: {column_name:<25} Тип: {data_type:<15} "
+                  f"NULL: {is_nullable:<3} По умолчанию: {column_default}")
 
-        response = requests.get(BASE_URL, headers=HEADERS, params=params)
-        response.raise_for_status()
-
-        data = response.json()["data"]["feedbacks"]
-        total += len(data)
-
-        if len(data) < take:
-            break
-
-        skip += take
-
-    return total
-
-
-if __name__ == "__main__":
-    answered = get_feedbacks_count(True)
-    unanswered = get_feedbacks_count(False)
-
-    print(f"Отвеченные отзывы: {answered}")
-    print(f"Неотвеченные отзывы: {unanswered}")
+except Error as e:
+    print(f"Ошибка при работе с PostgreSQL: {e}")
+finally:
+    if connection:
+        cursor.close()
+        connection.close()
+        print("\nСоединение с базой данных закрыто.")

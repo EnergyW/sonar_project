@@ -313,10 +313,10 @@ class AsyncDatabase:
             logging.error(f"SQL error get_all_users_with_stores: {e}")
             return []
 
-        users: Dict[str, Dict[str, Any]] = {}  # ключ - account_id как строка
+        users: Dict[str, Dict[str, Any]] = {}
         for r in rows:
             row = dict(r)
-            acct = str(row["account_id"])  # преобразуем к строке
+            acct = str(row["account_id"])
             if acct not in users:
                 users[acct] = {"account_id": acct, "phone": row.get("phone"), "language": row.get("language"), "stores": []}
             if row.get("store_id") is not None:

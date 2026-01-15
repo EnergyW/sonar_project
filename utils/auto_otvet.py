@@ -103,6 +103,7 @@ async def process_single_store(store_data):
                     status="UNPROCESSED",
                     limit=50
                 )
+
             else:
                 reviews = await get_reviews(
                     client_id=client_id,
@@ -111,7 +112,9 @@ async def process_single_store(store_data):
                     status="UNPROCESSED",
                     limit=50
                 )
-
+            logging.info(
+                f"🧪 [RAW_REVIEWS] type={type(reviews)}, value={str(reviews)[:500]}"
+            )
             logging.info(f"📊 [REVIEWS_COUNT] Получено отзывов: {len(reviews)} для магазина {store_name}")
 
             if not reviews:
