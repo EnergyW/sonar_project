@@ -293,6 +293,7 @@ async def get_store_reviews(
                 "status": str(status)
             })
             reviews = await get_reviews_since(**clean_params)
+
         elif platform.lower() == "wildberries":
 
             all_reviews = []
