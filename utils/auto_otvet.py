@@ -95,15 +95,11 @@ async def process_single_store(store_data):
         try:
             logging.info(f"📝 [REVIEWS_START] Запрос необработанных отзывов для {store_name}...")
 
-            reviews = await get_reviews(
-                client_id=client_id if store_type == "Ozon" else "",
-                api_key=api_key,
-                platform=store_type,
-                status="UNPROCESSED",
-                limit=50,
-                last_id=0
-            )
+            if store_type == "Wildberries":
+                reviews =  await get_store_reviews(store_details, answered=answered, limit=100)
 
+            else:
+                reviews =  await get_store_reviews(store_details, answered=answered, limit=100)
             logging.info(
                 f"🧪 [RAW_REVIEWS] type={type(reviews)}, value={str(reviews)[:500]}"
             )
