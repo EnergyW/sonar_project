@@ -3,7 +3,8 @@ import logging
 import asyncio
 import json
 from db.database import AsyncDatabase, init_db, close_db
-from utils.api_utils import get_reviews, post_review_answer, get_questions, post_question_answer, get_store_products
+from utils.api_utils import post_review_answer, get_questions, post_question_answer, get_store_products, \
+    get_store_reviews
 from utils.ai_utils import generate_reply, generate_question_reply
 
 logging.basicConfig(
@@ -24,7 +25,12 @@ async def process_single_store(store_data):
     api_key = store.get('api_key', '')
 
     logging.info(f"🔍 [STORE_START] Начало обработки магазина: {store_name} (ID: {store_id}, Тип: {store_type})")
-    logging.debug(f"📋 [STORE_DATA] User ID: {user.get('account_id')}, Client ID: {client_id[:10]}... (обрезано)")
+
+    if client_id:
+        client_id_display = client_id[:10] + "..."
+    else:
+        client_id_display = "N/A (не требуется для WB)"
+    logging.debug(f"📋 [STORE_DATA] User ID: {user.get('account_id')}, Client ID: {client_id_display}")
 
     async with AsyncDatabase() as db:
         logging.debug(f"🗄️ [DB] Запрос деталей магазина {store_id}...")
@@ -37,10 +43,22 @@ async def process_single_store(store_data):
         logging.debug(
             f"✅ [DB_SUCCESS] Детали магазина получены: {json.dumps(store_details, ensure_ascii=False, default=str)[:200]}...")
 
+        raw_modes = store_details.get('modes')
+        if raw_modes is None or not isinstance(raw_modes, dict):
+            modes = {str(i): 'manual' for i in range(1, 6)}
+        else:
+            modes = raw_modes
+
+        raw_templates = store_details.get('templates')
+        if raw_templates is None or not isinstance(raw_templates, dict):
+            templates = {}
+        else:
+            templates = raw_templates
+
         settings = {
             'reviews_enabled': store_details.get('reviews_enabled', False),
-            'modes': store_details.get('modes', {str(i): 'manual' for i in range(1, 6)}),
-            'templates': store_details.get('templates', {}),
+            'modes': modes,
+            'templates': templates,
             'questions_enabled': store_details.get('questions_enabled', False),
             'questions_mode': store_details.get('questions_mode', 'manual')
         }
@@ -54,82 +72,52 @@ async def process_single_store(store_data):
             logging.info(f"➖ [SKIP] Отзывы для магазина {store_name} отключены, пропускаем")
             return
 
-        if not api_key.strip():
+        if not api_key or not api_key.strip():
             logging.warning(f"⚠️ [API_KEY_MISSING] Отсутствует API-ключ для магазина {store_name}")
             return
 
-        logging.info(f"🪐 [PROCESSING] Обработка магазина: {store_name} ({store_type})")
+        if store_type.lower() != "wildberries" and (not client_id or not client_id.strip()):
+            logging.warning(f"⚠️ [CLIENT_ID_MISSING] Отсутствует Client ID для магазина {store_name}")
+            return
+
+        logging.info(f"🪙 [PROCESSING] Обработка магазина: {store_name} ({store_type})")
 
         logging.debug(f"🗄️ [DB] Запрос настроек ИИ для магазина {store_id}...")
         store_settings = await db.get_store_settings(store_id)
         logging.debug(
             f"✅ [DB_SUCCESS] Настройки ИИ получены: {json.dumps(store_settings, ensure_ascii=False, default=str)[:300]}...")
 
-        sku_to_name = {}
-        try:
-            logging.debug(f"📦 [PRODUCTS] Запрос списка товаров для {store_name}...")
-            products_list = await get_store_products(
-                client_id=client_id,
-                api_key=api_key,
-                platform=store_type,
-                include_archived=True
-            )
-
-            for product in products_list:
-                if "(sku:" in product:
-                    try:
-                        name_part, sku_part = product.split("(sku:")
-                        sku = sku_part.strip(" )")
-                        sku_to_name[sku] = name_part.strip()
-                    except Exception:
-                        continue
-
-            logging.info(f"✅ [PRODUCTS] Получено {len(sku_to_name)} товаров для сопоставления SKU")
-            if sku_to_name:
-                sample_items = list(sku_to_name.items())[:3]
-                logging.debug(f"📋 [PRODUCTS_SAMPLE] Примеры товаров: {sample_items}")
-        except Exception as e:
-            logging.warning(f"⚠️ [PRODUCTS_ERROR] Не удалось загрузить список товаров: {e}")
-
         # ===== ОБРАБОТКА ОТЗЫВОВ =====
         try:
             logging.info(f"📝 [REVIEWS_START] Запрос необработанных отзывов для {store_name}...")
 
-            if store_type == "Wildberries":
-                reviews =  await get_store_reviews(store_details, answered=answered, limit=100)
+            store_details_dict = {
+                "type": store_type,
+                "api_key": api_key,
+                "client_id": client_id
+            }
 
-            else:
-                reviews =  await get_store_reviews(store_details, answered=answered, limit=100)
-            logging.info(
-                f"🧪 [RAW_REVIEWS] type={type(reviews)}, value={str(reviews)[:500]}"
+            reviews = await get_store_reviews(
+                store_details=store_details_dict,
+                answered=False,
+                limit=50
             )
+
+            logging.info(f"🧪 [RAW_REVIEWS] type={type(reviews)}, count={len(reviews) if reviews else 0}")
+
+            if reviews is None:
+                logging.warning(f"⚠️ [REVIEWS_NULL] API вернул None для {store_name}")
+                reviews = []
+            elif not isinstance(reviews, list):
+                logging.warning(f"⚠️ [REVIEWS_UNEXPECTED] Неожиданный тип: {type(reviews)}, преобразуем в список")
+                reviews = []
+
             logging.info(f"📊 [REVIEWS_COUNT] Получено отзывов: {len(reviews)} для магазина {store_name}")
 
             if not reviews:
                 logging.info(f"✅ [REVIEWS_EMPTY] Нет необработанных отзывов для {store_name}")
 
-            processed_reviews = []
-            for review in reviews:
-                if store_type.lower() == "ozon":
-                    sku = str(review.get("sku", review.get("product", {}).get("sku", "")))
-                elif store_type.lower() == "wildberries":
-                    sku = str(review.get("nmId", ""))
-                else:
-                    sku = "N/A"
-
-                if not sku:
-                    sku = "N/A"
-
-                if store_type.lower() == "wildberries":
-                    product_name = review.get("product_name", "Неизвестный товар")
-                else:
-                    product_name = sku_to_name.get(sku, "Неизвестный товар")
-
-                review["product_name"] = product_name
-                review["sku"] = sku
-                processed_reviews.append(review)
-
-            logging.info(f"✅ [REVIEWS_PROCESSED] Обработано {len(processed_reviews)} отзывов с названиями товаров")
+            processed_reviews = reviews
 
             for idx, review in enumerate(processed_reviews, 1):
                 review_id = review.get("id", "UNKNOWN")
@@ -146,10 +134,6 @@ async def process_single_store(store_data):
                 logging.info(f"🎯 [MODE] Режим для рейтинга {rating}: {mode}")
 
                 if mode == "auto":
-                    if not text:
-                        logging.warning(f"⚠️ [SKIP] Отзыв {review_id} пропущен - пустой текст")
-                        continue
-
                     try:
                         logging.info(f"🤖 [AI_START] Генерация ИИ-ответа для отзыва {review_id}...")
 
@@ -238,7 +222,7 @@ async def process_single_store(store_data):
 
                     if template:
                         logging.debug(
-                            f"📝 [TEMPLATE_TEXT] Шаблон ({len(template)} символов): {template[:200]}{'...' if len(template) > 200 else ''}")
+                            f"📄 [TEMPLATE_TEXT] Шаблон ({len(template)} символов): {template[:200]}{'...' if len(template) > 200 else ''}")
                         logging.info(f"📤 [API_SEND] Отправка шаблонного ответа на отзыв {review_id}...")
 
                         success = await post_review_answer(
@@ -274,24 +258,45 @@ async def process_single_store(store_data):
             if settings.get("questions_enabled", False) and settings.get("questions_mode", "manual") == "auto":
                 logging.info(f"❓ [QUESTIONS_START] Запрос необработанных вопросов для {store_name}...")
 
-                if store_type == "Wildberries":
-                    questions_response = await get_questions(
-                        client_id=client_id,
-                        api_key=api_key,
-                        platform=store_type,
-                        status="UNPROCESSED",
-                        limit=30
-                    )
-                else:
-                    questions_response = await get_questions(
-                        client_id=client_id,
-                        api_key=api_key,
-                        platform=store_type,
-                        status="UNANSWERED",
-                        limit=30
-                    )
+                try:
+                    if store_type == "Wildberries":
+                        questions_response = await get_questions(
+                            client_id=client_id,
+                            api_key=api_key,
+                            platform=store_type,
+                            status="UNPROCESSED",
+                            limit=30
+                        )
+                    else:
+                        questions_response = await get_questions(
+                            client_id=client_id,
+                            api_key=api_key,
+                            platform=store_type,
+                            status="UNANSWERED",
+                            limit=30
+                        )
 
-                questions = questions_response.get("questions", [])
+                    logging.info(
+                        f"🧪 [RAW_QUESTIONS] type={type(questions_response)}, value={str(questions_response)[:500]}")
+
+                    if questions_response is None:
+                        logging.warning(f"⚠️ [QUESTIONS_NULL] API вернул None для {store_name}")
+                        questions = []
+                    elif isinstance(questions_response, dict):
+                        questions = questions_response.get("questions", [])
+                    elif isinstance(questions_response, list):
+                        # Если API вернул список напрямую
+                        questions = questions_response
+                    else:
+                        logging.warning(f"⚠️ [QUESTIONS_UNEXPECTED] Неожиданный тип ответа: {type(questions_response)}")
+                        questions = []
+
+                except Exception as api_error:
+                    logging.error(
+                        f"❌ [QUESTIONS_API_ERROR] Ошибка запроса вопросов для {store_name}: {type(api_error).__name__}: {str(api_error)}")
+                    logging.debug(f"🔍 [TRACEBACK]", exc_info=True)
+                    questions = []
+
                 logging.info(f"📊 [QUESTIONS_COUNT] Получено вопросов: {len(questions)} для магазина {store_name}")
 
                 if not questions:
@@ -366,7 +371,6 @@ async def process_all_stores():
 
             for store in user['stores']:
                 store_name = store.get('store_name', 'UNKNOWN')
-                # Проверяем reviews_enabled вместо enabled
                 reviews_enabled = store.get('reviews_enabled', False)
                 questions_enabled = store.get('questions_enabled', False)
 
@@ -404,8 +408,8 @@ async def process_all_stores():
                 logging.debug(f"📈 [PROGRESS] Обработано магазинов: {completed}/{len(stores_to_process)}")
             except Exception as exc:
                 failed += 1
-                logging.error(f'❌ [TASK_EXCEPTION] Ошибка при обработке магазина: {type(exc).__name__}: {str(exc)}')
-                logging.debug(f"🔍 [TRACEBACK]", exc_info=True)
+                logging.error(f'❌ [TASK_EXCEPTION] Ошибка при обработке магазина: {type(exc).__name__}: {str(exc)}',
+                              exc_info=True)
 
         logging.info("\n" + "=" * 80)
         logging.info(f"✅ [CYCLE_END] Завершена обработка {completed}/{len(stores_to_process)} магазинов")
@@ -415,9 +419,7 @@ async def process_all_stores():
 
 
 async def main_loop():
-    logging.info("\n" + "🚀" * 40)
     logging.info("🚀 [SYSTEM_START] Запуск асинхронного цикла обработки...")
-    logging.info("🚀" * 40 + "\n")
 
     logging.info("🗄️ [DB_INIT] Инициализация базы данных...")
     await init_db()
@@ -443,13 +445,9 @@ async def main_loop():
             await asyncio.sleep(sleep_time)
 
     except KeyboardInterrupt:
-        logging.info("\n" + "⛔" * 40)
         logging.info("⛔ [SYSTEM_STOP] Остановлено пользователем (KeyboardInterrupt)")
-        logging.info("⛔" * 40)
     except Exception as e:
-        logging.error("\n" + "💥" * 40)
         logging.error(f"💥 [CRITICAL_ERROR] Критическая ошибка: {type(e).__name__}: {str(e)}")
-        logging.error("💥" * 40)
         logging.debug(f"🔍 [TRACEBACK]", exc_info=True)
         logging.info("🔄 [RESTART] Перезапуск через 60 секунд...")
         await asyncio.sleep(60)
