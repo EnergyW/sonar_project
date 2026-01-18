@@ -287,7 +287,6 @@ async def process_single_store(store_data):
                     elif isinstance(questions_response, dict):
                         questions = questions_response.get("questions", [])
                     elif isinstance(questions_response, list):
-                        # Если API вернул список напрямую
                         questions = questions_response
                     else:
                         logging.warning(f"⚠️ [QUESTIONS_UNEXPECTED] Неожиданный тип ответа: {type(questions_response)}")
@@ -375,7 +374,6 @@ async def process_all_stores():
                 reviews_enabled = store.get('reviews_enabled', False)
                 questions_enabled = store.get('questions_enabled', False)
 
-                # Магазин активен, если включены отзывы ИЛИ вопросы
                 if reviews_enabled or questions_enabled:
                     stores_to_process.append((user, store))
                     logging.debug(

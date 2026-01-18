@@ -181,7 +181,6 @@ async def cmd_start(message: Message, state: FSMContext):
         return
 
     if not user.get("phone"):
-        # Добавляем клавиатуру для отправки телефона
         lang_code = user.get("lang", "ru")
         phone_message = await message.answer(
             await _(account_id, "enter_phone_to_login"),
@@ -288,7 +287,6 @@ async def set_language(callback: CallbackQuery, state: FSMContext):
                         await state.set_state(Form.waiting_for_store_selection)
                         await state.update_data(employee_id=employee["employee_id"])
                 else:
-                    # Если у пользователя нет телефона, запрашиваем его
                     if not user.get("phone"):
                         phone_message = await callback.message.answer(
                             await _(account_id, "enter_phone_to_login"),
@@ -305,7 +303,6 @@ async def set_language(callback: CallbackQuery, state: FSMContext):
                         await state.set_state(Form.waiting_for_employee_phone)
         await state.clear()
     else:
-        # У пользователя нет роли, запрашиваем телефон
         phone_message = await callback.message.answer(
             await _(account_id, "enter_phone_to_login"),
             reply_markup=await request_phone_kb(account_id, lang_code)
@@ -328,7 +325,6 @@ async def set_role(callback: CallbackQuery, state: FSMContext):
     lang_code = data.get("chosen_language", "ru")
 
     async with AsyncDatabase() as db:
-        # Создаем или обновляем пользователя
         existing_user = await db.get_user(account_id)
 
         if not existing_user:
@@ -345,7 +341,6 @@ async def set_role(callback: CallbackQuery, state: FSMContext):
         )
         await state.clear()
     else:
-        # Для сотрудника запрашиваем телефон, если его нет
         if not phone:
             phone_message = await callback.message.answer(
                 await _(account_id, "enter_phone_to_login"),

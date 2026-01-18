@@ -1,6 +1,6 @@
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from i18n import _
-from db.database import AsyncDatabase  # Импортируем асинхронный класс
+from db.database import AsyncDatabase
 from states.states import stores
 
 async def store_choice_ikb(account_id: str):

@@ -82,10 +82,10 @@ async def reviews_list_ikb(reviews: list, page: int, total_pages: int) -> Inline
 
     pagination = []
     if page > 0:
-        pagination.append(InlineKeyboardButton(text="⬅️", callback_data="prev_reviews"))  # Изменено
+        pagination.append(InlineKeyboardButton(text="⬅️", callback_data="prev_reviews"))
     pagination.append(InlineKeyboardButton(text=f"{page + 1}/{total_pages}", callback_data="current_page"))
     if page < total_pages - 1:
-        pagination.append(InlineKeyboardButton(text="➡️", callback_data="next_reviews"))  # Изменено
+        pagination.append(InlineKeyboardButton(text="➡️", callback_data="next_reviews"))
 
     buttons.append(pagination)
     buttons.append([InlineKeyboardButton(text="Назад", callback_data="back_to_types")])

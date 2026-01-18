@@ -11,6 +11,7 @@ from states.states import Form
 from i18n import _
 from db.database import AsyncDatabase
 import logger
+import json
 
 router = Router()
 
@@ -87,7 +88,6 @@ async def select_template_rating(callback: CallbackQuery, state: FSMContext):
         await state.set_state(Form.waiting_for_template_text)
         message = await edit_or_reply(callback, text, reply_markup=kb)
 
-        # Сохраняем message_id запроса для последующего удаления
         await state.update_data(template_request_message_id=message.message_id)
 
     await callback.answer()
@@ -143,7 +143,6 @@ async def handle_rating_for_template(callback: CallbackQuery, state: FSMContext)
         ])
     )
 
-    # Сохраняем message_id запроса для последующего удаления
     await state.update_data(template_request_message_id=message.message_id)
 
     await state.set_state(Form.waiting_for_template_text)
@@ -297,24 +296,20 @@ async def show_store_settings(callback: CallbackQuery, state: FSMContext):
         return
 
     async with AsyncDatabase() as db:
-        # Получаем детали магазина
         store_details = await db.get_store_details(store_id)
         if not store_details:
             await callback.answer(await _(account_id, "store_not_found"), show_alert=True)
             return
 
-        # Получаем platform аналогично show_advanced_settings
         store_type = store_details.get('type')
         client_config = store_details.get("client_config", {})
 
         platform = None
 
-        # Проверяем client_config сначала
         if client_config:
             if isinstance(client_config, dict):
                 platform = client_config.get("platform")
             else:
-                # Если client_config не словарь, пробуем распарсить как JSON
                 try:
                     import json
                     if isinstance(client_config, str):
@@ -323,11 +318,9 @@ async def show_store_settings(callback: CallbackQuery, state: FSMContext):
                 except Exception as e:
                     logging.error(f"Failed to parse client_config: {e}")
 
-        # Если platform не нашли в client_config, используем type
         if not platform:
             platform = store_type
 
-        # Приводим к нижнему регистру
         if platform:
             platform = str(platform).lower()
         else:
@@ -339,7 +332,6 @@ async def show_store_settings(callback: CallbackQuery, state: FSMContext):
         await callback.answer(await _(account_id, "error_loading_settings"), show_alert=True)
         return
 
-    # Передаем platform в функцию клавиатуры
     kb = await advanced_settings_ikb(account_id, settings, platform)
     await edit_or_reply(callback, await _(account_id, "advanced_settings_header"), reply_markup=kb)
     await callback.answer()
@@ -355,49 +347,40 @@ async def show_advanced_settings(callback: CallbackQuery, state: FSMContext):
         return
 
     async with AsyncDatabase() as db:
-        # Получаем детали магазина, включая конфигурацию
         store_details = await db.get_store_details(store_id)
         if not store_details:
             await callback.answer(await _(account_id, "store_not_found"), show_alert=True)
             return
 
-        # Логируем структуру store_details для отладки
         logging.info(f"store_details for store_id={store_id}: {store_details}")
         logging.info(f"store_details keys: {store_details.keys()}")
 
-        # Проверяем разные возможные места хранения типа/платформы
         store_type = store_details.get('type')
         client_config = store_details.get("client_config", {})
 
         logging.info(f"store_type from 'type' field: {store_type}")
         logging.info(f"client_config: {client_config}")
 
-        # Получаем платформу из конфигурации или из type
         platform = None
 
-        # Проверяем client_config сначала
         if client_config:
             if isinstance(client_config, dict):
                 platform = client_config.get("platform")
             else:
-                # Если client_config не словарь, пробуем распарсить как JSON
                 try:
-                    import json
                     if isinstance(client_config, str):
                         client_config_dict = json.loads(client_config)
                         platform = client_config_dict.get("platform")
                 except Exception as e:
                     logging.error(f"Failed to parse client_config: {e}")
 
-        # Если platform не нашли в client_config, используем type
         if not platform:
             platform = store_type
 
-        # Приводим к нижнему регистру для сравнения
         if platform:
             platform = str(platform).lower()
         else:
-            platform = ""  # или "ozon" по умолчанию, если нужен fallback
+            platform = ""
 
         logging.info(f"Final platform value: {platform}")
 
@@ -407,7 +390,6 @@ async def show_advanced_settings(callback: CallbackQuery, state: FSMContext):
         await callback.answer(await _(account_id, "error_loading_settings"), show_alert=True)
         return
 
-    # Передаем platform в функцию клавиатуры
     kb = await advanced_settings_ikb(account_id, settings, platform)
     await edit_or_reply(callback, await _(account_id, "advanced_settings_header"), reply_markup=kb)
     await callback.answer()
@@ -428,7 +410,6 @@ async def toggle_boolean_setting(callback: CallbackQuery, state: FSMContext):
         'use_name': 'use_name',
         'mention_product': 'mention_product',
         'use_emojis': 'use_emojis'
-        # Убрано 'formal_you', так как теперь это не булевое значение
     }
 
     if setting_type not in setting_map:
@@ -455,7 +436,7 @@ async def set_address_style_handler(callback: CallbackQuery, state: FSMContext):
 async def handle_address_style_selection(callback: CallbackQuery, state: FSMContext):
     account_id = str(callback.from_user.id)
     data_parts = callback.data.split(":")
-    style = data_parts[1]  # formal, lowercase или informal
+    style = data_parts[1]
     data = await state.get_data()
     store_id = data.get("selected_store_id")
 
@@ -468,7 +449,6 @@ async def handle_address_style_selection(callback: CallbackQuery, state: FSMCont
 
     await show_advanced_settings(callback, state)
 
-    # Создаем маппинг для читаемых сообщений
     style_names = {
         'formal': await _(account_id, "address_formal"),
         'lowercase': await _(account_id, "address_lowercase"),
@@ -644,7 +624,6 @@ async def clear_stop_words_confirmed_handler(callback: CallbackQuery, state: FSM
 
     await callback.answer(await _(account_id, "stop_words_cleared"))
 
-    # Возвращаемся в меню стоп-слов, а не в общие настройки
     await state.update_data(selected_store_id=store_id)
     await edit_stop_words_handler(callback, state)
 
@@ -739,7 +718,6 @@ async def clear_minus_words_confirmed_handler(callback: CallbackQuery, state: FS
 
     await callback.answer(await _(account_id, "minus_words_cleared"))
 
-    # Возвращаемся в меню минус-слов, а не в общие настройки
     await state.update_data(selected_store_id=store_id)
     await edit_minus_words_handler(callback, state)
 
@@ -766,7 +744,6 @@ async def handle_stop_words_input(message: Message, state: FSMContext):
         except Exception as e:
             logging.warning(f"Failed to delete bot instruction message: {e}")
 
-    # Обрабатываем введенные слова
     input_words = [word.strip().lower() for word in message.text.split(",") if word.strip()]
 
     async with AsyncDatabase() as db:
@@ -774,10 +751,8 @@ async def handle_stop_words_input(message: Message, state: FSMContext):
         current_words = settings.get('stop_words', [])
 
         if action == "add":
-            # Добавляем только новые слова
             updated_words = list(set(current_words + input_words))
         elif action == "remove":
-            # Удаляем указанные слова
             updated_words = [w for w in current_words if w not in input_words]
         else:
             updated_words = input_words
@@ -799,7 +774,6 @@ async def handle_stop_words_input(message: Message, state: FSMContext):
     except Exception as e:
         logging.warning(f"Failed to delete success message: {e}")
 
-    # Возвращаемся в меню стоп-слов
     await show_stop_words_menu_after_edit(message, account_id, store_id, state)
 
 @router.message(Form.waiting_for_minus_words)
@@ -895,14 +869,11 @@ async def show_minus_words_menu_after_edit(message: Message, account_id: str, st
 
 async def show_advanced_settings_after_edit(message: Message, account_id: str, store_id: int):
     async with AsyncDatabase() as db:
-        # Получаем детали магазина
         store_details = await db.get_store_details(store_id)
         if not store_details:
-            # Если магазин не найден, показываем сообщение об ошибке
             await message.answer(await _(account_id, "store_not_found"))
             return
 
-        # Получаем platform аналогично
         store_type = store_details.get('type')
         client_config = store_details.get("client_config", {})
 

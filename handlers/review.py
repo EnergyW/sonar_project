@@ -579,7 +579,6 @@ async def confirm_send(callback: CallbackQuery, state: FSMContext):
 
         success = await send_review_answer(store_details, review['id'], reply_text)
         if success:
-            # Уменьшаем счетчик неотвеченных отзывов в кеше
             store_id_int = int(store_id)
             await store_cache.decrement_review_count(store_id_int)
 
@@ -1182,13 +1181,12 @@ async def handle_send_predefined_reply(callback: CallbackQuery, state: FSMContex
             await callback.answer(await _(account_id, "store_not_found"), show_alert=True)
             return
 
-        # Получаем текст ответа в зависимости от типа
         if reply_type == "ai":
             reply_text = data.get("suggested_reply")
             if not reply_text:
                 await callback.answer(await _(account_id, "no_suggested_reply"), show_alert=True)
                 return
-        else:  # template
+        else:
             templates = store_details.get("templates", {})
             rating = str(review['rating'])
             reply_text = templates.get(rating)
@@ -1198,7 +1196,6 @@ async def handle_send_predefined_reply(callback: CallbackQuery, state: FSMContex
 
         success = await send_review_answer(store_details, review_id, reply_text)
         if success:
-            # Уменьшаем счетчик неотвеченных отзывов в кеше
             store_id_int = int(store_id)
             await store_cache.decrement_review_count(store_id_int)
 

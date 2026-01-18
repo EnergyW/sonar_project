@@ -40,7 +40,6 @@ async def render_questions_info(account_id: str, store: dict) -> tuple[str, Inli
     unanswered_count = 0
     if store_id:
         try:
-            # Используем кеш вместо прямого запроса к API
             cache_data = await store_cache.get_unanswered_counts(store_id)
             unanswered_count = cache_data.get("questions", 0)
             logging.info(f"Unanswered questions count from cache for store_id={store_id}: {unanswered_count}")
@@ -340,7 +339,6 @@ async def send_question_answer(store_id: int, question_id: str, answer_text: str
                 platform=store_details["type"]
             )
 
-            # Обновляем кеш после отправки ответа
             if result:
                 await store_cache.decrement_question_count(store_id)
 
@@ -735,7 +733,6 @@ async def handle_questions_pagination(callback: CallbackQuery, state: FSMContext
     data = await state.get_data()
     store_id = data.get("selected_store_id")
 
-    # Правильно определяем тип вопросов и направление пагинации
     if callback.data.endswith("_answered"):
         question_type = "answered"
     else:
@@ -755,7 +752,6 @@ async def handle_questions_pagination(callback: CallbackQuery, state: FSMContext
     total_pages = data.get("total_pages", 1)
     last_id = data.get("last_id", "")
 
-    # Правильно вычисляем новую страницу
     if direction == "next":
         new_page = current_page + 1
     else:
@@ -764,16 +760,13 @@ async def handle_questions_pagination(callback: CallbackQuery, state: FSMContext
     logging.info(
         f"Pagination: current_page={current_page}, new_page={new_page}, total_pages={total_pages}, total_questions={len(all_questions)}")
 
-    # Инициализируем переменную new_questions
     new_questions = []
 
-    # Обрабатываем граничные случаи
     if new_page < 0:
         await callback.answer(await _(account_id, "first_page"))
         return
 
     if new_page >= total_pages:
-        # Пытаемся загрузить больше вопросов, если есть last_id
         if last_id:
             async with AsyncDatabase() as db:
                 store = await db.get_store_details(store_id)
@@ -804,12 +797,10 @@ async def handle_questions_pagination(callback: CallbackQuery, state: FSMContext
             await callback.answer(await _(account_id, "no_more_questions"))
             return
 
-    # Если мы все еще на той же странице после всех проверок
     if new_page == current_page and not new_questions:
         await callback.answer()
         return
 
-    # Обновляем данные состояния
     await state.update_data(
         current_page=new_page,
         all_questions=all_questions,
@@ -818,7 +809,6 @@ async def handle_questions_pagination(callback: CallbackQuery, state: FSMContext
         question_type=question_type
     )
 
-    # Получаем вопросы для отображения
     start_idx = new_page * questions_per_page
     end_idx = start_idx + questions_per_page
     questions_to_show = all_questions[start_idx:end_idx]
@@ -848,7 +838,6 @@ async def view_single_question(callback: CallbackQuery, state: FSMContext):
 
     questions = data.get("all_questions", [])
 
-    # Логируем информацию о всех вопросах
     logging.info(f"Total questions in state: {len(questions)}")
     logging.info(f"Question IDs in state: {[q.get('id') for q in questions]}")
 
@@ -866,7 +855,6 @@ async def view_single_question(callback: CallbackQuery, state: FSMContext):
 
     store_id = data.get("selected_store_id")
 
-    # Логируем информацию о магазине
     logging.info(f"Store ID from state: {store_id}")
 
     async with AsyncDatabase() as db:
@@ -885,7 +873,6 @@ async def view_single_question(callback: CallbackQuery, state: FSMContext):
 
     logging.info(f"Found question at index: {question_index}, total_questions: {total_questions}")
 
-    # Остальной код функции остается без изменений...
     created_at = question.get("created_at", "")
     if created_at:
         try:

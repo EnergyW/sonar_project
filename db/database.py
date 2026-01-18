@@ -46,16 +46,16 @@ class AsyncDatabase:
             await self.conn.execute(
                 "INSERT INTO users (account_id, language) VALUES ($1, $2) "
                 "ON CONFLICT (account_id) DO NOTHING",
-                "0", "ru"  # account_id как строка
+                "0", "ru"
             )
         except asyncpg.PostgresError as e:
             logging.error(f"SQL error create_system_user: {e}")
 
-    async def get_user(self, account_id: str) -> Optional[Dict[str, Any]]:  # account_id как str
+    async def get_user(self, account_id: str) -> Optional[Dict[str, Any]]:  
         try:
             row = await self.conn.fetchrow(
                 "SELECT account_id, phone, language, role FROM users WHERE account_id = $1",
-                account_id  # передаем как строку
+                account_id  
             )
             return dict(row) if row else None
         except asyncpg.PostgresError as e:
@@ -63,7 +63,7 @@ class AsyncDatabase:
             return None
 
     async def create_user(self,
-                          account_id: str,  # account_id как str
+                          account_id: str,  
                           phone: Optional[str] = None,
                           language: str = "ru",
                           role: Optional[str] = None) -> None:
@@ -77,29 +77,29 @@ class AsyncDatabase:
                   language = EXCLUDED.language,
                   role = EXCLUDED.role
                 """,
-                account_id, phone, language, role  # account_id как строка
+                account_id, phone, language, role  
             )
         except asyncpg.PostgresError as e:
             logging.error(f"SQL error create_user: {e} | account_id={account_id}")
 
-    async def update_user_phone(self, account_id: str, phone: str) -> None:  # account_id как str
+    async def update_user_phone(self, account_id: str, phone: str) -> None:  
         try:
             await self.conn.execute("UPDATE users SET phone = $1 WHERE account_id = $2",
-                                   phone, account_id)  # account_id как строка
+                                   phone, account_id)  
         except asyncpg.PostgresError as e:
             logging.error(f"SQL error update_user_phone: {e} | account_id={account_id}")
 
-    async def update_user_language(self, account_id: str, language: str) -> None:  # account_id как str
+    async def update_user_language(self, account_id: str, language: str) -> None:  
         try:
             await self.conn.execute("UPDATE users SET language = $1 WHERE account_id = $2",
-                                   language, account_id)  # account_id как строка
+                                   language, account_id)  
         except asyncpg.PostgresError as e:
             logging.error(f"SQL error update_user_language: {e} | account_id={account_id}")
 
-    async def get_user_language(self, account_id: str) -> str:  # account_id как str
+    async def get_user_language(self, account_id: str) -> str:  
         try:
             row = await self.conn.fetchrow("SELECT language FROM users WHERE account_id = $1",
-                                          account_id)  # account_id как строка
+                                          account_id)  
             return row["language"] if row and row.get("language") else "ru"
         except asyncpg.PostgresError as e:
             logging.error(f"SQL error get_user_language: {e} | account_id={account_id}")
@@ -107,10 +107,10 @@ class AsyncDatabase:
 
     # ------------------ STORES ------------------
 
-    async def get_user_stores(self, account_id: str) -> List[Tuple[int, str, str]]:  # account_id как str
+    async def get_user_stores(self, account_id: str) -> List[Tuple[int, str, str]]:  
         try:
             rows = await self.conn.fetch("SELECT store_id, store_name, type FROM stores WHERE account_id = $1",
-                                        account_id)  # account_id как строка
+                                        account_id)  
             return [ (r["store_id"], r["store_name"], r["type"]) for r in rows ]
         except asyncpg.PostgresError as e:
             logging.error(f"SQL error get_user_stores: {e} | account_id={account_id}")
@@ -125,13 +125,13 @@ class AsyncDatabase:
             return []
 
     async def create_store(self,
-                           account_id: str,  # account_id как str
+                           account_id: str,  
                            store_name: Any,
                            store_type: Any,
                            api_key: Any,
                            client_id: Optional[Any] = None) -> Optional[int]:
 
-        account_id_str = account_id  # account_id уже строка
+        account_id_str = account_id
         store_name_str = str(store_name)
         store_type_str = str(store_type)
         api_key_str = str(api_key)
@@ -153,7 +153,7 @@ class AsyncDatabase:
                 ) VALUES ($1,$2,$3,$4,$5,$6,$7,$8)
                 RETURNING store_id
                 """,
-                account_id_str,  # передаем как строку
+                account_id_str,  
                 store_name_str,
                 store_type_str,
                 api_key_str,
@@ -361,13 +361,13 @@ class AsyncDatabase:
         except asyncpg.PostgresError as e:
             logging.error(f"SQL error init_schema: {e}")
 
-    async def create_employee(self, account_id: str, full_name: str, phone: str, access_code: str) -> Optional[int]:  # account_id как str
+    async def create_employee(self, account_id: str, full_name: str, phone: str, access_code: str) -> Optional[int]:  
         if not re.match(r"^\d{4}$", str(access_code)):
             raise ValueError("Access code must be 4 digits")
         try:
             row = await self.conn.fetchrow(
                 "INSERT INTO employees (account_id, full_name, phone, access_code, is_active) VALUES ($1,$2,$3,$4,$5) RETURNING employee_id",
-                account_id, full_name, phone, access_code, True  # account_id как строка
+                account_id, full_name, phone, access_code, True  
             )
             return row["employee_id"] if row else None
         except asyncpg.PostgresError as e:
@@ -389,7 +389,7 @@ class AsyncDatabase:
             logging.error(f"SQL error get_employee_by_phone_and_code: {e}")
             return None
 
-    async def get_employees_by_owner(self, account_id: str) -> List[Dict[str, Any]]:  # account_id как str
+    async def get_employees_by_owner(self, account_id: str) -> List[Dict[str, Any]]:  
         try:
             rows = await self.conn.fetch(
                 """
@@ -401,7 +401,7 @@ class AsyncDatabase:
                 WHERE e.account_id = $1
                 GROUP BY e.employee_id
                 """,
-                account_id  # передаем как строку
+                account_id  
             )
             return [dict(r) for r in rows] if rows else []
         except asyncpg.PostgresError as e:
@@ -449,9 +449,9 @@ class AsyncDatabase:
             logging.error(f"SQL error get_employee_stores: {e} | employee_id={employee_id}")
             return []
 
-    async def update_user_role(self, account_id: str, role: str) -> None:  # account_id как str
+    async def update_user_role(self, account_id: str, role: str) -> None:  
         try:
-            await self.conn.execute("UPDATE users SET role = $1 WHERE account_id = $2", role, account_id)  # account_id как строка
+            await self.conn.execute("UPDATE users SET role = $1 WHERE account_id = $2", role, account_id)  
         except asyncpg.PostgresError as e:
             logging.error(f"SQL error update_user_role: {e} | account_id={account_id}")
 

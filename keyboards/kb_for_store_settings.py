@@ -118,9 +118,9 @@ async def advanced_settings_ikb(account_id: str, settings: dict, platform: str =
     )
 
     address_map = {
-        'formal': await _(account_id, 'address_formal'),  # на Вы
-        'lowercase': await _(account_id, 'address_lowercase'),  # на вы
-        'informal': await _(account_id, 'address_informal')  # на ты
+        'formal': await _(account_id, 'address_formal'),
+        'lowercase': await _(account_id, 'address_lowercase'),
+        'informal': await _(account_id, 'address_informal')
     }
     current_address = address_map.get(
         settings.get('address_style', 'formal'),
