@@ -99,7 +99,7 @@ async def generate_reply(
         store_settings: dict = None,
         offer_id: str = None,
         product_id: str = None,
-        reviewer_name: str = None
+        user_display: str = None
 ):
 
     logger.info("=" * 80)
@@ -114,7 +114,7 @@ async def generate_reply(
     logger.info(f"  - cons: {cons}")
     logger.info(f"  - offer_id: {offer_id}")
     logger.info(f"  - product_id: {product_id}")
-    logger.info(f"  - reviewer_name: {reviewer_name}")
+    logger.info(f"  - user_display: {user_display}")
 
     logger.info("📊 АНАЛИЗ store_products:")
     logger.info(f"  - store_products передан: {store_products is not None}")
@@ -142,7 +142,6 @@ async def generate_reply(
         logger.info(f"  - client_config keys: {list(client_config.keys()) if client_config else 'None'}")
         logger.info(f"  - store_settings keys: {list(settings.keys())}")
 
-        # Параметры из БД
         address_style = settings.get('address_style', 'formal')
         use_name = settings.get('use_name', True)
         mention_product = settings.get('mention_product', True)
@@ -201,112 +200,105 @@ async def generate_reply(
                 'long': 'подробный (до 150 слов)'
             }.get(response_length, 'короткий (до 70 слов)')
 
-            tone_desc = {
-                'friendly': 'дружелюбный',
-                'formal': 'формальный',
-                'neutral': 'нейтральный'
-            }.get(tone, 'дружелюбный')
-
             logger.info(f"📏 Длина ответа: {response_length} -> {length_desc}")
-            logger.info(f"🎭 Тон ответа: {tone} -> {tone_desc}")
 
             name_instruction = ""
-            if use_name and reviewer_name:
+            if use_name and user_display:
                 name_instruction = (
-                    f"В начале ответа обратись к клиенту по имени: '{reviewer_name}'. "
-                    f"Например: '{reviewer_name}, спасибо за отзыв!' или 'Здравствуйте, {reviewer_name}!'"
+                    f"В начале ответа обратись к клиенту по имени: '{user_display}'. "
+                    f"Например: '{user_display}, спасибо за отзыв!' или 'Здравствуйте, {user_display}!'"
                 )
-                logger.info(f"👤 Использование имени клиента: ДА - '{reviewer_name}'")
-                logger.info(f"   Инструкция: {name_instruction}")
+                logger.info(f"👤 Использование имени клиента: ДА - '{user_display}'")
             else:
-                logger.info(f"👤 Использование имени клиента: НЕТ (use_name={use_name}, reviewer_name={reviewer_name})")
+                logger.info(f"👤 Использование имени клиента: НЕТ")
 
             recommendation_text = ""
+            recommendation_rule = ""
+
             if mention_product and store_products and len(store_products) > 0:
-                logger.info(f"�️ Упоминание товаров: ДА, товаров получено: {len(store_products)}")
+                logger.info(f"🛒 Упоминание товаров: ДА, товаров получено: {len(store_products)}")
 
                 short_products = []
                 for i, prod in enumerate(store_products[:20]):
-                    nm_match = re.search(r'\(nmID: (\d+)\)', prod)
-                    nm_id = nm_match.group(1) if nm_match else ""
                     name_match = re.search(r'^([^(]+)', prod)
                     product_name_wb = name_match.group(1).strip() if name_match else prod
-                    short_name = f"{product_name_wb} (Артикул: {nm_id})" if nm_id else product_name_wb
-                    short_products.append(short_name)
+                    short_products.append(product_name_wb)
 
                     if i < 3:
                         logger.info(f"   Товар {i + 1}: {prod[:80]}...")
 
                 products_list = "; ".join(short_products)
                 recommendation_text = (
-                    f"Сопутствующие товары: {products_list}. "
-                    f"Если отзыв положительный и уместно — можешь ненавязчиво упомянуть один из них, "
-                    f"но НЕ пиши 'выбран товар' и НЕ цитируй название полностью."
+                    f"Сопутствующие товары магазина: {products_list}. "
                 )
-                logger.info(f"📋 Текст рекомендаций сгенерирован ({len(recommendation_text)} символов)")
+
+                if rating >= 4:
+                    recommendation_rule = (
+                        f"Если отзыв положительный (4-5 звёзд) — можно ненавязчиво порекомендовать один сопутствующий товар. "
+                        f"Делай это мягко и уместно, например: 'Если хотите дополнить рабочее место, посмотрите наш массажёр для ног' "
+                    )
+                    logger.info(f"📋 Рекомендация товаров включена для рейтинга {rating}")
+                else:
+                    recommendation_rule = "Не упоминай другие товары (отзыв отрицательный)."
+                    logger.info(f"📋 Не рекомендуем товары для рейтинга {rating}")
             else:
                 recommendation_text = "Не упоминай другие товары."
-                logger.info(f"�️ Упоминание товаров: НЕТ - mention_product={mention_product}, "
-                            f"store_products существует: {store_products is not None}, "
-                            f"длина store_products: {len(store_products) if store_products else 0}")
+                recommendation_rule = "Не упоминай другие товары (настройка отключена)."
+                logger.info(f"🛒 Упоминание товаров: НЕТ - mention_product={mention_product}")
 
             minus_words_instruction = build_minus_words_instruction(minus_words)
             if minus_words_instruction:
                 logger.info(f"🚫 Запрещённые слова: {minus_words}")
-                logger.info(f"   Инструкция: {minus_words_instruction[:200]}...")
             else:
                 logger.info("🚫 Запрещённые слова: не указаны")
 
             system_prompt = (
-                f"Ты — вежливый и профессиональный помощник продавца на маркетплейсе Wildberries 🛒. "
-                f"Твоя задача — написать {length_desc} {tone_desc} ответ на отзыв клиента. "
-                f"Отвечай на русском, {'' if use_emojis else 'БЕЗ '}смайликов, естественно и по-человечески. "
-                f"Используй обращение на '{address_form}'. "
-                f"{name_instruction}\n"
-                f"Если отзыв положительный (4—5): поблагодари, подчеркни плюсы и качество товара. "
-                f"Если отзыв отрицательный (1—3): извинись, прояви заботу, предложи решение или помощь. "
-                f"Не упоминай рейтинг явно. "
-                f"ОБЯЗАТЕЛЬНО: упомяни в ответе название товара и его nmId (как 'Артикул'). "
-                f"Supplier article можно указать в скобках. "
-                f"Используй плюсы и минусы, если они есть, но не копируй дословно. "
-                f"Не придумывай факты — только адаптируй отзыв в естественный ответ."
+                f"Ты — {tone} помощник продавца на Wildberries. "
+                f"Ты отвечаешь от лица магазина. "
+                f"Пиши естественно, по-человечески, не как робот. "
+                f"Используй обращение на '{address_form}' и обязательно поздоровайся, например: 'Здравствуйте или добрый день или вечер.' "
+                f"Не упоминай конкретно какую оценку поставил пользователь. "
+                f"Длинные официальные названия товаров НЕ используй — сокращай до понятных форм: "
+                f"'кресло', 'матрас', 'массажёр', 'подушка' и т.п. "
+                f"НИКОГДА не упоминай в ответе артикул (nmId), supplier article или другие технические номера. "
+                f"Используй только простое разговорное название товара. "
+                f"{recommendation_rule}"
+                f"Отрицательный отзыв (1-3): извинись, предложи написать в чат продавца, скажи, что передашь данные в отдел по контролю качества. "
+                f"Используй плюсы и минусы, если они есть, но не переписывай их явно. "
+                f"Пиши {length_desc}, дружелюбно, {'с эмодзи' if use_emojis else 'БЕЗ эмодзи'}. "
                 f"{minus_words_instruction}"
             )
 
             logger.info(f"📋 SYSTEM PROMPT для WB:")
             logger.info(f"   Длина: {len(system_prompt)} символов")
-            logger.info(f"   Начало: {system_prompt[:200]}...")
 
-            user_prompt = (
-                f"📦 Название товара: {product_name or 'Не указано'}\n"
-                f"🔢 Артикул (nmId): {sku or 'Не указан'}\n"
-                f"🏷️ Supplier Article: {supplier_article or 'Не указан'}\n"
-                f"🌟 Оценка: {rating or 'Не указана'}\n"
-                f"💬 Отзыв: {review_text or 'Без текста'}\n"
-                f"➕ Плюсы: {pros or 'Не указано'}\n"
-                f"➖ Минусы: {cons or 'Не указано'}\n"
+            user_prompt_parts = [
+                f"📦 Название товара: {product_name or 'Не указано'}",
+                f"🌟 Оценка: {rating or 'Не указана'}",
+                f"💬 Отзыв: {review_text or 'Без текста'}"
+            ]
+
+            if pros:
+                user_prompt_parts.append(f"➕ Плюсы: {pros}")
+            if cons:
+                user_prompt_parts.append(f"➖ Минусы: {cons}")
+
+            if use_name and user_display:
+                user_prompt_parts.append(f"👤 Имя клиента: {user_display}")
+
+            user_prompt_parts.append(recommendation_text)
+
+            user_prompt_parts.append(
+                "Используй простое разговорное название товара, не длинное официальное. "
+                "НИКОГДА не упоминай артикул, nmId, supplier article или другие технические номера в ответе. "
+                "Отвечай естественно, как живой человек."
             )
 
-            if use_name and reviewer_name:
-                user_prompt += f"👤 Имя клиента: {reviewer_name}\n"
-
-            user_prompt += (
-                f"🛒 {recommendation_text}\n\n"
-                "Сформируй ответ продавца. "
-                "Важно: обязательно вставь в текст название и артикул (nmId) товара, например: "
-                "'Спасибо за отзыв о кресле (Артикул 466657417)!' "
-                "Ответ должен быть естественным, дружелюбным, с заботой."
-            )
+            user_prompt = "\n".join(user_prompt_parts)
 
             logger.info(f"👤 USER PROMPT для WB:")
             logger.info(f"   Длина: {len(user_prompt)} символов")
             logger.info(f"   Начало: {user_prompt[:300]}...")
-
-            logger.info(f"📊 Детали товара WB:")
-            logger.info(f"  - product_name: {product_name}")
-            logger.info(f"  - sku: {sku}")
-            logger.info(f"  - supplier_article: {supplier_article}")
-            logger.info(f"  - reviewer_name: {reviewer_name}")
 
         # ---------- БЛОК ДЛЯ OZON ----------
         elif platform == "ozon":
@@ -366,6 +358,8 @@ async def generate_reply(
             logger.info(f"📏 Длина ответа Ozon: {response_length} -> {length_desc}")
 
             recommendation_text = ""
+            recommendation_rule = ""
+
             if mention_product and store_products and len(store_products) > 0:
                 logger.info(f"🛒 Упоминание товаров Ozon: ДА, товаров получено: {len(store_products)}")
 
@@ -392,13 +386,18 @@ async def generate_reply(
                         f"Пример: 'Также у нас есть массажное кресло для расслабления после работы' "
                         f"НЕ перечисляй все товары, НЕ пиши 'выбран товар', выбери ОДИН наиболее подходящий."
                     )
+                    # Добавляем правило в системный промпт только если mention_product=True
+                    recommendation_rule = (
+                        f"ВАЖНОЕ ПРАВИЛО: Если отзыв положительный (4-5 звёзд) — ОБЯЗАТЕЛЬНО порекомендуй один сопутствующий товар из списка. "
+                        f"Делай это мягко и уместно, например: 'Если хотите дополнить рабочее место, посмотрите наш массажёр для ног' "
+                    )
                     logger.info(f"📋 Явная инструкция на рекомендацию для рейтинга {rating}")
                 else:
                     recommendation_text = "Не упоминай другие товары (отзыв отрицательный)."
                     logger.info(f"📋 Не рекомендуем товары для рейтинга {rating}")
             else:
                 recommendation_text = "Не упоминай другие товары."
-                logger.info(f"🛒 Упоминание товаров Ozon: НЕТ")
+                logger.info(f"🛒 Упоминание товаров Ozon: НЕТ (mention_product={mention_product})")
 
             minus_words_instruction = build_minus_words_instruction(minus_words)
             if minus_words_instruction:
@@ -407,6 +406,7 @@ async def generate_reply(
             else:
                 logger.info("🚫 Запрещённые слова Ozon: не указаны")
 
+            # Исправленный системный промпт - добавлена conditional логика для рекомендаций
             system_prompt = (
                 f"Ты — живой, {tone} помощник продавца на Ozon {'😊' if use_emojis else ''} "
                 f"Пиши естественно, по-человечески, не как робот. "
@@ -414,8 +414,7 @@ async def generate_reply(
                 f"Не упоминай конкретно какую оценку поставил пользователь. "
                 f"Длинные официальные названия товаров НЕ используй — сокращай до понятных форм: "
                 f"'кресле', 'матрас', 'массажёр', 'подушка' и т.п. "
-                f"ВАЖНОЕ ПРАВИЛО: Если отзыв положительный (4-5 звёзд) — ОБЯЗАТЕЛЬНО порекомендуй один сопутствующий товар из списка. "
-                f"Делай это мягко и уместно, например: 'Если хотите дополнить рабочее место, посмотрите наш массажёр для ног' "
+                f"{recommendation_rule}"
                 f"Отрицательный отзыв (1-3): извинись, прояви заботу и предложи написать в чат продавца. "
                 f"Учитывай характеристики и описание товара при ответе, но не переписывай их явно. "
                 f"Пиши {length_desc}, дружелюбно, {'с эмодзи' if use_emojis else 'БЕЗ эмодзи'}."
@@ -758,7 +757,7 @@ async def generate_question_reply(
             if platform == "wildberries":
                 system_prompt = (
                     f"Ты — профессиональный помощник продавца Wildberries. "
-                    f"Пиши {length_desc}, {tone}, {'с лёгкими эмайликами 😊' if use_emojis else 'БЕЗ эмайликов'}. "
+                    f"Пиши {length_desc}, {tone}, {'с лёгкими смайликами 😊' if use_emojis else 'БЕЗ смайликов'}. "
                     f"Используй обращение на '{address_form}'. "
                     f"Упоминай название товара и nmID. "
                     f"Если нужны уточнения, спроси. "
