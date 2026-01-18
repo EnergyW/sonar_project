@@ -353,7 +353,6 @@ async def process_single_store(store_data):
 
     logging.info(f"✅ [STORE_END] Обработка магазина {store_name} завершена\n" + "=" * 80)
 
-
 async def process_all_stores():
     logging.info("=" * 80)
     logging.info(f"🌍 [CYCLE_START] Начало нового цикла обработки магазинов")
@@ -417,7 +416,6 @@ async def process_all_stores():
             logging.warning(f"⚠️ [FAILED] Неудачных обработок: {failed}")
         logging.info("=" * 80 + "\n")
 
-
 async def main_loop():
     logging.info("🚀 [SYSTEM_START] Запуск асинхронного цикла обработки...")
 
@@ -457,7 +455,6 @@ async def main_loop():
         await close_db()
         logging.info("✅ [DB_CLOSED] База данных закрыта.")
         logging.info("👋 [SYSTEM_END] Завершение работы системы\n")
-
 
 if __name__ == "__main__":
     asyncio.run(main_loop())
