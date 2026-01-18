@@ -713,7 +713,8 @@ async def handle_navigate_review(callback: CallbackQuery, state: FSMContext):
                             "api_key": store_details.get("api_key", ""),
                             "platform": store_details.get("type", "Ozon")
                         },
-                        "store_settings": store_settings
+                        "store_settings": store_settings,
+                        "user_display": user_name
                     }
 
                     if store_details['type'].lower() == "wildberries":
@@ -722,7 +723,8 @@ async def handle_navigate_review(callback: CallbackQuery, state: FSMContext):
                             "supplier_article": supplier_article,
                             "sku": sku,
                             "pros": selected_review.get("pros", ""),
-                            "cons": selected_review.get("cons", "")
+                            "cons": selected_review.get("cons", ""),
+                            "user_display": user_name
                         })
 
                     if store_details['type'].lower() == "ozon":
@@ -958,7 +960,8 @@ async def handle_review_selection(callback: CallbackQuery, state: FSMContext):
                         "api_key": store_details.get("api_key", ""),
                         "platform": store_details.get("type", "Ozon")
                     },
-                    "store_settings": store_settings
+                    "store_settings": store_settings,
+                    "user_display": user_name
                 }
 
                 if store_details['type'].lower() == "wildberries":
@@ -967,7 +970,8 @@ async def handle_review_selection(callback: CallbackQuery, state: FSMContext):
                         "supplier_article": supplier_article,
                         "sku": sku,
                         "pros": selected_review.get("pros", ""),
-                        "cons": selected_review.get("cons", "")
+                        "cons": selected_review.get("cons", ""),
+                        "user_display": user_name
                     })
 
                 if store_details['type'].lower() == "ozon":

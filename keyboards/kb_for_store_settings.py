@@ -188,12 +188,6 @@ async def advanced_settings_ikb(account_id: str, settings: dict, platform: str =
         ],
         [
             InlineKeyboardButton(
-                text=await _(account_id, "stop_words_setting"),
-                callback_data="edit_stop_words"
-            )
-        ],
-        [
-            InlineKeyboardButton(
                 text=await _(account_id, "minus_words_setting"),
                 callback_data="edit_minus_words"
             )

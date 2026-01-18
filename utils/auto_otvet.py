@@ -145,7 +145,8 @@ async def process_single_store(store_data):
                                 "api_key": api_key,
                                 "platform": store_type
                             },
-                            "store_settings": store_settings
+                            "store_settings": store_settings,
+                            "user_display": user_name
                         }
 
                         if store_type.lower() == "wildberries":
@@ -164,7 +165,8 @@ async def process_single_store(store_data):
                                 "supplier_article": supplier_article,
                                 "sku": sku,
                                 "pros": review.get("pros", ""),
-                                "cons": review.get("cons", "")
+                                "cons": review.get("cons", ""),
+                                "user_display": user_name
                             }
                             generate_reply_kwargs.update(wb_params)
                             logging.debug(
