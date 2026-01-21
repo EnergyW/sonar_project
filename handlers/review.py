@@ -25,13 +25,7 @@ from keyboards.kb_for_store_settings import rating_ikb
 
 router = Router()
 
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.StreamHandler()
-    ]
-)
+logger = logging.getLogger(__name__)
 
 @router.callback_query(Form.waiting_for_selected_store_action, F.data == "reviews_work")
 async def handle_reviews_work(callback: CallbackQuery, state: FSMContext):

@@ -15,6 +15,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 router = Router()
+logger = logging.getLogger(__name__)
 
 async def edit_or_reply(callback: CallbackQuery, text: str, reply_markup=None, state: FSMContext = None):
     try:

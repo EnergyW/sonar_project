@@ -7,6 +7,7 @@ import aiohttp
 from db.database import AsyncDatabase
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
 
 PLATFORM_CONFIG = {
     "Ozon": {

@@ -6,6 +6,7 @@ from typing import Any, Dict, List, Optional, Tuple
 import asyncpg
 from dotenv import load_dotenv
 
+logger = logging.getLogger(__name__)
 load_dotenv()
 
 _pool: Optional[asyncpg.Pool] = None

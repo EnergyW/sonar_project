@@ -5,6 +5,8 @@ from typing import Dict, Any, Set, List
 from db.database import AsyncDatabase
 from utils.api_utils import get_store_reviews, get_store_questions
 
+logger = logging.getLogger(__name__)
+
 class StoreCache:
     def __init__(self):
         self.cache: Dict[int, Dict[str, Any]] = {}

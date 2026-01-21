@@ -1,6 +1,5 @@
 import asyncio
 import logging
-import logger
 from aiogram import Router, F
 from aiogram.types import Message, CallbackQuery, InlineKeyboardMarkup, ReplyKeyboardRemove
 from aiogram.fsm.context import FSMContext
@@ -17,6 +16,8 @@ from dateutil.parser import isoparse
 from datetime import datetime
 from utils.cache import store_cache
 import html
+
+logger = logging.getLogger(__name__)
 
 router = Router()
 

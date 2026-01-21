@@ -7,14 +7,7 @@ from utils.api_utils import post_review_answer, get_questions, post_question_ans
     get_store_reviews
 from utils.ai_utils import generate_reply, generate_question_reply
 
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.StreamHandler()
-    ]
-)
-
+logger = logging.getLogger(__name__)
 
 async def process_single_store(store_data):
     user, store = store_data

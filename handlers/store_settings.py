@@ -10,18 +10,10 @@ from keyboards.kb_for_stores import main_menu_ikb, store_action_ikb
 from states.states import Form
 from i18n import _
 from db.database import AsyncDatabase
-import logger
 import json
 
+logger = logging.getLogger(__name__)
 router = Router()
-
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.StreamHandler()
-    ]
-)
 
 async def edit_or_reply(callback: CallbackQuery, text: str, reply_markup=None) -> Message:
     try:

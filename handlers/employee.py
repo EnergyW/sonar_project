@@ -8,9 +8,11 @@ from keyboards.kb_for_employees import employees_list_ikb, employee_store_select
 from keyboards.kb_for_stores import delete_confirmation_ikb, main_menu_ikb
 from states.states import Form
 from i18n import _
-from db.database import AsyncDatabase\
+from db.database import AsyncDatabase
 
 router = Router()
+
+logger = logging.getLogger(__name__)
 
 @router.callback_query(F.data == "my_employees")
 async def show_my_employees(callback: CallbackQuery, state: FSMContext):

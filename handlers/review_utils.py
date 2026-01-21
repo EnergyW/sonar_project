@@ -16,6 +16,8 @@ from states.states import MODES
 from utils.cache import store_cache
 import time
 
+logger = logging.getLogger(__name__)
+
 async def edit_or_reply(callback: CallbackQuery, text: str, reply_markup=None, parse_mode="HTML"):
     try:
         await callback.message.delete()

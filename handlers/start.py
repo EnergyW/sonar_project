@@ -11,6 +11,9 @@ from i18n import i18n
 import hashlib
 import re
 import asyncio
+import logging
+
+logger = logging.getLogger(__name__)
 
 router = Router()
 

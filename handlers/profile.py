@@ -9,6 +9,9 @@ from keyboards.kb_for_stores import main_menu_ikb
 from i18n import _
 from db.database import AsyncDatabase
 from states.states import Form
+import logging
+
+logger = logging.getLogger(__name__)
 
 router = Router()
 
