@@ -697,7 +697,10 @@ async def handle_navigate_review(callback: CallbackQuery, state: FSMContext):
         suggested_reply = None
 
         if mode == "semi" and review_type == "unanswered":
-            await callback.message.delete()
+            try:
+                await callback.message.delete()
+            except Exception:
+                pass
             generating_msg = await callback.message.answer("🤖 Генерируется ответ ИИ...")
 
             try:
@@ -944,7 +947,10 @@ async def handle_review_selection(callback: CallbackQuery, state: FSMContext):
     current_index = all_reviews.index(selected_review)
 
     if mode == "semi" and review_type == "unanswered":
-        await callback.message.delete()
+        try:
+            await callback.message.delete()
+        except Exception:
+            pass
         generating_msg = await callback.message.answer("🤖 Генерируется ответ ИИ...")
 
         try:

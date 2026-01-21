@@ -23,8 +23,8 @@ router = Router()
 async def edit_or_reply(callback: CallbackQuery, text: str, reply_markup=None, parse_mode="HTML"):
     try:
         await callback.message.delete()
-    except Exception as e:
-        logging.warning(f"Failed to delete message: {e}")
+    except Exception:
+        pass
     try:
         await callback.message.edit_text(text, reply_markup=reply_markup, parse_mode=parse_mode)
     except Exception:
