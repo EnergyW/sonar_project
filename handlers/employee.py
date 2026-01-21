@@ -121,7 +121,7 @@ async def employee_code_input_received(message: Message, state: FSMContext):
         )
         await state.set_state(Form.waiting_for_employee_store_selection)
     except Exception as e:
-        logging.error(f"Error creating employee: {str(e)}")
+        logger.error(f"Error creating employee: {str(e)}")
         async with AsyncDatabase() as db:
             employees = await db.get_employees_by_owner(account_id)
         await message.answer(
@@ -208,7 +208,7 @@ async def confirm_employee_store_selection(callback: CallbackQuery, state: FSMCo
             full_name = employee['full_name']
 
     try:
-        logging.info(f"Назначение магазинов {selected_stores} сотруднику {employee_id} для пользователя {account_id}")
+        logger.info(f"Назначение магазинов {selected_stores} сотруднику {employee_id} для пользователя {account_id}")
 
         async with AsyncDatabase() as db:
             await db.assign_employee_to_stores(employee_id, selected_stores)
@@ -227,7 +227,7 @@ async def confirm_employee_store_selection(callback: CallbackQuery, state: FSMCo
         )
         await state.set_state(Form.waiting_for_employee_action)
     except Exception as e:
-        logging.error(f"Ошибка при назначении магазинов сотруднику {employee_id}: {str(e)}")
+        logger.error(f"Ошибка при назначении магазинов сотруднику {employee_id}: {str(e)}")
         async with AsyncDatabase() as db:
             employees = await db.get_employees_by_owner(account_id)
         await callback.message.answer(
@@ -478,7 +478,7 @@ async def employee_edit_value_received(message: Message, state: FSMContext):
         )
         await state.set_state(Form.waiting_for_employee_action)
     except Exception as e:
-        logging.error(f"Error updating employee field: {str(e)}")
+        logger.error(f"Error updating employee field: {str(e)}")
         await message.answer(
             await _(account_id, "error_updating_employee"),
             reply_markup=await employee_action_ikb(account_id)
@@ -530,7 +530,7 @@ async def back_to_employees(callback: CallbackQuery, state: FSMContext):
     try:
         await callback.message.delete()
     except Exception as e:
-        logging.warning(f"Failed to delete message: {e}")
+        logger.warning(f"Failed to delete message: {e}")
 
     await callback.message.answer(
         await _(account_id, "choose_employee"),

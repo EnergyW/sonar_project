@@ -6,7 +6,7 @@ from typing import List, Dict, Any, Optional
 import aiohttp
 from db.database import AsyncDatabase
 
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logger.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
 PLATFORM_CONFIG = {
@@ -201,7 +201,7 @@ async def get_reviews(
         nmId: int = None
 ) -> List[Dict[str, Any]]:
     if platform not in PLATFORM_CONFIG:
-        logging.error(f"Неподдерживаемая платформа: {platform}")
+        logger.error(f"Неподдерживаемая платформа: {platform}")
         return []
 
     config = PLATFORM_CONFIG[platform]
@@ -214,34 +214,34 @@ async def get_reviews(
         async with aiohttp.ClientSession(timeout=timeout) as session:
             if platform == "Wildberries":
                 params = config["review_params"](status, limit, last_id, nmId)
-                logging.info(f"[WB] GET {url} params={params}")
+                logger.info(f"[WB] GET {url} params={params}")
                 async with session.get(url, headers=headers, params=params) as response:
                     response.raise_for_status()
                     data = await response.json()
             else:
                 body = config["review_body"](status, limit, last_id, date_to)
-                logging.info(f"[Ozon] POST {url} body={body}")
+                logger.info(f"[Ozon] POST {url} body={body}")
                 async with session.post(url, headers=headers, json=body) as response:
                     response.raise_for_status()
                     data = await response.json()
 
-        logging.debug(f"Response from {platform}: {json.dumps(data, ensure_ascii=False)}")
+        logger.debug(f"Response from {platform}: {json.dumps(data, ensure_ascii=False)}")
 
         if platform == "Ozon":
-            logging.info(f"Ozon: {len(data.get('reviews', []))} отзывов")
+            logger.info(f"Ozon: {len(data.get('reviews', []))} отзывов")
         elif platform == "Wildberries":
             fb = data.get("data", {}).get("feedbacks", [])
-            logging.info(f"WB: {len(fb)} отзывов (countUnanswered={data.get('data', {}).get('countUnanswered', '?')})")
+            logger.info(f"WB: {len(fb)} отзывов (countUnanswered={data.get('data', {}).get('countUnanswered', '?')})")
 
         reviews = config["review_response_parser"](data)
         return reviews
 
     except aiohttp.ClientError as e:
-        logging.error(f"Ошибка запроса {platform}: {e}")
+        logger.error(f"Ошибка запроса {platform}: {e}")
     except json.JSONDecodeError:
-        logging.error(f"Ошибка JSON при разборе ответа {platform}")
+        logger.error(f"Ошибка JSON при разборе ответа {platform}")
     except Exception as e:
-        logging.error(f"Непредвиденная ошибка при получении отзывов {platform}: {e}")
+        logger.error(f"Непредвиденная ошибка при получении отзывов {platform}: {e}")
 
     return []
 
@@ -257,7 +257,7 @@ async def get_store_reviews(
         client_id = store_details.get("client_id", "")
 
         if not platform or not api_key:
-            logging.error("Некорректные данные магазина: отсутствует type или api_key")
+            logger.error("Некорректные данные магазина: отсутствует type или api_key")
             return []
 
         status_map = {
@@ -273,10 +273,10 @@ async def get_store_reviews(
 
         status = status_map.get(platform, {}).get(answered)
         if not status:
-            logging.error(f"Неверная платформа или статус: platform={platform}, answered={answered}")
+            logger.error(f"Неверная платформа или статус: platform={platform}, answered={answered}")
             return []
 
-        logging.info(f"🔍 Получение отзывов: {platform}, answered={answered}, limit={limit}, last_id={last_id}")
+        logger.info(f"🔍 Получение отзывов: {platform}, answered={answered}, limit={limit}, last_id={last_id}")
 
         clean_params = {
             "client_id": str(client_id) if client_id else "",
@@ -310,7 +310,7 @@ async def get_store_reviews(
                 clean_params_unanswered["nmId"] = int(nmId)
 
             unanswered_reviews = await get_reviews(**clean_params_unanswered)
-            logging.info(f"📥 WB вернул {len(unanswered_reviews)} отзывов с isAnswered=false")
+            logger.info(f"📥 WB вернул {len(unanswered_reviews)} отзывов с isAnswered=false")
             all_reviews.extend(unanswered_reviews)
 
             clean_params_answered = {
@@ -325,7 +325,7 @@ async def get_store_reviews(
                 clean_params_answered["nmId"] = int(nmId)
 
             answered_reviews = await get_reviews(**clean_params_answered)
-            logging.info(f"📥 WB вернул {len(answered_reviews)} отзывов с isAnswered=true")
+            logger.info(f"📥 WB вернул {len(answered_reviews)} отзывов с isAnswered=true")
             all_reviews.extend(answered_reviews)
 
             filtered_reviews = []
@@ -338,18 +338,18 @@ async def get_store_reviews(
                     filtered_reviews.append(review)
 
             reviews = filtered_reviews
-            logging.info(
+            logger.info(
                 f"✅ После фильтрации WB: {len(reviews)} отзывов (запрошено answered={answered}, всего получено {len(all_reviews)})")
         else:
-            logging.error(f"❌ Платформа {platform} не поддерживается.")
+            logger.error(f"❌ Платформа {platform} не поддерживается.")
             return []
 
         if not reviews:
-            logging.warning(f"⚠️ Отзывы не получены с {platform}. Возможные причины: пустой список или ошибка API.")
+            logger.warning(f"⚠️ Отзывы не получены с {platform}. Возможные причины: пустой список или ошибка API.")
             return []
 
         if reviews and len(reviews) > 0:
-            logging.debug(f"Пример отзыва: {json.dumps(reviews[0], ensure_ascii=False, indent=2)}")
+            logger.debug(f"Пример отзыва: {json.dumps(reviews[0], ensure_ascii=False, indent=2)}")
 
         sku_to_name = {}
         try:
@@ -368,7 +368,7 @@ async def get_store_reviews(
                     except Exception:
                         continue
         except Exception as e:
-            logging.warning(f"⚠️ Не удалось загрузить список товаров для {platform}: {e}")
+            logger.warning(f"⚠️ Не удалось загрузить список товаров для {platform}: {e}")
 
         result = []
         for review in reviews:
@@ -420,7 +420,7 @@ async def get_store_reviews(
 
         result.sort(key=lambda x: x["created_at"], reverse=True)
 
-        logging.info(
+        logger.info(
             f"📅 Успешно обработано {len(result)} отзывов. "
             f"Диапазон дат: {result[0]['created_at'].strftime('%Y-%m-%d %H:%M:%S')} → "
             f"{result[-1]['created_at'].strftime('%Y-%m-%d %H:%M:%S')}"
@@ -429,7 +429,7 @@ async def get_store_reviews(
         return result
 
     except Exception as e:
-        logging.error(f"❌ Ошибка при получении отзывов: {str(e)}", exc_info=True)
+        logger.error(f"❌ Ошибка при получении отзывов: {str(e)}", exc_info=True)
         return []
 
 async def post_review_answer(
@@ -442,7 +442,7 @@ async def post_review_answer(
         timestamp: int = int(time.time())
 ) -> bool:
     if platform not in PLATFORM_CONFIG:
-        logging.error(f"Неподдерживаемая платформа: {platform}")
+        logger.error(f"Неподдерживаемая платформа: {platform}")
         return False
 
     config = PLATFORM_CONFIG[platform]
@@ -467,14 +467,14 @@ async def post_review_answer(
                 async with session.patch(url, headers=headers, json=body) as response:
                     response.raise_for_status()
             else:
-                logging.error(f"Неподдерживаемый метод {config['answer_method']} для {platform}")
+                logger.error(f"Неподдерживаемый метод {config['answer_method']} для {platform}")
                 return False
 
-        logging.info(f"Ответ на отзыв {review_id} отправлен для {platform}")
+        logger.info(f"Ответ на отзыв {review_id} отправлен для {platform}")
         return True
 
     except aiohttp.ClientError as e:
-        logging.error(f"Ошибка отправки ответа на отзыв {platform}: {e}")
+        logger.error(f"Ошибка отправки ответа на отзыв {platform}: {e}")
         return False
 
 async def get_reviews_since(
@@ -503,7 +503,7 @@ async def get_reviews_since(
         }
 
         try:
-            logging.info(f"Sending POST to {url} with body: {body}, status={status}")
+            logger.info(f"Sending POST to {url} with body: {body}, status={status}")
             timeout = aiohttp.ClientTimeout(total=30)
 
             async with aiohttp.ClientSession(timeout=timeout) as session:
@@ -511,10 +511,10 @@ async def get_reviews_since(
                     response.raise_for_status()
                     data = await response.json()
 
-            logging.debug(f"Response from Ozon API: {json.dumps(data, ensure_ascii=False)}")
+            logger.debug(f"Response from Ozon API: {json.dumps(data, ensure_ascii=False)}")
             return config["review_response_parser"](data)
         except Exception as e:
-            logging.error(f"Error getting reviews for Ozon: {e}")
+            logger.error(f"Error getting reviews for Ozon: {e}")
             return []
 
     return await get_reviews(
@@ -538,7 +538,7 @@ async def get_questions(
         date_to: datetime = None
 ) -> Dict[str, Any]:
     if platform not in PLATFORM_CONFIG:
-        logging.error(f"Неподдерживаемая платформа: {platform}")
+        logger.error(f"Неподдерживаемая платформа: {platform}")
         return {"questions": [], "last_id": ""}
 
     config = PLATFORM_CONFIG[platform]
@@ -551,28 +551,28 @@ async def get_questions(
         async with aiohttp.ClientSession(timeout=timeout) as session:
             if config["question_method"] == "GET":
                 params = config["question_params"](status, limit, last_id, nmId, date_from, date_to)
-                logging.info(f"[{platform}] GET {url} params={params}")
+                logger.info(f"[{platform}] GET {url} params={params}")
                 async with session.get(url, headers=headers, params=params) as response:
                     response.raise_for_status()
                     data = await response.json()
             else:
                 body = config["question_body"](status, limit, last_id)
-                logging.info(f"[{platform}] POST {url} body={body}")
+                logger.info(f"[{platform}] POST {url} body={body}")
                 async with session.post(url, headers=headers, json=body) as response:
                     response.raise_for_status()
                     data = await response.json()
 
-        logging.debug(f"Response from {platform}: {json.dumps(data, ensure_ascii=False)}")
+        logger.debug(f"Response from {platform}: {json.dumps(data, ensure_ascii=False)}")
 
         if platform == "Ozon":
             questions = data.get("questions", [])
             if not questions:
-                logging.info(f"Ozon: нет вопросов со статусом {status}")
+                logger.info(f"Ozon: нет вопросов со статусом {status}")
                 return {"questions": [], "last_id": ""}
 
             actual_questions = [q for q in questions if q.get("status") == status]
             if not actual_questions and questions:
-                logging.info(f"Ozon: найдено {len(questions)} вопросов, но ни один не имеет статуса {status}")
+                logger.info(f"Ozon: найдено {len(questions)} вопросов, но ни один не имеет статуса {status}")
                 return {"questions": [], "last_id": data.get("last_id", "")}
 
             questions = config["question_response_parser"](data)
@@ -582,17 +582,17 @@ async def get_questions(
         last_id = str(data.get("data", {}).get("skip", 0) + len(questions)) if platform == "Wildberries" else data.get(
             "last_id", "")
 
-        logging.info(f"{platform}: получено {len(questions)} вопросов со статусом {status}, last_id={last_id}")
+        logger.info(f"{platform}: получено {len(questions)} вопросов со статусом {status}, last_id={last_id}")
         return {"questions": questions, "last_id": last_id}
 
     except aiohttp.ClientError as e:
-        logging.error(f"Ошибка запроса вопросов {platform}: {e}")
+        logger.error(f"Ошибка запроса вопросов {platform}: {e}")
         return {"questions": [], "last_id": ""}
     except json.JSONDecodeError:
-        logging.error(f"Ошибка JSON при разборе ответа вопросов {platform}")
+        logger.error(f"Ошибка JSON при разборе ответа вопросов {platform}")
         return {"questions": [], "last_id": ""}
     except Exception as e:
-        logging.error(f"Непредвиденная ошибка при получении вопросов {platform}: {e}")
+        logger.error(f"Непредвиденная ошибка при получении вопросов {platform}: {e}")
         return {"questions": [], "last_id": ""}
 
 async def get_store_questions(
@@ -607,7 +607,7 @@ async def get_store_questions(
     async with AsyncDatabase() as db:
         store = await db.get_store_details(store_id)
         if not store:
-            logging.error(f"Store not found for store_id={store_id}")
+            logger.error(f"Store not found for store_id={store_id}")
             return {"questions": [], "last_id": ""}
 
         platform = store.get("type", "Ozon")
@@ -618,9 +618,9 @@ async def get_store_questions(
         try:
             response = await get_questions(client_id, api_key, platform, status, limit, last_id, nmId, date_from,
                                            date_to)
-            logging.info(f"Raw API response for store_id={store_id}, platform={platform}, status={status}: {response}")
+            logger.info(f"Raw API response for store_id={store_id}, platform={platform}, status={status}: {response}")
             questions = response.get("questions", [])
-            logging.info(
+            logger.info(
                 f"Fetched {len(questions)} questions for store_id={store_id}, platform={platform}, status={status}")
 
             sku_to_name = {}
@@ -635,7 +635,7 @@ async def get_store_questions(
                         except Exception:
                             continue
             except Exception as e:
-                logging.warning(f"⚠️ Не удалось загрузить список товаров для {platform}: {e}")
+                logger.warning(f"⚠️ Не удалось загрузить список товаров для {platform}: {e}")
 
             result = []
             for question in questions:
@@ -682,7 +682,7 @@ async def get_store_questions(
 
             result.sort(key=lambda x: x["created_at"], reverse=True)
 
-            logging.info(
+            logger.info(
                 f"📅 Успешно обработано {len(result)} вопросов. "
                 f"Диапазон дат: {result[0]['created_at'].strftime('%Y-%m-%d %H:%M:%S')} → "
                 f"{result[-1]['created_at'].strftime('%Y-%m-%d %H:%M:%S') if result else 'N/A'}"
@@ -694,7 +694,7 @@ async def get_store_questions(
             }
 
         except Exception as e:
-            logging.error(f"Error fetching questions for store_id={store_id}: {str(e)}")
+            logger.error(f"Error fetching questions for store_id={store_id}: {str(e)}")
             return {"questions": [], "last_id": ""}
 
 async def post_question_answer(
@@ -707,7 +707,7 @@ async def post_question_answer(
         timestamp: int = int(time.time())
 ) -> bool:
     if platform not in PLATFORM_CONFIG:
-        logging.error(f"Неподдерживаемая платформа: {platform}")
+        logger.error(f"Неподдерживаемая платформа: {platform}")
         return False
 
     config = PLATFORM_CONFIG[platform]
@@ -721,13 +721,13 @@ async def post_question_answer(
 
     question_id = question.get('id')
     if not question_id:
-        logging.error(f"Отсутствует ID вопроса для {platform}")
+        logger.error(f"Отсутствует ID вопроса для {platform}")
         return False
 
     if platform == "Ozon":
         sku = question.get('sku')
         if not sku:
-            logging.error("Отсутствует SKU товара для Ozon")
+            logger.error("Отсутствует SKU товара для Ozon")
             return False
         body = config["question_answer_body"](question_id, sku, answer_text)
     else:
@@ -746,17 +746,17 @@ async def post_question_answer(
                     response.raise_for_status()
                     data = await response.json() if response.content else {}
             else:
-                logging.error(f"Неподдерживаемый метод {config['question_answer_method']} для {platform}")
+                logger.error(f"Неподдерживаемый метод {config['question_answer_method']} для {platform}")
                 return False
 
         if platform == "Ozon" and 'answer_id' not in data:
-            logging.warning(f"Неожиданный ответ от Ozon: {data}")
+            logger.warning(f"Неожиданный ответ от Ozon: {data}")
             return False
-        logging.info(f"Ответ на вопрос {question_id} отправлен для {platform}")
+        logger.info(f"Ответ на вопрос {question_id} отправлен для {platform}")
         return True
 
     except aiohttp.ClientError as e:
-        logging.error(f"Ошибка отправки ответа на вопрос {platform}: {e}")
+        logger.error(f"Ошибка отправки ответа на вопрос {platform}: {e}")
         return False
 
 async def get_review_comments(
@@ -769,7 +769,7 @@ async def get_review_comments(
         sort_dir: str = "ASC"
 ) -> list:
     if platform != "Ozon":
-        logging.error(f"Комментарии к отзывам поддерживаются только для Ozon, передан: {platform}")
+        logger.error(f"Комментарии к отзывам поддерживаются только для Ozon, передан: {platform}")
         return []
 
     url = "https://api-seller.ozon.ru/v1/review/comment/list"
@@ -792,14 +792,14 @@ async def get_review_comments(
             async with session.post(url, headers=headers, json=payload) as response:
                 if response.status == 200:
                     data = await response.json()
-                    logging.info(f"Received comments for review_id={review_id}: {data}")
+                    logger.info(f"Received comments for review_id={review_id}: {data}")
                     return data.get("comments", [])
                 else:
-                    logging.error(
+                    logger.error(
                         f"Failed to fetch comments for review_id={review_id}, status={response.status}, response={await response.text()}")
                     return []
     except Exception as e:
-        logging.error(f"Error fetching comments for review_id={review_id}: {str(e)}")
+        logger.error(f"Error fetching comments for review_id={review_id}: {str(e)}")
         return []
 
 async def get_question_answers(
@@ -810,7 +810,7 @@ async def get_question_answers(
         platform: str
 ) -> List[Dict[str, Any]]:
     if platform != "Ozon":
-        logging.warning(f"Fetching question answers not supported for platform {platform}")
+        logger.warning(f"Fetching question answers not supported for platform {platform}")
         return []
 
     url = "https://api-seller.ozon.ru/v1/question/answer/list"
@@ -831,11 +831,11 @@ async def get_question_answers(
         async with aiohttp.ClientSession(timeout=timeout) as session:
             async with session.post(url, json=payload, headers=headers) as response:
                 if response.status != 200:
-                    logging.error(f"Failed to fetch answers for question_id={question_id}, status={response.status}")
+                    logger.error(f"Failed to fetch answers for question_id={question_id}, status={response.status}")
                     return []
                 data = await response.json()
                 answers = data.get("answers", [])
-                logging.info(f"Fetched {len(answers)} answers for question_id={question_id}")
+                logger.info(f"Fetched {len(answers)} answers for question_id={question_id}")
                 return [
                     {
                         "id": answer["id"],
@@ -846,7 +846,7 @@ async def get_question_answers(
                     for answer in answers
                 ]
     except Exception as e:
-        logging.error(f"Error fetching answers for question_id={question_id}: {e}")
+        logger.error(f"Error fetching answers for question_id={question_id}: {e}")
         return []
 
 async def get_store_products(
@@ -857,10 +857,10 @@ async def get_store_products(
         include_archived: bool = False
 ) -> List[str]:
     if not api_key:
-        logging.error(f"Invalid api_key: {api_key}")
+        logger.error(f"Invalid api_key: {api_key}")
         return []
     if platform not in ["Ozon", "Wildberries"]:
-        logging.error(f"Unsupported platform: {platform}")
+        logger.error(f"Unsupported platform: {platform}")
         return []
 
     products = []
@@ -942,7 +942,7 @@ async def get_store_products(
 
                     async with session.post(url, headers=headers, json=payload) as response:
                         if response.status != 200:
-                            logging.error(f"WB API error {response.status_code}: {await response.text()}")
+                            logger.error(f"WB API error {response.status_code}: {await response.text()}")
                             break
                         data = await response.json()
 
@@ -968,7 +968,7 @@ async def get_store_products(
         return products
 
     except Exception as e:
-        logging.error(f"Ошибка при получении списка товаров на {platform}: {e}")
+        logger.error(f"Ошибка при получении списка товаров на {platform}: {e}")
         return []
 
 async def get_ozon_product_attributes(
@@ -997,7 +997,7 @@ async def get_ozon_product_attributes(
     elif sku:
         filter_params["sku"] = [sku]
     else:
-        logging.error("Не указан идентификатор товара (offer_id, product_id или sku)")
+        logger.error("Не указан идентификатор товара (offer_id, product_id или sku)")
         return {}
 
     attributes_body = {
@@ -1008,17 +1008,17 @@ async def get_ozon_product_attributes(
 
     try:
         async with aiohttp.ClientSession() as session:
-            logging.info(f"[Ozon Attributes] POST {attributes_url} body={attributes_body}")
+            logger.info(f"[Ozon Attributes] POST {attributes_url} body={attributes_body}")
             async with session.post(attributes_url, headers=headers, json=attributes_body) as response:
                 response.raise_for_status()
                 attributes_data = await response.json()
 
             if not attributes_data.get("result"):
-                logging.warning("Товар не найден или нет характеристик")
+                logger.warning("Товар не найден или нет характеристик")
                 return {}
 
             product_data = attributes_data["result"][0]
-            logging.info(f"Получены характеристики товара: {product_data.get('name', 'Unknown')}")
+            logger.info(f"Получены характеристики товара: {product_data.get('name', 'Unknown')}")
 
             description_body = {}
             description_result = {}
@@ -1029,7 +1029,7 @@ async def get_ozon_product_attributes(
                 description_body["product_id"] = product_data['id']
 
             if description_body:
-                logging.info(f"[Ozon Description] POST {description_url} body={description_body}")
+                logger.info(f"[Ozon Description] POST {description_url} body={description_body}")
                 async with session.post(description_url, headers=headers, json=description_body) as response:
                     response.raise_for_status()
                     description_data = await response.json()
@@ -1037,17 +1037,17 @@ async def get_ozon_product_attributes(
 
                 if description_result and 'description' in description_result:
                     product_data['description'] = description_result['description']
-                    logging.info(f"Получено описание товара ({len(product_data['description'])} символов)")
+                    logger.info(f"Получено описание товара ({len(product_data['description'])} символов)")
             else:
-                logging.warning("Не удалось получить идентификаторы для запроса описания товара")
+                logger.warning("Не удалось получить идентификаторы для запроса описания товара")
 
             return product_data
 
     except aiohttp.ClientError as e:
-        logging.error(f"Ошибка запроса данных товара Ozon: {e}")
+        logger.error(f"Ошибка запроса данных товара Ozon: {e}")
     except json.JSONDecodeError:
-        logging.error("Ошибка JSON при разборе ответа данных товара")
+        logger.error("Ошибка JSON при разборе ответа данных товара")
     except Exception as e:
-        logging.error(f"Непредвиденная ошибка при получении данных товара: {e}")
+        logger.error(f"Непредвиденная ошибка при получении данных товара: {e}")
 
     return {}

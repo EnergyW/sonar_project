@@ -1,5 +1,4 @@
 import logging
-import logger
 import asyncio
 from aiogram import Router, F
 from aiogram.types import Message, CallbackQuery, ReplyKeyboardRemove, InlineKeyboardMarkup, InlineKeyboardButton
@@ -32,7 +31,7 @@ async def handle_reviews_work(callback: CallbackQuery, state: FSMContext):
     account_id = str(callback.from_user.id)
     data = await state.get_data()
     store_id = data.get("selected_store_id")
-    logging.info(f"User {account_id} entered reviews_work, store_id={store_id}")
+    logger.info(f"User {account_id} entered reviews_work, store_id={store_id}")
 
     if not store_id:
         await callback.answer(await _(account_id, "store_not_selected"), show_alert=True)
@@ -471,10 +470,10 @@ async def toggle_auto_response(callback: CallbackQuery, state: FSMContext):
     account_id = str(callback.from_user.id)
     data = await state.get_data()
     store_id = data.get("selected_store_id")
-    logging.info(f"User {account_id} toggled auto_reply, store_id={store_id}")
+    logger.info(f"User {account_id} toggled auto_reply, store_id={store_id}")
 
     if not store_id:
-        logging.warning(f"No store_id found for account_id={account_id}")
+        logger.warning(f"No store_id found for account_id={account_id}")
         await callback.message.edit_text(
             await _(account_id, "store_not_selected"),
             reply_markup=await main_menu_ikb(account_id)
@@ -485,7 +484,7 @@ async def toggle_auto_response(callback: CallbackQuery, state: FSMContext):
     async with AsyncDatabase() as db:
         store = await db.get_store_details(store_id)
         if not store:
-            logging.warning(f"Store not found for store_id={store_id}, account_id={account_id}")
+            logger.warning(f"Store not found for store_id={store_id}, account_id={account_id}")
             await callback.message.edit_text(
                 await _(account_id, "store_not_found"),
                 reply_markup=await main_menu_ikb(account_id)
@@ -493,7 +492,7 @@ async def toggle_auto_response(callback: CallbackQuery, state: FSMContext):
             await state.clear()
             return
 
-        logging.info(f"Before toggle: store_id={store_id}, reviews_enabled={store.get('reviews_enabled', False)}")
+        logger.info(f"Before toggle: store_id={store_id}, reviews_enabled={store.get('reviews_enabled', False)}")
         current_enabled = store.get("reviews_enabled", False)
         new_enabled = not current_enabled
 
@@ -501,15 +500,15 @@ async def toggle_auto_response(callback: CallbackQuery, state: FSMContext):
             result = await db.toggle_store_setting(store_id, 'reviews_enabled', new_enabled)
 
             if result is None:
-                logging.error(f"Failed to toggle reviews_enabled for store_id={store_id}")
+                logger.error(f"Failed to toggle reviews_enabled for store_id={store_id}")
                 await callback.answer(await _(account_id, "error_processing"), show_alert=True)
                 return
 
             store = await db.get_store_details(store_id)
-            logging.info(f"After toggle: store_id={store_id}, reviews_enabled={store.get('reviews_enabled', False)}")
+            logger.info(f"After toggle: store_id={store_id}, reviews_enabled={store.get('reviews_enabled', False)}")
 
         except Exception as e:
-            logging.error(f"Error toggling store setting for store_id={store_id}: {str(e)}")
+            logger.error(f"Error toggling store setting for store_id={store_id}: {str(e)}")
             await callback.answer(await _(account_id, "error_processing"), show_alert=True)
             return
 
@@ -630,7 +629,7 @@ async def handle_navigate_review(callback: CallbackQuery, state: FSMContext):
 
         current_idx = next((i for i, r in enumerate(all_reviews) if r["id"] == review_id), -1)
         if current_idx == -1:
-            logging.error(f"Review {review_id} not found")
+            logger.error(f"Review {review_id} not found")
             await callback.message.edit_text(
                 await _(account_id, "review_not_found"),
                 reply_markup=await reviews_menu_ikb(account_id)
@@ -738,7 +737,7 @@ async def handle_navigate_review(callback: CallbackQuery, state: FSMContext):
                         suggested_reply = await _(account_id, "error_reply_placeholder")
                 await generating_msg.delete()
             except Exception as e:
-                logging.error(f"Error generating AI reply: {str(e)}")
+                logger.error(f"Error generating AI reply: {str(e)}")
                 await generating_msg.delete()
                 error_msg = await callback.message.answer(await _(account_id, "error_generating_reply"))
                 await asyncio.sleep(2)
@@ -772,7 +771,7 @@ async def handle_navigate_review(callback: CallbackQuery, state: FSMContext):
                                text=template_text if template_text else "(нет текста)"
                                )
         except Exception as e:
-            logging.error(f"Translation error: {str(e)}")
+            logger.error(f"Translation error: {str(e)}")
             response = (
                 f"📅 {date}\n\n"
                 f"🌟 {stars}\n\n"
@@ -828,37 +827,37 @@ async def handle_navigate_review(callback: CallbackQuery, state: FSMContext):
 @router.callback_query(Form.viewing_review_details, F.data == "reply_review")
 async def handle_reply_review(callback: CallbackQuery, state: FSMContext):
     account_id = str(callback.from_user.id)
-    logging.info(f"Обработка reply_review для пользователя {account_id}, данные callback: {callback.data}")
+    logger.info(f"Обработка reply_review для пользователя {account_id}, данные callback: {callback.data}")
     current_state = await state.get_state()
-    logging.info(f"Текущее состояние: {current_state}")
+    logger.info(f"Текущее состояние: {current_state}")
 
     data = await state.get_data()
     current_index = data.get("current_review_index")
     reviews = data.get("all_reviews", [])
-    logging.info(f"Текущий индекс: {current_index}, Длина списка отзывов: {len(reviews)}")
+    logger.info(f"Текущий индекс: {current_index}, Длина списка отзывов: {len(reviews)}")
 
     if current_index >= len(reviews):
-        logging.error(f"Неверный индекс отзыва: {current_index}")
+        logger.error(f"Неверный индекс отзыва: {current_index}")
         await callback.answer(await _(account_id, "review_not_found"), show_alert=True)
         return
 
     review = reviews[current_index]
-    logging.info(f"Обработка отзыва ID: {review['id']}")
+    logger.info(f"Обработка отзыва ID: {review['id']}")
 
     review_text = review.get('text', '')
     if not review_text or not review_text.strip():
         review_text = await _(account_id, "no_review_text")
-        logging.info(f"Отзыв без текста, используем заглушку: {review_text}")
+        logger.info(f"Отзыв без текста, используем заглушку: {review_text}")
 
     if not isinstance(review['rating'], int):
-        logging.error(f"Некорректный рейтинг отзыва: rating={review['rating']}")
+        logger.error(f"Некорректный рейтинг отзыва: rating={review['rating']}")
         await callback.answer(await _(account_id, "invalid_review_data"), show_alert=True)
         return
 
     try:
         prompt = await _(account_id, "enter_reply_text")
     except Exception as e:
-        logging.error(f"Ошибка перевода для 'enter_reply_text': {str(e)}")
+        logger.error(f"Ошибка перевода для 'enter_reply_text': {str(e)}")
         prompt = "Пожалуйста, введите текст ответа:"
 
     try:
@@ -868,9 +867,9 @@ async def handle_reply_review(callback: CallbackQuery, state: FSMContext):
                 [InlineKeyboardButton(text=await _(account_id, "cancel"), callback_data="cancel_input")]
             ])
         )
-        logging.info(f"Запрос на ввод ответа отправлен для пользователя {account_id}")
+        logger.info(f"Запрос на ввод ответа отправлен для пользователя {account_id}")
     except Exception as e:
-        logging.error(f"Не удалось отправить запрос на ввод ответа: {str(e)}")
+        logger.error(f"Не удалось отправить запрос на ввод ответа: {str(e)}")
         await callback.answer(await _(account_id, "error_sending_message"), show_alert=True)
         return
 
@@ -891,7 +890,7 @@ async def handle_back_to_review(callback: CallbackQuery, state: FSMContext):
 async def handle_review_selection(callback: CallbackQuery, state: FSMContext):
     account_id = str(callback.from_user.id)
     review_id = callback.data.split("_")[1]
-    logging.info(f"User {account_id} selected review_id={review_id}")
+    logger.info(f"User {account_id} selected review_id={review_id}")
 
     data = await state.get_data()
     all_reviews = data.get("all_reviews", [])
@@ -903,7 +902,7 @@ async def handle_review_selection(callback: CallbackQuery, state: FSMContext):
 
     selected_review = next((r for r in all_reviews if r["id"] == review_id), None)
     if not selected_review:
-        logging.error(f"Review {review_id} not found")
+        logger.error(f"Review {review_id} not found")
         await callback.answer(await _(account_id, "review_not_found"), show_alert=True)
         return
 
@@ -988,7 +987,7 @@ async def handle_review_selection(callback: CallbackQuery, state: FSMContext):
                     suggested_reply = await _(account_id, "error_reply_placeholder")
             await generating_msg.delete()
         except Exception as e:
-            logging.error(f"Error generating AI reply: {str(e)}")
+            logger.error(f"Error generating AI reply: {str(e)}")
             await generating_msg.delete()
             await callback.message.answer(await _(account_id, "error_generating_reply"))
             suggested_reply = await _(account_id, "error_reply_placeholder")
@@ -1019,7 +1018,7 @@ async def handle_review_selection(callback: CallbackQuery, state: FSMContext):
                                product_name=product_display,
                                text=template_text or "(нет текста)")
         except Exception as e:
-            logging.error(f"Translation error: {str(e)}")
+            logger.error(f"Translation error: {str(e)}")
             response = (
                 f"📅 {date}\n\n"
                 f"🌟 {stars}\n\n"
@@ -1067,7 +1066,7 @@ async def handle_review_selection(callback: CallbackQuery, state: FSMContext):
                                product_name=product_display,
                                text=template_text or "(нет текста)")
         except Exception as e:
-            logging.error(f"Translation error: {str(e)}")
+            logger.error(f"Translation error: {str(e)}")
             response = (
                 f"📅 {date}\n\n"
                 f"🌟 {stars}\n\n"
@@ -1214,7 +1213,7 @@ async def handle_reviews_type_selection(callback: CallbackQuery, state: FSMConte
     store_id = data.get("selected_store_id")
     review_type = callback.data.split("_")[1]
 
-    logging.info(f"User {account_id} selected review_type={review_type}, store_id={store_id}")
+    logger.info(f"User {account_id} selected review_type={review_type}, store_id={store_id}")
 
     async with AsyncDatabase() as db:
         store_details = await db.get_store_details(store_id)

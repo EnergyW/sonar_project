@@ -36,7 +36,7 @@ class StoreCache:
             )
 
         if needs_immediate_update:
-            logging.info(f"🔄 Immediate cache update for store {store_id}")
+            logger.info(f"🔄 Immediate cache update for store {store_id}")
             await self._update_store_data(store_id)
         elif needs_background_update:
             async with self._lock:
@@ -50,7 +50,7 @@ class StoreCache:
         try:
             await self._update_store_data(store_id)
         except Exception as e:
-            logging.error(f"❌ Error in background update for store {store_id}: {e}")
+            logger.error(f"❌ Error in background update for store {store_id}: {e}")
         finally:
             async with self._lock:
                 self.pending_updates.discard(store_id)
@@ -61,7 +61,7 @@ class StoreCache:
                 async with AsyncDatabase() as db:
                     store = await db.get_store_details(store_id)
                     if not store:
-                        logging.warning(f"Store {store_id} not found in database")
+                        logger.warning(f"Store {store_id} not found in database")
                         return
 
                 reviews_task = get_store_reviews(store, answered=False, limit=100)
@@ -72,13 +72,13 @@ class StoreCache:
                 )
 
                 if isinstance(unanswered_reviews, Exception):
-                    logging.error(f"❌ Error fetching reviews for store {store_id}: {unanswered_reviews}")
+                    logger.error(f"❌ Error fetching reviews for store {store_id}: {unanswered_reviews}")
                     reviews_count = 0
                 else:
                     reviews_count = len(unanswered_reviews)
 
                 if isinstance(unanswered_questions, Exception):
-                    logging.error(f"❌ Error fetching questions for store {store_id}: {unanswered_questions}")
+                    logger.error(f"❌ Error fetching questions for store {store_id}: {unanswered_questions}")
                     questions_count = 0
                 else:
                     questions_data = unanswered_questions.get("questions", [])
@@ -93,17 +93,17 @@ class StoreCache:
                     }
                     self.last_updated[store_id] = time.time()
 
-                logging.info(
+                logger.info(
                     f"✅ Cache updated for store {store_id}: {reviews_count} reviews, {questions_count} questions")
 
             except Exception as e:
-                logging.error(f"❌ Error updating cache for store {store_id}: {e}")
+                logger.error(f"❌ Error updating cache for store {store_id}: {e}")
                 async with self._lock:
                     self.cache[store_id] = {"reviews": 0, "questions": 0, "error": True}
                     self.last_updated[store_id] = time.time()
 
     async def add_store(self, store_id: int):
-        logging.info(f"🆕 Adding store {store_id} to cache with immediate update")
+        logger.info(f"🆕 Adding store {store_id} to cache with immediate update")
         await self._update_store_data(store_id)
 
     async def update_all_stores(self):
@@ -112,10 +112,10 @@ class StoreCache:
                 store_ids = await db.get_all_stores()
 
             if not store_ids:
-                logging.info("💤 No stores found for cache update")
+                logger.info("💤 No stores found for cache update")
                 return
 
-            logging.info(f"🔄 Starting background update for {len(store_ids)} stores")
+            logger.info(f"🔄 Starting background update for {len(store_ids)} stores")
 
             batch_size = 10
             for i in range(0, len(store_ids), batch_size):
@@ -128,23 +128,23 @@ class StoreCache:
                 if i + batch_size < len(store_ids):
                     await asyncio.sleep(2)
 
-            logging.info("✅ Background store update completed")
+            logger.info("✅ Background store update completed")
 
         except Exception as e:
-            logging.error(f"❌ Error updating all stores cache: {e}")
+            logger.error(f"❌ Error updating all stores cache: {e}")
 
     async def invalidate_store(self, store_id: int):
         async with self._lock:
             if store_id in self.last_updated:
                 self.last_updated[store_id] = 0
-                logging.info(f"🔄 Store {store_id} invalidated, will update on next request")
+                logger.info(f"🔄 Store {store_id} invalidated, will update on next request")
 
     async def decrement_review_count(self, store_id: int):
         async with self._lock:
             if store_id in self.cache:
                 old_count = self.cache[store_id]["reviews"]
                 self.cache[store_id]["reviews"] = max(0, self.cache[store_id]["reviews"] - 1)
-                logging.info(
+                logger.info(
                     f"📉 Decremented review count for store {store_id}: {old_count} -> {self.cache[store_id]['reviews']}")
 
     async def decrement_question_count(self, store_id: int):
@@ -152,7 +152,7 @@ class StoreCache:
             if store_id in self.cache:
                 old_count = self.cache[store_id]["questions"]
                 self.cache[store_id]["questions"] = max(0, self.cache[store_id]["questions"] - 1)
-                logging.info(
+                logger.info(
                     f"📉 Decremented question count for store {store_id}: {old_count} -> {self.cache[store_id]['questions']}")
 
     async def get_cache_stats(self) -> Dict[str, Any]:
@@ -186,24 +186,24 @@ class StoreCache:
 store_cache = StoreCache()
 
 async def start_background_updater():
-    logging.info("🚀 Starting initial cache population...")
+    logger.info("🚀 Starting initial cache population...")
     await store_cache.update_all_stores()
-    logging.info("✅ Initial cache population completed")
+    logger.info("✅ Initial cache population completed")
 
     while True:
         try:
             await asyncio.sleep(120)
 
             stats = await store_cache.get_cache_stats()
-            logging.info(f"📊 Cache stats: {stats['total_stores']} stores, "
+            logger.info(f"📊 Cache stats: {stats['total_stores']} stores, "
                          f"{stats['fresh']} fresh, {stats['recent']} recent, "
                          f"{stats['stale']} stale, {stats['pending_updates']} pending")
 
             if stats['stale'] > 10 or stats['total_stores'] == 0:
                 await store_cache.update_all_stores()
             else:
-                logging.info("💤 Skipping background update - data is fresh enough")
+                logger.info("💤 Skipping background update - data is fresh enough")
 
         except Exception as e:
-            logging.error(f"❌ Background updater error: {e}")
+            logger.error(f"❌ Background updater error: {e}")
             await asyncio.sleep(60)

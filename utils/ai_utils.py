@@ -16,7 +16,6 @@ load_dotenv()
 API_CLIENT: AsyncOpenAI = None
 load_lock = asyncio.Lock()
 
-
 async def init_ai_client():
     global API_CLIENT
 
@@ -711,7 +710,6 @@ async def generate_question_reply(
                             product_info_parts.append(f"📄 Описание: {clean_description[:400]}...")
 
                         product_info_text = "\n".join(product_info_parts)
-                        logging.info(f"Получена информация о товаре Ozon SKU {sku}: {len(product_info_text)} символов")
 
                 except Exception as e:
                     logger.error(f"Ошибка при получении информации о товаре Ozon: {e}")

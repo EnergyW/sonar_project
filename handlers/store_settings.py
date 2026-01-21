@@ -19,7 +19,7 @@ async def edit_or_reply(callback: CallbackQuery, text: str, reply_markup=None) -
     try:
         await callback.message.delete()
     except Exception as e:
-        logging.warning(f"Failed to delete message: {e}")
+        logger.warning(f"Failed to delete message: {e}")
 
     try:
         await callback.message.edit_text(text, reply_markup=reply_markup)
@@ -48,7 +48,7 @@ async def render_reviews_info(account_id: str, store: dict, store_id: str) -> tu
         kb = await reviews_menu_ikb(account_id, store_id)
         return message_text, kb
     except Exception as e:
-        logging.error(f"Error in render_reviews_info for account_id={account_id}, store_id={store_id}: {str(e)}")
+        logger.error(f"Error in render_reviews_info for account_id={account_id}, store_id={store_id}: {str(e)}")
         return await _(account_id, "error_processing"), await main_menu_ikb(account_id)
 
 @router.callback_query(Form.waiting_for_reviews_action, F.data == "manage_templates")
@@ -155,7 +155,7 @@ async def handle_template_text(message: Message, state: FSMContext):
     try:
         await message.delete()
     except Exception as e:
-        logging.warning(f"Failed to delete user message: {e}")
+        logger.warning(f"Failed to delete user message: {e}")
 
     async with AsyncDatabase() as db:
         await db.update_store_template(store_id, rating, template_text)
@@ -166,7 +166,7 @@ async def handle_template_text(message: Message, state: FSMContext):
         if request_message_id:
             await message.bot.delete_message(chat_id=message.chat.id, message_id=request_message_id)
     except Exception as e:
-        logging.warning(f"Failed to delete bot request message: {e}")
+        logger.warning(f"Failed to delete bot request message: {e}")
 
     await refresh_templates_list(message, state)
 
@@ -308,7 +308,7 @@ async def show_store_settings(callback: CallbackQuery, state: FSMContext):
                         client_config_dict = json.loads(client_config)
                         platform = client_config_dict.get("platform")
                 except Exception as e:
-                    logging.error(f"Failed to parse client_config: {e}")
+                    logger.error(f"Failed to parse client_config: {e}")
 
         if not platform:
             platform = store_type
@@ -344,14 +344,14 @@ async def show_advanced_settings(callback: CallbackQuery, state: FSMContext):
             await callback.answer(await _(account_id, "store_not_found"), show_alert=True)
             return
 
-        logging.info(f"store_details for store_id={store_id}: {store_details}")
-        logging.info(f"store_details keys: {store_details.keys()}")
+        logger.info(f"store_details for store_id={store_id}: {store_details}")
+        logger.info(f"store_details keys: {store_details.keys()}")
 
         store_type = store_details.get('type')
         client_config = store_details.get("client_config", {})
 
-        logging.info(f"store_type from 'type' field: {store_type}")
-        logging.info(f"client_config: {client_config}")
+        logger.info(f"store_type from 'type' field: {store_type}")
+        logger.info(f"client_config: {client_config}")
 
         platform = None
 
@@ -364,7 +364,7 @@ async def show_advanced_settings(callback: CallbackQuery, state: FSMContext):
                         client_config_dict = json.loads(client_config)
                         platform = client_config_dict.get("platform")
                 except Exception as e:
-                    logging.error(f"Failed to parse client_config: {e}")
+                    logger.error(f"Failed to parse client_config: {e}")
 
         if not platform:
             platform = store_type
@@ -374,7 +374,7 @@ async def show_advanced_settings(callback: CallbackQuery, state: FSMContext):
         else:
             platform = ""
 
-        logging.info(f"Final platform value: {platform}")
+        logger.info(f"Final platform value: {platform}")
 
         settings = await db.get_store_settings(store_id)
 
@@ -728,13 +728,13 @@ async def handle_stop_words_input(message: Message, state: FSMContext):
     try:
         await message.delete()
     except Exception as e:
-        logging.warning(f"Failed to delete user message: {e}")
+        logger.warning(f"Failed to delete user message: {e}")
 
     if stop_words_message_id:
         try:
             await message.bot.delete_message(chat_id=message.chat.id, message_id=stop_words_message_id)
         except Exception as e:
-            logging.warning(f"Failed to delete bot instruction message: {e}")
+            logger.warning(f"Failed to delete bot instruction message: {e}")
 
     input_words = [word.strip().lower() for word in message.text.split(",") if word.strip()]
 
@@ -764,7 +764,7 @@ async def handle_stop_words_input(message: Message, state: FSMContext):
     try:
         await success_message.delete()
     except Exception as e:
-        logging.warning(f"Failed to delete success message: {e}")
+        logger.warning(f"Failed to delete success message: {e}")
 
     await show_stop_words_menu_after_edit(message, account_id, store_id, state)
 
@@ -881,7 +881,7 @@ async def show_advanced_settings_after_edit(message: Message, account_id: str, s
                         client_config_dict = json.loads(client_config)
                         platform = client_config_dict.get("platform")
                 except Exception as e:
-                    logging.error(f"Failed to parse client_config: {e}")
+                    logger.error(f"Failed to parse client_config: {e}")
 
         if not platform:
             platform = store_type

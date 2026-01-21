@@ -22,7 +22,7 @@ async def edit_or_reply(callback: CallbackQuery, text: str, reply_markup=None, p
     try:
         await callback.message.delete()
     except Exception as e:
-        logging.warning(f"Failed to delete message: {e}")
+        logger.warning(f"Failed to delete message: {e}")
     try:
         await callback.message.edit_text(text, reply_markup=reply_markup, parse_mode=parse_mode)
     except Exception:
@@ -43,7 +43,7 @@ async def render_reviews_info(account_id: str, store: dict, store_id: str) -> tu
         cache_data = await store_cache.get_unanswered_counts(store_id)
         unanswered_count = cache_data["reviews"]
 
-        logging.info(f"📊 Using cached review count for store_id={store_id}: {unanswered_count} unanswered reviews")
+        logger.info(f"📊 Using cached review count for store_id={store_id}: {unanswered_count} unanswered reviews")
 
         message_text = await _(account_id, "reviews_info",
                                reviews_status=reviews_status,
@@ -52,7 +52,7 @@ async def render_reviews_info(account_id: str, store: dict, store_id: str) -> tu
         kb = await reviews_menu_ikb(account_id, store_id)
         return message_text, kb
     except Exception as e:
-        logging.error(f"Error in render_reviews_info for account_id={account_id}, store_id={store_id}: {str(e)}")
+        logger.error(f"Error in render_reviews_info for account_id={account_id}, store_id={store_id}: {str(e)}")
         return await _(account_id, "error_processing"), await main_menu_ikb(account_id)
 
 async def show_next_review(callback: CallbackQuery, state: FSMContext, action: str = "next"):
@@ -117,7 +117,7 @@ async def send_review_answer(store_details, review_id, answer_text) -> bool:
             platform=store_details["type"]
         )
     except Exception as e:
-        logging.error(f"Error sending review answer: {str(e)}")
+        logger.error(f"Error sending review answer: {str(e)}")
         return False
 
 async def show_review_details(callback: CallbackQuery, state: FSMContext):
@@ -196,7 +196,7 @@ async def show_review_details(callback: CallbackQuery, state: FSMContext):
                            text=template_text if template_text else "(нет текста)"
                            )
     except Exception as e:
-        logging.error(f"Translation error: {str(e)}")
+        logger.error(f"Translation error: {str(e)}")
         response = (
             f"📅 {date}\n\n"
             f"🌟 {stars}\n\n"

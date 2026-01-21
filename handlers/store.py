@@ -35,7 +35,7 @@ async def add_store_start(callback: CallbackQuery, state: FSMContext, bot: Bot):
     try:
         await callback.message.delete()
     except Exception as e:
-        logging.error(f"Error deleting message: {e}")
+        logger.error(f"Error deleting message: {e}")
 
     msg = await callback.message.answer(
         await _(account_id, "choose_store_platform"),
@@ -55,7 +55,7 @@ async def store_type_received(callback: CallbackQuery, state: FSMContext, bot: B
         await bot.delete_message(callback.message.chat.id, last_msg_id)
         await callback.message.delete()
     except Exception as e:
-        logging.error(f"Error deleting messages: {e}")
+        logger.error(f"Error deleting messages: {e}")
 
     store_type = callback.data.replace("store_", "", 1)
     if store_type not in ["Ozon", "Wildberries", "Yandex Market"]:
@@ -81,7 +81,7 @@ async def store_name_received(message: Message, state: FSMContext, bot: Bot):
         await bot.delete_message(message.chat.id, last_msg_id)
         await message.delete()
     except Exception as e:
-        logging.error(f"Error deleting messages: {e}")
+        logger.error(f"Error deleting messages: {e}")
 
     await state.update_data(store_name=message.text.strip())
     msg = await message.answer(
@@ -101,7 +101,7 @@ async def store_api_received(message: Message, state: FSMContext, bot: Bot):
         await bot.delete_message(message.chat.id, last_msg_id)
         await message.delete()
     except Exception as e:
-        logging.error(f"Error deleting messages: {e}")
+        logger.error(f"Error deleting messages: {e}")
 
     store_type = data["store_type"]
     api_key = message.text.strip()
@@ -133,7 +133,7 @@ async def store_client_id_received(message: Message, state: FSMContext, bot: Bot
         await bot.delete_message(message.chat.id, last_msg_id)
         await message.delete()
     except Exception as e:
-        logging.error(f"Error deleting messages: {e}")
+        logger.error(f"Error deleting messages: {e}")
 
     store_type = data["store_type"]
     store_name = data["store_name"]
@@ -154,7 +154,7 @@ async def store_client_id_received(message: Message, state: FSMContext, bot: Bot
             return
 
     except Exception as e:
-        logging.error(f"Error creating store: {e}")
+        logger.error(f"Error creating store: {e}")
         await message.answer(
             await _(account_id, "store_creation_error"),
             reply_markup=await main_menu_ikb(account_id)
@@ -206,7 +206,7 @@ async def show_my_stores(callback: CallbackQuery, state: FSMContext):
             cache_data = cache_results[i]
 
             if isinstance(cache_data, Exception):
-                logging.error(f"Error getting cache for store {store_id}: {cache_data}")
+                logger.error(f"Error getting cache for store {store_id}: {cache_data}")
                 unanswered_reviews = 0
                 unanswered_questions = 0
             else:
@@ -274,7 +274,7 @@ async def save_new_store_name(message: Message, state: FSMContext, bot: Bot):
     try:
         await message.delete()
     except Exception as e:
-        logging.error(f"Error deleting user message: {e}")
+        logger.error(f"Error deleting user message: {e}")
 
     if not store_id:
         await bot.send_message(
@@ -300,7 +300,7 @@ async def save_new_store_name(message: Message, state: FSMContext, bot: Bot):
             reply_markup=kb
         )
     except Exception as e:
-        logging.error(f"Error editing message: {e}")
+        logger.error(f"Error editing message: {e}")
         new_msg = await bot.send_message(
             chat_id=message.chat.id,
             text=message_text,
@@ -340,7 +340,7 @@ async def handle_back_in_edit_field(callback: CallbackQuery, state: FSMContext):
     try:
         await callback.message.delete()
     except Exception as e:
-        logging.warning(f"Failed to delete message: {e}")
+        logger.warning(f"Failed to delete message: {e}")
 
     await show_store_info(callback, state, account_id, store_id)
     await callback.answer()
@@ -449,7 +449,7 @@ async def store_edit_value(message: Message, state: FSMContext, bot: Bot):
         await message.delete()
         await bot.delete_message(chat_id=message.chat.id, message_id=message.message_id - 1)
     except Exception as e:
-        logging.error(f"Error deleting messages: {e}")
+        logger.error(f"Error deleting messages: {e}")
 
     if not store_id or not field:
         await message.answer(await _(account_id, "data_not_found"))
@@ -519,7 +519,7 @@ async def show_store_info(callback: CallbackQuery, state: FSMContext, account_id
     unanswered_reviews_count = cache_data["reviews"]
     unanswered_questions_count = cache_data["questions"]
 
-    logging.info(
+    logger.info(
         f"📊 Using cached counts for store_id={store_id}: {unanswered_reviews_count} reviews, {unanswered_questions_count} questions")
 
     current_time = time.time()
@@ -539,10 +539,10 @@ async def show_store_info(callback: CallbackQuery, state: FSMContext, account_id
             unanswered_reviews_count = cache_data["reviews"]
             unanswered_questions_count = cache_data["questions"]
 
-            logging.info(
+            logger.info(
                 f"🔄 Synchronously updated store {store_id}: {unanswered_reviews_count} reviews, {unanswered_questions_count} questions")
         except Exception as e:
-            logging.error(f"❌ Error during sync update for store {store_id}: {e}")
+            logger.error(f"❌ Error during sync update for store {store_id}: {e}")
         finally:
             await temp_message.delete()
 
@@ -615,7 +615,7 @@ async def handle_back_from_edit(callback: CallbackQuery, state: FSMContext, bot:
     try:
         await bot.delete_message(chat_id=callback.message.chat.id, message_id=callback.message.message_id)
     except Exception as e:
-        logging.warning(f"Failed to delete message: {e}")
+        logger.warning(f"Failed to delete message: {e}")
 
     if not store_id:
         await edit_or_reply(
@@ -709,7 +709,7 @@ async def handle_back_to_stores_list(callback: CallbackQuery, state: FSMContext)
             cache_data = cache_results[i]
 
             if isinstance(cache_data, Exception):
-                logging.error(f"Error getting cache for store {store_id}: {cache_data}")
+                logger.error(f"Error getting cache for store {store_id}: {cache_data}")
                 unanswered_reviews = 0
                 unanswered_questions = 0
             else:

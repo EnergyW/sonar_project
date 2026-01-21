@@ -43,9 +43,9 @@ async def render_questions_info(account_id: str, store: dict) -> tuple[str, Inli
         try:
             cache_data = await store_cache.get_unanswered_counts(store_id)
             unanswered_count = cache_data.get("questions", 0)
-            logging.info(f"Unanswered questions count from cache for store_id={store_id}: {unanswered_count}")
+            logger.info(f"Unanswered questions count from cache for store_id={store_id}: {unanswered_count}")
         except Exception as e:
-            logging.error(f"Error getting unanswered questions count from cache for store_id={store_id}: {str(e)}")
+            logger.error(f"Error getting unanswered questions count from cache for store_id={store_id}: {str(e)}")
             unanswered_count = 0
 
     message_text = await _(account_id, "questions_info",
@@ -91,10 +91,10 @@ async def toggle_questions(callback: CallbackQuery, state: FSMContext):
     account_id = str(callback.from_user.id)
     data = await state.get_data()
     store_id = data.get("selected_store_id")
-    logging.info(f"User {account_id} toggled questions auto_reply, store_id={store_id}")
+    logger.info(f"User {account_id} toggled questions auto_reply, store_id={store_id}")
 
     if not store_id:
-        logging.warning(f"No store_id found for account_id={account_id}")
+        logger.warning(f"No store_id found for account_id={account_id}")
         await callback.message.edit_text(
             await _(account_id, "store_not_selected"),
             reply_markup=await main_menu_ikb(account_id)
@@ -105,7 +105,7 @@ async def toggle_questions(callback: CallbackQuery, state: FSMContext):
     async with AsyncDatabase() as db:
         store = await db.get_store_details(store_id)
         if not store:
-            logging.warning(f"Store not found for store_id={store_id}, account_id={account_id}")
+            logger.warning(f"Store not found for store_id={store_id}, account_id={account_id}")
             await callback.message.edit_text(
                 await _(account_id, "store_not_found"),
                 reply_markup=await main_menu_ikb(account_id)
@@ -113,15 +113,15 @@ async def toggle_questions(callback: CallbackQuery, state: FSMContext):
             await state.clear()
             return
 
-        logging.info(f"Before toggle: store_id={store_id}, questions_enabled={store.get('questions_enabled', False)}")
+        logger.info(f"Before toggle: store_id={store_id}, questions_enabled={store.get('questions_enabled', False)}")
         is_enabled = not store.get("questions_enabled", False)
         try:
             await db.toggle_store_setting(store_id, "questions_enabled", is_enabled)
             store = await db.get_store_details(store_id)
-            logging.info(
+            logger.info(
                 f"After toggle: store_id={store_id}, questions_enabled={store.get('questions_enabled', False)}")
         except Exception as e:
-            logging.error(f"Error toggling store setting for store_id={store_id}: {str(e)}")
+            logger.error(f"Error toggling store setting for store_id={store_id}: {str(e)}")
             await callback.answer(await _(account_id, "error_processing"), show_alert=True)
             return
 
@@ -176,10 +176,10 @@ async def save_questions_mode(callback: CallbackQuery, state: FSMContext):
     account_id = str(callback.from_user.id)
     data = await state.get_data()
     store_id = data.get("selected_store_id")
-    logging.info(f"User {account_id} setting questions mode, store_id={store_id}")
+    logger.info(f"User {account_id} setting questions mode, store_id={store_id}")
 
     if not store_id:
-        logging.warning(f"No store_id found for account_id={account_id}")
+        logger.warning(f"No store_id found for account_id={account_id}")
         await callback.message.edit_text(
             await _(account_id, "store_not_selected"),
             reply_markup=await main_menu_ikb(account_id)
@@ -190,7 +190,7 @@ async def save_questions_mode(callback: CallbackQuery, state: FSMContext):
     async with AsyncDatabase() as db:
         store = await db.get_store_details(store_id)
         if not store:
-            logging.warning(f"Store not found for store_id={store_id}, account_id={account_id}")
+            logger.warning(f"Store not found for store_id={store_id}, account_id={account_id}")
             await callback.message.edit_text(
                 await _(account_id, "store_not_found"),
                 reply_markup=await main_menu_ikb(account_id)
@@ -204,9 +204,9 @@ async def save_questions_mode(callback: CallbackQuery, state: FSMContext):
         try:
             await db.update_questions_mode(store_id, db_mode)
             display_mode = await _(account_id, f"mode_{db_mode}")
-            logging.info(f"Questions mode set to {db_mode} for store_id={store_id}")
+            logger.info(f"Questions mode set to {db_mode} for store_id={store_id}")
         except Exception as e:
-            logging.error(f"Error setting questions mode for store_id={store_id}: {str(e)}")
+            logger.error(f"Error setting questions mode for store_id={store_id}: {str(e)}")
             await callback.answer(await _(account_id, "error_processing"), show_alert=True)
             return
 
@@ -345,7 +345,7 @@ async def send_question_answer(store_id: int, question_id: str, answer_text: str
 
             return result
     except Exception as e:
-        logging.error(f"Error sending question answer: {str(e)}")
+        logger.error(f"Error sending question answer: {str(e)}")
         return False
 
 async def show_current_question(message: Message, state: FSMContext):
@@ -382,7 +382,7 @@ async def show_current_question(message: Message, state: FSMContext):
                 dt = isoparse(created_at)
             full_text += f"📅 {dt.strftime('%d.%m.%Y %H:%M')}\n\n"
         except Exception as e:
-            logging.warning(f"Failed to parse date '{created_at}' for question {question.get('id')}: {str(e)}")
+            logger.warning(f"Failed to parse date '{created_at}' for question {question.get('id')}: {str(e)}")
             full_text += f"📅 {await _(account_id, 'date')}: {created_at}\n\n"
     else:
         full_text += f"📅 {await _(account_id, 'date')}: {await _(account_id, 'not_available')}\n\n"
@@ -474,7 +474,7 @@ async def show_current_question(message: Message, state: FSMContext):
             await state.set_state(Form.waiting_for_manual_question_reply)
 
     except Exception as e:
-        logging.error(f"Error processing question: {str(e)}")
+        logger.error(f"Error processing question: {str(e)}")
         await message.answer(await _(account_id, "error_processing_question", error=str(e)))
         await move_to_next_question(message, state)
 
@@ -744,7 +744,7 @@ async def handle_questions_pagination(callback: CallbackQuery, state: FSMContext
     else:
         direction = "previous"
 
-    logging.info(
+    logger.info(
         f"Pagination: account_id={account_id}, store_id={store_id}, callback={callback.data}, direction={direction}, question_type={question_type}")
 
     current_page = data.get("current_page", 0)
@@ -758,7 +758,7 @@ async def handle_questions_pagination(callback: CallbackQuery, state: FSMContext
     else:
         new_page = current_page - 1
 
-    logging.info(
+    logger.info(
         f"Pagination: current_page={current_page}, new_page={new_page}, total_pages={total_pages}, total_questions={len(all_questions)}")
 
     new_questions = []
@@ -780,7 +780,7 @@ async def handle_questions_pagination(callback: CallbackQuery, state: FSMContext
             try:
                 response = await get_store_questions(store_id, answered=(question_type == "answered"), **params)
                 new_questions = response.get("questions", [])
-                logging.info(
+                logger.info(
                     f"Fetched {len(new_questions)} new questions for page {new_page}, question_type={question_type}")
 
                 if new_questions:
@@ -791,7 +791,7 @@ async def handle_questions_pagination(callback: CallbackQuery, state: FSMContext
                     await callback.answer(await _(account_id, "no_more_questions"))
                     return
             except Exception as e:
-                logging.error(f"Error loading more questions: {e}")
+                logger.error(f"Error loading more questions: {e}")
                 await callback.answer(await _(account_id, "error_loading_questions"))
                 return
         else:
@@ -825,7 +825,7 @@ async def handle_questions_pagination(callback: CallbackQuery, state: FSMContext
         if "message is not modified" in str(e):
             await callback.answer()
         else:
-            logging.error(f"Error editing message: {e}")
+            logger.error(f"Error editing message: {e}")
             await callback.answer(await _(account_id, "error_processing"))
 
     await callback.answer()
@@ -835,12 +835,12 @@ async def view_single_question(callback: CallbackQuery, state: FSMContext):
     account_id = str(callback.from_user.id)
     data = await state.get_data()
     question_id = callback.data.replace("vq_", "")
-    logging.info(f"Attempting to view question: account_id={account_id}, question_id={question_id}")
+    logger.info(f"Attempting to view question: account_id={account_id}, question_id={question_id}")
 
     questions = data.get("all_questions", [])
 
-    logging.info(f"Total questions in state: {len(questions)}")
-    logging.info(f"Question IDs in state: {[q.get('id') for q in questions]}")
+    logger.info(f"Total questions in state: {len(questions)}")
+    logger.info(f"Question IDs in state: {[q.get('id') for q in questions]}")
 
     question = None
     for q in questions:
@@ -849,19 +849,19 @@ async def view_single_question(callback: CallbackQuery, state: FSMContext):
             break
 
     if not question:
-        logging.error(
+        logger.error(
             f"Question not found: question_id={question_id}, available_ids={[q.get('id') for q in questions]}")
         await callback.answer(await _(account_id, "question_not_found"), show_alert=True)
         return
 
     store_id = data.get("selected_store_id")
 
-    logging.info(f"Store ID from state: {store_id}")
+    logger.info(f"Store ID from state: {store_id}")
 
     async with AsyncDatabase() as db:
         store_details = await db.get_store_details(store_id)
         if not store_details:
-            logging.error(f"Store not found: store_id={store_id}")
+            logger.error(f"Store not found: store_id={store_id}")
             await callback.answer(await _(account_id, "store_not_found"), show_alert=True)
             return
 
@@ -872,7 +872,7 @@ async def view_single_question(callback: CallbackQuery, state: FSMContext):
     question_index = next((i for i, q in enumerate(questions) if str(q.get("id")) == str(question_id)), -1)
     total_questions = len(questions)
 
-    logging.info(f"Found question at index: {question_index}, total_questions: {total_questions}")
+    logger.info(f"Found question at index: {question_index}, total_questions: {total_questions}")
 
     created_at = question.get("created_at", "")
     if created_at:
@@ -883,7 +883,7 @@ async def view_single_question(callback: CallbackQuery, state: FSMContext):
                 dt = isoparse(created_at)
             full_text += f"📅 {dt.strftime('%d.%m.%Y %H:%M')}\n\n"
         except Exception as e:
-            logging.warning(f"Failed to parse date '{created_at}' for question {question_id}: {str(e)}")
+            logger.warning(f"Failed to parse date '{created_at}' for question {question_id}: {str(e)}")
             full_text += f"📅 {await _(account_id, 'date')}: {created_at}\n\n"
     else:
         full_text += f"📅 {await _(account_id, 'date')}: {await _(account_id, 'not_available')}\n\n"
@@ -915,7 +915,7 @@ async def view_single_question(callback: CallbackQuery, state: FSMContext):
     full_text += f"❓ {await _(account_id, 'question')}: {question.get('original_text', question.get('text', ''))}\n\n"
 
     question_type = data.get("question_type", "unanswered")
-    logging.info(f"Question type: {question_type}")
+    logger.info(f"Question type: {question_type}")
 
     if question_type == "answered":
         if platform == "Ozon" and sku and sku != "N/A":
@@ -932,7 +932,7 @@ async def view_single_question(callback: CallbackQuery, state: FSMContext):
                 else:
                     full_text += f"📫 {await _(account_id, 'answer')}: {await _(account_id, 'not_available')}\n\n"
             except Exception as e:
-                logging.error(f"Error getting answers for question {question_id}: {str(e)}")
+                logger.error(f"Error getting answers for question {question_id}: {str(e)}")
                 full_text += f"📫 {await _(account_id, 'answer')}: {await _(account_id, 'error_loading')}\n\n"
 
         elif platform == "Wildberries":
@@ -970,7 +970,7 @@ async def view_single_question(callback: CallbackQuery, state: FSMContext):
                 full_text += f"{await _(account_id, 'proposed_answer', proposed_reply=proposed_reply)}\n\n"
 
             except Exception as e:
-                logging.error(f"Error generating AI reply for question {question_id}: {str(e)}")
+                logger.error(f"Error generating AI reply for question {question_id}: {str(e)}")
                 full_text += f"Warning: {await _(account_id, 'error_generating_ai_reply')}\n\n"
 
     kb = await single_question_ikb(
@@ -980,9 +980,9 @@ async def view_single_question(callback: CallbackQuery, state: FSMContext):
 
     try:
         await callback.message.edit_text(full_text, reply_markup=kb, parse_mode="HTML")
-        logging.info(f"Successfully displayed question {question_id}")
+        logger.info(f"Successfully displayed question {question_id}")
     except Exception as e:
-        logging.error(f"Error displaying question {question_id}: {str(e)}")
+        logger.error(f"Error displaying question {question_id}: {str(e)}")
         await callback.message.answer(full_text, reply_markup=kb, parse_mode="HTML")
     await callback.answer()
 
@@ -1038,7 +1038,7 @@ async def handle_send_ai_reply(callback: CallbackQuery, state: FSMContext):
         else:
             await callback.message.answer(await _(account_id, "error_sending_answer"))
     except Exception as e:
-        logging.error(f"Error generating or sending AI reply: {str(e)}")
+        logger.error(f"Error generating or sending AI reply: {str(e)}")
         await callback.message.answer(await _(account_id, "error_processing"))
 
     await back_to_questions_list(callback, state)
