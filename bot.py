@@ -3,23 +3,6 @@ import logging
 import os
 from logging.handlers import RotatingFileHandler
 
-from aiogram import Bot, Dispatcher, Router
-from aiogram.client.default import DefaultBotProperties
-from aiogram.enums import ParseMode
-from aiogram.fsm.storage.memory import MemoryStorage
-from dotenv import load_dotenv
-
-from handlers.start import router as start_router
-from handlers.employee import router as employee_router
-from handlers.store import router as store_router
-from handlers.review import router as review_router
-from handlers.question import router as question_router
-from handlers.profile import router as profile_router
-from handlers.store_settings import router as store_settings_router
-from db.database import init_db, close_db
-from utils.cache import start_background_updater
-
-
 LOG_DIR = "logs"
 os.makedirs(LOG_DIR, exist_ok=True)
 
@@ -41,6 +24,23 @@ logging.basicConfig(
 )
 
 logger = logging.getLogger(__name__)
+
+from aiogram import Bot, Dispatcher, Router
+from aiogram.client.default import DefaultBotProperties
+from aiogram.enums import ParseMode
+from aiogram.fsm.storage.memory import MemoryStorage
+from dotenv import load_dotenv
+from handlers.start import router as start_router
+from handlers.employee import router as employee_router
+from handlers.store import router as store_router
+from handlers.review import router as review_router
+from handlers.question import router as question_router
+from handlers.profile import router as profile_router
+from handlers.store_settings import router as store_settings_router
+from db.database import init_db, close_db
+from utils.cache import start_background_updater
+
+
 
 load_dotenv()
 

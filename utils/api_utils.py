@@ -6,7 +6,6 @@ from typing import List, Dict, Any, Optional
 import aiohttp
 from db.database import AsyncDatabase
 
-logger.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
 PLATFORM_CONFIG = {
