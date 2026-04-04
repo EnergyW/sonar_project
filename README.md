@@ -7,7 +7,7 @@
 ![OpenAI](https://img.shields.io/badge/OpenAI-GPT--4-412991?style=for-the-badge&logo=openai&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-asyncpg-336791?style=for-the-badge&logo=postgresql&logoColor=white)
 
-**Telegram-бот для автоматической обработки отзывов и вопросов на Ozon и Wildberries с помощью ИИ**
+**Telegram-бот для автоматической обработки отзывов и вопросов на Ozon и Wildberries с помощью ИИ. Обратите внимание!!! Для работы с Ozon у продовца должна быть подписка Premium Plus.**
 
 [Возможности](#-возможности) · [Быстрый старт](#-быстрый-старт) · [Конфигурация](#-конфигурация) · [Архитектура](#-архитектура) · [Языки](#-поддерживаемые-языки)
 
