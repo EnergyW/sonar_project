@@ -1,7 +1,3 @@
-"""
-ReviewBot Web API — FastAPI backend
-Переиспользует db/database.py и utils/ из существующего бота
-"""
 import os
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
@@ -10,15 +6,14 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# Импорт роутеров
+
 from backend.routers import auth, stores, questions, settings, employees, analytics
 from backend.routers import reviews
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    """Инициализация БД при старте, закрытие при остановке."""
-    # Импортируем из существующего бота
+
     import sys, pathlib
     sys.path.insert(0, str(pathlib.Path(__file__).parent.parent))
     from db.database import init_db, close_db
@@ -35,11 +30,10 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
-# CORS — разрешаем запросы от React-приложения
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "http://localhost:5173",   # Vite dev server
+        "http://localhost:5173",
         "http://localhost:3000",
         os.getenv("FRONTEND_URL", ""),
     ],
@@ -48,7 +42,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Подключение роутеров
 app.include_router(auth.router,       prefix="/api/auth",       tags=["Auth"])
 app.include_router(stores.router,     prefix="/api/stores",     tags=["Stores"])
 app.include_router(reviews.router, prefix="/api/stores", tags=["Reviews"])
